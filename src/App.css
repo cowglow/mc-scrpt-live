@@ -6,6 +6,8 @@
 .App-Logo {
     top: 35px;
     position: fixed;
+    padding:15px;
+    background-color: #000000;
 }
 
 header {
@@ -22,4 +24,5 @@ header {
 footer {
     color:white;
     background-color: #000000;
+    padding: 181px;
 }
