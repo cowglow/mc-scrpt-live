@@ -78,6 +78,7 @@ class App extends Component {
                         </Col>
                     </Row>
                 </Grid>
+                <br/>
                 <footer className="text-center">
                     <Row>
                         <Col xs={12} sm={8} md={8} smOffset={2} mdOffset={2}>
