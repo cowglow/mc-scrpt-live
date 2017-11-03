@@ -39,7 +39,7 @@ footer {
 
 @media screen and (max-width: 480px) {
     .icon {
-        font-size: 3em;
+        font-size: 2.8em;
     }
     footer h3{
         font-size: 0.8em;
