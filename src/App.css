@@ -6,13 +6,13 @@
 .App-Logo {
     top: 35px;
     position: fixed;
-    padding:15px;
+    left:15%;
     background-color: #000000;
 }
 
 header {
-    color: white;
-    height: 1028px;
+    color: #ffffff;
+    height: 800px;
     background-color: #222;
     background-image: url(assets/header.jpg);
     background-attachment: fixed;
@@ -22,7 +22,25 @@ header {
 }
 
 footer {
-    color:white;
+    color: #ffffff;
     background-color: #000000;
-    padding: 181px;
+    padding-top: 52px;
+    padding-bottom: 25px;
+}
+
+footer ul li a:link, a:visited {
+    color: #ff0000;
+}
+
+footer ul li a:hover, a:active {
+    color: #960000;
+}
+
+.footer {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.icon {
+    font-size: 4em;
+    padding:15px;
 }
