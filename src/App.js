@@ -57,7 +57,7 @@ class App extends Component {
                 <header>
                     <div className="container">
                         {/*{LogoImage}*/}
-                        <img src={require('./assets/logo.gif')} className="App-Logo" alt="" />
+                        <img src={require('./assets/logo.gif')} className="App-Logo img-responsive" alt="" />
                     </div>
                 </header>
                 <Grid>
