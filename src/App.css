@@ -6,7 +6,7 @@
 .App-Logo {
     top: 35px;
     position: fixed;
-    left:15%;
+    padding:15px;
     background-color: #000000;
 }
 
@@ -26,14 +26,6 @@ footer {
     background-color: #000000;
     padding-top: 52px;
     padding-bottom: 25px;
-}
-
-footer ul li a:link, a:visited {
-    color: #ff0000;
-}
-
-footer ul li a:hover, a:active {
-    color: #960000;
 }
 
 .footer {

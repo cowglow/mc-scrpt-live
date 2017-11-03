@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
-import SocialMedia from './components/SocialMedia'
+import EventList from './components/EventList';
+import SocialMedia from './components/SocialMedia';
 
 import './App.css';
 
-const API_URI = "http://mc-scrpt-live/api/";
+const API_URI = (document.domain === "localhost") ? "http://mc-scrpt-live/api" : "http://mc.scrpt.live/api";
 
 
 class App extends Component {
@@ -16,6 +17,10 @@ class App extends Component {
         this.state = {
             requestFail: false,
             MediaAssets: {},
+            BioText: "",
+            Events: {
+                Event:[]
+            },
             SocialMedias: {
                 SocialMedia: []
             }
@@ -43,8 +48,9 @@ class App extends Component {
     }
 
     render() {
-        const LogoImage = this.state.MediaAssets.LogoImage;
+        // const LogoImage = this.state.MediaAssets.LogoImage;
         const SocialMedias = this.state.SocialMedias.SocialMedia;
+        const Events = this.state.Events.Event;
 
         return (
             <div className="App">
@@ -62,7 +68,8 @@ class App extends Component {
                         </Col>
                         <Col md={4}>
                             <h1>{this.state.ScheduleTag}</h1>
-                            <p>{this.state.ScheduleText}</p>
+                            <EventList bind={Events} />
+                            <br/>
                         </Col>
                         <Col md={4}>
                             <h1><br/>{this.state.ContactTag}</h1>
@@ -74,7 +81,7 @@ class App extends Component {
                 <footer className="text-center">
                     <Row>
                         <Col xs={12} sm={8} md={8} smOffset={2} mdOffset={2}>
-                            <SocialMedia classes="list-inline" listItems={SocialMedias} />
+                            <SocialMedia classes="list-inline" bind={SocialMedias} />
                             <h3>{this.state.FooterTag}</h3>
                             <small className="footer">{this.state.FooterText} &copy; {new Date().getFullYear()}</small>
                         </Col>

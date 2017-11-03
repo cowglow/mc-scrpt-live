@@ -5,9 +5,8 @@
         <HeaderImage>./assets/header.jpg</HeaderImage>
     </MediaAssets>
     <BioTag>Hello Junglists!</BioTag>
-    <BioText>I'm an American filmmaker living and working in Germany. \n My interests range from filmmaking to music theory. I am experienced in variety of disciplines, including MCing. \n You can catch me grooving along some of the coolest DJs in and around 'Mittelfranken' region.</BioText>
+    <BioText>I'm an American filmmaker living and working in Germany.<br/> My interests range from filmmaking to music theory. I am experienced in variety of disciplines, including MCing.<br/> You can catch me grooving along some of the coolest DJs in and around 'Mittelfranken' region.</BioText>
     <ScheduleTag>Recent Performances</ScheduleTag>
-    <ScheduleText>Working on it!</ScheduleText>
     <Events>
         <Event>
             <name>LightUp! DnB-Café #36</name>
@@ -24,9 +23,14 @@
             <date>6 October 2017</date>
             <link>https://www.facebook.com/events/488675294818109/</link>
         </Event>
+        <Event>
+            <name>Monsters of Jungle</name>
+            <date>21 October 2017</date>
+            <link>https://www.facebook.com/events/117522575628642</link>
+        </Event>
     </Events>
     <ContactTag>Hit me up!</ContactTag>
-    <ContactText>Feel free to contact me. \n I like to talk about music.</ContactText>
+    <ContactText>Feel free to contact me.<br/> I like to talk about music.</ContactText>
     <ContactEmail>cowglow@gmail.com</ContactEmail>
     <SocialMedias>
         <SocialMedia>

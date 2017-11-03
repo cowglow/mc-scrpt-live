@@ -8,14 +8,25 @@ html, body {
     background-color: #090909;
 }
 
+a:link, a:visited {
+    color: #ff0000;
+}
+
+a:hover, a:active {
+    color: #960000;
+}
+
 h1, h2, h3 {
     font-family: 'Press Start 2P', cursive;
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 1.2em;
+    background-color: #000000;
+    color: #FFFFFF;
+    padding:15px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 1200px) {
     h1, h2, h3 {
-        font-size: 1.3em;
+        font-size: 1.6em;
     }
 }
