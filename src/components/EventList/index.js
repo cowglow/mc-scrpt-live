@@ -5,18 +5,25 @@ import {Media} from 'react-bootstrap';
 
 export default class extends Component {
 
+    getDate(now) {
+        let date = new Date(now * 1000);
+        let months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+
+        return date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
+    }
+
     render() {
-        const listItems = this.props.bind.reverse().map((item) =>
+        const listItems = this.props.bind.map((item) =>
             <Media>
                 <Media.Body>
                     <a href={item.link} target="_blank">{item.name}</a>
-                    <Media.Heading><small>{item.date}</small></Media.Heading>
+                    <Media.Heading>
+                        <small>{this.getDate(item.date.toString())}</small>
+                    </Media.Heading>
                 </Media.Body>
             </Media>
         );
 
-        return (
-            <div className={this.props.classes}>{listItems}</div>
-        );
+        return (<div className={this.props.classes}>{listItems}</div>);
     }
 }

@@ -7,7 +7,8 @@ import SocialMedia from './components/SocialMedia';
 
 import './App.css';
 
-const API_URI = (document.domain === "localhost") ? "http://mc-scrpt-live/api" : "http://mc.scrpt.live/api";
+// const API_URI = (document.domain === "localhost") ? "http://mc-scrpt-live/api" : "http://mc.scrpt.live/api";
+const API_URI = (document.domain === "localhost") ? "http://localhost/~philipsaa/GitHub/mc-scrpt-live/api/" : "http://mc.scrpt.live/api";
 
 
 class App extends Component {
