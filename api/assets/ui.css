@@ -1,0 +1,26 @@
+div {
+    /*border:thin solid white;*/
+    padding: 0.75em;
+}
+h3, .btn {
+    font-family: 'Press Start 2P', cursive;
+}
+.page-header {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.2em;
+    background-color:#2A9FD6;
+    border: thin solid white;
+}
+.nav-tabs li{
+    padding: 5px;
+    margin-right: 2px;
+    border: thin solid #2A9FD6;
+}
+.nav-tabs li:hover {
+    border: thin solid #FFFFFF;
+    background-color: #2A9FD6;
+}
+.nav-tabs li a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}

@@ -7,7 +7,7 @@ export default class extends Component {
 
     getDate(now) {
         let date = new Date(now * 1000);
-        let months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+        let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
         return date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
     }
