@@ -13,6 +13,16 @@
     </BioText>
   <ScheduleTag>Recent Performances</ScheduleTag>
   <Events>
+  	<Event>
+  		<name>Booyaka</name>
+  		<date>1524923737</date>
+  		<link>https://www.facebook.com/events/333055023859038/</link>
+  	</Event>
+  	<Event>
+  		<name>Ostermarsch</name>
+  		<date>1522590937</date>
+  		<link>https://www.facebook.com/events/153356118817668/</link>
+  	</Event>
     <Event>
       <name>Monsters of Jungle</name>
       <date>1519426800</date>
