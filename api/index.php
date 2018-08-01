@@ -6,29 +6,29 @@
  * Time: 21:04
  */
 
-header("Access-Control-Allow-Origin: *");
-
-$xml = simplexml_load_file('./data.xml');
-$output = new SimpleXMLElement($xml->asXML());
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//    $resource = $_POST["xml"];
+    $resource = "site";
+    $filename = './data/' . $resource . '-data.xml';
 
-    $output->addChild("requestFail", false);
-    header("Content-Type:text/json");
-    echo json_encode($output);
+    if (file_exists($filename)) {
+        $xml = simplexml_load_file($filename);
+        $output = new SimpleXMLElement($xml->asXML());
+
+        include_once('partials/http-headers.php');
+
+        if ($output) {
+            echo json_encode($output);
+        } else {
+            echo json_encode(array('requestFail' => true));
+        }
+    } else {
+        echo json_encode(array('requestFail' => true));
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-
-    global $view, $header;
-    $view = (isset($_GET['tab'])) ? $_GET['tab'] : "default";
-    $headers = array(
-        "default" => "CONTENT EDITOR",
-        "events" => "RECENT EVENTS",
-        "visual" => "IMAGES"
-    );
-
-    include "partials/header.php"; // uses: $view, $header
-    include "partials/navigation.php";
+    include "partials/header.php";
+    include "partials/main.php";
     include "partials/footer.php";
 }

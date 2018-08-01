@@ -8,7 +8,7 @@
 
 header("Access-Control-Allow-Origin: *");
 
-$xml = simplexml_load_file('./data.xml');
+$xml = simplexml_load_file('./data/data.xml');
 $output = new SimpleXMLElement($xml->asXML());
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>UPDATE Recent Performances</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P|Share+Tech+Mono"/>
-        <link rel="stylesheet" href="assets/cyborg.min.css"/>
-        <link rel="stylesheet" href="assets/ui.css">
+        <link rel="stylesheet" href="../assets/cyborg.min.css"/>
+        <link rel="stylesheet" href="../assets/ui.css">
         <style>
             div {
                 /*border:thin solid red;*/
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         </div>
 
     </div>
-    <script src="assets/jquery.min.js"></script>
+    <script src="../assets/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script>

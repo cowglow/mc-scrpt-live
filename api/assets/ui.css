@@ -1,13 +1,20 @@
 div {
     /*border:thin solid white;*/
     padding: 0.75em;
+    width:100%;
 }
-h3, h5, .btn {
+p, input, textarea {
+    font-size: 1.2em;
+    font-family: 'Press Start 2P', cursive;
+}
+textarea {
+    size: 500px;
+}
+h1, h2, h3, h4, h5, .btn {
     font-family: 'Press Start 2P', cursive;
 }
 .page-header {
     font-family: 'Press Start 2P', cursive;
-    font-size: 0.2em;
     background-color:#2A9FD6;
     border: thin solid white;
 }
@@ -24,7 +31,13 @@ h3, h5, .btn {
     color: #FFFFFF;
     text-decoration: none;
 }
-
+.btn {
+    background-color:#2A9FD6;
+    color: #FFFFFF;
+}
+.btn:hover {
+    background-color: #26779f;
+}
 ul {
     list-style-type: none;
     margin: 0;

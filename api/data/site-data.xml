@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SiteData>
+  <BioTag>Hello Junglists!</BioTag>
+  <BioText>I'm an American filmmaker living and working in Germany.<br/> My interests range from filmmaking to music theory. I am experienced in variety of disciplines, including MCing.<br/> You can catch me grooving along some of the coolest DJs in and around 'Mittelfranken' region.</BioText>
+  <ContactTag>Hit me up!</ContactTag>
+  <ContactText>Feel free to contact me.<br/> I like to talk about music.</ContactText>
+  <ContactEmail>cowglow@gmail.com</ContactEmail>
+  <SocialMedias>
+      <twitter>https://www.twitter.com/cowglow</twitter>
+      <soundcloud>https://www.soundcloud.com/cowglow</soundcloud>
+      <mixcloud>https://www.mixcloud.com/dachboden</mixcloud>
+      <instagram>https://www.instagram.com/cowglow</instagram>
+  </SocialMedias>
+  <FooterTag>Philip Saa aka MC SCRPT</FooterTag>
+  <FooterText>All Rights Reserved. | No </FooterText>
+</SiteData>

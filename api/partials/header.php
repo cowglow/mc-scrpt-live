@@ -5,20 +5,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P|Share+Tech+Mono"/>
     <link rel="stylesheet" href="assets/cyborg.min.css"/>
     <link rel="stylesheet" href="assets/ui.css">
-    <style>
-        div {
-            /*border:thin solid red;*/
-        }
-    </style>
+    <script src="assets/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<!-- Page Header -->
-<div class="container-fluid">
+<div class="container">
+    <!-- Page Header -->
     <div class="row page-header">
         <div class="col-xs-12">
-            <h1><?php if ($view != 'default') {
-                    echo "<small>UPDATE</small><br>";
-                };
-                echo $headers[$view]; ?></h1>
+            <h1>MC SCRPT API</h1>
         </div>
     </div>
