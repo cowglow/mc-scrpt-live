@@ -1,23 +1,62 @@
 <?php
 
 //if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-$resource = (isset($_GET['xml'])) ? $_GET['xml'] : 'events';
-$filename = './data/'.$resource.'-data.xml';
+$xmlData = ['events', 'media', 'site'];
+$xmlOutput = new SimpleXMLElement('<SiteData />');
 
-if (file_exists($filename)) {
-    $xmlString = file_get_contents($filename);
-    $xml       = new SimpleXMLElement($xmlString);
-    $output    = new SimpleXMLElement($xml->asXML());
-    include_once('partials/http-headers.php');
+/**
+ * TODO: Loop through the array to load the xml files
+ * TODO: Create new Parent XML Object
+ * TODO: Append loaded XML files to Parent XML Object
+ * TODO: Convert Concatinated XML tree to JSON
+ * TODO: OUTPUT;
+ */
+foreach ($xmlData as $xml) {
+    $resource = './data/'.$xml.'-data.xml';
+    if (file_exists($resource)) {
+        $xmlNode = simplexml_load_file($resource);
+//        $xmlNode = new DOMDocument($xml);
+//        $xmlNode->load($resource);
+//        $node = $xmlNode->getElementsByTagName('SiteData')->item(0);
 
-    if ($output) {
-        echo json_encode($output);
-    } else {
-        echo json_encode(array('requestFail' => true));
+//        $xmlOutput->addChild($node, true);
+
+//        $xmlOutput->appendChild();
     }
-} else {
-    echo json_encode(array('requestFail' => true));
+    print_r($xmlNode);
+    echo '<br>-------<br>';
+
 }
+//    // iterate over 'item' elements of document 2
+//    $items2 = $doc2->getElementsByTagName('item');
+//    for ($i = 0; $i < $items2->length; $i ++) {
+//        $item2 = $items2->item($i);
+//
+//        // import/copy item from document 2 to document 1
+//        $item1 = $doc1->importNode($item2, true);
+//
+//        // append imported item to document 1 'res' element
+//        $res1->appendChild($item1);
+//
+//    }
+
+//        $xml       = new SimpleXMLElement($xmlString);
+//        $output    = new SimpleXMLElement($xml->asXML());
+//        include_once('partials/http-headers.php');
+
+//        if ($output) {
+//            echo json_encode($output);
+//        } else {
+//            echo json_encode(array('requestFail' => true));
+//        }
+//    } else {
+//        echo json_encode(array('requestFail' => true));
+//    }
+//}
+
+echo '<pre>';
+print_r($xmlOutput);
+echo '</pre>';
 //}
 
 //if ($_SERVER['REQUEST_METHOD'] == 'GET') {

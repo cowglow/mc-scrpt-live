@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiteData>
-    <Title>Recent Performances</Title>
+    <ScheduleTag>Recent Performances</ScheduleTag>
     <Events>
         <Event>
             <name>DubWorXx - meets - Monsters of Jungle</name>

@@ -27,7 +27,7 @@ class App extends Component {
         let resource = 'events';
         fetch(API_URI + '?xml=' + resource)
             .then(function(response){
-                console.log(response.body);
+                console.log(response);
             })
             .catch(error => console.error(`Fetch Error =\n`, error));
         //

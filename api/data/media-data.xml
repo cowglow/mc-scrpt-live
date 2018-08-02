@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MediaData>
-    <LogoImage>./assets/logo.gif</LogoImage>
-    <HeaderImage>./assets/header.jpg</HeaderImage>
-</MediaData>
+<SiteData>
+    <MediaAssets>
+        <LogoImage>./assets/logo.gif</LogoImage>
+        <HeaderImage>./assets/header.jpg</HeaderImage>
+    </MediaAssets>
+</SiteData>
