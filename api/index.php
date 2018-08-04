@@ -1,8 +1,18 @@
 <?php
 
 //if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-$xmlData = ['events', 'media', 'site'];
-$xmlOutput = new SimpleXMLElement('<SiteData />');
+$rootPath = './data';
+$resources = scandir($rootPath,SCANDIR_SORT_DESCENDING);
+
+foreach ($resources as $resource){
+//    $xmlData = get($resource);
+//    if (file_exists($resource)){
+        var_dump($xmlData);
+//    }
+}
+
+die();
+//$xmlOutput = new SimpleXMLElement('<SiteData />');
 
 /**
  * TODO: Loop through the array to load the xml files
@@ -11,22 +21,22 @@ $xmlOutput = new SimpleXMLElement('<SiteData />');
  * TODO: Convert Concatinated XML tree to JSON
  * TODO: OUTPUT;
  */
-foreach ($xmlData as $xml) {
-    $resource = './data/'.$xml.'-data.xml';
-    if (file_exists($resource)) {
-        $xmlNode = simplexml_load_file($resource);
-//        $xmlNode = new DOMDocument($xml);
-//        $xmlNode->load($resource);
-//        $node = $xmlNode->getElementsByTagName('SiteData')->item(0);
-
-//        $xmlOutput->addChild($node, true);
-
-//        $xmlOutput->appendChild();
-    }
-    print_r($xmlNode);
-    echo '<br>-------<br>';
-
-}
+//foreach ($xmlData as $xml) {
+//    $resource = './data/'.$xml.'-data.xml';
+//    if (file_exists($resource)) {
+//        $xmlContent = file_get_contents($resource);
+//        $xmlNode = new SimpleXMLElement($xmlContent);
+//
+//        $xmlOutput->addChild($xmlNode->saveXML());
+////        $node = $xmlNode->getElementsByTagName('SiteData')->item(0);
+//
+////        $xmlOutput->addChild($node, true);
+//
+////        $xmlOutput->appendChild();
+//    }
+//    echo '<br>-------<br>'.PHP_EOL;
+//
+//}
 //    // iterate over 'item' elements of document 2
 //    $items2 = $doc2->getElementsByTagName('item');
 //    for ($i = 0; $i < $items2->length; $i ++) {
