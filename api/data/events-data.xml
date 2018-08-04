@@ -1,66 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EventData>
-    <ScheduleTag>Recent Performances</ScheduleTag>
-    <Events>
-        <Event>
-            <name>DubWorXx - meets - Monsters of Jungle</name>
-            <date>1532822400</date>
-            <link>https://www.facebook.com/events/664192033933132/</link>
-        </Event>
-        <Event>
-            <name>Booyaka - Summertime</name>
-            <date>1530316800</date>
-            <link>https://www.facebook.com/events/205513646740077/</link>
-        </Event>
-        <Event>
-            <name>Booyaka</name>
-            <date>1524923737</date>
-            <link>https://www.facebook.com/events/333055023859038/</link>
-        </Event>
-        <Event>
-            <name>Ostermarsch</name>
-            <date>1522590937</date>
-            <link>https://www.facebook.com/events/153356118817668/</link>
-        </Event>
-        <Event>
-            <name>Monsters of Jungle</name>
-            <date>1519426800</date>
-            <link>https://www.facebook.com/events/139705336837323/</link>
-        </Event>
-        <Event>
-            <name>LightUp! DnB-Café #44</name>
-            <date>1519426800</date>
-            <link>https://www.facebook.com/events/185803172012397/</link>
-        </Event>
-        <Event>
-            <name>Analogue Birds + DJ ecliptix</name>
-            <date>1519340400</date>
-            <link>https://www.facebook.com/events/146433399392915/</link>
-        </Event>
-        <Event>
-            <name>Booyaka</name>
-            <date>1518822000</date>
-            <link>https://www.facebook.com/events/315008168998198/</link>
-        </Event>
-        <Event>
-            <name>LightUp! #40 OpenAir 2017</name>
-            <date>1497045600</date>
-            <link>https://www.facebook.com/events/738020589656317/</link>
-        </Event>
-        <Event>
-            <name>XYLOTRIP x DUBWORXX SUPERFETE @ ZBAU</name>
-            <date>1507240800</date>
-            <link>https://www.facebook.com/events/488675294818109/</link>
-        </Event>
-        <Event>
-            <name>Monsters of Jungle</name>
-            <date>1508536800</date>
-            <link>https://www.facebook.com/events/117522575628642/</link>
-        </Event>
-        <Event>
-            <name>LightUp! DnB-Café #36</name>
-            <date>1480114800</date>
-            <link>https://www.facebook.com/events/165397407258255/</link>
-        </Event>
-    </Events>
+    <Event>
+        <name>DubWorXx - meets - Monsters of Jungle</name>
+        <date>1532822400</date>
+        <link>https://www.facebook.com/events/664192033933132/</link>
+    </Event>
+    <Event>
+        <name>Booyaka - Summertime</name>
+        <date>1530316800</date>
+        <link>https://www.facebook.com/events/205513646740077/</link>
+    </Event>
+    <Event>
+        <name>Booyaka</name>
+        <date>1524923737</date>
+        <link>https://www.facebook.com/events/333055023859038/</link>
+    </Event>
+    <Event>
+        <name>Ostermarsch</name>
+        <date>1522590937</date>
+        <link>https://www.facebook.com/events/153356118817668/</link>
+    </Event>
+    <Event>
+        <name>Monsters of Jungle</name>
+        <date>1519426800</date>
+        <link>https://www.facebook.com/events/139705336837323/</link>
+    </Event>
+    <Event>
+        <name>LightUp! DnB-Café #44</name>
+        <date>1519426800</date>
+        <link>https://www.facebook.com/events/185803172012397/</link>
+    </Event>
+    <Event>
+        <name>Analogue Birds + DJ ecliptix</name>
+        <date>1519340400</date>
+        <link>https://www.facebook.com/events/146433399392915/</link>
+    </Event>
+    <Event>
+        <name>Booyaka</name>
+        <date>1518822000</date>
+        <link>https://www.facebook.com/events/315008168998198/</link>
+    </Event>
+    <Event>
+        <name>LightUp! #40 OpenAir 2017</name>
+        <date>1497045600</date>
+        <link>https://www.facebook.com/events/738020589656317/</link>
+    </Event>
+    <Event>
+        <name>XYLOTRIP x DUBWORXX SUPERFETE @ ZBAU</name>
+        <date>1507240800</date>
+        <link>https://www.facebook.com/events/488675294818109/</link>
+    </Event>
+    <Event>
+        <name>Monsters of Jungle</name>
+        <date>1508536800</date>
+        <link>https://www.facebook.com/events/117522575628642/</link>
+    </Event>
+    <Event>
+        <name>LightUp! DnB-Café #36</name>
+        <date>1480114800</date>
+        <link>https://www.facebook.com/events/165397407258255/</link>
+    </Event>
 </EventData>
