@@ -1,7 +1,5 @@
 <div class="row">
     <div class="col-xs-12">
-<!--        <h5>Instructions</h5>-->
-<!--        <p>This is a restricted area</p>-->
         <div style="border:thin solid white">
             <a name="event" />
             <h3>EVENT SNIPPET</h3>
