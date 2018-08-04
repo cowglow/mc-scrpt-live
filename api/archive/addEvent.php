@@ -1,4 +1,4 @@
-<?php
+¡<?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type:text/json");
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Original XML
     $xml = simplexml_load_file($file);
     $dom = new DomDocument;
-    $events_node = $dom ->createElement('Events');
+    $events_node = $dom->createElement('Events');
 
     // Add New Event
     $event_node = $dom->createElement("Event");
