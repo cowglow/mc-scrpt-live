@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-const API_URI = (!document.domain === "localhost") ? "http://localhost:80/~philipsaa/GitHub/mc-scrpt-live/api/" : "http://mc.scrpt.live/api/";
+const API_URI = (document.domain === "localhost") ? "http://localhost:3000/fixtures/data.xml" : "http://mc.scrpt.live/api/";
+
+function xml2json(node) {
+    let $xparse = function (n) {
+        console.log(n);
+    };
+
+    return $xparse(node);
+}
 
 class App extends Component {
 
@@ -22,15 +30,14 @@ class App extends Component {
     }
 
     componentDidMount() {
-        console.log(API_URI);
-        // let resource = 'events';
         return fetch(API_URI, {
-            method: 'post'
-        }).then(function (response){
-            console.log(response.text());
-        });
-            // .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
-            // .then(data => console.log(data));
+            method: 'GET'
+            // method: 'POST'
+        }).then(response => response.text())
+            .then(data => {
+                let objXML = xml2json(data);
+                console.log(objXML);
+            });
 
 
         //     .catch(error => console.error(`Fetch Error =\n`, error));
@@ -67,13 +74,12 @@ class App extends Component {
     }
 
     render() {
-        console.log('unit test bro!');
         console.log(this.state);
         // const LogoImage = this.state.MediaAssets.LogoImage;
         // const SocialMedias = this.state.SocialMedias.SocialMedia;
         // const Events = this.state.Events.Event;
 
-        return (<blockquote>WOkring ON it</blockquote>);
+        return (<blockquote>DEBUG</blockquote>);
         // return (
         //     <div className="App">
         //         <pre>
