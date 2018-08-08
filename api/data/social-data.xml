@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SocialMedia>
-    <Platform>
-        <twitter>https://www.twitter.com/cowglow</twitter>
-    </Platform>
-    <Platform>
-        <soundcloud>https://www.soundcloud.com/cowglow</soundcloud>
-    </Platform>
-    <Platform>
-        <mixcloud>https://www.mixcloud.com/dachboden</mixcloud>
-    </Platform>
-    <Platform>
-        <instagram>https://www.instagram.com/cowglow</instagram>
-    </Platform>
+    <twitter>https://www.twitter.com/cowglow</twitter>
+    <soundcloud>https://www.soundcloud.com/cowglow</soundcloud>
+    <mixcloud>https://www.mixcloud.com/dachboden</mixcloud>
+    <instagram>https://www.instagram.com/cowglow</instagram>
 </SocialMedia>
 

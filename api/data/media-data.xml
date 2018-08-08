@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MediaAssets>
-    <MediaAssert>
-        <LogoImage>./assets/logo.gif</LogoImage>
-    </MediaAssert>
-    <MediaAssert>
-        <HeaderImage>./assets/header.jpg</HeaderImage>
-    </MediaAssert>
+    <LogoImage>./assets/logo.gif</LogoImage>
+    <HeaderImage>./assets/header.jpg</HeaderImage>
 </MediaAssets>
