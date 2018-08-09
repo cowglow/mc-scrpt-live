@@ -1,6 +1,6 @@
 <?php
 
-//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $rootPath  = './data';
 $resources = scandir($rootPath, SCANDIR_SORT_DESCENDING);
 
@@ -37,15 +37,15 @@ foreach ($resources as $resource) {
 header('Content-Type: application/json');
 $xml = simplexml_load_string($xmlDom->asXML());
 echo json_encode($xml);
-//}
+}
 
-//if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-//    include 'partials/header.php';
-//
-//    if (!$_SERVER['HTTP_HOST'] == 'localhost') {
-//        include 'partials/editor.php';
-//    } else {
-//        include 'partials/error.php';
-//    }
-//    include 'partials/footer.php';
-//}
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    include 'partials/header.php';
+
+    if (!$_SERVER['HTTP_HOST'] == 'localhost') {
+        include 'partials/editor.php';
+    } else {
+        include 'partials/error.php';
+    }
+    include 'partials/footer.php';
+}

@@ -1,9 +1,23 @@
 {
   "SocialMedia": {
-    "twitter": "https:\/\/www.twitter.com\/cowglow",
-    "soundcloud": "https:\/\/www.soundcloud.com\/cowglow",
-    "mixcloud": "https:\/\/www.mixcloud.com\/dachboden",
-    "instagram": "https:\/\/www.instagram.com\/cowglow"
+    "Platform": [
+      {
+        "name": "Twitter",
+        "url": "https:\/\/www.twitter.com\/cowglow"
+      },
+      {
+        "name": "SoundCloud",
+        "url": "https:\/\/www.soundcloud.com\/cowglow"
+      },
+      {
+        "name": "MixCloud",
+        "url": "https:\/\/www.mixcloud.com\/dachboden"
+      },
+      {
+        "name": "Instagram",
+        "url": "https:\/\/www.instagram.com\/cowglow"
+      }
+    ]
   },
   "MediaAssets": {
     "LogoImage": ".\/assets\/logo.gif",
@@ -80,7 +94,7 @@
     "ContactTag": "Hit me up!",
     "ContactText": "Feel free to contact me. I like to talk about music.",
     "FooterTag": "Philip Saa aka MC SCRPT",
-    "FooterText": "All Rights Reserved. | No",
+    "FooterText": "All Rights Reserved.",
     "ContactEmail": "cowglow@gmail.com"
   }
 }

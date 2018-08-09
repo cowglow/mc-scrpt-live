@@ -13,7 +13,9 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            SocialMedia: [],
+            SocialMedia: {
+                Platform: []
+            },
             MediaAssets: {},
             EventData: {
                 Event: []
@@ -24,8 +26,8 @@ class App extends Component {
 
     componentDidMount() {
         fetch(API_URI, {
-            method: 'GET'
-            // method: 'POST'
+            // method: 'GET'
+            method: 'POST'
         })
             .then(response => response.json())
             .then(data => this.setState({ ...data }));
@@ -33,8 +35,8 @@ class App extends Component {
 
     render() {
         // TODO: Work on Social Media Component
-        const SocialMedias = this.state.SocialMedia;
-        const LogoImage = this.state.MediaAssets.LogoImage;
+        const SocialMedias = this.state.SocialMedia.Platform;
+        const MediaAsset = this.state.MediaAssets;
         const Events = this.state.EventData.Event;
         const Content = this.state.Content;
 
@@ -42,25 +44,25 @@ class App extends Component {
             <div className="App">
                 <header>
                     <div className="container">
-                        {LogoImage}
+                        {MediaAsset.LogoImage}
                         <img src={require('./assets/logo.gif')} className="App-Logo img-responsive" alt=""/>
                     </div>
                 </header>
                 <Grid>
                     <Row className="text-justify">
                         <Col md={4}>
-                            <h1>{this.state.Content.BioTag}</h1>
-                            <p>{this.state.Content.BioText}</p>
+                            <h1>{Content.BioTag}</h1>
+                            <p>{Content.BioText}</p>
                         </Col>
                         <Col md={4}>
-                            <h1>{this.state.Content.ScheduleTag}</h1>
+                            <h1>{Content.ScheduleTag}</h1>
                             <EventList bind={Events}/>
                             <br/>
                         </Col>
                         <Col md={4}>
-                            <h1><br/>{this.state.Content.ContactTag}</h1>
-                            <p>{this.state.Content.ContactText}</p>
-                            <a href={"mailto:" + this.state.Content.ContactEmail}>{this.state.Content.ContactEmail}</a>
+                            <h1>{Content.ContactTag}</h1>
+                            <p>{Content.ContactText}</p>
+                            <a href={"mailto:" + Content.ContactEmail}>{Content.ContactEmail}</a>
                         </Col>
                     </Row>
                 </Grid>
@@ -69,8 +71,8 @@ class App extends Component {
                     <Row>
                         <Col xs={12} sm={8} md={8} smOffset={2} mdOffset={2}>
                             <SocialMedia classes="list-inline" bind={SocialMedias}/>
-                            {/*<h3>{this.state.Content.FooterTag}</h3>*/}
-                            <small className="footer">{this.state.Content.FooterText} &copy; {new Date().getFullYear()}</small>
+                            <h3>{Content.FooterTag}</h3>
+                            <small className="footer">{Content.FooterText} &copy; {new Date().getFullYear()}</small>
                         </Col>
                     </Row>
                 </footer>
