@@ -49,9 +49,19 @@ h1, h2, h3 {
         font-size: 0.3em;
     }
 }
-@media (min-width: 480px) and (max-width: 992px){
+@media (max-width: 480px){
     header {
-        height: 420px;
+        height: 540px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 480px) and (max-width : 1224px) {
+    header {
+        height: 680px;
     }
 }
 

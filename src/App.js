@@ -16,7 +16,9 @@ class App extends Component {
             SocialMedia: {
                 Platform: []
             },
-            MediaAssets: {},
+            MediaAssets: {
+                LogoImage: {}
+            },
             EventData: {
                 Event: []
             },
@@ -34,9 +36,8 @@ class App extends Component {
     }
 
     render() {
-        // TODO: Work on Social Media Component
         const SocialMedias = this.state.SocialMedia.Platform;
-        const MediaAsset = this.state.MediaAssets;
+        const MediaAssets = this.state.MediaAssets;
         const Events = this.state.EventData.Event;
         const Content = this.state.Content;
 
@@ -44,7 +45,6 @@ class App extends Component {
             <div className="App">
                 <header>
                     <div className="container">
-                        {MediaAsset.LogoImage}
                         <img src={require('./assets/logo.gif')} className="App-Logo img-responsive" alt=""/>
                     </div>
                 </header>
