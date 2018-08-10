@@ -42,10 +42,11 @@ echo json_encode($xml);
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     include 'partials/header.php';
 
-    if (!$_SERVER['HTTP_HOST'] == 'localhost') {
+    if ($_SERVER['HTTP_HOST'] == 'localhost') {
         include 'partials/editor.php';
     } else {
         include 'partials/error.php';
     }
+
     include 'partials/footer.php';
 }
