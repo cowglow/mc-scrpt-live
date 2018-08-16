@@ -1,6 +1,6 @@
 {
-  "SocialMedia": {
-    "Platform": [
+  "SocialMediaData": {
+    "SocialMedia": [
       {
         "name": "Twitter",
         "url": "https:\/\/www.twitter.com\/cowglow"
@@ -18,10 +18,6 @@
         "url": "https:\/\/www.instagram.com\/cowglow"
       }
     ]
-  },
-  "MediaAssets": {
-    "LogoImage": ".\/assets\/logo.gif",
-    "HeaderImage": ".\/assets\/header.jpg"
   },
   "EventData": {
     "Event": [

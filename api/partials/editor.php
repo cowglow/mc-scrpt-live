@@ -35,7 +35,7 @@
                       isset($_GET['date-year']) && $_GET['date-year'] !== '' &&
                       isset($_GET['link']) && $_GET['link'] !== ''
             ) {
-                $months   = [
+                $months    = [
                     1  => 'January',
                     2  => 'February',
                     3  => 'March',
@@ -49,31 +49,53 @@
                     11 => 'November',
                     12 => 'Decemeber'
                 ];
-                $xml      = new SimpleXMLElement('<Event />');
-                $datestamp = new DateTimeImmutable($months[floor($_GET['date-month'])].' '.$_GET['date-day'].' 20'.$_GET['date-year']);
-//                TODO: UNIX TIME STAMP CONVERSTION
-                $unixDate = $datestamp;
+                $xml       = new SimpleXMLElement('<Event />');
+                $dateStamp = new DateTimeImmutable($months[floor($_GET['date-month'])].' '.$_GET['date-day'].' 20'.$_GET['date-year']);
+                $unixDate  = strtotime($dateStamp->getTimestamp());
 
-                var_dump($unixDate);
-                $snippet  = array(
+                $snippet = array(
                     $_GET['name'] => "name",
-                    $unixDate->date     => "date",
+                    $unixDate     => "date",
                     $_GET['link'] => "link",
                 );
                 array_walk_recursive($snippet, array($xml, 'addChild'));
 
-                $dom               = dom_import_simplexml($xml)->ownerDocument;
-                $dom->formatOutput = true;
+//                $dom               = dom_import_simplexml($xml)->ownerDocument;
+//                $dom->formatOutput = true;
+
+                $xmlEvent = new DOMDocument();
+                $xmlEvent->loadXML($xml->asXML());
+//
+                $fileName = '.'.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'events-data.xml';
+//
+//                $xmlDoc = new DOMDocument();
+//                $xmlDoc->load($fileName);
+//
+//                $node = $xmlDoc->appendChild($xmlEvent);
+//
+//                $xmlDoc->save($fileName);
+//                print_r($xmlDoc);
+
+
+
+                $xml = new DOMDocument("1.0", "UTF-8");
+                $xml->preserveWhiteSpace = true;
+                $xml->formatOutput = true;
+                $xml->load($fileName);
+                $xml->appendChild($xmlEvent);
+                $xml->save($fileName);
+//                $xmlEvent->save($fileName);
                 ?>
                 <div style="border:thin solid white">
                     <script>
-                        function Copy() {
-                            $("#snippet").select();
-                            document.execCommand('copy');
-                        }
+                        // function Copy() {
+                        //     $("#snippet").select();
+                        //     document.execCommand('copy');
+                        // }
                     </script>
                     <textarea id="snippet" class="form-control-lg btn-block text-left"
-                              rows="10"><?php echo $dom->saveXML($dom->documentElement); ?></textarea>
+                    <!--                              rows="10">-->
+                    <?php //echo $dom->saveXML($dom->documentElement); ?><!--</textarea>-->
                     <button class="form-control-lg btn btn-block" onclick="Copy()">Copy to Clipboard</button>
                 </div>
             <?php } ?>

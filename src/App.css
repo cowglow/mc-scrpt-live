@@ -4,28 +4,24 @@
 }
 
 .App-Logo {
-    top: 35px;
+    top: 3rem;
     position: relative;
-    padding:15px;
+    padding: 1rem;
     background-color: #000000;
 }
 
 header {
     color: #ffffff;
     height: 800px;
-    background-color: #222;
-    background-image: url(assets/header.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: #222 url(assets/header.jpg) no-repeat fixed center;
     background-size: cover;
 }
 
 footer {
     color: #ffffff;
     background-color: #000000;
-    padding-top: 52px;
-    padding-bottom: 25px;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
 }
 
 .footer {

@@ -4,9 +4,12 @@ import { Col, Grid, Row } from 'react-bootstrap';
 import EventList from './components/EventList';
 import SocialMedia from './components/SocialMedia';
 
+import ImageLogo from './assets/logo.gif';
 import './App.css';
 
-const API_URI = (document.domain === "localhost") ? "http://localhost:3000/fixtures/data.json" : "http://mc.scrpt.live/api/";
+const DEV_ENV = (document.domain === 'localhost');
+const API_URI = (DEV_ENV) ? "http://localhost:3000/fixtures/data.json" : "http://mc.scrpt.live/api/";
+const FETCH = (DEV_ENV) ? "GET":"POST";
 
 class App extends Component {
 
@@ -15,9 +18,6 @@ class App extends Component {
         this.state = {
             SocialMedia: {
                 Platform: []
-            },
-            MediaAssets: {
-                LogoImage: {}
             },
             EventData: {
                 Event: []
@@ -28,8 +28,7 @@ class App extends Component {
 
     componentDidMount() {
         fetch(API_URI, {
-            // method: 'GET'
-            method: 'POST'
+            method: FETCH
         })
             .then(response => response.json())
             .then(data => this.setState({ ...data }));
@@ -37,7 +36,6 @@ class App extends Component {
 
     render() {
         const SocialMedias = this.state.SocialMedia.Platform;
-        const MediaAssets = this.state.MediaAssets;
         const Events = this.state.EventData.Event;
         const Content = this.state.Content;
 
@@ -45,7 +43,7 @@ class App extends Component {
             <div className="App">
                 <header>
                     <div className="container">
-                        <img src={require('./assets/logo.gif')} className="App-Logo img-responsive" alt=""/>
+                        <img src={ImageLogo} className="App-Logo img-responsive" alt={ImageLogo}/>
                     </div>
                 </header>
                 <Grid>

@@ -22,12 +22,12 @@ h1, h2, h3 {
     font-size: 1.2em;
     background-color: #000000;
     color: #FFFFFF;
-    padding:15px;
+    padding:1rem;
 }
 
 @media screen and (min-width: 1200px) {
     h1, h2, h3 {
-        font-size: 1.6em;
+        font-size: 1.6rem;
     }
 }
 
@@ -52,9 +52,7 @@ h1, h2, h3 {
 @media (max-width: 480px){
     header {
         height: 540px;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
+        background: no-repeat fixed center;
         background-size: cover;
     }
 }
