@@ -1,6 +1,5 @@
 <?php
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rootPath  = './data';
     $resources = scandir($rootPath, SCANDIR_SORT_DESCENDING);
 
@@ -34,14 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    header('Content-Type: application/json');
+    require 'inc/http-headers.php';
     $xml = simplexml_load_string($xmlDom->asXML());
     echo json_encode($xml);
 }
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     include 'partials/header.php';
 
-    if ($_SERVER['HTTP_HOST'] == 'localhost') {
+    if ($_SERVER['HTTP_HOST'] === 'localhost') {
         include 'partials/editor.php';
     } else {
         include 'partials/error.php';
