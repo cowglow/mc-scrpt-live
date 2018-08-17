@@ -52,12 +52,12 @@ h1, h2, h3 {
 @media (max-width: 480px){
     header {
         height: 540px;
-        background: no-repeat fixed center;
+        /*background: no-repeat fixed center;*/
         background-size: cover;
     }
 }
 
-@media (min-width: 480px) and (max-width : 1224px) {
+@media only screen and (max-width : 1224px) {
     header {
         height: 680px;
     }
