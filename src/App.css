@@ -32,3 +32,8 @@ footer {
     font-size: 4em;
     padding:15px;
 }
+
+.Schedule {
+    height: 200px;
+    overflow: scroll;
+}

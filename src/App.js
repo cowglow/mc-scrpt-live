@@ -9,15 +9,15 @@ import './App.css';
 
 const DEV_ENV = (document.domain === 'localhost');
 const API_URI = (DEV_ENV) ? "http://localhost:3000/fixtures/data.json" : "http://mc.scrpt.live/api/";
-const FETCH = (DEV_ENV) ? "GET":"POST";
+const FETCH = (DEV_ENV) ? "GET" : "POST";
 
 class App extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            SocialMedia: {
-                Platform: []
+            SocialMediaData: {
+                SocialMedia: []
             },
             EventData: {
                 Event: []
@@ -35,7 +35,7 @@ class App extends Component {
     }
 
     render() {
-        const SocialMedias = this.state.SocialMedia.Platform;
+        const SocialMedias = this.state.SocialMediaData.SocialMedia;
         const Events = this.state.EventData.Event;
         const Content = this.state.Content;
 
@@ -54,7 +54,9 @@ class App extends Component {
                         </Col>
                         <Col md={4}>
                             <h1>{Content.ScheduleTag}</h1>
-                            <EventList bind={Events}/>
+                            <div className="Schedule">
+                                <EventList bind={Events}/>
+                            </div>
                             <br/>
                         </Col>
                         <Col md={4}>

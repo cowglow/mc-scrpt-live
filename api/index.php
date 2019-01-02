@@ -41,7 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     include 'partials/header.php';
 
-    if ($_SERVER['HTTP_HOST'] === 'localhost') {
+    if (in_array($_SERVER['HTTP_HOST'], [
+        'localhost',
+        'localhost:8888'
+    ])) {
         include 'partials/editor.php';
     } else {
         include 'partials/error.php';

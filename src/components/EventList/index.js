@@ -23,6 +23,6 @@ export default class extends Component {
             </Media>
         );
 
-        return (<div className={this.props.classes}>{listItems}</div>);
+        return (<div className={this.props.classes} Schedule>{listItems}</div>);
     }
 }

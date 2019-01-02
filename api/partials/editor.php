@@ -2,7 +2,7 @@
 require 'inc/helper.php';
 
 $eventName  = $_GET['name'] ?? '';
-$eventMonth = floor($_GET['date-month']) ?? '';
+$eventMonth = isset($_GET['date-month']) ? floor($_GET['date-month']) : '';
 $eventDay   = $_GET['date-day'] ?? '';
 $eventYear  = $_GET['date-year'] ?? '';
 $eventLink  = $_GET['link'] ?? '';
