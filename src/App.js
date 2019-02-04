@@ -42,26 +42,26 @@ class App extends Component {
         return (
             <div className="App">
                 <header>
-                    <div className="container">
+                    <div className="container-fluid">
                         <img src={ImageLogo} className="App-Logo img-responsive" alt={ImageLogo}/>
                     </div>
                 </header>
-                <Grid>
-                    <Row className="text-justify">
-                        <Col md={4}>
+                <Grid fluid="true">
+                    <Row>
+                        <Col lg={4}>
                             <h1>{Content.BioTag}</h1>
-                            <p>{Content.BioText}</p>
+                            <p className="text-justify">{Content.BioText}</p>
                         </Col>
-                        <Col md={4}>
+                        <Col lg={4}>
                             <h1>{Content.ScheduleTag}</h1>
                             <div className="Schedule">
                                 <EventList bind={Events}/>
                             </div>
                             <br/>
                         </Col>
-                        <Col md={4}>
+                        <Col lg={4}>
                             <h1>{Content.ContactTag}</h1>
-                            <p>{Content.ContactText}</p>
+                            <p className="text-justify">{Content.ContactText}</p>
                             <a href={"mailto:" + Content.ContactEmail}>{Content.ContactEmail}</a>
                         </Col>
                     </Row>
