@@ -13,6 +13,10 @@ footer {
     padding-bottom: 2rem;
 }
 
+small {
+    font-size: 65%;
+}
+
 /* Custom Classes */
 .App {
     position: relative;
@@ -32,9 +36,8 @@ footer {
 
 .icon {
     font-size: 3em;
-    padding: 15px;
+    padding: 5px;
 }
-
 
 @media only screen and (min-width: 1200px) {
     .Schedule {
@@ -54,6 +57,10 @@ footer {
     .Schedule::-webkit-scrollbar-thumb {
         background-color: darkgrey;
         outline: 1px solid slategrey;
+    }
+
+    .icon {
+        padding: 15px;
     }
 }
 
