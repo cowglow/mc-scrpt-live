@@ -1,0 +1,98 @@
+/** Elements **/
+header {
+    color: #ffffff;
+    height: 800px;
+    background-color: #222;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+footer {
+    color: #ffffff;
+    background-color: #000000;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+small {
+    font-size: 65%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+/* Custom Classes */
+.App {
+    position: relative;
+    background-color: #FFFFFF;
+}
+
+.text-justify {
+    text-align: justify !important;
+    margin: auto 1em;
+    color: red;
+}
+
+.footer {
+    font-family: 'Press Start 2P';
+}
+
+.icon {
+    font-size: 5em;
+    padding: 5px 15px;
+}
+
+
+/*@media only screen and (max-width: 1200px) and (min-width: 1000px) {*/
+/*.icon {*/
+/*padding: 5px 10px*/
+/*}*/
+/*}*/
+
+/*@media only screen and (min-width: 1200px) {*/
+/*.Schedule {*/
+/*height: 300px;*/
+/*overflow-y: scroll;*/
+/*overflow-x: hidden;*/
+/*}*/
+
+/*.Schedule::-webkit-scrollbar {*/
+/*width: 1em;*/
+/*}*/
+
+/*.Schedule::-webkit-scrollbar-track {*/
+/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+/*}*/
+
+/*.Schedule::-webkit-scrollbar-thumb {*/
+/*background-color: darkgrey;*/
+/*outline: 1px solid slategrey;*/
+/*}*/
+
+/*.icon {*/
+/*font-size: 6em;*/
+/*padding: 15px;*/
+/*}*/
+/*}*/
+
+
+/* Smartphones (landscape) ----------- */
+/*@media only screen and (min-width : 321px) {*/
+/*}*/
+
+/* Smartphones (portrait) ----------- */
+/*@media only screen and (max-width : 320px) {*/
+/*}*/
+
+/* Desktops and laptops ----------- */
+/*@media only screen and (min-width : 1224px) {*/
+/*}*/

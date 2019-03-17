@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P|Share+Tech+Mono"/>
     <link rel="stylesheet" href="assets/cyborg.min.css"/>
     <link rel="stylesheet" href="assets/ui.css">
-<!--    TODO: Detirming if these are required -->
+    <!-- TODO: Detirming if these are required -->
     <script src="assets/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>

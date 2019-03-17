@@ -1,11 +1,22 @@
+/**
+ * Mc Scrpt Live
+ *
+ * @package cowglow/mc-scrpt-live
+ * @licence http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+/** Imports */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+// import 'bootstrap/dist/css/bootstrap.css';
 
-import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
+/** Components */
+import { default as RootComponent} from './components/app/app';
 
-import registerServiceWorker from './registerServiceWorker';
+/** Styles */
+import './styles.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+// import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(<RootComponent />, document.getElementById('root'));
+// registerServiceWorker();

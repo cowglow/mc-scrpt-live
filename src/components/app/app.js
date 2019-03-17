@@ -1,17 +1,31 @@
-import React, { Component } from 'react';
-import { Col, Grid, Row } from 'react-bootstrap';
+/**
+ * Mc Scrpt Live
+ *
+ * @package cowglow/mc-scrpt-live
+ * @licence http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
 
-import EventList from './components/EventList';
-import SocialMedia from './components/SocialMedia';
+import React from 'react';
+import { Grid, Row, Col } from 'react-bootstrap';
 
-import ImageLogo from './assets/logo.gif';
-import './App.css';
+// Components
+import HeaderContent from '../header-content/header-content'
+import EventList from '../event-list/event-list';
+import SocialMedia from '../social-media/social-media';
 
+// Services
+import { backgroundImage } from "../../services/background-image";
+
+// Resources
+import './app.styles.css';
+
+
+// TODO: move to a dotEnv file
 const DEV_ENV = (document.domain === 'localhost');
 const API_URI = (DEV_ENV) ? "http://localhost:3000/fixtures/data.json" : "http://mc.scrpt.live/api/";
 const FETCH = (DEV_ENV) ? "GET" : "POST";
 
-class App extends Component {
+export default class extends React.Component {
 
     constructor(props) {
         super(props);
@@ -31,7 +45,9 @@ class App extends Component {
             method: FETCH
         })
             .then(response => response.json())
-            .then(data => this.setState({ ...data }));
+            .then(data => this.setState({
+                ...data
+            }));
     }
 
     render() {
@@ -41,23 +57,17 @@ class App extends Component {
 
         return (
             <div className="App">
-                <header>
-                    <div className="container-fluid">
-                        <img src={ImageLogo} className="App-Logo img-responsive" alt={ImageLogo}/>
-                    </div>
+                <header style={backgroundImage(2)}>
+                    <HeaderContent />
                 </header>
-                <Grid fluid="true">
+                <Grid>
                     <Row>
                         <Col lg={4}>
                             <h1>{Content.BioTag}</h1>
                             <p className="text-justify">{Content.BioText}</p>
                         </Col>
                         <Col lg={4}>
-                            <h1>{Content.ScheduleTag}</h1>
-                            <div className="Schedule">
-                                <EventList bind={Events}/>
-                            </div>
-                            <br/>
+                            <EventList bind={Events} label={Content.ScheduleTag} class="Schedule"/>
                         </Col>
                         <Col lg={4}>
                             <h1>{Content.ContactTag}</h1>
@@ -69,7 +79,7 @@ class App extends Component {
                 <br/>
                 <footer className="text-center">
                     <Row>
-                        <Col xs={12} sm={8} md={8} smOffset={2} mdOffset={2}>
+                        <Col xs={12} sm={8} md={4} smOffset={2} mdOffset={2}>
                             <SocialMedia classes="list-inline" bind={SocialMedias}/>
                             <h3>{Content.FooterTag}</h3>
                             <small className="footer">{Content.FooterText} &copy; {new Date().getFullYear()}</small>
@@ -80,5 +90,3 @@ class App extends Component {
         );
     }
 }
-
-export default App;
