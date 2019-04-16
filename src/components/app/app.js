@@ -6,11 +6,13 @@
  */
 
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 
 // Components
-import HeaderContent from '../header-content/header-content'
+import Bio from '../bio/bio';
+import Contact from '../contact/contact';
 import EventList from '../event-list/event-list';
+import HeaderComponent from '../header-component/header-component'
 import SocialMedia from '../social-media/social-media';
 
 // Services
@@ -18,6 +20,7 @@ import { backgroundImage } from "../../services/background-image";
 
 // Resources
 import './app.styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // TODO: move to a dotEnv file
@@ -30,59 +33,81 @@ export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            SocialMediaData: {
-                SocialMedia: []
+            Content: {
+                BioTag: '',
+                BioText: '',
+                ContactEmail: '',
+                ContactTag: '',
+                ContactText: '',
+                FooterTag: '',
+                FooterText: '',
+                ScheduleTag: ''
             },
             EventData: {
                 Event: []
             },
-            Content: {}
+            SocialMediaData: {
+                SocialMedia: []
+            },
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
+        let that = this;
         fetch(API_URI, {
             method: FETCH
         })
-            .then(response => response.json())
-            .then(data => this.setState({
-                ...data
-            }));
+            .then((response) => response.json())
+            .then((data) => {
+                that.setState({
+                    Content: {
+                        BioTag: data.Content.BioTag,
+                        BioText: data.Content.BioText,
+                        ContactEmail: data.Content.ContactEmail,
+                        ContactTag: data.Content.ContactTag,
+                        ContactText: data.Content.ContactText,
+                        FooterTag: data.Content.FooterTag,
+                        FooterText: data.Content.FooterText,
+                        ScheduleTag: data.Content.ScheduleTag,
+                    },
+                    EventData: data.EventData,
+                    SocialMediaData: {
+                        SocialMedia: data.SocialMediaData.SocialMedia
+                    }
+                });
+            });
     }
 
     render() {
-        const SocialMedias = this.state.SocialMediaData.SocialMedia;
-        const Events = this.state.EventData.Event;
-        const Content = this.state.Content;
-
         return (
             <div className="App">
                 <header style={backgroundImage(2)}>
-                    <HeaderContent />
+                    <HeaderComponent/>
                 </header>
-                <Grid>
+                <Container fluid="true">
                     <Row>
-                        <Col lg={4}>
-                            <h1>{Content.BioTag}</h1>
-                            <p className="text-justify">{Content.BioText}</p>
+                        <Col xl={4}>
+                            <h1 class="content-tag">{this.state.Content.BioTag}</h1>
+                            <Bio className="text-justify" bind={this.state.Content.BioText} />
                         </Col>
-                        <Col lg={4}>
-                            <EventList bind={Events} label={Content.ScheduleTag} class="Schedule"/>
+                        <Col xl={4}>
+                            <h1 class="content-tag">{this.state.Content.ScheduleTag}</h1>
+                            <EventList bind={this.state.EventData}/>
                         </Col>
-                        <Col lg={4}>
-                            <h1>{Content.ContactTag}</h1>
-                            <p className="text-justify">{Content.ContactText}</p>
-                            <a href={"mailto:" + Content.ContactEmail}>{Content.ContactEmail}</a>
+                        <Col xl={4}>
+                            <h1 class="content-tag">{this.state.Content.ContactTag}</h1>
+                            <Contact bind={[this.state.Content.ContactText, this.state.Content.ContactEmail]}/>
                         </Col>
                     </Row>
-                </Grid>
+                </Container>
+
                 <br/>
                 <footer className="text-center">
                     <Row>
                         <Col xs={12} sm={8} md={4} smOffset={2} mdOffset={2}>
-                            <SocialMedia classes="list-inline" bind={SocialMedias}/>
-                            <h3>{Content.FooterTag}</h3>
-                            <small className="footer">{Content.FooterText} &copy; {new Date().getFullYear()}</small>
+                            <SocialMedia classes="list-inline" bind={this.state.SocialMediaData}/>
+                            <h3>{this.state.Content.FooterTag}</h3>
+                            <small className="footer">{this.state.Content.FooterText} &copy; {new Date().getFullYear()}</small>
                         </Col>
                     </Row>
                 </footer>

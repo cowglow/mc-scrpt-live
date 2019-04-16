@@ -9,7 +9,7 @@ import React from 'react';
 
 // Resources
 import logo from "../../assets/logo-animation.gif";
-import './header-content.styles.css';
+import './header-component.styles.css';
 
 /**
  * Header Content

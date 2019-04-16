@@ -7,20 +7,22 @@
 
 import React from 'react';
 
-
 export default class extends React.Component {
 
     render() {
+
+        console.log(this.props.bind);
+
         return (
             <ul className={this.props.classes}>
                 {
-                    this.props.bind.map((item, index) => (
-                        <li key={index}>
-                            <a href={item.url} target="_blank">
-                                <span className={"icon fa fa-" + item.name.toLowerCase()} />
-                            </a>
-                        </li>
-                    ))
+                    // this.props.bind.map((item, index) => (
+                    //     <li key={index}>
+                    //         <a href={item.url} target="_blank">
+                    //             <span className={"icon fa fa-" + item.name.toLowerCase()} />
+                    //         </a>
+                    //     </li>
+                    // ))
                 }
             </ul>
         );

@@ -26,20 +26,27 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
 }
 
-h1 {
-    font-size: 2.5rem;
-}
-
 /* Custom Classes */
 .App {
     position: relative;
     background-color: #FFFFFF;
 }
 
+.content-tag {
+    margin-top: 0.4em;
+    font-size: 1.5em;
+}
+
+@media only screen and (max-width: 990px) {
+    .content-tag {
+        /*background: red;*/
+        /*margin-top: 0.4em;*/
+    }
+}
+
 .text-justify {
     text-align: justify !important;
-    margin: auto 1em;
-    color: red;
+    margin: auto 0.5em;
 }
 
 .footer {
@@ -51,6 +58,10 @@ h1 {
     padding: 5px 15px;
 }
 
+.border {
+    display: inline-flex;
+    border: thin solid red;
+}
 
 /*@media only screen and (max-width: 1200px) and (min-width: 1000px) {*/
 /*.icon {*/
@@ -65,18 +76,6 @@ h1 {
 /*overflow-x: hidden;*/
 /*}*/
 
-/*.Schedule::-webkit-scrollbar {*/
-/*width: 1em;*/
-/*}*/
-
-/*.Schedule::-webkit-scrollbar-track {*/
-/*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
-/*}*/
-
-/*.Schedule::-webkit-scrollbar-thumb {*/
-/*background-color: darkgrey;*/
-/*outline: 1px solid slategrey;*/
-/*}*/
 
 /*.icon {*/
 /*font-size: 6em;*/

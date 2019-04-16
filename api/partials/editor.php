@@ -11,7 +11,7 @@ $fileName = '.'.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'events-data.xml'
 ?>
 <div class="row">
     <div class="col-xs-12">
-        <div style="border:thin solid white">
+        <div style="border:thin solid white;">
             <a name="event"/>
             <h3>EVENT SNIPPET</h3>
             <form action="#event" method="get">
