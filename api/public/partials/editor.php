@@ -20,6 +20,19 @@ $fileName = '.'.DIRECTORY_SEPARATOR.'data'.DIRECTORY_SEPARATOR.'events-data.xml'
                            placeholder="Event Title"/>
                 </p>
                 <p>
+                    <select name="event-date-month">
+                        <?php foreach ($months as $index => $month): ?>
+                            <option value="<?= $index ?>"><?= $month ?></option>
+                        <?php endforeach; ?>
+                    </select>
+
+                    <select name="event-data-day">
+                        <?php for ($dayIndex = 1; $dayIndex <= $days[$index]; ++$dayIndex): ?>
+                            <option value="<?= $dayIndex ?>"><?= $dayIndex ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </p>
+                <p>
                     <input class="form-control-lg" type="text" name="date-month" value="<?php echo $eventMonth; ?>"
                            placeholder="MM"/>
                     <input class="form-control-lg" type="text" name="date-day" value="<?php echo $eventDay; ?>"
