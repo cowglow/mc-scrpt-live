@@ -10,21 +10,22 @@ import React from 'react';
 export default class extends React.Component {
 
     formattedBio(text) {
-        let message = [];
+        let copy = [];
 
         text.split('.').forEach(function (sentence) {
             // TODO: sanitize string of an empty first character
-            message.push(sentence);
+            copy.push(sentence.trim());
         });
 
-        // TODO: rejoin the string after they've been sanitized
-        console.log('sentences', message);
-
-        return '~working on it';
+        // TODO: encode/decode html elements from string
+        return copy.join('');
     }
 
     render() {
-
-        return <span>{this.formattedBio(this.props.bind)}</span>;
+        const {bind} = this.props;
+        const text = this.formattedBio(bind);
+        if (text) {
+            return (<div>{text}</div>);
+        }
     }
 }

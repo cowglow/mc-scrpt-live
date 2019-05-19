@@ -8,7 +8,6 @@
 /** Imports */
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import 'bootstrap/dist/css/bootstrap.css';
 
 /** Components */
 import { default as RootComponent} from './components/app/app';

@@ -6,21 +6,19 @@
  */
 
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
 
 // Components
 import Bio from '../bio/bio';
 import Contact from '../contact/contact';
 import EventList from '../event-list/event-list';
-import HeaderComponent from '../header-component/header-component'
-import SocialMedia from '../social-media/social-media';
+// import HeaderComponent from '../header-component/header-component'
+// import SocialMedia from '../social-media/social-media';
 
 // Services
-import { backgroundImage } from "../../services/background-image";
+// import {backgroundImage} from "../../services/background-image";
 
 // Resources
 import './app.styles.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // TODO: move to a dotEnv file
@@ -33,6 +31,7 @@ export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            Loading: true,
             Content: {
                 BioTag: '',
                 BioText: '',
@@ -53,13 +52,13 @@ export default class extends React.Component {
     }
 
     componentWillMount() {
-        let that = this;
         fetch(API_URI, {
             method: FETCH
         })
             .then((response) => response.json())
             .then((data) => {
-                that.setState({
+                this.setState({
+                    Loading: false,
                     Content: {
                         BioTag: data.Content.BioTag,
                         BioText: data.Content.BioText,
@@ -79,39 +78,48 @@ export default class extends React.Component {
     }
 
     render() {
-        return (
-            <div className="App">
-                <header style={backgroundImage(2)}>
-                    <HeaderComponent/>
-                </header>
-                <Container fluid="true">
-                    <Row>
-                        <Col xl={4}>
-                            <h1 class="content-tag">{this.state.Content.BioTag}</h1>
-                            <Bio className="text-justify" bind={this.state.Content.BioText} />
-                        </Col>
-                        <Col xl={4}>
-                            <h1 class="content-tag">{this.state.Content.ScheduleTag}</h1>
-                            <EventList bind={this.state.EventData}/>
-                        </Col>
-                        <Col xl={4}>
-                            <h1 class="content-tag">{this.state.Content.ContactTag}</h1>
-                            <Contact bind={[this.state.Content.ContactText, this.state.Content.ContactEmail]}/>
-                        </Col>
-                    </Row>
-                </Container>
+        const {Loading, EventData} = this.state;
+        const {BioTag, BioText, ContactTag, ContactEmail, ContactText, ScheduleTag} = this.state.Content;
+        // const {SocialMedia} = this.state.SocialMediaData;
 
-                <br/>
-                <footer className="text-center">
-                    <Row>
-                        <Col xs={12} sm={8} md={4} smOffset={2} mdOffset={2}>
-                            <SocialMedia classes="list-inline" bind={this.state.SocialMediaData}/>
-                            <h3>{this.state.Content.FooterTag}</h3>
-                            <small className="footer">{this.state.Content.FooterText} &copy; {new Date().getFullYear()}</small>
-                        </Col>
-                    </Row>
-                </footer>
-            </div>
-        );
+        // console.log(SocialMedia);
+        // console.log(EventData);
+
+        if (Loading) {
+            return (<div className="Loader">Loading....</div>)
+        } else {
+            return (
+                <div className="App">
+                    {/*<header style={backgroundImage(2)}>*/}
+                    {/*<HeaderComponent/>*/}
+                    {/*</header>*/}
+
+                    <section>
+                        <h1 className="SectionHeader">{BioTag}</h1>
+                        <Bio className="SectionBody" bind={BioText}/>
+                    </section>
+
+                    <section>
+                        <h1 className="SectionHeader">{ScheduleTag}</h1>
+                        <EventList classname="SectionBody" bind={EventData}/>
+                    </section>
+
+                    <section>
+                        <h1 className="SectionHeader">{ContactTag}</h1>
+                        <Contact classname="SectionBody" bind={[ContactText, ContactEmail]}/>
+                    </section>
+
+                    <br/>
+                    {/*<footer className="text-center">*/}
+                    {/*    <div xs={12} sm={8} md={4} smOffset={2} mdOffset={2}>*/}
+                    {/*        <SocialMedia classes="list-inline" bind={this.state.SocialMediaData}/>*/}
+                    {/*        <h3>{this.state.Content.FooterTag}</h3>*/}
+                    {/*        <small*/}
+                    {/*            className="footer">{this.state.Content.FooterText} &copy; {new Date().getFullYear()}</small>*/}
+                    {/*    </div>*/}
+                    {/*</footer>*/}
+                </div>
+            );
+        }
     }
 }
