@@ -1,9 +1,29 @@
+<?php
+// Require once the Composer Autoload
+if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
+    require_once dirname(__FILE__) . '/vendor/autoload.php';
+}
+
+$GLOBALS['isDev'] = ($_SERVER['SERVER_NAME'] === 'localhost');
+
+
+function ActiveTitle()
+{
+    $title = '<title>';
+    $title .= ($GLOBALS['isDev']) ? 'DEV | ' : '';
+    $title .= 'MC SCRPT - API';
+    $title .= '</title>';
+    return $title;
+}
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
 
 <head>
     <meta charset="utf-8">
-    <title>MC SCRPT - API</title>
+    <?= ActiveTitle(); ?>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,9 +39,34 @@
 <body>
 <pre>
 <?php
-print_r($HTTP_GET_VARS)
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    echo "<pre>";
+
+    $input = array_filter(explode('/', $_SERVER['PATH_INFO']));
+
+    echo '<br>-----<br>';
+    echo json_encode($_SERVER, JSON_PRETTY_PRINT);
+
+    echo "</pre>";
+
+    if (count($input) > 2) {
+        echo 'INVALID PATH: Check query';
+    }
+
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//$Events = new Cowglow\Events();
+}
+
 ?>
 </pre>
-</body>
 
+<script>
+    setInterval(function () {
+        location.reload();
+    }, 3000);
+</script>
+</body>
 </html>
