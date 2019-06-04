@@ -10,12 +10,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook"
   },
   "main": "index.js",
   "author": "@cowglow",
   "license": "MIT",
   "devDependencies": {
+    "@storybook/react": "^5.0.11",
     "react-scripts": "^1.1.4"
   }
 }

@@ -8,7 +8,7 @@
 import React from 'react';
 
 // Components
-import Bio from '../bio/bio';
+import Profile from '../profile/profile';
 import Contact from '../contact/contact';
 import EventList from '../event-list/event-list';
 // import HeaderComponent from '../header-component/header-component'
@@ -96,7 +96,7 @@ export default class extends React.Component {
 
                     <section>
                         <h1 className="SectionHeader">{BioTag}</h1>
-                        <Bio className="SectionBody" bind={BioText}/>
+                        <Profile className="SectionBody" bind={BioText}/>
                     </section>
 
                     <section>

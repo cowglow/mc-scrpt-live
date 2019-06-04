@@ -1,14 +1,21 @@
+/**
+ * Mc Scrpt Live
+ *
+ * @package cowglow/mc-scrpt-live
+ * @licence http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
 import React from 'react';
 
 class Contact extends React.Component {
 
     render() {
-        console.log(this.props);
+        const {data, email} = this.props;
         return (
             <span>
                 WIP
-                {/*<p className="text-justify">{Content.ContactText}</p>*/}
-                {/*<a href={"mailto:" + Content.ContactEmail}>{Content.ContactEmail}</a>*/}
+                <p className="text-justify">{data}</p>
+                <a href={"mailto:" + email}>{email}</a>
             </span>
         );
     }

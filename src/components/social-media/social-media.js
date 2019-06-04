@@ -7,24 +7,36 @@
 
 import React from 'react';
 
-export default class extends React.Component {
+import Twitter from '../../assets/icons/fa-twitter.svg';
+import SoundCloud from '../../assets/icons/fa-soundcloud.svg';
+import MixCloud from '../../assets/icons/fa-mixcloud.svg';
+import Instagram from '../../assets/icons/fa-instagram.svg';
 
+class SocialMedia extends React.Component {
     render() {
-
-        console.log(this.props.bind);
+        const SocialMedia = this.props.data;
 
         return (
-            <ul className={this.props.classes}>
-                {
-                    // this.props.bind.map((item, index) => (
-                    //     <li key={index}>
-                    //         <a href={item.url} target="_blank">
-                    //             <span className={"icon fa fa-" + item.name.toLowerCase()} />
-                    //         </a>
-                    //     </li>
-                    // ))
-                }
+            <ul>
+                {SocialMedia.map((platform, index) => {
+                    return (
+                        <li key={index}>
+                            <a href={platform.url} target="_blank">
+                                {
+                                    {
+                                        'Twitter': <img src={Twitter} alt={platform.name}/>,
+                                        'SoundCloud': <img src={SoundCloud} alt={platform.name}/>,
+                                        'MixCloud': <img src={MixCloud} alt={platform.name}/>,
+                                        'Instagram': <img src={Instagram} alt={platform.name}/>
+                                    }[platform.name]
+                                }
+                            </a>
+                        </li>
+                    )
+                })}
             </ul>
         );
     }
 }
+
+export default SocialMedia;

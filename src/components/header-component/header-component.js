@@ -11,20 +11,17 @@ import React from 'react';
 import logo from "../../assets/logo-animation.gif";
 import './header-component.styles.css';
 
-/**
- * Header Content
- *
- * Renders a DIV with an IMG inside
- */
-export default class extends React.Component {
+class HeaderComponent extends React.Component {
 
     render() {
         const logoAlt = 'A terminal style cursor blinks as it spells out the words \'MC\' and \'SCRIPT\'. With no I in script.';
 
         return (
-            <div className="Header-Content container-fluid">
-                <img src={logo} className="Header-Content__Logo img-responsive" alt={logoAlt}/>
+            <div className="Header-Content">
+                <img src={logo} className="Header-Content__Logo" alt={logoAlt}/>
             </div>
         );
     }
 }
+
+export default HeaderComponent;
