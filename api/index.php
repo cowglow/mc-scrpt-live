@@ -40,24 +40,33 @@ function ActiveTitle()
 <pre>
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    echo "<pre>";
-
-    $input = array_filter(explode('/', $_SERVER['PATH_INFO']));
-
-    echo '<br>-----<br>';
-    echo json_encode($_SERVER, JSON_PRETTY_PRINT);
-
-    echo "</pre>";
+    $input = array_values(array_filter(explode('/', $_SERVER['PATH_INFO'])));
 
     if (count($input) > 2) {
         echo 'INVALID PATH: Check query';
+    } else {
+        switch ($input[0]) {
+            case "Events":
+                $Events = new Cowglow\Events();
+                break;
+
+            case "Content":
+                $Content = new Cowglow\Content();
+                break;
+
+            case "SocialMedia":
+                $SocialMedia = new Cowglow\SocialMedia();
+                break;
+
+            default:
+                echo json_encode(['working on it'], JSON_PRETTY_PRINT);
+        }
     }
 
 }
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//$Events = new Cowglow\Events();
 }
 
 ?>
