@@ -1,5 +1,4 @@
 <?php
-require 'inc/helper.php';
 
 $eventName  = $_GET['name'] ?? '';
 $eventMonth = isset($_GET['date-month']) ? floor($_GET['date-month']) : '';

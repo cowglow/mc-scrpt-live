@@ -22,4 +22,7 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 /build/
+
+/api/vendor/composer.phar
+/api/bin/
 /api/vendor/

@@ -1,20 +1,21 @@
 <?php
-// Require once the Composer Autoload
-if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
-    require_once dirname(__FILE__) . '/vendor/autoload.php';
-}
 
-$GLOBALS['isDev'] = ($_SERVER['SERVER_NAME'] === 'localhost');
+/**
+ * mc-scrpt-live
+ *
+ * @packages
+ *  - Cowglow\Events
+ *  - Cowglow\Content
+ *  - Cowglow\SocialMedia
+ *
+ * @author     Philip Saa <cowglow@gmail.com> / @cowglow
+ * @copyright  Copyright © 2019 Philip Saa <cowglow@gmail.com> / @cowglow
+ * @license    http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
 
-
-function ActiveTitle()
-{
-    $title = '<title>';
-    $title .= ($GLOBALS['isDev']) ? 'DEV | ' : '';
-    $title .= 'MC SCRPT - API';
-    $title .= '</title>';
-    return $title;
-}
+include './lib/autoloader.php';
+include './lib/globals.php';
+include './lib/api-cms.php';
 
 ?>
 
@@ -23,7 +24,7 @@ function ActiveTitle()
 
 <head>
     <meta charset="utf-8">
-    <?= ActiveTitle(); ?>
+    <?= ActiveTitle($GLOBALS['isDev'], 'MC.SCRPT.LIVE - API'); ?>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,22 +46,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (count($input) > 2) {
         echo 'INVALID PATH: Check query';
     } else {
+        echo '<pre>';
+
+
         switch ($input[0]) {
-            case "Events":
+            case "event":
                 $Events = new Cowglow\Events();
+                include "./inc/template/event-form.php";
                 break;
 
             case "Content":
                 $Content = new Cowglow\Content();
+                include "./inc/template/content-form.php";
                 break;
 
             case "SocialMedia":
                 $SocialMedia = new Cowglow\SocialMedia();
+                include "./inc/template/socialmedia-form.php";
+
                 break;
 
             default:
-                echo json_encode(['working on it'], JSON_PRETTY_PRINT);
+                include './inc/template/default.php';
+
         }
+
+        echo json_encode($input[0], JSON_PRETTY_PRINT);
+
+        echo '</pre>';
     }
 
 }
@@ -72,10 +85,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 </pre>
 
-<script>
-    setInterval(function () {
-        location.reload();
-    }, 3000);
-</script>
+<?= BrowserAutoloader(); ?>
 </body>
 </html>
