@@ -17,91 +17,71 @@ include './lib/autoloader.php';
 include './lib/globals.php';
 include './lib/api-cms.php';
 
-?>
-
-<!doctype html>
-<html class="no-js" lang="">
-
-<head>
-    <meta charset="utf-8">
-    <?= ActiveTitle($GLOBALS['isDev'], 'MC.SCRPT.LIVE - API'); ?>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--    <link rel="manifest" href="site.webmanifest">-->
-    <!--    <link rel="apple-touch-icon" href="icon.png">-->
-    <!-- Place favicon.ico in the root directory -->
-
-    <!--    <link rel="stylesheet" href="css/normalize.css">-->
-
-    <meta name="theme-color" content="#fafafa">
-</head>
-
-<body>
-<h1>MC SCRPT - EVENT API</h1>
-<pre>
-<?php
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-//    $pathInfo = array_values(array_filter(explode('/', $_SERVER['PATH_INFO'])));
+    $input = captureInput(array_values(array_filter(explode('/', $_SERVER['REQUEST_URI']))));
 
-    print_r($_SERVER['REQUEST_URI']);
-    /*
+    echo '<pre>';
+    print_r($input, JSON_PRETTY_PRINT);
+    echo '</pre>';
 
-    $input = [
-        "version" => $pathInfo[0],
-        "method" => $pathInfo[1],
-    ];
-
-    if ($pathInfo[2]) {
-        $input['param'] = $pathInfo[2];
-    }
-
-    if (count($pathInfo) > 3) {
+    if (count($input['count']) > 3) {
         echo 'INVALID PATH: Check query';
+
     } else {
-        echo '<pre>';
 
-        if ($input['version'] !== 'v1') {
-            return;
+        if ($input['version'] === 'v1') {
+
+            switch ($input['method']) {
+                case "event":
+                    $App = new Cowglow\Events($input['param']);
+
+                    break;
+
+                case "copy":
+                    $App = new Cowglow\WebsiteContent($input['param']);
+
+                    break;
+
+                case "social-media":
+                    $App = new Cowglow\SocialMedia($input['param']);
+
+                    break;
+
+                default:
+                    echo 'DEAD END';
+            }
+        } elseif ($input['version'] === 'event') {
+            echo 'Events';
+            include "./inc/template/event-form.php";
+
+            if (!empty($input['method'])) {
+                echo "<h2>-" . $input['method'] . "</h2>";
+            }
+
+        } elseif ($input['version'] === 'copy') {
+            echo 'Text Copy';
+            include "./inc/template/content-form.php";
+
+            if (!empty($input['method'])) {
+                echo "<h2>-" . $input['method'] . "</h2>";
+            }
+
+        } elseif ($input['version'] === 'social-media') {
+            echo 'Social Media';
+            include "./inc/template/socialmedia-form.php";
+
+            if (!empty($input['method'])) {
+                echo "<h2>-" . $input['method'] . "</h2>";
+            }
+
+        } else {
+            // Default
+            include './inc/template/default.php';
         }
-
-        switch ($input['method']) {
-            case "event":
-                $Events = new Cowglow\Events();
-                include "./inc/template/event-form.php";
-                break;
-
-            case "Content":
-                $Content = new Cowglow\Content();
-                include "./inc/template/content-form.php";
-                break;
-
-            case "SocialMedia":
-                $SocialMedia = new Cowglow\SocialMedia();
-                include "./inc/template/socialmedia-form.php";
-
-                break;
-
-            default:
-                include './inc/template/default.php';
-
-        }
-
-        echo json_encode($input, JSON_PRETTY_PRINT);
-
-        echo '</pre>';
     }
-*/
 }
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
-
-?>
-</pre>
-
-<?= BrowserAutoloader(); ?>
-</body>
-</html>

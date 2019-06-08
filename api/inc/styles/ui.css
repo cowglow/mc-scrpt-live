@@ -1,0 +1,82 @@
+div {
+    /*border:thin solid white;*/
+    padding: 0.75em;
+    width: 100%;
+}
+
+p, input, textarea {
+    font-size: 1.2em;
+    font-family: 'Press Start 2P', cursive;
+}
+
+textarea {
+    size: 500px;
+}
+
+h1, h2, h3, h4, h5, .btn {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.page-header {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #2A9FD6;
+    border: thin solid white;
+}
+
+.nav-tabs li {
+    padding: 5px;
+    margin-right: 2px;
+    border: thin solid #2A9FD6;
+}
+
+.nav-tabs li:hover {
+    border: thin solid #FFFFFF;
+    background-color: #2A9FD6;
+}
+
+.nav-tabs li a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.btn {
+    background-color: #2A9FD6;
+    color: #FFFFFF;
+}
+
+.btn:hover {
+    background-color: #26779f;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right: 1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
