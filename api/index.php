@@ -38,18 +38,35 @@ include './lib/api-cms.php';
 </head>
 
 <body>
+<h1>MC SCRPT - EVENT API</h1>
 <pre>
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $input = array_values(array_filter(explode('/', $_SERVER['PATH_INFO'])));
 
-    if (count($input) > 2) {
+//    $pathInfo = array_values(array_filter(explode('/', $_SERVER['PATH_INFO'])));
+
+    print_r($_SERVER['REQUEST_URI']);
+    /*
+
+    $input = [
+        "version" => $pathInfo[0],
+        "method" => $pathInfo[1],
+    ];
+
+    if ($pathInfo[2]) {
+        $input['param'] = $pathInfo[2];
+    }
+
+    if (count($pathInfo) > 3) {
         echo 'INVALID PATH: Check query';
     } else {
         echo '<pre>';
 
+        if ($input['version'] !== 'v1') {
+            return;
+        }
 
-        switch ($input[0]) {
+        switch ($input['method']) {
             case "event":
                 $Events = new Cowglow\Events();
                 include "./inc/template/event-form.php";
@@ -71,11 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         }
 
-        echo json_encode($input[0], JSON_PRETTY_PRINT);
+        echo json_encode($input, JSON_PRETTY_PRINT);
 
         echo '</pre>';
     }
-
+*/
 }
 
 

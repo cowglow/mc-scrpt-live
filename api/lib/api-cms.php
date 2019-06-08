@@ -17,7 +17,5 @@ function ActiveTitle($isDev, $label)
 
 function BrowserAutoLoader()
 {
-    echo <<<EOT
-<script>setInterval(function () { location.reload() }, 3000);</script>
-EOT;
+    echo '<script>setInterval(function () { location.reload() }, 3000);</script>';
 }
