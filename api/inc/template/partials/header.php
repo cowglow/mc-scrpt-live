@@ -10,10 +10,8 @@
     <!--    <link rel="manifest" href="site.webmanifest">-->
     <!--    <link rel="apple-touch-icon" href="icon.png">-->
     <!-- Place favicon.ico in the root directory -->
-    <!--    --><? //= StyleSheets();?>
+    <?= StyleSheets(); ?>
     <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
-===
-<?= StyleSheets(); ?>
