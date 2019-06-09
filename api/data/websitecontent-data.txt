@@ -1,26 +1,15 @@
-# sections
+HeadlineBio: Hello Junglists!
 ----
-HeadlineBio= Hello Junglists!
-CopyBio= I'm an American filmmaker living and working in Germany. My interests range from filmmaking to music theory. I am experienced in variety of disciplines, including MCing. You can catch me grooving along some of the coolest DJs in and around 'Mittelfranken' region.
-
-HeadlineCalendar= Recent Shows
-
-HeadlineContact= Hit me up!
-CopyContact= Feel free to contact me. I like to talk about music.
-
-HeadlineFooter= Philip Saa aka MC SCRPT
-CopyFooter= All Rights Reserved.
-
-ContactFormEmail= cowglow@gmail.com
----
-<?xml version="1.0" encoding="utf-8"?>
-<Content>
-    <BioTag>Hello Junglists!</BioTag>
-    <BioText>I'm an American filmmaker living and working in Germany. My interests range from filmmaking to music theory. I am experienced in variety of disciplines, including MCing. You can catch me grooving along some of the coolest DJs in and around 'Mittelfranken' region.</BioText>
-    <ScheduleTag>Recent Shows</ScheduleTag>
-    <ContactTag>Hit me up!</ContactTag>
-    <ContactText>Feel free to contact me. I like to talk about music.</ContactText>
-    <FooterTag>Philip Saa aka MC SCRPT</FooterTag>
-    <FooterText>All Rights Reserved.</FooterText>
-    <ContactEmail>cowglow@gmail.com</ContactEmail>
-</Content>
+CopyBio: I'm an American filmmaker living and working in Germany. My interests range from filmmaking to music theory. I am experienced in variety of disciplines, including MCing. You can catch me grooving along some of the coolest DJs in and around 'Mittelfranken' region.
+----
+HeadlineCalendar: Recent Shows
+----
+HeadlineContact: Hit me up!
+----
+CopyContact: Feel free to contact me. I like to talk about music.
+----
+HeadlineFooter: Philip Saa aka MC SCRPT
+----
+CopyFooter: All Rights Reserved.
+----
+ContactFormEmail: c owglow@gmail.com

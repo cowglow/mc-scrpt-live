@@ -13,28 +13,28 @@
  * @license    http://opensource.org/licenses/MIT The MIT License (MIT)
  */
 
-include './lib/autoloader.php';
 include './lib/globals.php';
 include './lib/api-cms.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $input = captureInput(array_values(array_filter(explode('/', $_SERVER['REQUEST_URI']))));
 
-    echo '<pre>';
-    print_r($input, JSON_PRETTY_PRINT);
-    echo '</pre>';
-
     if (count($input['count']) > 3) {
         echo 'INVALID PATH: Check query';
 
     } else {
+        include './lib/autoloader.php';
 
         if ($input['version'] === 'v1') {
+            include "inc/http-headers.php";
 
             switch ($input['method']) {
                 case "event":
                     $App = new Cowglow\Events($input['param']);
+                    echo json_encode($App->getParams());
+//                    print_r($App->getParams());
 
                     break;
 
@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     echo 'DEAD END';
             }
         } elseif ($input['version'] === 'event') {
+
             echo 'Events';
             include "./inc/template/event-form.php";
 
