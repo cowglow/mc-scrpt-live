@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             switch ($input['method']) {
                 case "event":
                     $App = new Cowglow\Events($input['param']);
-                    echo json_encode($App->getParams());
+                    echo json_encode($App->output());
 //                    print_r($App->getParams());
 
                     break;
