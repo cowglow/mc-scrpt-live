@@ -1,5 +1,11 @@
 <?php include "partials/header.php" ?>
-<h1>MC SCRPT - EVENT API</h1>
 
 <?php include "partials/navigation.php" ?>
+
+<header>
+    <h1>MC SCRPT - <?php print_r($input) ?></h1>
+</header>
+
+
+
 <?php include "partials/footer.php"; ?>
