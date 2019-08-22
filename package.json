@@ -11,7 +11,7 @@
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook -s ./public -p 3000"
   },
   "main": "index.js",
   "author": "@cowglow",

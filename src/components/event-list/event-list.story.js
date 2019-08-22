@@ -4,6 +4,6 @@ import {storiesOf} from '@storybook/react';
 import EventList from "./event-list";
 import {EventData} from '../../../public/fixtures/data';
 
-storiesOf('Event List', module)
+storiesOf('Components|Event List', module)
     .add('default', () => (<EventList data={EventData}/>)
     );

@@ -1,7 +1,7 @@
 import {addDecorator, addParameters, configure} from "@storybook/react";
 // import {withKnobs} from "@storybook/addon-knobs";
 
-const req = require.context('../src/components', true, /\.stories\.js$/);
+const req = require.context('../src/components', true, /\.story\.js$/);
 
 // Decorators
 

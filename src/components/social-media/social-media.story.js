@@ -4,7 +4,7 @@ import {storiesOf} from "@storybook/react";
 import SocialMedia from "./social-media";
 import {SocialMediaData} from '../../../public/fixtures/data';
 
-storiesOf('Social Media', module)
+storiesOf('Components|Social Media', module)
     .addParameters({
         options: {
             showPanel: false
