@@ -20,72 +20,38 @@ import EventList from '../event-list/event-list';
 // Resources
 import './app.styles.css';
 
-
 // TODO: move to a dotEnv file
 const DEV_ENV = (document.domain === 'localhost');
-const API_URI = (DEV_ENV) ? "http://localhost:3000/fixtures/data.json" : "http://mc.scrpt.live/api/";
-const FETCH = (DEV_ENV) ? "GET" : "POST";
+// const API_URI = (DEV_ENV) ? "http://localhost:3000/fixtures/data.json" : "https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec";
+const API_URI = "https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec";
 
 export default class extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            Loading: true,
-            Content: {
-                BioTag: '',
-                BioText: '',
-                ContactEmail: '',
-                ContactTag: '',
-                ContactText: '',
-                FooterTag: '',
-                FooterText: '',
-                ScheduleTag: ''
-            },
-            EventData: {
-                Event: []
-            },
-            SocialMediaData: {
-                SocialMedia: []
-            },
+            loading: true,
+            content: {},
+            events: [],
+            social: {}
         }
     }
 
     componentWillMount() {
-        fetch(API_URI, {
-            method: FETCH
-        })
+        fetch(API_URI)
             .then((response) => response.json())
             .then((data) => {
                 this.setState({
-                    Loading: false,
-                    Content: {
-                        BioTag: data.Content.BioTag,
-                        BioText: data.Content.BioText,
-                        ContactEmail: data.Content.ContactEmail,
-                        ContactTag: data.Content.ContactTag,
-                        ContactText: data.Content.ContactText,
-                        FooterTag: data.Content.FooterTag,
-                        FooterText: data.Content.FooterText,
-                        ScheduleTag: data.Content.ScheduleTag,
-                    },
-                    EventData: data.EventData,
-                    SocialMediaData: {
-                        SocialMedia: data.SocialMediaData.SocialMedia
-                    }
+                    loading: false,
+                    events: data.Events
                 });
             });
     }
 
     render() {
-        const {Loading, EventData} = this.state;
-        const {BioTag, BioText, ContactTag, ContactEmail, ContactText, ScheduleTag} = this.state.Content;
-        // const {SocialMedia} = this.state.SocialMediaData;
+        const {loading, content, events, social} = this.state;
 
-        // console.log(SocialMedia);
-        // console.log(EventData);
-
-        if (Loading) {
+        if (loading) {
             return (<div className="Loader">Loading....</div>)
         } else {
             return (
@@ -95,18 +61,18 @@ export default class extends React.Component {
                     {/*</header>*/}
 
                     <section>
-                        <h1 className="SectionHeader">{BioTag}</h1>
-                        <Profile className="SectionBody" bind={BioText}/>
+                        {/*<h1 className="SectionHeader">{content.BioTag}</h1>*/}
+                        {/*<Profile className="SectionBody" bind={content.BioText}/>*/}
                     </section>
 
                     <section>
-                        <h1 className="SectionHeader">{ScheduleTag}</h1>
-                        <EventList classname="SectionBody" bind={EventData}/>
+                        {/*<h1 className="SectionHeader">{content.ScheduleTag}</h1>*/}
+                        <EventList classname="SectionBody" bind={events}/>
                     </section>
 
                     <section>
-                        <h1 className="SectionHeader">{ContactTag}</h1>
-                        <Contact classname="SectionBody" bind={[ContactText, ContactEmail]}/>
+                        {/*<h1 className="SectionHeader">{content.ContactTag}</h1>*/}
+                        {/*<Contact classname="SectionBody" bind={[content.ContactText, content.ContactEmail]}/>*/}
                     </section>
 
                     <br/>

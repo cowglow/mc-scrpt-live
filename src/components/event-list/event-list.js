@@ -13,8 +13,6 @@ import './event-list.styles.css';
 class EventList extends React.Component {
 
     render() {
-        const Events = this.props.data;
-
         const getDate = (now = Date.now()) => {
             const date = new Date(now * 1000);
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -23,7 +21,7 @@ class EventList extends React.Component {
 
         return (
             <ul className="EventList text-justify">
-                {Events.map((item) => {
+                {this.props.bind.map((item) => {
                     const timestamp = Math.round((new Date()).getTime() / 1000);
                     if (item.date.toString() < timestamp) {
                         return (
