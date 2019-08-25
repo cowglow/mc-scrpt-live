@@ -21,16 +21,16 @@ class EventList extends React.Component {
 
         return (
             <ul className="EventList text-justify">
-                {this.props.bind.map((item) => {
-                    const timestamp = Math.round((new Date()).getTime() / 1000);
-                    if (item.date.toString() < timestamp) {
+                {this.props.bind.map((item, index) => {
+                    // const timestamp = Math.round((new Date()).getTime() / 1000);
+                    // if (item.date.toString() < timestamp) {
                         return (
-                            <li>
+                            <li key={index}>
                                 <a href={item.link}>{item.name}</a>
-                                <p>{getDate(item.date.toString())}</p>
+                                <p>{getDate(Date.parse(item.date))}</p>
                             </li>
                         );
-                    }
+                    // }
                 })}
             </ul>
         )

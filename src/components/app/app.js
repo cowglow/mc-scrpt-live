@@ -41,6 +41,7 @@ export default class extends React.Component {
         fetch(API_URI)
             .then((response) => response.json())
             .then((data) => {
+                console.log(data);
                 this.setState({
                     loading: false,
                     events: data.Events
