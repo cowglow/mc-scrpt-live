@@ -13,7 +13,6 @@ class Contact extends React.Component {
         const {data, email} = this.props;
         return (
             <span>
-                WIP
                 <p className="text-justify">{data}</p>
                 <a href={"mailto:" + email}>{email}</a>
             </span>

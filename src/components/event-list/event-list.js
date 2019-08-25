@@ -14,23 +14,24 @@ class EventList extends React.Component {
 
     render() {
         const getDate = (now = Date.now()) => {
-            const date = new Date(now * 1000);
+            const date = new Date(now);
             const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            return date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
+            return date.getUTCDate() + " " + months[date.getUTCMonth()] + " " + date.getUTCFullYear();
         };
 
         return (
             <ul className="EventList text-justify">
                 {this.props.bind.map((item, index) => {
-                    // const timestamp = Math.round((new Date()).getTime() / 1000);
-                    // if (item.date.toString() < timestamp) {
+                    const timestamp = getDate();
+                    const eventDate = getDate(Date.parse(item.date));
+                    if (eventDate < timestamp) {
                         return (
                             <li key={index}>
-                                <a href={item.link}>{item.name}</a>
-                                <p>{getDate(Date.parse(item.date))}</p>
+                                <a href={item.link} target="fb_link">{item.name}</a>
+                                <p>{eventDate}</p>
                             </li>
                         );
-                    // }
+                    }
                 })}
             </ul>
         )

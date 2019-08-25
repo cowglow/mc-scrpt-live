@@ -8,7 +8,6 @@
 import React from 'react';
 
 // Components
-import Profile from '../profile/profile';
 import Contact from '../contact/contact';
 import EventList from '../event-list/event-list';
 // import HeaderComponent from '../header-component/header-component'
@@ -20,10 +19,8 @@ import EventList from '../event-list/event-list';
 // Resources
 import './app.styles.css';
 
-// TODO: move to a dotEnv file
 const DEV_ENV = (document.domain === 'localhost');
-// const API_URI = (DEV_ENV) ? "http://localhost:3000/fixtures/data.json" : "https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec";
-const API_URI = "https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec";
+const EVENT_API = "https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec";
 
 export default class extends React.Component {
 
@@ -31,17 +28,14 @@ export default class extends React.Component {
         super(props);
         this.state = {
             loading: true,
-            content: {},
-            events: [],
-            social: {}
+            events: []
         }
     }
 
     componentWillMount() {
-        fetch(API_URI)
+        fetch(EVENT_API)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 this.setState({
                     loading: false,
                     events: data.Events
@@ -50,7 +44,7 @@ export default class extends React.Component {
     }
 
     render() {
-        const {loading, content, events, social} = this.state;
+        const {loading, events} = this.state;
 
         if (loading) {
             return (<div className="Loader">Loading....</div>)
@@ -62,29 +56,36 @@ export default class extends React.Component {
                     {/*</header>*/}
 
                     <section>
-                        {/*<h1 className="SectionHeader">{content.BioTag}</h1>*/}
-                        {/*<Profile className="SectionBody" bind={content.BioText}/>*/}
+                        <h1 className="SectionHeader">Hello Junglists!</h1>
+                        <div>
+                            I'm an American living and working in Germany. My interests range from filmmaking
+                            to music theory. With a variety of experience in different multimedia disciplines, including
+                            MC'ing.
+                            You can usually catch me grooving alongside some of the coolest DJs in and around the
+                            'Mittelfranken' region.
+                        </div>
                     </section>
 
                     <section>
-                        {/*<h1 className="SectionHeader">{content.ScheduleTag}</h1>*/}
+                        <h1 className="SectionHeader">Recent Events</h1>
                         <EventList classname="SectionBody" bind={events}/>
                     </section>
 
                     <section>
-                        {/*<h1 className="SectionHeader">{content.ContactTag}</h1>*/}
-                        {/*<Contact classname="SectionBody" bind={[content.ContactText, content.ContactEmail]}/>*/}
+                        <h1 className="SectionHeader">Hit me up!</h1>
+                        <Contact classname="SectionBody" email="cowglow@gmail.com"
+                                 data={"Feel free to contact me. I like to talk about music."}/>
                     </section>
 
                     <br/>
-                    {/*<footer className="text-center">*/}
+                    <footer className="text-center">
                     {/*    <div xs={12} sm={8} md={4} smOffset={2} mdOffset={2}>*/}
                     {/*        <SocialMedia classes="list-inline" bind={this.state.SocialMediaData}/>*/}
                     {/*        <h3>{this.state.Content.FooterTag}</h3>*/}
                     {/*        <small*/}
                     {/*            className="footer">{this.state.Content.FooterText} &copy; {new Date().getFullYear()}</small>*/}
                     {/*    </div>*/}
-                    {/*</footer>*/}
+                    </footer>
                 </div>
             );
         }
