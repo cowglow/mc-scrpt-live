@@ -10,11 +10,12 @@ import React from 'react';
 class Contact extends React.Component {
 
     render() {
-        const {data, email} = this.props;
+        const {body, contact, label} = this.props;
         return (
             <span>
-                <p className="text-justify">{data}</p>
-                <a href={"mailto:" + email}>{email}</a>
+                <p className="text-justify">
+                    {body} <a href={contact} target="_twitter">{label}</a>
+                </p>
             </span>
         );
     }

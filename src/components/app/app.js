@@ -57,7 +57,7 @@ export default class extends React.Component {
 
                     <section>
                         <h1 className="SectionHeader">Hello Junglists!</h1>
-                        <div>
+                        <div className="SectionBody">
                             I'm an American living and working in Germany. My interests range from filmmaking
                             to music theory. With a variety of experience in different multimedia disciplines, including
                             MC'ing.
@@ -73,8 +73,8 @@ export default class extends React.Component {
 
                     <section>
                         <h1 className="SectionHeader">Hit me up!</h1>
-                        <Contact classname="SectionBody" email="cowglow@gmail.com"
-                                 data={"Feel free to contact me. I like to talk about music."}/>
+                        <Contact classname="SectionBody" label="@MCScrpt" contact="https://twitter.com/MCScrpt"
+                                 body={"Feel free to contact me. I like to talk about music."}/>
                     </section>
 
                     <br/>
