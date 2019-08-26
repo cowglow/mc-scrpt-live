@@ -7,27 +7,25 @@
 
 import React from 'react';
 
-import Twitter from '../../assets/icons/fa-twitter.svg';
-import SoundCloud from '../../assets/icons/fa-soundcloud.svg';
-import MixCloud from '../../assets/icons/fa-mixcloud.svg';
-import Instagram from '../../assets/icons/fa-instagram.svg';
+import TwitterIcon from '../../assets/icons/fa-twitter.svg';
+import SoundCloudIcon from '../../assets/icons/fa-soundcloud.svg';
+import MixCloudIcon from '../../assets/icons/fa-mixcloud.svg';
+import InstagramIcon from '../../assets/icons/fa-instagram.svg';
 
 class SocialMedia extends React.Component {
     render() {
-        const SocialMedia = this.props.data;
-
         return (
             <ul>
-                {SocialMedia.map((platform, index) => {
+                {this.props.bind.map((platform, index) => {
                     return (
                         <li key={index}>
                             <a href={platform.url} target="_blank">
                                 {
                                     {
-                                        'Twitter': <img src={Twitter} alt={platform.name}/>,
-                                        'SoundCloud': <img src={SoundCloud} alt={platform.name}/>,
-                                        'MixCloud': <img src={MixCloud} alt={platform.name}/>,
-                                        'Instagram': <img src={Instagram} alt={platform.name}/>
+                                        'Twitter': <img src={TwitterIcon} alt={platform.name}/>,
+                                        'SoundCloud': <img src={SoundCloudIcon} alt={platform.name}/>,
+                                        'MixCloud': <img src={MixCloudIcon} alt={platform.name}/>,
+                                        'Instagram': <img src={InstagramIcon} alt={platform.name}/>
                                     }[platform.name]
                                 }
                             </a>
