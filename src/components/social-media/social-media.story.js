@@ -2,10 +2,10 @@ import React from 'react';
 import {storiesOf} from "@storybook/react";
 
 import SocialMedia from "./social-media";
-import ContentData from '../../services/contentData';
+import {SocialMediaData} from '../../assets/content-data';
 
-import '../app/app.styles.css';
+import classes from '../app/app.styles.css';
 
 storiesOf('Components|Social Media', module)
-    .add('default', () => (<footer><SocialMedia className={SocialMedia} bind={ContentData.SocialMediaData}/></footer>)
+    .add('default', () => (<footer><SocialMedia className={classes.SocialMedia} bind={SocialMediaData}/></footer>)
     );

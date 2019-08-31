@@ -12,6 +12,8 @@ import SoundCloudIcon from '../../assets/icons/fa-soundcloud.svg';
 import MixCloudIcon from '../../assets/icons/fa-mixcloud.svg';
 import InstagramIcon from '../../assets/icons/fa-instagram.svg';
 
+import classes from './social-media.module.css';
+
 class SocialMedia extends React.Component {
     render() {
         return (

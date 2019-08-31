@@ -8,7 +8,7 @@
 import React from 'react';
 
 // Resources
-import logo from "../../assets/logo-animation.gif";
+import logo from "../../assets/images/logo-animation.gif";
 import './header-component.styles.css';
 
 class HeaderComponent extends React.Component {

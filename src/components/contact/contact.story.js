@@ -2,8 +2,13 @@ import React from 'react';
 import {storiesOf} from '@storybook/react';
 
 import Contact from "./contact";
-import {Content} from '../../services/contentData';
+import {ContactData} from '../../assets/content-data';
 
 storiesOf('Components|Contact', module)
-    .add('default', () => (<Contact data={Content.ContactText} email={Content.ContactEmail}/>)
+    .add('default', () => (
+            <Contact classname="SectionBody"
+                     label={ContactData.label}
+                     link={ContactData.link}
+                     text={ContactData.text}/>
+        )
     );

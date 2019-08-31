@@ -1,0 +1,15 @@
+footer ul {
+    display: inline-flex;
+    flex-direction: row;
+    padding: 0;
+    vertical-align: middle;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 1rem;
+}
+
+footer img {
+    width: 5rem;
+}

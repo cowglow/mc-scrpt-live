@@ -1,3 +1,4 @@
+
 /** Elements **/
 header {
     color: #ffffff;
@@ -19,6 +20,8 @@ section {
     border: thin solid green;
     width: 50%;
     padding: 1rem;
+    margin: 1rem;
+    background: #FFFFFF;
     /*flex-grow: 3;*/
     /*display: flex;*/
     /*flex-direction: column;*/
@@ -36,7 +39,7 @@ footer {
     background-color: #000000;
     padding-top: 3rem;
     padding-bottom: 2rem;
-    font-family: SansSerif, 'Press Start 2P';
+    font-family: SansSerif, customPressStart2P;
 }
 
 small {
@@ -50,7 +53,7 @@ small {
 /*}*/
 
 /* Custom Classes */
-.Loader {
+.loader {
     color: red;
     position: absolute;
 
@@ -69,16 +72,15 @@ small {
     justify-content: center;
 }
 
-.App {
-    border: thin solid red;
+.app {
     background-color: #FFF;
     display: flex;
     /*flex-wrap: wrap;*/
     flex-direction: column;
 }
 
-.SectionHeader {
-    font-family: SansSerif, 'Press Start\ 2P';
+.section-header {
+    font-family: SansSerif, customPressStart2P;
     font-weight: 700;
     font-size: 24px;
     background-color: #000000;
