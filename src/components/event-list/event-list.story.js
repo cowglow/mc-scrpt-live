@@ -2,8 +2,9 @@ import React from 'react';
 import {storiesOf} from '@storybook/react';
 
 import EventList from "./event-list";
-import {EventData} from '../../assets/content-data';
+import {Events} from '../../../public/fixtures/event-data';
 
 storiesOf('Components|Event List', module)
-    .add('default', () => (<EventList bind={EventData}/>)
-    );
+    .add('default', () => (<EventList bind={Events} mode='default'/>))
+    .add('archive', () => (<EventList bind={Events} mode='archive'/>))
+    .add('undefinted', () => (<EventList bind={Events}/>));

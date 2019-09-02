@@ -24,13 +24,25 @@ class EventList extends React.Component {
                 {this.props.bind.map((item, index) => {
                     const timestamp = getDate();
                     const eventDate = getDate(Date.parse(item.date));
-                    if (eventDate < timestamp) {
-                        return (
-                            <li key={index}>
-                                <a href={item.link} target="fb_link">{item.name}</a>
-                                <p>{eventDate}</p>
-                            </li>
-                        );
+
+                    if (this.props.mode === 'default' || this.props.mode === undefined) {
+                        if (Date.parse(timestamp) < Date.parse(eventDate)) {
+                            return (
+                                <li key={index}>
+                                    <a href={item.link} target="fb_link">{item.name}</a>
+                                    <p>{eventDate}</p>
+                                </li>
+                            );
+                        }
+                    } else {
+                        if (Date.parse(timestamp) > Date.parse(eventDate)) {
+                            return (
+                                <li key={index}>
+                                    <a href={item.link} target="fb_link">{item.name}</a>
+                                    <p>{eventDate}</p>
+                                </li>
+                            );
+                        }
                     }
                 })}
             </ul>
