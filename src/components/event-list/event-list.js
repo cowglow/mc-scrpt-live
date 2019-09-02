@@ -19,31 +19,33 @@ class EventList extends React.Component {
             return date.getUTCDate() + " " + months[date.getUTCMonth()] + " " + date.getUTCFullYear();
         };
 
+        const currentTimestamp = Date.now();
+
+        const pastEvents = this.props.bind.filter((item) => {
+            const eventDate = Date.parse(item.date);
+            if (eventDate < currentTimestamp) {
+                return true;
+            }
+        });
+
+        const upcomingEvents = this.props.bind.filter((item) => {
+            const eventDate = Date.parse(item.date);
+            if (eventDate > currentTimestamp) {
+                return true;
+            }
+        });
+
+        const eventList = (this.props.mode === 'default' || this.props.mode === undefined) ? upcomingEvents : pastEvents;
+
         return (
             <ul className="EventList text-justify">
-                {this.props.bind.map((item, index) => {
-                    const timestamp = getDate();
-                    const eventDate = getDate(Date.parse(item.date));
-
-                    if (this.props.mode === 'default' || this.props.mode === undefined) {
-                        if (Date.parse(timestamp) < Date.parse(eventDate)) {
-                            return (
-                                <li key={index}>
-                                    <a href={item.link} target="fb_link">{item.name}</a>
-                                    <p>{eventDate}</p>
-                                </li>
-                            );
-                        }
-                    } else {
-                        if (Date.parse(timestamp) > Date.parse(eventDate)) {
-                            return (
-                                <li key={index}>
-                                    <a href={item.link} target="fb_link">{item.name}</a>
-                                    <p>{eventDate}</p>
-                                </li>
-                            );
-                        }
-                    }
+                {eventList.map((item, index) => {
+                    return (
+                        <li key={index}>
+                            <a href={item.link} target="fb_link">{item.name}</a>
+                            <p>{getDate(item.date)}</p>
+                        </li>
+                    );
                 })}
             </ul>
         )

@@ -1,7 +1,8 @@
 ## TODOS
 - SVG icon fonts
 - CSS Hovers
-- Archive Toggle
 - Email Form ???
+- Stylize Event list toggle button
 
 - Import fonts
+- Archive Toggle

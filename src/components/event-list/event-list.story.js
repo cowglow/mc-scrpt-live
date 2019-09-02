@@ -6,5 +6,4 @@ import {Events} from '../../../public/fixtures/event-data';
 
 storiesOf('Components|Event List', module)
     .add('default', () => (<EventList bind={Events} mode='default'/>))
-    .add('archive', () => (<EventList bind={Events} mode='archive'/>))
-    .add('undefinted', () => (<EventList bind={Events}/>));
+    .add('archive', () => (<EventList bind={Events} mode='archive'/>));

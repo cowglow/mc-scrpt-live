@@ -29,7 +29,8 @@ export default class extends React.Component {
         super(props);
         this.state = {
             loading: true,
-            events: []
+            events: [],
+            eventMode: 'default'
         }
     }
 
@@ -38,6 +39,7 @@ export default class extends React.Component {
             .then((response) => response.json())
             .then((data) => {
                 this.setState({
+                    ...this.state,
                     loading: false,
                     events: data.Events
                     // events: []
@@ -47,6 +49,17 @@ export default class extends React.Component {
 
     render() {
         const {loading, events} = this.state;
+
+        const eventHeader = (this.state.eventMode === 'default') ? 'Upcoming Events' : 'Past Events';
+
+        const eventModeToggle = (this.state.eventMode === 'default') ? 'Toggle Archive' : 'Show Upcoming Shows';
+
+        const toggleEventList = () => {
+            this.setState({
+                ...this.state,
+                eventMode: (this.state.eventMode === 'default') ? 'archive' : 'default'
+            });
+        };
 
         if (loading) {
             return (<div className="Loader">Loading....</div>)
@@ -64,8 +77,9 @@ export default class extends React.Component {
                         </section>
 
                         <section>
-                            <h1 className="section-header">Recent Events</h1>
-                            <EventList bind={events}/>
+                            <h1 className="section-header">{eventHeader}</h1>
+                            <EventList bind={events} mode={this.state.eventMode}/>
+                            <button onClick={toggleEventList}>{eventModeToggle}</button>
                         </section>
 
                         <section>
