@@ -79,7 +79,7 @@ export default class extends React.Component {
                         <section>
                             <h1 className="section-header">{eventHeader}</h1>
                             <EventList bind={events} mode={this.state.eventMode}/>
-                            <button onClick={toggleEventList}>{eventModeToggle}</button>
+                            <button className="event-toggle" onClick={toggleEventList}>{eventModeToggle}</button>
                         </section>
 
                         <section>

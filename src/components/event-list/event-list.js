@@ -23,16 +23,12 @@ class EventList extends React.Component {
 
         const pastEvents = this.props.bind.filter((item) => {
             const eventDate = Date.parse(item.date);
-            if (eventDate < currentTimestamp) {
-                return true;
-            }
+            return eventDate < currentTimestamp;
         });
 
         const upcomingEvents = this.props.bind.filter((item) => {
             const eventDate = Date.parse(item.date);
-            if (eventDate > currentTimestamp) {
-                return true;
-            }
+            return eventDate > currentTimestamp;
         });
 
         const eventList = (this.props.mode === 'default' || this.props.mode === undefined) ? upcomingEvents : pastEvents;

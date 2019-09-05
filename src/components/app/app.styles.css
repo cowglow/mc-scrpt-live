@@ -3,13 +3,13 @@
     font-family: 'Press Start 2P';
     font-weight: 400;
     src: local('Press Start 2P'), local('PressStart2P'),
-    url("../../../public/fonts/PressStart2P-Regular.woff") format('woff');
+    url("../../assets/fonts/PressStart2P-Regular.woff") format('woff');
 }
 
 @font-face {
     font-family: 'Share Tech Mono';
     src: local('Share Tech Mono'), local('ShareTechMono'),
-    url("../../../public/fonts/ShareTechMono-Regular.woff") format('woff')
+    url("../../assets/fonts/ShareTechMono-Regular.woff") format('woff')
 }
 
 /** Elements **/
@@ -53,7 +53,7 @@ footer {
     background-color: #000000;
     padding-top: 3rem;
     padding-bottom: 2rem;
-    font-family: SansSerif, 'Press Start 2P';
+    font-family: 'Press Start 2P', SansSerif;
 }
 
 small {
@@ -94,7 +94,7 @@ small {
 }
 
 .section-header {
-    font-family: SansSerif, 'Press Start 2P';
+    font-family: 'Press Start 2P', SansSerif;
     font-weight: 700;
     font-size: 24px;
     background-color: #000000;
@@ -102,6 +102,11 @@ small {
     padding: 1rem 1rem 3rem 1rem;
     /*padding-bottom: 3rem;*/
     margin-bottom: 0.75rem;
+}
+
+.event-toggle {
+    font-family: 'Press Start 2P', SansSerif;
+
 }
 
 .SectionBody {
