@@ -6,16 +6,16 @@
  */
 
 /** Imports */
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 /** Components */
-import { default as RootComponent} from './components/app/app';
+import {default as RootComponent} from "./components/app/app";
 
 /** Styles */
-import './styles.css';
+import "./assets/styles.css";
 
 // import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<RootComponent />, document.getElementById('root'));
+ReactDOM.render(<RootComponent/>, document.getElementById("root"));
 // registerServiceWorker();

@@ -1,7 +1,7 @@
 import {addDecorator, addParameters, configure} from "@storybook/react";
 // import {withKnobs} from "@storybook/addon-knobs";
 
-const req = require.context('../src/components', true, /\.story\.js$/);
+const req = require.context("../src/components", true, /\.story\.js$/);
 
 // Decorators
 
@@ -9,9 +9,8 @@ const req = require.context('../src/components', true, /\.story\.js$/);
 addParameters({
     options: {
         showPanel: true
-    },
+    }
 });
-
 
 configure(() => {
     req.keys().forEach(filename => req(filename));

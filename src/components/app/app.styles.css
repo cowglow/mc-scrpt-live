@@ -1,64 +1,66 @@
 /** Fonts **/
 @font-face {
-    font-family: 'Press Start 2P';
-    font-weight: 400;
-    src: local('Press Start 2P'), local('PressStart2P'),
-    url("../../assets/fonts/PressStart2P-Regular.woff") format('woff');
+  font-family: "Press Start 2P";
+  font-weight: 400;
+  src: local("Press Start 2P"), local("PressStart2P"),
+  url("../../assets/fonts/PressStart2P-Regular.woff") format("woff");
 }
 
 @font-face {
-    font-family: 'Share Tech Mono';
-    src: local('Share Tech Mono'), local('ShareTechMono'),
-    url("../../assets/fonts/ShareTechMono-Regular.woff") format('woff')
+  font-family: "Share Tech Mono";
+  src: local("Share Tech Mono"), local("ShareTechMono"),
+  url("../../assets/fonts/ShareTechMono-Regular.woff") format("woff");
 }
 
 /** Elements **/
 header {
-    color: #ffffff;
-    height: 800px;
-    background-color: #222;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+  color: #ffffff;
+  height: 800px;
+  background-color: #222;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 main {
-    display: inline-flex;
-    margin: 0;
+  display: inline-flex;
+  margin: 0;
 }
 
 section {
-    position: relative;
-    border: thin solid green;
-    width: 50%;
-    padding: 1rem;
-    margin: 1rem;
-    background: #FFFFFF;
-    font-family: 'Share Tech Mono', monospace, sans-serif;
-    /*flex-grow: 3;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-    /*width: 100%;*/
-    /*border: thin solid red;*/
-    /*overflow: auto;*/
-    /*margin: 1em;*/
-    /*margin-bottom: 1em;*/
+  position: relative;
+  border: thin solid green;
+  width: 50%;
+  padding: 1rem;
+  margin: 1rem;
+  background: #ffffff;
+  font-family: "Share Tech Mono", monospace, sans-serif;
+  text-align: justify;
+
+  /*flex-grow: 3;*/
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*justify-content: center;*/
+  /*width: 100%;*/
+  /*border: thin solid red;*/
+  /*overflow: auto;*/
+  /*margin: 1em;*/
+  /*margin-bottom: 1em;*/
 }
 
 footer {
-    text-align: center;
-    color: #ffffff;
-    background-color: #000000;
-    padding-top: 3rem;
-    padding-bottom: 2rem;
-    font-family: 'Press Start 2P', SansSerif;
+  text-align: center;
+  color: #ffffff;
+  background-color: #000000;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  font-family: "Press Start 2P", sans-serif;
 }
 
-small {
-    font-size: 65%;
-}
+/*small {*/
+/*  font-size: 65%;*/
+/*}*/
 
 /*h1, h2, h3, h4, h5, h6 {*/
 /*    margin-bottom: 0.5rem;*/
@@ -68,93 +70,87 @@ small {
 
 /* Custom Classes */
 .loader {
-    color: red;
-    position: absolute;
+  color: red;
+  position: absolute;
 
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .app {
-    background-color: #FFF;
-    display: flex;
-    /*flex-wrap: wrap;*/
-    flex-direction: column;
+  background-color: #fff;
+  display: flex;
+  /*flex-wrap: wrap;*/
+  flex-direction: column;
 }
 
 .section-header {
-    font-family: 'Press Start 2P', SansSerif;
-    font-weight: 700;
-    font-size: 24px;
-    background-color: #000000;
-    color: #FFFFFF;
-    padding: 1rem 1rem 3rem 1rem;
-    /*padding-bottom: 3rem;*/
-    margin-bottom: 0.75rem;
-}
-
-.event-toggle {
-    font-family: 'Press Start 2P', SansSerif;
-
+  font-family: "Press Start 2P", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 1rem 1rem 3rem 1rem;
+  /*padding-bottom: 3rem;*/
+  margin-bottom: 0.75rem;
 }
 
 .SectionBody {
 }
 
 .SocialMedia ul {
-    margin-left: -5px;
-    display: inline-block;
+  margin-left: -5px;
+  display: inline-block;
 }
 
 .SocialMedia ul li {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .SocialMedia img {
-    width: 10rem;
-    color: red;
-    border: thin solid red;
-    margin: 10rem;
+  width: 10rem;
+  color: red;
+  border: thin solid red;
+  margin: 10rem;
 }
 
 .content-tag {
-    margin-top: 0.4em;
-    font-size: 1.5em;
+  margin-top: 0.4em;
+  font-size: 1.5em;
 }
 
 @media only screen and (max-width: 990px) {
-    .content-tag {
-        /*background: red;*/
-        /*margin-top: 0.4em;*/
-    }
+  .content-tag {
+    /*background: red;*/
+    /*margin-top: 0.4em;*/
+  }
 }
 
 .text-justify {
-    text-align: justify !important;
-    margin: auto 0.5em;
+  text-align: justify !important;
+  margin: auto 0.5em;
 }
 
 .icon {
-    font-size: 3rem;
-    padding: 5px;
-    border: thin solid greenyellow;
+  font-size: 3rem;
+  padding: 5px;
+  border: thin solid greenyellow;
 }
 
-
 .border {
-    display: inline-flex;
-    border: thin solid red;
+  display: inline-flex;
+  border: thin solid red;
 }
 
 /*@media only screen and (max-width: 1200px) and (min-width: 1000px) {*/
@@ -170,13 +166,11 @@ small {
 /*overflow-x: hidden;*/
 /*}*/
 
-
 /*.icon {*/
 /*font-size: 6em;*/
 /*padding: 15px;*/
 /*}*/
 /*}*/
-
 
 /* Smartphones (landscape) ----------- */
 /*@media only screen and (min-width : 321px) {*/

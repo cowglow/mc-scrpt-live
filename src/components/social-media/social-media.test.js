@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import SocialMedia from './social-media';
+import React from "react";
+import ReactDOM from "react-dom";
+import SocialMedia from "./social-media";
 
-it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<SocialMedia />, div);
+it("renders without crashing", () => {
+    const div = document.createElement("div");
+    ReactDOM.render(<SocialMedia/>, div);
 });

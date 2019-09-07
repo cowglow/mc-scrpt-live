@@ -1,51 +1,48 @@
-/**
- * Mc Scrpt Live
- *
- * @package cowglow/mc-scrpt-live
- * @licence http://opensource.org/licenses/MIT The MIT License (MIT)
- */
+import React from "react";
 
-import React from 'react';
+import {getDate} from "../../services/get-date/get-date";
 
 // Resources
-import './event-list.styles.css';
+import "./event-list.styles.css";
 
-class EventList extends React.Component {
+const EvenList = ({bind, mode, toggle}) => {
+    const eventModeToggle =
+        mode === "default" ? "Previous Shows" : "Upcoming Shows";
 
-    render() {
-        const getDate = (now = Date.now()) => {
-            const date = new Date(now);
-            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            return date.getUTCDate() + " " + months[date.getUTCMonth()] + " " + date.getUTCFullYear();
-        };
+    const currentTimestamp = Date.now();
 
-        const currentTimestamp = Date.now();
+    const pastEvents = bind.filter(item => {
+        const eventDate = Date.parse(item.date);
+        return eventDate < currentTimestamp;
+    });
 
-        const pastEvents = this.props.bind.filter((item) => {
-            const eventDate = Date.parse(item.date);
-            return eventDate < currentTimestamp;
-        });
+    const upcomingEvents = bind.filter(item => {
+        const eventDate = Date.parse(item.date);
+        return eventDate > currentTimestamp;
+    });
 
-        const upcomingEvents = this.props.bind.filter((item) => {
-            const eventDate = Date.parse(item.date);
-            return eventDate > currentTimestamp;
-        });
+    const eventList =
+        mode === "default" || mode === undefined ? upcomingEvents : pastEvents;
 
-        const eventList = (this.props.mode === 'default' || this.props.mode === undefined) ? upcomingEvents : pastEvents;
-
-        return (
-            <ul className="EventList text-justify">
+    return (
+        <React.Fragment>
+            <ul className="event-list">
                 {eventList.map((item, index) => {
                     return (
                         <li key={index}>
-                            <a href={item.link} target="fb_link">{item.name}</a>
+                            <a className="event-list-link" href={item.link} target="fb_link">
+                                {item.name}
+                            </a>
                             <p>{getDate(item.date)}</p>
                         </li>
                     );
                 })}
             </ul>
-        )
-    }
-}
+            <button className="event-list-toggle" onClick={toggle}>
+                {eventModeToggle}
+            </button>
+        </React.Fragment>
+    );
+};
 
-export default EventList;
+export default EvenList;

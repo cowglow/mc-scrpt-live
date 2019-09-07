@@ -10,13 +10,13 @@ html, body {
     justify-content: center;
 }
 
-/*a:link, a:visited {*/
-/*    color: #ff0000;*/
-/*}*/
+a:link, a:visited {
+    color: #ff0000;
+}
 
-/*a:hover, a:active {*/
-/*    color: #960000;*/
-/*}*/
+a:hover, a:active {
+    color: #960000;
+}
 
 
 /*h1, h2, h3 {*/
