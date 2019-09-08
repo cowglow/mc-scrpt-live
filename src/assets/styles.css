@@ -1,23 +1,30 @@
-html, body {
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
     position: relative;
-    font-family: 'Share Tech Mono', monospace, sans-serif;
+    font-family: "Share Tech Mono", monospace, sans-serif;
     font-size: 1.2em;
     background-color: #090909;
     display: flex;
     justify-content: center;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
     color: #ff0000;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
     color: #960000;
 }
-
 
 /*h1, h2, h3 {*/
 /*    font-family: 'Press Start 2P', cursive;*/
