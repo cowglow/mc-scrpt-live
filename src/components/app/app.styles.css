@@ -1,3 +1,9 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: red;
+}
+
 /** Fonts **/
 @font-face {
   font-family: "Press Start 2P";
@@ -109,21 +115,21 @@ footer {
 .SectionBody {
 }
 
-.SocialMedia ul {
-  margin-left: -5px;
-  display: inline-block;
-}
+/*.SocialMedia ul {*/
+/*  margin-left: -5px;*/
+/*  display: inline-block;*/
+/*}*/
 
-.SocialMedia ul li {
-  text-decoration: none;
-}
+/*.SocialMedia ul li {*/
+/*  text-decoration: none;*/
+/*}*/
 
-.SocialMedia img {
-  width: 10rem;
-  color: red;
-  border: thin solid red;
-  margin: 10rem;
-}
+/*.SocialMedia img {*/
+/*  width: 10rem;*/
+/*  color: red;*/
+/*  border: thin solid red;*/
+/*  margin: 10rem;*/
+/*}*/
 
 .content-tag {
   margin-top: 0.4em;
@@ -137,21 +143,21 @@ footer {
   }
 }
 
-.text-justify {
-  text-align: justify !important;
-  margin: auto 0.5em;
-}
+/*.text-justify {*/
+/*  text-align: justify !important;*/
+/*  margin: auto 0.5em;*/
+/*}*/
 
-.icon {
-  font-size: 3rem;
-  padding: 5px;
-  border: thin solid greenyellow;
-}
+/*.icon {*/
+/*  font-size: 3rem;*/
+/*  padding: 5px;*/
+/*  border: thin solid greenyellow;*/
+/*}*/
 
-.border {
-  display: inline-flex;
-  border: thin solid red;
-}
+/*.border {*/
+/*  display: inline-flex;*/
+/*  border: thin solid red;*/
+/*}*/
 
 /*@media only screen and (max-width: 1200px) and (min-width: 1000px) {*/
 /*.icon {*/

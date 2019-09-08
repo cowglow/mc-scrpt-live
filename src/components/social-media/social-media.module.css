@@ -10,6 +10,29 @@ footer ul li {
     margin: 1rem;
 }
 
-footer img {
-    width: 5rem;
+.icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 3rem;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: center;
+    fill: red;
+}
+
+.twitter {
+    background-image: url("../../assets/icons/fa-twitter.svg");
+}
+
+.soundCloud {
+    background-image: url("../../assets/icons/fa-soundcloud.svg");
+}
+
+.mixCloud {
+    background-image: url("../../assets/icons/fa-mixcloud.svg");
+}
+
+.instagram {
+    background-image: url("../../assets/icons/fa-instagram.svg");
 }
