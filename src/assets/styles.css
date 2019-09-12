@@ -3,6 +3,20 @@
     box-sizing: border-box;
 }
 
+/** Fonts **/
+@font-face {
+    font-family: "Press Start 2P";
+    font-weight: 400;
+    src: local("Press Start 2P"), local("PressStart2P"),
+    url("fonts/PressStart2P-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Share Tech Mono";
+    src: local("Share Tech Mono"), local("ShareTechMono"),
+    url("fonts/ShareTechMono-Regular.woff") format("woff");
+}
+
 html,
 body {
     margin: 0;
@@ -12,8 +26,8 @@ body {
     font-family: "Share Tech Mono", monospace, sans-serif;
     font-size: 1.2em;
     background-color: #090909;
-    display: flex;
-    justify-content: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
 }
 
 a:link,
@@ -24,6 +38,41 @@ a:visited {
 a:hover,
 a:active {
     color: #960000;
+}
+
+/** Elements **/
+header {
+    color: #ffffff;
+    height: 800px;
+    background-color: #222;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+main {
+    display: inline-flex;
+    margin: 0;
+}
+
+section {
+    position: relative;
+    width: 50%;
+    padding: 0;
+    margin: 0.7rem;
+    background: #ffffff;
+    font-family: "Share Tech Mono", monospace, sans-serif;
+    text-align: justify;
+}
+
+footer {
+    text-align: center;
+    color: #ffffff;
+    background-color: #000000;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    font-family: "Press Start 2P", sans-serif;
 }
 
 footer ul {
@@ -37,15 +86,6 @@ footer ul li {
     display: inline-block;
     margin: 1rem;
 }
-
-/*h1, h2, h3 {*/
-/*    font-family: 'Press Start 2P', cursive;*/
-/*    font-weight: bold;*/
-/*    background-color: #000000;*/
-/*    color: #FFFFFF;*/
-/*    padding: 1rem;*/
-/*    height: 110px;*/
-/*}*/
 
 /*@media only screen and (min-width: 1200px) {*/
 /*    h1, h2, h3 {*/
