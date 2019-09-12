@@ -26,6 +26,18 @@ a:active {
     color: #960000;
 }
 
+footer ul {
+    display: inline-flex;
+    flex-direction: row;
+    padding: 0;
+    vertical-align: middle;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 1rem;
+}
+
 /*h1, h2, h3 {*/
 /*    font-family: 'Press Start 2P', cursive;*/
 /*    font-weight: bold;*/

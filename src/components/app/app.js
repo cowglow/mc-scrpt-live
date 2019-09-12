@@ -54,6 +54,7 @@ const App = () => {
                 {/*  <HeaderComponent />*/}
                 {/*</header>*/}
 
+                {/*
                 <main>
                     <section>
                         <h1 className="section-header">{Title}</h1>
@@ -78,6 +79,7 @@ const App = () => {
                         />
                     </section>
                 </main>
+                */}
 
                 <br/>
                 <footer>
