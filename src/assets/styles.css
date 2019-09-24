@@ -8,13 +8,13 @@
     font-family: "Press Start 2P";
     font-weight: 400;
     src: local("Press Start 2P"), local("PressStart2P"),
-    url("fonts/PressStart2P-Regular.woff") format("woff");
+    url("fonts/PressStart2P-Regular.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "Share Tech Mono";
     src: local("Share Tech Mono"), local("ShareTechMono"),
-    url("fonts/ShareTechMono-Regular.woff") format("woff");
+    url("fonts/ShareTechMono-Regular.woff2") format("woff2");
 }
 
 html,
@@ -57,7 +57,6 @@ main {
 }
 
 section {
-    position: relative;
     width: 50%;
     padding: 0;
     margin: 0.7rem;
@@ -85,6 +84,27 @@ footer ul {
 footer ul li {
     display: inline-block;
     margin: 1rem;
+}
+
+
+@media only screen and (max-width: 990px) {
+    main {
+        flex-direction: column;
+    }
+
+    section {
+        width: calc(100% - 1.4rem);
+    }
+
+    footer {
+        padding-top: 0;
+        line-height: 1.5rem;
+        font-size: 0.75rem;
+    }
+
+    footer ul {
+        display: inline;
+    }
 }
 
 /*@media only screen and (min-width: 1200px) {*/

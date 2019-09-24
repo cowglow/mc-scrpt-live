@@ -4,6 +4,7 @@
     height: 300px;
     overflow-y: scroll;
     overflow-x: hidden;
+    text-align: left;
 }
 
 .event-list p {
@@ -55,6 +56,15 @@
     text-decoration: underline;
 }
 
+@media only screen and (max-width: 990px) {
+    .event-list {
+        height: 100%;
+    }
+
+    .event-list::-webkit-scrollbar {
+        display: none;
+    }
+}
 /*@media (min-width: 1200px) {*/
 /*    .Schedule {*/
 /*        height: 420px;*/

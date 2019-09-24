@@ -68,7 +68,8 @@ const App = () => {
 
             <section>
               <h1 className="section-header">Hit me up!</h1>
-              <Contact
+                <Contact    /*position: relative;*/
+
                   label={ContactData.label}
                   link={ContactData.link}
                   text={ContactData.text}
@@ -79,8 +80,8 @@ const App = () => {
           <br/>
           <footer>
             <SocialMedia bind={SocialMediaData}/>
-            <h3>Philip Saa aka MC SCRPT</h3>
-            <small>All Rights Reserved. &copy; {new Date().getFullYear()}</small>
+              <h3>Philip Saa <nobr>aka MC SCRPT</nobr></h3>
+              <small>All Rights Reserved. &copy; {new Date().getFullYear()}</small>
           </footer>
         </div>
     );

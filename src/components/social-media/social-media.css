@@ -28,3 +28,10 @@
     -webkit-mask: url("../../assets/icons/fa-instagram.svg") no-repeat 50% 50%;
     mask: url("../../assets/icons/fa-instagram.svg") no-repeat 50% 50%;
 }
+
+@media only screen and (max-width: 990px) {
+    .icon {
+        border: thin solid purple;
+        padding: 1rem;
+    }
+}

@@ -27,6 +27,10 @@
 }
 
 @media only screen and (max-width: 990px) {
+  .section-header {
+    font-size: 1.45rem;
+    text-align: left;
+  }
 }
 
 /*.text-justify {*/
