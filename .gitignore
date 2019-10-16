@@ -23,4 +23,10 @@ yarn-error.log*
 package-lock.json
 /build/
 
+<<<<<<< HEAD
+/api/vendor/composer.phar
+/api/bin/
+/api/vendor/
+=======
 /vendor/
+>>>>>>> master

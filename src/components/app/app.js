@@ -1,117 +1,91 @@
-/**
- * Mc Scrpt Live
- *
- * @package cowglow/mc-scrpt-live
- * @licence http://opensource.org/licenses/MIT The MIT License (MIT)
- */
+import React, { useState, useEffect } from 'react'
 
-import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import HeaderComponent from "../header-component/header-component";
+import EventList from "../event-list/event-list";
+import Contact from "../contact/contact";
+import SocialMedia from "../social-media/social-media";
 
-// Components
-import Bio from '../bio/bio';
-import Contact from '../contact/contact';
-import EventList from '../event-list/event-list';
-import HeaderComponent from '../header-component/header-component'
-import SocialMedia from '../social-media/social-media';
+import { backgroundImage } from '../../services/background-image'
 
-// Services
-import { backgroundImage } from "../../services/background-image";
+import { Title, Body } from '../../assets/data/content'
+import ContactData from '../../assets/data/contact'
+import SocialMediaData from '../../assets/data/links'
 
-// Resources
-import './app.styles.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./app.styles.css";
 
+const DEV_EVENTS_RESOURCE = 'fixture/events.json'
+const EVENTS_RESOURCE =
+  'https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec'
+const EVENT_API =
+  document.domain === 'localhost' ? DEV_EVENTS_RESOURCE : EVENTS_RESOURCE
 
-// TODO: move to a dotEnv file
-const DEV_ENV = (document.domain === 'localhost');
-const API_URI = (DEV_ENV) ? "http://localhost:3000/fixtures/data.json" : "http://mc.scrpt.live/api/";
-const FETCH = (DEV_ENV) ? "GET" : "POST";
+const App = () => {
+  const [loading, isLoading] = useState(true);
+  const [events, setEvents] = useState([]);
+  const [eventMode, setEventMode] = useState("default");
 
-export default class extends React.Component {
+  const toggleEventList = () => {
+    const mode = eventMode === "default" ? "archive" : "default";
+    setEventMode(mode);
+  };
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            Content: {
-                BioTag: '',
-                BioText: '',
-                ContactEmail: '',
-                ContactTag: '',
-                ContactText: '',
-                FooterTag: '',
-                FooterText: '',
-                ScheduleTag: ''
-            },
-            EventData: {
-                Event: []
-            },
-            SocialMediaData: {
-                SocialMedia: []
-            },
-        }
-    }
+  const eventHeader =
+    eventMode === 'default' ? 'Upcoming Events' : 'Past Events';
 
-    componentWillMount() {
-        let that = this;
-        fetch(API_URI, {
-            method: FETCH
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                that.setState({
-                    Content: {
-                        BioTag: data.Content.BioTag,
-                        BioText: data.Content.BioText,
-                        ContactEmail: data.Content.ContactEmail,
-                        ContactTag: data.Content.ContactTag,
-                        ContactText: data.Content.ContactText,
-                        FooterTag: data.Content.FooterTag,
-                        FooterText: data.Content.FooterText,
-                        ScheduleTag: data.Content.ScheduleTag,
-                    },
-                    EventData: data.EventData,
-                    SocialMediaData: {
-                        SocialMedia: data.SocialMediaData.SocialMedia
-                    }
-                });
-            });
-    }
+  useEffect(() => {
+    fetch(EVENT_API)
+      .then(response => response.json())
+      .then(data => {
+        isLoading(false)
+        setEvents(data.Events)
+      });
+  }, []);
 
-    render() {
-        return (
-            <div className="App">
-                <header style={backgroundImage(2)}>
-                    <HeaderComponent/>
-                </header>
-                <Container fluid="true">
-                    <Row>
-                        <Col xl={4}>
-                            <h1 class="content-tag">{this.state.Content.BioTag}</h1>
-                            <Bio className="text-justify" bind={this.state.Content.BioText} />
-                        </Col>
-                        <Col xl={4}>
-                            <h1 class="content-tag">{this.state.Content.ScheduleTag}</h1>
-                            <EventList bind={this.state.EventData}/>
-                        </Col>
-                        <Col xl={4}>
-                            <h1 class="content-tag">{this.state.Content.ContactTag}</h1>
-                            <Contact bind={[this.state.Content.ContactText, this.state.Content.ContactEmail]}/>
-                        </Col>
-                    </Row>
-                </Container>
+  if (loading) {
+    return <div className="loader">Loading....</div>;
+  } else {
+    return (
+      <div className="app">
+        <header style={backgroundImage(2)}>
+          <HeaderComponent/>
+        </header>
 
-                <br/>
-                <footer className="text-center">
-                    <Row>
-                        <Col xs={12} sm={8} md={4} smOffset={2} mdOffset={2}>
-                            <SocialMedia classes="list-inline" bind={this.state.SocialMediaData}/>
-                            <h3>{this.state.Content.FooterTag}</h3>
-                            <small className="footer">{this.state.Content.FooterText} &copy; {new Date().getFullYear()}</small>
-                        </Col>
-                    </Row>
-                </footer>
-            </div>
-        );
-    }
-}
+        <main>
+          <section>
+            <h1 className="section-header">{Title}</h1>
+            <span>{Body}</span>
+          </section>
+
+          <section>
+            <h1 className="section-header">{eventHeader}</h1>
+            <EventList
+              bind={events}
+              mode={eventMode}
+              toggle={toggleEventList}
+            />
+          </section>
+
+          <section>
+            <h1 className="section-header">Hit me up!</h1>
+            <Contact /*position: relative;*/
+              label={ContactData.label}
+              link={ContactData.link}
+              text={ContactData.text}
+            />
+          </section>
+        </main>
+
+        <br/>
+        <footer>
+          <SocialMedia bind={SocialMediaData}/>
+          <h3>
+            Philip Saa <nobr>aka MC SCRPT</nobr>
+          </h3>
+          <small>All Rights Reserved. &copy; {new Date().getFullYear()}</small>
+        </footer>
+      </div>
+    );
+  }
+};
+
+export default App;

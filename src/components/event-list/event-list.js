@@ -1,53 +1,51 @@
-/**
- * Mc Scrpt Live
- *
- * @package cowglow/mc-scrpt-live
- * @licence http://opensource.org/licenses/MIT The MIT License (MIT)
- */
+import React from "react";
 
-import React from 'react';
-import { Media } from 'react-bootstrap';
+import { getDate } from '../../services/get-date'
 
-import './event-list.styles.css';
-import getDate from '../../services/get-date/get-date';
+// Resources
+import "./event-list.styles.css";
 
-class EventList extends React.Component {
-    render() {
-        return (
-            <div className="Schedule text-justify ">
-                {
-                    this.props.bind.Event.map((item) => {
-                        const timestamp = Math.round((new Date()).getTime() / 1000);
-                        // console.log(item.date.toString());
-                        // console.log(timestamp);
-                        if (item.date.toString() < timestamp) {
-                            return (
-                                <Media>
-                                    <Media.Body>
-                                        <a href={item.link}>{item.name}</a>
-                                        <h5>
-                                            <small>{getDate(item.date.toString())}</small>
-                                        </h5>
-                                    </Media.Body>
-                                </Media>
-                            );
-                        }
-                            //     return (
-                            //             <Media>
-                            //                 <Media.Body>
-                            //                     <a href={item.link} target="_blank">{item.name}</a>
-                            //                     <Media.Heading>
-                            //                         <small>{}</small>
-                            //                     </Media.Heading>
-                            //                 </Media.Body>
-                            //             </Media>
-                            //         );
-                        }
-                    )
-                }
-            </div>
-        );
-    }
-}
+const EvenList = props => {
+  const { bind, mode, toggle } = props
+  const eventModeToggle =
+    mode === 'default' ? 'Previous Shows' : 'Upcoming Shows'
 
-export default EventList;
+  const currentTimestamp = Date.now()
+
+  const pastEvents = bind.filter(item => {
+    const eventDate = Date.parse(item.date)
+    return eventDate < currentTimestamp
+  })
+
+  const upcomingEvents = bind.filter(item => {
+    const eventDate = Date.parse(item.date)
+    return eventDate > currentTimestamp
+  })
+
+  const _eventList =
+    mode === 'default' || mode === undefined ? upcomingEvents : pastEvents
+
+  const eventList = _eventList.length <= 0 ? bind : _eventList
+
+  return (
+    <React.Fragment>
+      <ul className="event-list">
+        {eventList.map((item, index) => {
+          return (
+            <li key={index}>
+              <a className="event-list-link" href={item.link} target="fb_link">
+                {item.name}
+              </a>
+              <p>{getDate(item.date)}</p>
+            </li>
+          )
+        })}
+      </ul>
+      <button className="event-list-toggle" onClick={toggle}>
+        {eventModeToggle}
+      </button>
+    </React.Fragment>
+  )
+};
+
+export default EvenList;

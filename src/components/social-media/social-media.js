@@ -1,30 +1,26 @@
-/**
- * Mc Scrpt Live
- *
- * @package cowglow/mc-scrpt-live
- * @licence http://opensource.org/licenses/MIT The MIT License (MIT)
- */
+import React from "react";
 
-import React from 'react';
+import "./social-media.css";
 
-export default class extends React.Component {
-
-    render() {
-
-        console.log(this.props.bind);
-
-        return (
-            <ul className={this.props.classes}>
+const SocialMedia = ({bind}) => {
+  return (
+      <ul>
+        {bind.map((platform, index) => (
+            <li key={index}>
+              <a href={platform.url} target="_blank">
                 {
-                    // this.props.bind.map((item, index) => (
-                    //     <li key={index}>
-                    //         <a href={item.url} target="_blank">
-                    //             <span className={"icon fa fa-" + item.name.toLowerCase()} />
-                    //         </a>
-                    //     </li>
-                    // ))
+                  {
+                    Twitter: <span className="icon twitter"/>,
+                    SoundCloud: <span className="icon soundCloud"/>,
+                    MixCloud: <span className="icon mixCloud"/>,
+                    Instagram: <span className="icon instagram"/>
+                  }[platform.name]
                 }
-            </ul>
-        );
-    }
-}
+              </a>
+            </li>
+        ))}
+      </ul>
+  );
+};
+
+export default SocialMedia;
