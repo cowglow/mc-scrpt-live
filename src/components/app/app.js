@@ -15,9 +15,9 @@ import "./app.styles.css";
 
 const DEV_EVENTS_RESOURCE = 'fixture/events.json'
 const EVENTS_RESOURCE =
-  'https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec'
+  'https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec';
 const EVENT_API =
-  document.domain === 'localhost' ? DEV_EVENTS_RESOURCE : EVENTS_RESOURCE
+  document.domain === 'localhost' ? DEV_EVENTS_RESOURCE : EVENTS_RESOURCE;
 
 const App = () => {
   const [loading, isLoading] = useState(true);
@@ -58,16 +58,12 @@ const App = () => {
 
           <section>
             <h1 className="section-header">{eventHeader}</h1>
-            <EventList
-              bind={events}
-              mode={eventMode}
-              toggle={toggleEventList}
-            />
+            <EventList bind={events}/>
           </section>
 
           <section>
             <h1 className="section-header">Hit me up!</h1>
-            <Contact /*position: relative;*/
+            <Contact
               label={ContactData.label}
               link={ContactData.link}
               text={ContactData.text}
@@ -75,7 +71,6 @@ const App = () => {
           </section>
         </main>
 
-        <br/>
         <footer>
           <SocialMedia bind={SocialMediaData}/>
           <h3>

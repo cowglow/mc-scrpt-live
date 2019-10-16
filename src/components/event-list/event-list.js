@@ -2,50 +2,71 @@ import React from "react";
 
 import { getDate } from '../../services/get-date'
 
-// Resources
 import "./event-list.styles.css";
 
-const EvenList = props => {
-  const { bind, mode, toggle } = props
-  const eventModeToggle =
-    mode === 'default' ? 'Previous Shows' : 'Upcoming Shows'
+const EventListControls = ({ mode, callback }) => {
+  const defaultMode = 'default'
+  return (
+    <div className="toggle-btn-group">
+      <button
+        className={mode === defaultMode ? 'toggle-btn-active' : 'toggle-btn'}
+        onClick={() => callback(defaultMode)}
+      >
+        Upcoming Shows
+      </button>
+      <button
+        className={mode === 'archive' ? 'toggle-btn-active' : 'toggle-btn'}
+        onClick={() => callback('archive')}
+      >
+        Previous Shows
+      </button>
+    </div>
+  )
+}
 
+const EventListItem = ({ index, bind }) => {
+  return (
+    <li key={index}>
+      <a className="event-list-link" href={bind.link} target="fb_link">
+        {bind.name}
+      </a>
+      <p>{getDate(bind.date)}</p>
+    </li>
+  )
+}
+
+const EvenList = ({ bind }) => {
   const currentTimestamp = Date.now()
+
+  const defaultMode = 'default'
+  const [mode, setMode] = React.useState(defaultMode)
 
   const pastEvents = bind.filter(item => {
     const eventDate = Date.parse(item.date)
     return eventDate < currentTimestamp
-  })
+  });
 
   const upcomingEvents = bind.filter(item => {
     const eventDate = Date.parse(item.date)
     return eventDate > currentTimestamp
-  })
+  });
 
-  const _eventList =
-    mode === 'default' || mode === undefined ? upcomingEvents : pastEvents
-
-  const eventList = _eventList.length <= 0 ? bind : _eventList
+  const filterEvents = mode === defaultMode ? upcomingEvents : pastEvents
+  const eventList = filterEvents.length <= 0 ? bind : filterEvents
 
   return (
     <React.Fragment>
+      <EventListControls currentMode={mode} callback={mode => setMode(mode)}/>
       <ul className="event-list">
         {eventList.map((item, index) => {
+          const key = index.toString()
           return (
-            <li key={index}>
-              <a className="event-list-link" href={item.link} target="fb_link">
-                {item.name}
-              </a>
-              <p>{getDate(item.date)}</p>
-            </li>
-          )
+            <EventListItem key={index} index={key} bind={item}/>
+          );
         })}
       </ul>
-      <button className="event-list-toggle" onClick={toggle}>
-        {eventModeToggle}
-      </button>
     </React.Fragment>
-  )
+  );
 };
 
 export default EvenList;
