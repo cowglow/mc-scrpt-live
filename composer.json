@@ -1,0 +1,19 @@
+{
+    "name": "cowglow/mc-script-live",
+    "description": "API for MC.SCRIPT.LIVE",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cowglow",
+            "email": "cowglow@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cowglow\\": "api/src/"
+        },
+        "optimize-autoloader": true
+    },
+    "require": {}
+}
