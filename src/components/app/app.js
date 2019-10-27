@@ -13,7 +13,9 @@ import SocialMediaData from '../../assets/data/links'
 
 import "./app.styles.css";
 
-const DEV_EVENTS_RESOURCE = 'fixture/events.json'
+const DEV_EVENTS_RESOURCE = 'fixture/events-archive.json'
+// const DEV_EVENTS_RESOURCE = 'fixture/events-future.json'
+
 const EVENTS_RESOURCE =
   'https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec';
 const EVENT_API =
@@ -29,6 +31,7 @@ const App = () => {
     setEventMode(mode);
   };
 
+  //
   const eventHeader =
     eventMode === 'default' ? 'Upcoming Events' : 'Past Events';
 
