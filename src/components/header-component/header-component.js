@@ -1,11 +1,9 @@
 import React from "react";
 
-// Resources
 import logo from "../../assets/images/logo-animation.gif";
 import "./header-component.styles.css";
 
 const HeaderComponent = () => {
-    console.log('working');
     const logoAlt =
         "A terminal style cursor blinks as it spells out the words 'MC' and 'SCRIPT'. With no I in script.";
 
