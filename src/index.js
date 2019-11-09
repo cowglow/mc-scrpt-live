@@ -10,10 +10,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 /** Components */
-import App from "./components/app/app";
+import App from './app'
 
 /** Styles */
-import "./assets/styles.css";
+import './index.styles.css'
 
 // import registerServiceWorker from './registerServiceWorker';
 

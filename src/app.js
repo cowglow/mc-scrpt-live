@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react'
 
-import HeaderComponent from "../header-component/header-component";
-import EventList from "../event-list/event-list";
-import Contact from "../contact/contact";
-import SocialMedia from "../social-media/social-media";
+import HeaderComponent from './components/header-component/header-component'
+import { backgroundImage } from './services/background-image'
+import EventList from './components/event-list/event-list'
+import Contact from './components/contact/contact'
 
-import { backgroundImage } from '../../services/background-image'
+import { Title, Body } from './data/content'
+import ContactData from './data/contact'
 
-import { Title, Body } from '../../assets/data/content'
-import ContactData from '../../assets/data/contact'
-import SocialMediaData from '../../assets/data/links'
+import SocialMedia from './components/social-media/social-media'
+import SocialMediaData from './data/links'
 
 import "./app.styles.css";
 
-const DEV_EVENTS_RESOURCE = 'fixture/events-archive.json'
-// const DEV_EVENTS_RESOURCE = 'fixture/events-future.json'
+const DEV_EVENTS_RESOURCE = 'fixture/dev_events-fixture.json'
 
 const EVENTS_RESOURCE =
   'https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec';
@@ -23,17 +22,8 @@ const EVENT_API =
 
 const App = () => {
   const [loading, isLoading] = useState(true);
+  const [eventHeader, setEventHeader] = useState('Upcoming Shows')
   const [events, setEvents] = useState([]);
-  const [eventMode, setEventMode] = useState("default");
-
-  const toggleEventList = () => {
-    const mode = eventMode === "default" ? "archive" : "default";
-    setEventMode(mode);
-  };
-
-  //
-  const eventHeader =
-    eventMode === 'default' ? 'Upcoming Events' : 'Past Events';
 
   useEffect(() => {
     fetch(EVENT_API)
@@ -43,6 +33,10 @@ const App = () => {
         setEvents(data.Events)
       });
   }, []);
+
+  const eventHandler = data => {
+    setEventHeader(data)
+  }
 
   if (loading) {
     return <div className="loader">Loading....</div>;
@@ -61,7 +55,7 @@ const App = () => {
 
           <section>
             <h1 className="section-header">{eventHeader}</h1>
-            <EventList bind={events}/>
+            <EventList bind={events} callback={eventHandler}/>
           </section>
 
           <section>
