@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.6.0",
+    "@material-ui/icons": "^4.5.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5"
   },
@@ -10,13 +12,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -s ./public -p 3000"
+    "eject": "react-scripts eject"
   },
   "main": "index.js",
   "author": "@cowglow",
   "license": "MIT",
   "devDependencies": {
+    "prop-types": "^15.7.2",
     "react-scripts": "^1.1.4"
   },
   "browserslist": {

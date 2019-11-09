@@ -1,45 +1,22 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
+
+import LinkIcon from '@material-ui/icons/Link'
 import { getDate } from '../../services/get-date'
 
 import "./event-list.styles.css";
 
-const EventListControls = ({ mode, callback }) => {
-  const defaultMode = 'default'
-  return (
-    <div className="toggle-btn-group">
-      <button
-        className={mode === defaultMode ? 'toggle-btn-active' : 'toggle-btn'}
-        onClick={() => callback(defaultMode)}
-      >
-        Upcoming Shows
-      </button>
-      <button
-        className={mode === 'archive' ? 'toggle-btn-active' : 'toggle-btn'}
-        onClick={() => callback('archive')}
-      >
-        Previous Shows
-      </button>
-    </div>
-  )
-}
-
-const EventListItem = ({ index, bind }) => {
-  return (
-    <li key={index}>
-      <a className="event-list-link" href={bind.link} target="fb_link">
-        {bind.name}
-      </a>
-      <p>{getDate(bind.date)}</p>
-    </li>
-  )
-}
-
-const EvenList = ({ bind }) => {
+const EventList = ({ bind, callback }) => {
   const currentTimestamp = Date.now()
-
-  const defaultMode = 'default'
-  const [mode, setMode] = React.useState(defaultMode)
+  const [mode, setMode] = React.useState(0)
+  const tabLabels = ['Upcoming Shows', 'Previews Shows']
 
   const pastEvents = bind.filter(item => {
     const eventDate = Date.parse(item.date)
@@ -51,22 +28,57 @@ const EvenList = ({ bind }) => {
     return eventDate > currentTimestamp
   });
 
-  const filterEvents = mode === defaultMode ? upcomingEvents : pastEvents
+  const filterEvents = mode === 0 ? upcomingEvents : pastEvents
   const eventList = filterEvents.length <= 0 ? bind : filterEvents
+
+  const handleTabChange = (event, newValue) => {
+    callback(tabLabels[newValue])
+    setMode(newValue)
+  }
 
   return (
     <React.Fragment>
-      <EventListControls currentMode={mode} callback={mode => setMode(mode)}/>
-      <ul className="event-list">
+      <Tabs
+        value={mode}
+        onChange={handleTabChange}
+        indicatorColor="primary"
+        textColor="primary"
+        variant="fullWidth"
+        aria-label={'event list tabs'}
+        className={'toggle-btn-group'}
+      >
+        <Tab wrapped label={tabLabels[0]}/>
+        <Tab wrapped label={tabLabels[1]}/>
+      </Tabs>
+      <List className="event-list">
         {eventList.map((item, index) => {
-          const key = index.toString()
           return (
-            <EventListItem key={index} index={key} bind={item}/>
+            <ListItem key={index}>
+              <ListItemText
+                primary={item.name}
+                secondary={getDate(item.date)}
+              />
+              <ListItemSecondaryAction>
+                <a
+                  className="event-list-link"
+                  href={item.link}
+                  target="fb_link"
+                  aria-label={`${item.name} event link`}
+                >
+                  <LinkIcon/>
+                </a>
+              </ListItemSecondaryAction>
+            </ListItem>
           );
         })}
-      </ul>
+      </List>
     </React.Fragment>
   );
 };
 
-export default EvenList;
+EventList.propTypes = {
+  bind: PropTypes.array.isRequired,
+  callback: PropTypes.func.isRequired
+}
+
+export default EventList

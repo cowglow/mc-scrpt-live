@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "../../assets/images/logo-animation.gif";
+import logo from '../../images/logo-animation.gif'
 import "./header-component.styles.css";
 
 const HeaderComponent = () => {

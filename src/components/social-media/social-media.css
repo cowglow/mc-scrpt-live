@@ -10,23 +10,23 @@
 }
 
 .twitter {
-    -webkit-mask: url("../../assets/icons/fa-twitter.svg") no-repeat 50% 50%;
-    mask: url("../../assets/icons/fa-twitter.svg") no-repeat 50% 50%;
+  -webkit-mask: url("icons/fa-twitter.svg") no-repeat 50% 50%;
+  mask: url("icons/fa-twitter.svg") no-repeat 50% 50%;
 }
 
 .soundCloud {
-    -webkit-mask: url("../../assets/icons/fa-soundcloud.svg") no-repeat 50% 50%;
-    mask: url("../../assets/icons/fa-soundcloud.svg") no-repeat 50% 50%;
+  -webkit-mask: url("icons/fa-soundcloud.svg") no-repeat 50% 50%;
+  mask: url("icons/fa-soundcloud.svg") no-repeat 50% 50%;
 }
 
 .mixCloud {
-    -webkit-mask: url("../../assets/icons/fa-mixcloud.svg") no-repeat 50% 50%;
-    mask: url("../../assets/icons/fa-mixcloud.svg") no-repeat 50% 50%;
+  -webkit-mask: url("icons/fa-mixcloud.svg") no-repeat 50% 50%;
+  mask: url("icons/fa-mixcloud.svg") no-repeat 50% 50%;
 }
 
 .instagram {
-    -webkit-mask: url("../../assets/icons/fa-instagram.svg") no-repeat 50% 50%;
-    mask: url("../../assets/icons/fa-instagram.svg") no-repeat 50% 50%;
+  -webkit-mask: url("icons/fa-instagram.svg") no-repeat 50% 50%;
+  mask: url("icons/fa-instagram.svg") no-repeat 50% 50%;
 }
 
 @media only screen and (max-width: 990px) {
