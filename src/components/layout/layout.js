@@ -17,9 +17,6 @@ const Layout = ({ children }) => {
         {children}
         <FooterComponent>
           <SocialMedia/>
-          <Typography variant="h5" align="center" gutterBottom>
-            Philip Saa aka MC SCRPT
-          </Typography>
         </FooterComponent>
       </Container>
     </ThemeProvider>

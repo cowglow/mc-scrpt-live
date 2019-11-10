@@ -19,6 +19,9 @@ const FooterComponent = ({ children, classes }) => {
     <footer className={classes.root}>
       <Container maxWidth="lg">
         {children}
+        <Typography variant="h5" align="center" gutterBottom>
+          Philip Saa aka MC SCRPT
+        </Typography>
         <Typography variant="h6" align="center" gutterBottom>
           All Rights Reserved. &copy; {new Date().getFullYear()}
         </Typography>
