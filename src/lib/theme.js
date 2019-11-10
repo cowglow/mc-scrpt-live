@@ -12,13 +12,14 @@ const theme = createMuiTheme({
       main: '#FFFFFF'
     },
     background: {
-      paper: '#000000'
+      paper: '#FFFFFF',
+      default: '#000000'
     }
   },
   typography: {
     fontFamily: `"Press Start 2P", sans-serif`
   },
   base: {}
-})
+});
 
 export default theme

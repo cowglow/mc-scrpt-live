@@ -9,7 +9,7 @@ import { Title, Body } from './data/content'
 import ContactData from './data/contact'
 import SocialMedia from './components/social-media/social-media'
 
-import SocialMediaData from './data/links'
+import SocialMediaData from './data/social-media'
 import "./app.styles.css";
 
 const DEV_EVENTS_RESOURCE = 'fixture/dev_events-fixture.json'

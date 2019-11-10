@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core'
 
+import SocialMedia from '../social-media/social-media'
+
 const styles = theme => ({
   root: {
     border: 'thin solid red',
-    backgroundColor: theme.palette.background.paper,
-    marginTop: theme.spacing(8),
     color: theme.palette.light.main
   }
 })
@@ -18,7 +17,7 @@ const FooterComponent = ({ children, classes }) => {
   return (
     <footer className={classes.root}>
       <Container maxWidth="lg">
-        {children}
+        <SocialMedia/>
         <Typography variant="h5" align="center" gutterBottom>
           Philip Saa aka MC SCRPT
         </Typography>

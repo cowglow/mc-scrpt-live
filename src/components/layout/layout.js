@@ -1,26 +1,35 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { ThemeProvider } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core'
 
 import HeaderComponent from '../header-component/header-component'
 import FooterComponent from '../footer-component/footer-component'
-import SocialMedia from '../social-media/social-media'
 
 import theme from '../../lib/theme'
 
-const Layout = ({ children }) => {
+const styles = theme => ({
+  root: {
+    backgroundColor: theme.palette.background.default
+  }
+})
+
+const Layout = ({ children, classes }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth="md">
+      <Container classes={classes}>
         <HeaderComponent/>
         {children}
-        <FooterComponent>
-          <SocialMedia/>
-        </FooterComponent>
+        <FooterComponent/>
       </Container>
     </ThemeProvider>
-  )
+  );
+};
+
+Layout.propTypes = {
+  children: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 }
 
-export default Layout
+export default withStyles(styles)(Layout)
