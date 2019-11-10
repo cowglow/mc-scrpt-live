@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 
 import LinkIcon from '@material-ui/icons/Link'
-import { getDate } from '../../services/get-date'
+import { getDate } from '../../lib/get-date'
 
 import "./event-list.styles.css";
 

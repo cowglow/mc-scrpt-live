@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
 
-import HeaderComponent from './components/header-component/header-component'
-import { backgroundImage } from './services/background-image'
+import Layout from './components/layout/layout'
 import EventList from './components/event-list/event-list'
+
 import Contact from './components/contact/contact'
-
 import { Title, Body } from './data/content'
+
 import ContactData from './data/contact'
-
 import SocialMedia from './components/social-media/social-media'
-import SocialMediaData from './data/links'
 
+import SocialMediaData from './data/links'
 import "./app.styles.css";
 
 const DEV_EVENTS_RESOURCE = 'fixture/dev_events-fixture.json'
@@ -36,17 +35,16 @@ const App = () => {
 
   const eventHandler = data => {
     setEventHeader(data)
-  }
+  };
 
   if (loading) {
     return <div className="loader">Loading....</div>;
   } else {
     return (
-      <div className="app">
-        <header style={backgroundImage(2)}>
-          <HeaderComponent/>
-        </header>
-
+      <Layout>
+        {/*<header style={backgroundImage(2)}>*/}
+        {/*  <HeaderComponent />*/}
+        {/*</header>*/}
         <main>
           <section>
             <h1 className="section-header">{Title}</h1>
@@ -67,15 +65,7 @@ const App = () => {
             />
           </section>
         </main>
-
-        <footer>
-          <SocialMedia bind={SocialMediaData}/>
-          <h3>
-            Philip Saa <nobr>aka MC SCRPT</nobr>
-          </h3>
-          <small>All Rights Reserved. &copy; {new Date().getFullYear()}</small>
-        </footer>
-      </div>
+      </Layout>
     );
   }
 };
