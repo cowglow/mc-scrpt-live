@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import Grid from '@material-ui/core/IconButton'
+import Grid from '@material-ui/core/Grid'
 import IconButton from '@material-ui/core/IconButton'
 import { withStyles } from '@material-ui/core'
 
-import SocialMediaData from '../../data/social-media'
+import data from '../../data/social-media'
 
 import TwitterIcon from './icons/twitter-icon'
 import SoundcloudIcon from './icons/soundcloud-icon'
@@ -13,100 +13,102 @@ import InstagramIcon from './icons/instagram-icon'
 
 const styles = theme => ({
   root: {
-    color: 'red',
-    // backgroundColor: "red",
-    '& > svg': {
-      margin: theme.spacing(2)
-    }
+    border: 'thin solid red',
+    display: 'flex',
+    textAlign: 'center'
   },
-  iconHover: {},
   icon: {
+    border: 'thin solid green',
     fill: theme.palette.primary.main,
-    width: 512,
-    height: 512,
+    width: theme.spacing(12),
+    height: theme.spacing(12),
     '&:hover': {
-      color: theme.palette.secondary.main
+      fill: theme.palette.secondary.main
     }
   }
-})
+});
+
+const SocialMediaLink = ({ children, className, label, url }) => {
+  const goTo = url => {
+    // window.open(url);
+    console.log(url)
+  }
+
+  return (
+    <IconButton
+      className={className}
+      aria-label={label}
+      onClick={() => goTo(url)}
+    >
+      {children}
+    </IconButton>
+  )
+}
+
+SocialMediaLink.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired
+}
 
 const SocialMedia = ({ classes }) => {
   return (
     <Grid
       container
-      direciton="row"
-      justify="space-between"
-      alignItems="stretch"
       className={classes.root}
+      onClick={event => console.log(event.currentTarget)}
     >
-      {SocialMediaData.map((platform, index) => (
-        <Grid key={index} item sm={3}>
-          {/*<a href={platform.url} target="_blank">*/}
+      {data.map((platform, index) => (
+        <Grid key={index} item xm={12} sm={3}>
+          {
             {
-              {
-                Twitter: (
-                  <IconButton
-                    className={classes.icon}
-                    aria-label={platform.name}
-                  >
-                    <TwitterIcon/>
-                  </IconButton>
-                ),
-                SoundCloud: (
-                  <IconButton
-                    className={classes.icon}
-                    aria-label={platform.name}
-                  >
-                    <SoundcloudIcon/>
-                  </IconButton>
-                ),
-                MixCloud: (
-                  <IconButton
-                    className={classes.icon}
-                    aria-label={platform.name}
-                  >
-                    <MixcloudIcon/>
-                  </IconButton>
-                ),
-                Instagram: (
-                  <IconButton
-                    className={classes.icon}
-                    aria-label={platform.name}
-                  >
-                    <InstagramIcon/>
-                  </IconButton>
-                )
-              }[platform.name]
-            }
-          {/*</a>*/}
+              Twitter: (
+                <SocialMediaLink
+                  className={classes.icon}
+                  label={platform.name}
+                  url={platform.url}
+                >
+                  <TwitterIcon color={'primary'}/>
+                </SocialMediaLink>
+              ),
+              SoundCloud: (
+                <SocialMediaLink
+                  className={classes.icon}
+                  label={platform.name}
+                  url={platform.url}
+                >
+                  <SoundcloudIcon/>
+                </SocialMediaLink>
+              ),
+              MixCloud: (
+                <SocialMediaLink
+                  className={classes.icon}
+                  label={platform.name}
+                  url={platform.url}
+                >
+                  <MixcloudIcon/>
+                </SocialMediaLink>
+              ),
+              Instagram: (
+                <SocialMediaLink
+                  className={classes.icon}
+                  label={platform.name}
+                  url={platform.url}
+                >
+                  <InstagramIcon/>
+                </SocialMediaLink>
+              )
+            }[platform.name]
+          }
         </Grid>
       ))}
     </Grid>
   );
-
-  // return (
-  //   <ul>
-  //     {SocialMediaData.map((platform, index) => (
-  //       <li key={index}>
-  //         <a href={platform.url} target="_blank">
-  //           {
-  //             {
-  //               Twitter: <span className={[classes.icon, classes.twitter].join(' ')} />
-  //               // Twitter: <span className="icon twitter" />,
-  //               // SoundCloud: <span className="icon soundCloud" />,
-  //               // MixCloud: <span className="icon mixCloud" />,
-  //               // Instagram: <span className="icon instagram" />
-  //             }[platform.name]
-  //           }
-  //         </a>
-  //       </li>
-  //     ))}
-  //   </ul>
-  // );
 };
 
 SocialMedia.propTypes = {
   classes: PropTypes.object.isRequired
-}
+};
 
 export default withStyles(styles)(SocialMedia)

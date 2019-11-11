@@ -13,7 +13,7 @@ import ReactDOM from "react-dom";
 import App from './app'
 
 /** Styles */
-import './index.styles.css'
+import './styles.css'
 
 // import registerServiceWorker from './registerServiceWorker';
 

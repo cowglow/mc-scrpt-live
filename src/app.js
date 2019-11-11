@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
 
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+
 import Layout from './components/layout/layout'
 import EventList from './components/event-list/event-list'
 
 import Contact from './components/contact/contact'
-import { Title, Body } from './data/content'
+import Section from './components/section/section'
+
+import { title, descText } from './data/content'
 
 import ContactData from './data/contact'
-import SocialMedia from './components/social-media/social-media'
-
-import SocialMediaData from './data/social-media'
-import "./app.styles.css";
 
 const DEV_EVENTS_RESOURCE = 'fixture/dev_events-fixture.json'
 
@@ -42,29 +43,27 @@ const App = () => {
   } else {
     return (
       <Layout>
-        {/*<header style={backgroundImage(2)}>*/}
-        {/*  <HeaderComponent />*/}
-        {/*</header>*/}
-        <main>
-          <section>
-            <h1 className="section-header">{Title}</h1>
-            <span>{Body}</span>
-          </section>
-
-          <section>
-            <h1 className="section-header">{eventHeader}</h1>
-            <EventList bind={events} callback={eventHandler}/>
-          </section>
-
-          <section>
-            <h1 className="section-header">Hit me up!</h1>
-            <Contact
-              label={ContactData.label}
-              link={ContactData.link}
-              text={ContactData.text}
-            />
-          </section>
-        </main>
+        <Grid container>
+          <Grid item xs={4}>
+            <Section headerLabel={title}>
+              <Typography variant={'body1'}>{descText}</Typography>
+            </Section>
+          </Grid>
+          <Grid item xs={4}>
+            <Section headerLabel={eventHeader}>
+              <EventList bind={events} callback={eventHandler}/>
+            </Section>
+          </Grid>
+          <Grid item xs={4}>
+            <Section headerLabel={'Hit me up!'}>
+              <Contact
+                label={ContactData.label}
+                link={ContactData.link}
+                text={ContactData.text}
+              />
+            </Section>
+          </Grid>
+        </Grid>
       </Layout>
     );
   }

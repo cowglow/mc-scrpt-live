@@ -21,13 +21,9 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
-    position: relative;
     font-family: "Share Tech Mono", monospace, sans-serif;
     font-size: 1.2em;
-  /*background-color: #090909;*/
-  display: flex;
-  justify-content: center;
+  background-color: purple;
 }
 
 /*a:link,*/
