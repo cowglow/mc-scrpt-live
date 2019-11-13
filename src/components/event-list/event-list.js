@@ -7,13 +7,30 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
-
+import withStyles from '@material-ui/core/styles/withStyles'
 import LinkIcon from '@material-ui/icons/Link'
+
 import { getDate } from '../../lib/get-date'
+import { purple } from '@material-ui/core/colors'
 
-import "./event-list.styles.css";
+// import "./event-list.styles.css";
 
-const EventList = ({ bind, callback }) => {
+const styles = theme => ({
+  root: {
+    border: 'thin solid ' + theme.palette.primary.main
+  },
+  list: {
+    color: theme.palette.primary.main
+  },
+  listItem: {
+    color: theme.palette.primary.main
+  },
+  link: {
+    color: theme.palette.primary.main
+  }
+})
+
+const EventList = ({ classes, bind, callback }) => {
   const currentTimestamp = Date.now()
   const [mode, setMode] = React.useState(0)
   const tabLabels = ['Upcoming Shows', 'Previews Shows']
@@ -34,23 +51,28 @@ const EventList = ({ bind, callback }) => {
   const handleTabChange = (event, newValue) => {
     callback(tabLabels[newValue])
     setMode(newValue)
-  }
+  };
 
   return (
     <React.Fragment>
-      <Tabs
-        value={mode}
-        onChange={handleTabChange}
-        indicatorColor="primary"
-        textColor="primary"
-        variant="fullWidth"
-        aria-label={'event list tabs'}
-        className={'toggle-btn-group'}
-      >
-        <Tab wrapped label={tabLabels[0]}/>
-        <Tab wrapped label={tabLabels[1]}/>
-      </Tabs>
-      <List className="event-list">
+      {upcomingEvents.length > 0 ? (
+        <Tabs
+          value={mode}
+          onChange={handleTabChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="fullWidth"
+          aria-label={'event list tabs'}
+          className={'toggle-btn-group'}
+          classes={{
+            root: classes.root
+          }}
+        >
+          <Tab wrapped label={tabLabels[0]}/>
+          <Tab wrapped label={tabLabels[1]}/>
+        </Tabs>
+      ) : null}
+      <List className={classes.list}>
         {eventList.map((item, index) => {
           return (
             <ListItem key={index}>
@@ -60,7 +82,7 @@ const EventList = ({ bind, callback }) => {
               />
               <ListItemSecondaryAction>
                 <a
-                  className="event-list-link"
+                  className={classes.link}
                   href={item.link}
                   target="fb_link"
                   aria-label={`${item.name} event link`}
@@ -77,8 +99,9 @@ const EventList = ({ bind, callback }) => {
 };
 
 EventList.propTypes = {
+  classeS: PropTypes.object.isRequired,
   bind: PropTypes.array.isRequired,
   callback: PropTypes.func.isRequired
-}
+};
 
-export default EventList
+export default withStyles(styles)(EventList)

@@ -6,12 +6,13 @@ import withStyles from '@material-ui/core/styles/withStyles'
 const styles = theme => ({
   root: {
     border: 'thin solid green',
-    // backgroundColor: theme.palette.primary.main
+    // backgroundColor: theme.palette.primary.main,
     padding: theme.spacing(2),
     flexGrow: 1,
     display: 'flex',
     flexDirection: 'column',
-    width: '100%'
+    width: '100%',
+    height: '100%'
   },
   header: {
     padding: theme.spacing(2),
