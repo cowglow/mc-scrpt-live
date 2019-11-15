@@ -8,8 +8,9 @@ import SocialMedia from '../social-media/social-media'
 
 const styles = theme => ({
   root: {
-    border: 'thin solid red',
-    color: theme.palette.light.main
+    // border: 'thin solid red',
+    color: theme.palette.light.main,
+    padding: theme.spacing(4)
   }
 });
 
@@ -20,7 +21,9 @@ const FooterComponent = ({ classes }) => {
         <Typography variant="h5" align="center" gutterBottom>
           Philip Saa aka MC SCRPT
         </Typography>
-        <SocialMedia/>
+        <Container maxWidth={'sm'} style={{ border: 'thin solid red' }}>
+          <SocialMedia/>
+        </Container>
         <Typography variant="h6" align="center" gutterBottom>
           All Rights Reserved. &copy; {new Date().getFullYear()}
         </Typography>

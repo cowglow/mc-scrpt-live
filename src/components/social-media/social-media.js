@@ -13,17 +13,19 @@ import InstagramIcon from './icons/instagram-icon'
 
 const styles = theme => ({
   root: {
-    border: 'thin solid red',
-    display: 'flex',
-    textAlign: 'center'
+    textAlign: 'center',
+    padding: theme.spacing(4)
   },
   icon: {
-    border: 'thin solid green',
     fill: theme.palette.primary.main,
     width: theme.spacing(12),
     height: theme.spacing(12),
     '&:hover': {
       fill: theme.palette.secondary.main
+    },
+    [theme.breakpoints.down('md')]: {
+      width: theme.spacing(10),
+      height: theme.spacing(10)
     }
   }
 });
@@ -32,7 +34,7 @@ const SocialMediaLink = ({ children, className, label, url }) => {
   const goTo = url => {
     // window.open(url);
     console.log(url)
-  }
+  };
 
   return (
     <IconButton
@@ -42,25 +44,26 @@ const SocialMediaLink = ({ children, className, label, url }) => {
     >
       {children}
     </IconButton>
-  )
-}
+  );
+};
 
 SocialMediaLink.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired
-}
+};
 
 const SocialMedia = ({ classes }) => {
   return (
     <Grid
       container
+      justify={'center'}
       className={classes.root}
       onClick={event => console.log(event.currentTarget)}
     >
       {data.map((platform, index) => (
-        <Grid key={index} item xm={12} sm={3}>
+        <Grid key={index} item>
           {
             {
               Twitter: (
