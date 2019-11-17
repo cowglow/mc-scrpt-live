@@ -1,16 +1,31 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
-const Contact = ({label, link, text}) => {
-    return (
-        <span>
-      <p className="text-justify">
-        {text}{" "}
-          <a href={link} target="_twitter">
-          {label}
-        </a>
-      </p>
-    </span>
-    );
-};
+import withStyles from '@material-ui/core/styles/withStyles'
 
-export default Contact;
+const styles = theme => ({
+  root: {},
+  link: {
+    color: theme.palette.primary.main
+  }
+})
+
+const Contact = ({ classes, label, link, text }) => {
+  return (
+    <p className="text-justify">
+      {text}{' '}
+      <a href={link} target="_twitter" className={classes.link}>
+        {label}
+      </a>
+    </p>
+  )
+}
+
+Contact.propTypes = {
+  classes: PropTypes.object.isRequired,
+  label: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
+}
+
+export default withStyles(styles)(Contact)

@@ -5,24 +5,22 @@ import Typography from '@material-ui/core/Typography'
 
 import Layout from './components/layout/layout'
 import EventList from './components/event-list/event-list'
-
 import Contact from './components/contact/contact'
 import Section from './components/section/section'
 
 import { title, descText } from './data/content'
 
-import ContactData from './data/contact'
+import { label, link, text } from './data/contact'
 
 const DEV_EVENTS_RESOURCE = 'fixture/dev_events-fixture.json'
 
-const EVENTS_RESOURCE =
-  'https://script.google.com/macros/s/AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK/exec';
+const EVENTS_RESOURCE = 'https://' + process.env.GAS_URL + '/' + process.env.GAS_PRODUCT + '/exec'
 const EVENT_API =
   document.domain === 'localhost' ? DEV_EVENTS_RESOURCE : EVENTS_RESOURCE;
 
 const App = () => {
   const [loading, isLoading] = useState(true);
-  const [eventHeader, setEventHeader] = useState('Upcoming Shows')
+  const [eventHeader, setEventHeader] = useState('Catch me live!')
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -44,23 +42,19 @@ const App = () => {
     return (
       <Layout>
         <Grid container>
-          <Grid item xs={4}>
+          <Grid item sm={12} md={12} lg={4} style={{ width: '100%' }}>
             <Section headerLabel={title}>
               <Typography variant={'body1'}>{descText}</Typography>
             </Section>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item sm={12} md={12} lg={4} style={{ width: '100%' }}>
             <Section headerLabel={eventHeader}>
               <EventList bind={events} callback={eventHandler}/>
             </Section>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item sm={12} md={12} lg={4} style={{ width: '100%' }}>
             <Section headerLabel={'Hit me up!'}>
-              <Contact
-                label={ContactData.label}
-                link={ContactData.link}
-                text={ContactData.text}
-              />
+              <Contact label={label} link={link} text={text}/>
             </Section>
           </Grid>
         </Grid>

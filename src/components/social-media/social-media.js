@@ -14,28 +14,27 @@ import InstagramIcon from './icons/instagram-icon'
 const styles = theme => ({
   root: {
     textAlign: 'center',
-    padding: theme.spacing(4)
+    padding: theme.spacing(1)
   },
   icon: {
     fill: theme.palette.primary.main,
     width: theme.spacing(12),
     height: theme.spacing(12),
-    '&:hover': {
-      fill: theme.palette.secondary.main
-    },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.only('sm')]: {
       width: theme.spacing(10),
       height: theme.spacing(10)
+    },
+    [theme.breakpoints.only('xs')]: {
+      width: theme.spacing(6),
+      height: theme.spacing(6)
     }
   }
 });
 
 const SocialMediaLink = ({ children, className, label, url }) => {
   const goTo = url => {
-    // window.open(url);
-    console.log(url)
+    window.open(url)
   };
-
   return (
     <IconButton
       className={className}
