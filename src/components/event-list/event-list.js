@@ -5,15 +5,41 @@ import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
+import withStyles from '@material-ui/core/styles/withStyles'
 
 import LinkIcon from '@material-ui/icons/Link'
-import { getDate } from '../../services/get-date'
+import { getDate } from '../../lib/get-date'
 
-import "./event-list.styles.css";
+const styles = theme => ({
+  tabs: {
+    border: 'thin solid ' + theme.palette.primary.main,
+    marginBottom: theme.spacing(2)
+  },
+  tab: {
+    fontSize: 10
+  },
+  list: {
+    color: theme.palette.primary.main,
+    position: 'relative',
+    overflow: 'auto',
+    [theme.breakpoints.up('md')]: {
+      maxHeight: 187
+    },
+    [theme.breakpoints.up('sm')]: {
+      maxHeight: 420
+    }
+  },
+  listItem: {
+    color: theme.palette.primary.main
+  },
+  link: {
+    color: theme.palette.primary.main
+  }
+});
 
-const EventList = ({ bind, callback }) => {
+const EventList = ({ classes, bind, callback }) => {
   const currentTimestamp = Date.now()
   const [mode, setMode] = React.useState(0)
   const tabLabels = ['Upcoming Shows', 'Previews Shows']
@@ -34,40 +60,48 @@ const EventList = ({ bind, callback }) => {
   const handleTabChange = (event, newValue) => {
     callback(tabLabels[newValue])
     setMode(newValue)
-  }
+  };
+
+  const handleListItemClick = eventLink => {
+    setTimeout(() => {
+      window.open(eventLink, 'fb_link')
+    }, 800)
+  };
 
   return (
     <React.Fragment>
-      <Tabs
-        value={mode}
-        onChange={handleTabChange}
-        indicatorColor="primary"
-        textColor="primary"
-        variant="fullWidth"
-        aria-label={'event list tabs'}
-        className={'toggle-btn-group'}
-      >
-        <Tab wrapped label={tabLabels[0]}/>
-        <Tab wrapped label={tabLabels[1]}/>
-      </Tabs>
-      <List className="event-list">
+      {upcomingEvents.length > 0 ? (
+        <Tabs
+          value={mode}
+          centered={true}
+          onChange={handleTabChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="fullWidth"
+          aria-label={'event list tabs'}
+          className={classes.tabs}
+        >
+          <Tab wrapped label={tabLabels[0]} className={classes.tab}/>
+          <Tab wrapped label={tabLabels[1]} className={classes.tab}/>
+        </Tabs>
+      ) : null}
+      <List className={classes.list}>
         {eventList.map((item, index) => {
+          const link = item.link
           return (
-            <ListItem key={index}>
+            <ListItem
+              key={index}
+              button
+              onClick={() => handleListItemClick(link)}
+              aria-label={`${item.name} event link`}
+            >
+              <ListItemIcon>
+                <LinkIcon color={'primary'}/>
+              </ListItemIcon>
               <ListItemText
                 primary={item.name}
                 secondary={getDate(item.date)}
               />
-              <ListItemSecondaryAction>
-                <a
-                  className="event-list-link"
-                  href={item.link}
-                  target="fb_link"
-                  aria-label={`${item.name} event link`}
-                >
-                  <LinkIcon/>
-                </a>
-              </ListItemSecondaryAction>
             </ListItem>
           );
         })}
@@ -77,8 +111,9 @@ const EventList = ({ bind, callback }) => {
 };
 
 EventList.propTypes = {
+  classes: PropTypes.object.isRequired,
   bind: PropTypes.array.isRequired,
   callback: PropTypes.func.isRequired
-}
+};
 
-export default EventList
+export default withStyles(styles)(EventList)
