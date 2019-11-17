@@ -14,7 +14,8 @@ import { label, link, text } from './data/contact'
 
 const DEV_EVENTS_RESOURCE = 'fixture/dev_events-fixture.json'
 
-const EVENTS_RESOURCE = 'https://' + process.env.GAS_URL + '/' + process.env.GAS_PRODUCT + '/exec'
+const EVENTS_RESOURCE =
+  'https://' + process.env.GAS_URL + '/' + process.env.GAS_PRODUCT + '/exec'
 const EVENT_API =
   document.domain === 'localhost' ? DEV_EVENTS_RESOURCE : EVENTS_RESOURCE;
 
@@ -37,7 +38,24 @@ const App = () => {
   };
 
   if (loading) {
-    return <div className="loader">Loading....</div>;
+    return (
+      <div
+        style={{
+          color: 'red',
+          backgroundColor: 'black',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          display: 'inline-flex',
+          '-ms-flex-align': 'center',
+          alignItems: 'center',
+          '-ms-flex-pack': 'center',
+          justifyContent: 'center'
+        }}
+      >
+        Loading....
+      </div>
+    )
   } else {
     return (
       <Layout>
