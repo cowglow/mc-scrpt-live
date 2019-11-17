@@ -1,11 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ThemeProvider } from '@material-ui/core/styles'
+
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
-import { withStyles } from '@material-ui/core'
-
-import theme from '../../lib/theme'
+import withStyles from '@material-ui/core/styles/withStyles'
 
 import HeaderComponent from '../header-component/header-component'
 import FooterComponent from '../footer-component/footer-component'
@@ -40,7 +38,7 @@ const styles = theme => ({
 
 const Layout = ({ children, classes }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <React.Fragment>
       <Grid container className={classes.header}>
         <Container>
           <HeaderComponent/>
@@ -52,7 +50,7 @@ const Layout = ({ children, classes }) => {
       <Grid className={classes.footer}>
         <FooterComponent/>
       </Grid>
-    </ThemeProvider>
+    </React.Fragment>
   );
 };
 
@@ -61,4 +59,4 @@ Layout.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles(theme))(Layout)
+export default withStyles(styles)(Layout)
