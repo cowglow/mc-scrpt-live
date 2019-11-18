@@ -3,26 +3,25 @@
   box-sizing: border-box;
 }
 
-
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Share Tech Mono", monospace, sans-serif;
   font-size: 1.2em;
   background-color: #ffffff;
 }
 
-/*!** Fonts **!*/
+/*
 @font-face {
   font-family: "Press Start 2P";
   font-weight: 400;
   src: local("Press Start 2P"), local("PressStart2P"),
-    url("fonts/PressStart2P-Regular.woff2") format("woff2");
+    url("../src/fonts/PressStart2P-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Share Tech Mono";
   src: local("Share Tech Mono"), local("ShareTechMono"),
-    url("fonts/ShareTechMono-Regular.woff2") format("woff2");
+    url("../src/fonts/ShareTechMono-Regular.woff2") format("woff2");
 }
+*/

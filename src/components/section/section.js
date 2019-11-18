@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import Typography from '@material-ui/core/Typography'
 import withStyles from '@material-ui/core/styles/withStyles'
 
@@ -39,7 +40,7 @@ const Section = ({ children, classes, headerLabel }) => {
 Section.propTypes = {
   children: PropTypes.node.isRequired,
   classes: PropTypes.object.isRequired,
-  headerLabel: PropTypes.style
+  // headerLabel: PropTypes.style
 };
 
 export default withStyles(styles)(Section)

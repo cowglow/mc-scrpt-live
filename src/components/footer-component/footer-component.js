@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
+import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core'
@@ -27,34 +29,41 @@ const styles = theme => ({
     [theme.breakpoints.only('xs')]: {
       fontSize: 12
     }
+  },
+  footer: {
+    paddingTop: theme.spacing(6),
+    paddingBottom: theme.spacing(6),
+    backgroundColor: theme.palette.background.default
   }
 });
 
 const FooterComponent = ({ classes }) => {
   return (
-    <footer className={classes.root}>
-      <Container maxWidth="lg">
-        <Typography
-          variant="h5"
-          align="center"
-          gutterBottom
-          className={classes.fontSizeControl}
-        >
-          Philip Saa aka MC SCRPT
-        </Typography>
-        <Container maxWidth={'sm'}>
-          <SocialMedia/>
+    <Grid className={classes.footer}>
+      <footer className={classes.root}>
+        <Container maxWidth="lg">
+          <Typography
+            variant="h5"
+            align="center"
+            gutterBottom
+            className={classes.fontSizeControl}
+          >
+            Philip Saa aka MC SCRPT
+          </Typography>
+          <Container maxWidth={'sm'}>
+            <SocialMedia/>
+          </Container>
+          <Typography
+            variant="h6"
+            align="center"
+            gutterBottom
+            className={classes.fontSizeControl}
+          >
+            All Rights Reserved. &copy; {new Date().getFullYear()}
+          </Typography>
         </Container>
-        <Typography
-          variant="h6"
-          align="center"
-          gutterBottom
-          className={classes.fontSizeControl}
-        >
-          All Rights Reserved. &copy; {new Date().getFullYear()}
-        </Typography>
-      </Container>
-    </footer>
+      </footer>
+    </Grid>
   );
 };
 
