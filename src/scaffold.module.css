@@ -11,17 +11,15 @@ body {
   background-color: #ffffff;
 }
 
-/*
 @font-face {
   font-family: "Press Start 2P";
   font-weight: 400;
   src: local("Press Start 2P"), local("PressStart2P"),
-    url("../src/fonts/PressStart2P-Regular.woff2") format("woff2");
+    url("fonts/PressStart2P-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Share Tech Mono";
   src: local("Share Tech Mono"), local("ShareTechMono"),
-    url("../src/fonts/ShareTechMono-Regular.woff2") format("woff2");
+    url("fonts/ShareTechMono-Regular.woff2") format("woff2");
 }
-*/
