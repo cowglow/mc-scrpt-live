@@ -1,30 +1,30 @@
 import React from "react";
-import PropTypes from 'prop-types'
-import Grid from '@material-ui/core/Grid'
-import IconButton from '@material-ui/core/IconButton'
-import withStyles from '@material-ui/core/styles/withStyles'
+import PropTypes from "prop-types";
+import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-import data from '../../data/social-media'
+import data from "../../data/social-media";
 
-import TwitterIcon from './icons/twitter-icon'
-import SoundcloudIcon from './icons/soundcloud-icon'
-import MixcloudIcon from './icons/mixcloud-icon'
-import InstagramIcon from './icons/instagram-icon'
+import TwitterIcon from "./icons/twitter-icon";
+import SoundcloudIcon from "./icons/soundcloud-icon";
+import MixcloudIcon from "./icons/mixcloud-icon";
+import InstagramIcon from "./icons/instagram-icon";
 
 const styles = theme => ({
   root: {
-    textAlign: 'center',
+    textAlign: "center",
     padding: theme.spacing(1)
   },
   icon: {
     fill: theme.palette.primary.main,
     width: theme.spacing(12),
     height: theme.spacing(12),
-    [theme.breakpoints.only('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       width: theme.spacing(10),
       height: theme.spacing(10)
     },
-    [theme.breakpoints.only('xs')]: {
+    [theme.breakpoints.down("sm")]: {
       width: theme.spacing(6),
       height: theme.spacing(6)
     }
@@ -33,7 +33,7 @@ const styles = theme => ({
 
 const SocialMediaLink = ({ children, className, label, url }) => {
   const goTo = url => {
-    window.open(url)
+    window.open(url);
   };
   return (
     <IconButton
@@ -57,7 +57,7 @@ const SocialMedia = ({ classes }) => {
   return (
     <Grid
       container
-      justify={'center'}
+      justify={"center"}
       className={classes.root}
       onClick={event => console.log(event.currentTarget)}
     >
@@ -71,7 +71,7 @@ const SocialMedia = ({ classes }) => {
                   label={platform.name}
                   url={platform.url}
                 >
-                  <TwitterIcon color={'primary'}/>
+                  <TwitterIcon color={"primary"} />
                 </SocialMediaLink>
               ),
               SoundCloud: (
@@ -80,7 +80,7 @@ const SocialMedia = ({ classes }) => {
                   label={platform.name}
                   url={platform.url}
                 >
-                  <SoundcloudIcon/>
+                  <SoundcloudIcon />
                 </SocialMediaLink>
               ),
               MixCloud: (
@@ -89,7 +89,7 @@ const SocialMedia = ({ classes }) => {
                   label={platform.name}
                   url={platform.url}
                 >
-                  <MixcloudIcon/>
+                  <MixcloudIcon />
                 </SocialMediaLink>
               ),
               Instagram: (
@@ -98,7 +98,7 @@ const SocialMedia = ({ classes }) => {
                   label={platform.name}
                   url={platform.url}
                 >
-                  <InstagramIcon/>
+                  <InstagramIcon />
                 </SocialMediaLink>
               )
             }[platform.name]
@@ -113,4 +113,4 @@ SocialMedia.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(SocialMedia)
+export default withStyles(styles)(SocialMedia);

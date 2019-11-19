@@ -1,9 +1,9 @@
 export const getApiUri = () => {
-  const DEV_EVENTS_RESOURCE = 'fixture/dev_events-fixture.json'
-  const EVENTS_RESOURCE =
-    'https://' + process.env.GAS_URL + '/' + process.env.GAS_PRODUCT + '/exec'
+  const GAS_URL = "script.google.com/macros/s/";
+  const GAS_PRODUCT =
+    "AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK";
 
-  return document.domain === 'localhost'
-    ? DEV_EVENTS_RESOURCE
-    : EVENTS_RESOURCE
-}
+  return document.domain === "localhost"
+    ? "fixture/dev_events-fixture.json"
+    : "https://" + GAS_URL + "/" + GAS_PRODUCT + "/exec";
+};

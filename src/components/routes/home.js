@@ -13,6 +13,7 @@ import { descText, title } from "../../data/content";
 import { label, link, text } from "../../data/contact";
 
 import { getApiUri } from "../../lib/get-api-uri";
+import { Container } from "@material-ui/core";
 
 const styles = theme => ({
   main: {
@@ -40,23 +41,25 @@ const Home = ({ onLoaded }) => {
   };
 
   return (
-    <Grid container>
-      <Grid item sm={12} md={12} lg={4} style={{ width: "100%" }}>
-        <Section headerLabel={title}>
-          <Typography variant={"body1"}>{descText}</Typography>
-        </Section>
+    <Container>
+      <Grid container>
+        <Grid item sm={12} md={12} lg={4} style={{ width: "100%" }}>
+          <Section headerLabel={title}>
+            <Typography variant={"body1"}>{descText}</Typography>
+          </Section>
+        </Grid>
+        <Grid item sm={12} md={12} lg={4} style={{ width: "100%" }}>
+          <Section headerLabel={eventHeader}>
+            <EventList bind={events} callback={eventHandler} />
+          </Section>
+        </Grid>
+        <Grid item sm={12} md={12} lg={4} style={{ width: "100%" }}>
+          <Section headerLabel={"Hit me up!"}>
+            <Contact label={label} link={link} text={text} />
+          </Section>
+        </Grid>
       </Grid>
-      <Grid item sm={12} md={12} lg={4} style={{ width: "100%" }}>
-        <Section headerLabel={eventHeader}>
-          <EventList bind={events} callback={eventHandler} />
-        </Section>
-      </Grid>
-      <Grid item sm={12} md={12} lg={4} style={{ width: "100%" }}>
-        <Section headerLabel={"Hit me up!"}>
-          <Contact label={label} link={link} text={text} />
-        </Section>
-      </Grid>
-    </Grid>
+    </Container>
   );
 };
 
