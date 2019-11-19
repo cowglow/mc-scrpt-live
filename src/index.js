@@ -5,13 +5,12 @@
  * @licence http://opensource.org/licenses/MIT The MIT License (MIT)
  */
 
-/** Imports */
 import React from "react";
 import ReactDOM from "react-dom";
 
-/** Components */
-import App from './app'
+import "./scaffold.module.css";
+import App from "./app";
 
 // import registerServiceWorker from './registerServiceWorker';
-ReactDOM.render(<App/>, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 // registerServiceWorker();
