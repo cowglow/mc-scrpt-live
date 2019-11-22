@@ -1,71 +1,43 @@
 import React from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import withStyles from '@material-ui/core/styles/withStyles'
-
-import LinkIcon from '@material-ui/icons/Link'
-import { getDate } from '../../lib/get-date'
-
-const styles = theme => ({
-  tabs: {
-    border: 'thin solid ' + theme.palette.primary.main,
-    marginBottom: theme.spacing(2)
-  },
-  tab: {
-    fontSize: 10
-  },
-  list: {
-    color: theme.palette.primary.main,
-    position: 'relative',
-    overflow: 'auto',
-    [theme.breakpoints.up('md')]: {
-      maxHeight: 187
-    },
-    [theme.breakpoints.up('sm')]: {
-      maxHeight: 420
-    }
-  },
-  listItem: {
-    color: theme.palette.primary.main
-  },
-  link: {
-    color: theme.palette.primary.main
-  }
-});
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import LinkIcon from "@material-ui/icons/Link";
+import { getDate } from "../../lib/get-date";
+import addStyling from './event-list.styles'
 
 const EventList = ({ classes, bind, callback }) => {
-  const currentTimestamp = Date.now()
-  const [mode, setMode] = React.useState(0)
-  const tabLabels = ['Upcoming Shows', 'Previews Shows']
+  const currentTimestamp = Date.now();
+  const [mode, setMode] = React.useState(0);
+  const tabLabels = ["Upcoming Shows", "Previews Shows"];
 
   const pastEvents = bind.filter(item => {
-    const eventDate = Date.parse(item.eventDate)
-    return eventDate < currentTimestamp
+    const eventDate = Date.parse(item.eventDate);
+    return eventDate < currentTimestamp;
   });
 
   const upcomingEvents = bind.filter(item => {
-    const eventDate = Date.parse(item.eventDate)
-    return eventDate > currentTimestamp
+    const eventDate = Date.parse(item.eventDate);
+    return eventDate > currentTimestamp;
   });
 
-  const filterEvents = mode === 0 ? upcomingEvents : pastEvents
-  const eventList = filterEvents.length <= 0 ? bind : filterEvents
+  const filterEvents = mode === 0 ? upcomingEvents : pastEvents;
+  const eventList = filterEvents.length <= 0 ? bind : filterEvents;
 
   const handleTabChange = (event, newValue) => {
-    callback(tabLabels[newValue])
-    setMode(newValue)
+    callback(tabLabels[newValue]);
+    setMode(newValue);
   };
 
   const handleListItemClick = eventLink => {
     setTimeout(() => {
-      window.open(eventLink, 'fb_link')
-    }, 800)
+      window.open(eventLink, "fb_link");
+    }, 800);
   };
 
   return (
@@ -78,16 +50,16 @@ const EventList = ({ classes, bind, callback }) => {
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth"
-          aria-label={'event list tabs'}
+          aria-label={"event list tabs"}
           className={classes.tabs}
         >
-          <Tab wrapped label={tabLabels[0]} className={classes.tab}/>
-          <Tab wrapped label={tabLabels[1]} className={classes.tab}/>
+          <Tab wrapped label={tabLabels[0]} className={classes.tab} />
+          <Tab wrapped label={tabLabels[1]} className={classes.tab} />
         </Tabs>
       ) : null}
       <List className={classes.list}>
         {eventList.map((item, index) => {
-          const link = item.eventLink
+          const link = item.eventLink;
           return (
             <ListItem
               key={index}
@@ -96,7 +68,7 @@ const EventList = ({ classes, bind, callback }) => {
               aria-label={`${item.eventName} event link`}
             >
               <ListItemIcon>
-                <LinkIcon color={'primary'}/>
+                <LinkIcon color={"primary"} />
               </ListItemIcon>
               <ListItemText
                 primary={item.eventName}
@@ -116,4 +88,4 @@ EventList.propTypes = {
   callback: PropTypes.func.isRequired
 };
 
-export default withStyles(styles)(EventList)
+export default addStyling(EventList);

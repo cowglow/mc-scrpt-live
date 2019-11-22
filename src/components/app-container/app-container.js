@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Loader from '../loader/loader'
 import Layout from "../layout/layout";
-import Home from "../routes/home";
-import Booking from '../routes/booking'
+import Home from "../routes/home/home";
+import Booking from '../routes/booking/booking'
 
 const AppContainer = () => {
   const [loading, uploaded] = useState(true);
