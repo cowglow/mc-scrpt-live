@@ -45,12 +45,12 @@ const EventList = ({ classes, bind, callback }) => {
   const tabLabels = ['Upcoming Shows', 'Previews Shows']
 
   const pastEvents = bind.filter(item => {
-    const eventDate = Date.parse(item.date)
+    const eventDate = Date.parse(item.eventDate)
     return eventDate < currentTimestamp
   });
 
   const upcomingEvents = bind.filter(item => {
-    const eventDate = Date.parse(item.date)
+    const eventDate = Date.parse(item.eventDate)
     return eventDate > currentTimestamp
   });
 
@@ -87,20 +87,20 @@ const EventList = ({ classes, bind, callback }) => {
       ) : null}
       <List className={classes.list}>
         {eventList.map((item, index) => {
-          const link = item.link
+          const link = item.eventLink
           return (
             <ListItem
               key={index}
               button
               onClick={() => handleListItemClick(link)}
-              aria-label={`${item.name} event link`}
+              aria-label={`${item.eventName} event link`}
             >
               <ListItemIcon>
                 <LinkIcon color={'primary'}/>
               </ListItemIcon>
               <ListItemText
-                primary={item.name}
-                secondary={getDate(item.date)}
+                primary={item.eventName}
+                secondary={getDate(item.eventDate)}
               />
             </ListItem>
           );

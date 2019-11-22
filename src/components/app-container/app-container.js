@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import Loader from '../loader/loader'
 import Layout from "../layout/layout";
-import Loader from "../loader/loader";
 import Home from "../routes/home";
+import Booking from '../routes/booking'
 
 const AppContainer = () => {
   const [loading, uploaded] = useState(true);
@@ -14,7 +14,9 @@ const AppContainer = () => {
       <Layout>
         <Router>
           <Switch>
-            <Router path="/booking">artist-booking-contract</Router>
+            <Router path="/booking">
+              <Booking onLoaded={value => uploaded(value)}/>
+            </Router>
             <Route path="/">
               <Home onLoaded={value => uploaded(value)} />
             </Route>
