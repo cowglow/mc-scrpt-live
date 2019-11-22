@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
+import Container  from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 import Section from "../section/section";
 import EventList from "../event-list/event-list";
-import Contact from "../contact/contact";
 
 import { descText, title } from "../../data/content";
 import { label, link, text } from "../../data/contact";
 
 import { getApiUri } from "../../lib/get-api-uri";
-import { Container } from "@material-ui/core";
 
 const styles = theme => ({
   main: {
     backgroundColor: theme.palette.background.paper
+  },
+  divider: {
+    padding: theme.spacing(2)
   }
 });
 
@@ -32,7 +34,7 @@ const Home = ({ onLoaded }) => {
       .then(response => response.json())
       .then(data => {
         onLoaded(false);
-        setEvents(data.Events);
+        setEvents(data.Events.reverse());
       });
   }, []);
 
@@ -46,16 +48,18 @@ const Home = ({ onLoaded }) => {
         <Grid item sm={12} md={12} lg={4} style={{ width: "100%" }}>
           <Section headerLabel={title}>
             <Typography variant={"body1"}>{descText}</Typography>
+            <br/>
+            <Typography variant={'body1'}>
+              {text}
+              <a href={link} target="_twitter" className={{}}>
+                {label}
+              </a>
+            </Typography>
           </Section>
         </Grid>
-        <Grid item sm={12} md={12} lg={4} style={{ width: "100%" }}>
+        <Grid item sm={12} md={12} lg={8} style={{ width: "100%" }}>
           <Section headerLabel={eventHeader}>
             <EventList bind={events} callback={eventHandler} />
-          </Section>
-        </Grid>
-        <Grid item sm={12} md={12} lg={4} style={{ width: "100%" }}>
-          <Section headerLabel={"Hit me up!"}>
-            <Contact label={label} link={link} text={text} />
           </Section>
         </Grid>
       </Grid>
