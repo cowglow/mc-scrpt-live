@@ -15,7 +15,7 @@ export const getDate = (now = Date.now()) => {
         "December"
     ];
     return (
-        date.getUTCDate() +
+      date.getDate() +
         " " +
         months[date.getUTCMonth()] +
         " " +

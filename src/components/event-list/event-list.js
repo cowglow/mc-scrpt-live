@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import List from "@material-ui/core/List";
@@ -22,7 +21,7 @@ const EventList = ({ classes, bind, callback }) => {
   });
 
   const upcomingEvents = bind.filter(item => {
-    const eventDate = Date.parse(item.eventDate);
+    const eventDate = Date.parse(item.evte)
     return eventDate > currentTimestamp;
   });
 
@@ -37,7 +36,7 @@ const EventList = ({ classes, bind, callback }) => {
   const handleListItemClick = eventLink => {
     setTimeout(() => {
       window.open(eventLink, "fb_link");
-    }, 800);
+    }, 333);
   };
 
   return (
