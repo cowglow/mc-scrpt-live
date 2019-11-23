@@ -11,6 +11,6 @@ import ReactDOM from "react-dom";
 import "./scaffold.module.css";
 import App from "./app";
 
-// import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker'
 ReactDOM.render(<App />, document.getElementById("root"));
-// registerServiceWorker();
+registerServiceWorker()
