@@ -11,5 +11,10 @@ export default withStyles(theme => ({
     alignItems: "center",
     justifyContent: "center",
     zIndex: 999
+  },
+  marquee: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1rem'
+    }
   }
 }));

@@ -7,7 +7,7 @@ import addStyles from "./loader.styles";
 const Loader = ({ classes, isLoading }) => {
   return isLoading === false ? (
     <div className={classes.root}>
-      <Typography variant={"h4"}>
+      <Typography variant={'h4'} className={classes.marquee}>
         <Typist>loading...</Typist>
       </Typography>
     </div>
