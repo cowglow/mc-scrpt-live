@@ -1,19 +1,32 @@
 import React from "react";
+import PropType from "prop-types";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import { Parallax } from 'react-parallax'
+import logo from "../../images/logo-animation.gif";
+import { logoAlt } from "../../data/content";
+import { backgroundImage } from '../../lib/background-image'
+import addStyling from "./header-component.styles";
 
-// Resources
-import logo from "../../assets/images/logo-animation.gif";
-import "./header-component.styles.css";
-
-const HeaderComponent = () => {
-    console.log('working');
-    const logoAlt =
-        "A terminal style cursor blinks as it spells out the words 'MC' and 'SCRIPT'. With no I in script.";
-
-    return (
-        <div className="Header-Content">
-            <img src={logo} className="Header-Content__Logo" alt={logoAlt}/>
-        </div>
-    );
+const HeaderComponent = ({ classes }) => {
+  const randomImage = backgroundImage(2)
+  return (
+    <React.Fragment>
+      <Parallax bgImage={randomImage} strength={500}>
+        <Grid className={classes.root}>
+          <Container>
+            <header className={classes.header}>
+              <img src={logo} className={classes.logo} alt={logoAlt}/>
+            </header>
+          </Container>{' '}
+        </Grid>
+      </Parallax>
+    </React.Fragment>
+  );
 };
 
-export default HeaderComponent;
+HeaderComponent.propTypes = {
+  classes: PropType.object.isRequired
+};
+
+export default addStyling(HeaderComponent);

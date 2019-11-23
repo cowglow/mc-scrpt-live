@@ -1,26 +1,72 @@
 import React from "react";
+import PropTypes from "prop-types";
+import Grid from "@material-ui/core/Grid";
+import SocialMediaLink from "./social-media-link";
+import TwitterIcon from "./icons/twitter-icon";
+import SoundcloudIcon from "./icons/soundcloud-icon";
+import MixcloudIcon from "./icons/mixcloud-icon";
+import InstagramIcon from "./icons/instagram-icon";
+import data from "../../data/social-media";
+import addStyling from "./social-media.styles";
 
-import "./social-media.css";
-
-const SocialMedia = ({bind}) => {
+const SocialMedia = ({ classes }) => {
   return (
-      <ul>
-        {bind.map((platform, index) => (
-            <li key={index}>
-              <a href={platform.url} target="_blank">
-                {
-                  {
-                    Twitter: <span className="icon twitter"/>,
-                    SoundCloud: <span className="icon soundCloud"/>,
-                    MixCloud: <span className="icon mixCloud"/>,
-                    Instagram: <span className="icon instagram"/>
-                  }[platform.name]
-                }
-              </a>
-            </li>
-        ))}
-      </ul>
+    <Grid
+      container
+      justify={"center"}
+      className={classes.root}
+      onClick={event => console.log(event.currentTarget)}
+    >
+      {data.map((platform, index) => (
+        <Grid key={index} item>
+          {
+            {
+              Twitter: (
+                <SocialMediaLink
+                  className={classes.icon}
+                  label={platform.name}
+                  url={platform.url}
+                >
+                  <TwitterIcon color={"primary"} />
+                </SocialMediaLink>
+              ),
+              SoundCloud: (
+                <SocialMediaLink
+                  className={classes.icon}
+                  label={platform.name}
+                  url={platform.url}
+                >
+                  <SoundcloudIcon />
+                </SocialMediaLink>
+              ),
+              MixCloud: (
+                <SocialMediaLink
+                  className={classes.icon}
+                  label={platform.name}
+                  url={platform.url}
+                >
+                  <MixcloudIcon />
+                </SocialMediaLink>
+              ),
+              Instagram: (
+                <SocialMediaLink
+                  className={classes.icon}
+                  label={platform.name}
+                  url={platform.url}
+                >
+                  <InstagramIcon />
+                </SocialMediaLink>
+              )
+            }[platform.name]
+          }
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
-export default SocialMedia;
+SocialMedia.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default addStyling(SocialMedia);
