@@ -21,7 +21,7 @@ const EventList = ({ classes, bind, callback }) => {
   });
 
   const upcomingEvents = bind.filter(item => {
-    const eventDate = Date.parse(item.evte)
+    const eventDate = Date.parse(item.eventDate)
     return eventDate > currentTimestamp;
   });
 
