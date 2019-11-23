@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import { ThemeProvider } from '@material-ui/core/styles'
-
 import HeaderComponent from '../header-component/header-component'
 import FooterComponent from '../footer-component/footer-component'
 
@@ -19,7 +17,7 @@ const Layout = ({ children }) => {
 };
 
 Layout.propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.object.isRequired
 };
 
 export default Layout

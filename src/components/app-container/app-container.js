@@ -6,19 +6,19 @@ import Home from "../routes/home/home";
 import Booking from '../routes/booking/booking'
 
 const AppContainer = () => {
-  const [loading, uploaded] = useState(true);
+  const [loaded, updateLoadingStatus] = useState(false)
 
   return (
     <React.Fragment>
-      <Loader isLoading={loading} />
+      <Loader isLoading={loaded}/>
       <Layout>
         <Router>
           <Switch>
             <Router path="/booking">
-              <Booking onLoaded={value => uploaded(value)}/>
+              <Booking onLoaded={value => updateLoadingStatus(value)}/>
             </Router>
             <Route path="/">
-              <Home onLoaded={value => uploaded(value)} />
+              <Home onLoaded={value => updateLoadingStatus(value)}/>
             </Route>
           </Switch>
         </Router>

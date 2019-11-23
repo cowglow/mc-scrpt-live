@@ -12,7 +12,7 @@ import addStyling from "./home.styling";
 
 const EVENT_API = getApiUri();
 
-const Home = ({ classes, onLoaded }) => {
+const Home = ({ classes, onLoaded: loadComplete }) => {
   const [eventHeader, setEventHeader] = useState("Catch me live!");
   const [events, setEvents] = useState([]);
 
@@ -20,7 +20,7 @@ const Home = ({ classes, onLoaded }) => {
     fetch(EVENT_API)
       .then(response => response.json())
       .then(data => {
-        onLoaded(false);
+        loadComplete(true)
         setEvents(data.Events);
       });
   }, []);
@@ -32,7 +32,7 @@ const Home = ({ classes, onLoaded }) => {
   return (
     <Container>
       <Grid container>
-        <Grid item sm={12} md={12} lg={4} style={{ width: "100%" }}>
+        <Grid item sm={12} md={12} lg={5} style={{ width: '100%' }}>
           <Section label={title}>
             <Typography variant={"body1"}>{descText}</Typography>
             <br />
@@ -44,7 +44,7 @@ const Home = ({ classes, onLoaded }) => {
             </Typography>
           </Section>
         </Grid>
-        <Grid item sm={12} md={12} lg={8} style={{ width: "100%" }}>
+        <Grid item sm={12} md={12} lg={7} style={{ width: '100%' }}>
           <Section label={eventHeader}>
             <EventList bind={events} callback={eventHandler} />
           </Section>

@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import addStyles from "./loader.styles";
 
 const Loader = ({ classes, isLoading }) => {
-  return isLoading === true ? (
+  return isLoading === false ? (
     <div className={classes.root}>
       <Typography variant={"h4"}>
         <Typist>loading...</Typist>
