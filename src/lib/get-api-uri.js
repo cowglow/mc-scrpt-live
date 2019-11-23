@@ -1,5 +1,5 @@
 export const getApiUri = () => {
-  const GAS_URL = "script.google.com/macros/s/";
+  const GAS_URL = 'script.google.com/macros/s'
   const GAS_PRODUCT =
     "AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK";
 
