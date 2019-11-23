@@ -8,8 +8,9 @@ import { logoAlt } from "../../data/content";
 import { backgroundImage } from '../../lib/background-image'
 import addStyling from "./header-component.styles";
 
+const randomImage = backgroundImage(2)
+
 const HeaderComponent = ({ classes }) => {
-  const randomImage = backgroundImage(2)
   return (
     <React.Fragment>
       <Parallax bgImage={randomImage} strength={500}>
