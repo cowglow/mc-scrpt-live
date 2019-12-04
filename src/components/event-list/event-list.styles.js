@@ -2,8 +2,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 export default withStyles(theme => ({
   tabs: {
-    border: "thin solid " + theme.palette.primary.main,
-    marginBottom: theme.spacing(2)
+    border: 'thin solid ' + theme.palette.primary.main
+    // marginBottom: theme.spacing(2)
   },
   tab: {
     fontSize: 10

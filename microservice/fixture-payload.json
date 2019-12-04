@@ -1,0 +1,19 @@
+{
+  "timestamp": "00:00:00 Uhr - placeholder",
+  "message": {
+    "performanceType": "DJ Support (1 -2 hours)",
+    "venueType": "Festival/Rave",
+    "eventDate": "12/24/2019",
+    "eventTime": "23:00",
+    "eventName": "X-mas Bash",
+    "eventVenue": "Z-Bau",
+    "eventLocationStreetAddress": "200 Frankenstrasse...",
+    "eventLocationCity": "Nürnberg",
+    "eventLocationState": "Bayern",
+    "eventLocationZip": "911--",
+    "eventLocationCountry": "Germany",
+    "eventContactName": "Event Promoter",
+    "eventContactEmail": "promoter@agency.net",
+    "eventContactPhone": "+1 213 555 1234"
+  }
+}
