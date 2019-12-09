@@ -1,0 +1,19 @@
+{
+  "name": "cg/mc-scrpt-live",
+  "description": "Microservice",
+  "type": "project",
+  "license": "NOT SURE YET",
+  "authors": [
+    {
+      "name": "Philip Saa",
+      "email": "cowglow@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Cowglow\\": "src/"
+    },
+    "optimize-autoloader": true
+  }
+}
