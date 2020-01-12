@@ -176,7 +176,7 @@ const Booking = ({ onLoaded: loadComplete }) => {
         </FormControl>
       </MuiPickersUtilsProvider>
     </Container>
-  )
-}
+  );
+};
 
 export default Booking

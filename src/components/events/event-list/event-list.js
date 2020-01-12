@@ -32,11 +32,11 @@ const EventList = ({ events, classes }) => {
               secondary={getDate(event['eventDate'])}
             />
           </ListItem>
-        )
+        );
       })}
     </List>
-  )
-}
+  );
+};
 
 EventList.propTypes = {
   events: PropTypes.array.isRequired,

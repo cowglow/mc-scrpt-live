@@ -1,12 +1,12 @@
 import React from "react";
 import PropType from "prop-types";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
+import Grid from '@material-ui/core/Grid'
 import { Parallax } from 'react-parallax'
-import logo from "../../images/logo-animation.gif";
-import { logoAlt } from "../../data/content";
+import logo from '../../images/logo-animation.gif'
+import { logoAlt } from '../../data/content'
 import { backgroundImage } from '../../lib/background-image'
-import addStyling from "./header-component.styles";
+import addStyling from './header-component.styles'
 
 const randomImage = backgroundImage(2)
 
