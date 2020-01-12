@@ -10,19 +10,19 @@ import {
   KeyboardTimePicker
 } from '@material-ui/pickers'
 
-const Booking = ({ onLoaded }) => {
+const Booking = ({ onLoaded: loadComplete }) => {
   const currentDate = new Date()
   const newDate = new Date()
 
   const [performanceType, setPerformanceType] = React.useState('')
-  const [eventType, setEventType] = React.useState('')
+  const [venueType, setVenueType] = React.useState('')
   const [eventDate, setEventDate] = React.useState(
     newDate.setDate(currentDate.getDate() + 15)
   )
   const [eventTime, setEventTime] = React.useState()
 
   setTimeout(() => {
-    onLoaded(false)
+    loadComplete(true)
   })
 
   return (
@@ -56,11 +56,11 @@ const Booking = ({ onLoaded }) => {
           </TextField>
 
           <TextField
-            id="eventType"
+            id="venueType"
             select
-            label="Event Type"
-            value={eventType}
-            onChange={setEventType}
+            label="Venue Type"
+            value={venueType}
+            onChange={setVenueType}
             SelectProps={{
               native: true,
               MenuProps: {
@@ -176,7 +176,7 @@ const Booking = ({ onLoaded }) => {
         </FormControl>
       </MuiPickersUtilsProvider>
     </Container>
-  )
-}
+  );
+};
 
 export default Booking

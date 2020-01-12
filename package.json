@@ -19,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "microservice": "php -S localhost:8080 -t microservice/"
   },
   "main": "index.js",
   "author": "@cowglow",

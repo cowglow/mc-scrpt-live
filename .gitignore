@@ -27,3 +27,4 @@ package-lock.json
 /api/bin/
 /api/vendor/
 /vendor/
+/microservice/vendor/
