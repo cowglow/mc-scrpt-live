@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import Section from "../../section/section";
-import EventList from "../../event-list/event-list";
-import { descText, title } from "../../../data/content";
+import Section from '../../section/section'
+import EventList from '../../events/events'
+import { descText, title } from '../../../data/content'
 import { text, linkText, linkUrl } from "../../../data/contact";
 import { getApiUri } from "../../../lib/get-api-uri";
 import addStyling from "./home.styling";
