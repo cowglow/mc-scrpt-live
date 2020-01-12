@@ -22,8 +22,8 @@ const Home = ({ classes, onLoaded: loadComplete }) => {
       .then(data => {
         loadComplete(true)
         setEvents(data.Events)
-      });
-  }, []);
+      })
+  })
 
   const eventHandler = data => {
     setEventHeader(data);
