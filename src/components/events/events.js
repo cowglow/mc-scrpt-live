@@ -48,10 +48,6 @@ const Events = ({ classes, bind, callback }) => {
 
   return (
     <React.Fragment>
-      <pre>eventYears: ({JSON.stringify(eventYears)})</pre>
-      <pre>modeDefault: ({JSON.stringify(modeDefault)})</pre>
-      <pre>mode: ({JSON.stringify(mode)})</pre>
-
       {modeDefault === 1 && (
         <Tabs
           value={mode}
