@@ -1,15 +1,12 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createMuiTheme, ThemeOptions } from "@material-ui/core";
 
-const theme = createMuiTheme({
+const theme: ThemeOptions = createMuiTheme({
   palette: {
     primary: {
       main: "#FF0000"
     },
     secondary: {
       main: "#960000"
-    },
-    light: {
-      main: "#FFFFFF"
     },
     background: {
       paper: "#FFFFFF",
@@ -22,11 +19,6 @@ const theme = createMuiTheme({
       fontFamily: `"Share Tech Mono", monospace, sans-serif`
     }
   },
-  base: {
-    root: {
-      flexGrow: 1
-    }
-  }
 });
 
 export default theme;

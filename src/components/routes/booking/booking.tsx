@@ -10,7 +10,10 @@ import {
   KeyboardTimePicker
 } from '@material-ui/pickers'
 
-const Booking = ({ onLoaded: loadComplete }) => {
+interface BookingProps {
+  onLoaded: any
+}
+const Booking:React.FC<BookingProps> = ({ onLoaded: loadComplete }) => {
   const currentDate = new Date()
   const newDate = new Date()
 
@@ -34,7 +37,7 @@ const Booking = ({ onLoaded: loadComplete }) => {
             select
             label="Performance Type"
             value={performanceType}
-            onChange={setPerformanceType}
+            onChange={(change:any) => setPerformanceType(change)}
             SelectProps={{
               native: true,
               MenuProps: {
@@ -60,7 +63,7 @@ const Booking = ({ onLoaded: loadComplete }) => {
             select
             label="Venue Type"
             value={venueType}
-            onChange={setVenueType}
+            onChange={(change:any) => setVenueType(change)}
             SelectProps={{
               native: true,
               MenuProps: {
@@ -79,13 +82,13 @@ const Booking = ({ onLoaded: loadComplete }) => {
 
           <KeyboardDatePicker
             id="eventDate"
-            variant="outlined"
+            variant="dialog"
             disableToolbar
             format="MM/dd/yyyy"
             margin="normal"
             label="Date picker inline"
             value={eventDate}
-            onChange={setEventDate}
+            onChange={(change:any) => setEventDate(change)}
             KeyboardButtonProps={{
               'aria-label': 'Event date'
             }}
@@ -93,13 +96,13 @@ const Booking = ({ onLoaded: loadComplete }) => {
 
           <KeyboardTimePicker
             id="eventTime"
-            variant="outlined"
+            variant="dialog"
             disableToolbar
             format="HH:MM"
             margin="normal"
             label="Event Time"
             value={eventTime}
-            onChange={setEventTime}
+            onChange={(change:any) => setEventTime(change)}
             KeyboardButtonProps={{
               'aria-label': 'change time'
             }}

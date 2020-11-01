@@ -1,12 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import SocialMedia from "../social-media/social-media";
 import addStyling from "./footer-component.styles";
 
-const FooterComponent = ({ classes }) => {
+interface FooterComponentProps {
+  classes: any;
+}
+const FooterComponent:React.FC<FooterComponentProps> = ({ classes }) => {
   return (
     <Grid className={classes.footer}>
       <footer className={classes.root}>
@@ -32,10 +34,6 @@ const FooterComponent = ({ classes }) => {
       </footer>
     </Grid>
   );
-};
-
-FooterComponent.propTypes = {
-  classes: PropTypes.object.isRequired
 };
 
 export default addStyling(FooterComponent);

@@ -1,6 +1,6 @@
 ## TODOS
-- Email Form ???
-- Stylize scroll bar
+- Stylize scrollbar
 - Fix Heights
 - CSS Breakpoints
 - Fix Randomization of Background
+

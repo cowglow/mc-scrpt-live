@@ -2,7 +2,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 export default withStyles(theme => ({
   root: {
-    ...theme.base.root,
+    // ...theme.base.root,
     [theme.breakpoints.up('lg')]: {
       height: '60.5vh'
     },

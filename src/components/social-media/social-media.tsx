@@ -1,15 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import SocialMediaLink from "./social-media-link";
 import TwitterIcon from "./icons/twitter-icon";
 import SoundcloudIcon from "./icons/soundcloud-icon";
 import MixcloudIcon from "./icons/mixcloud-icon";
 import InstagramIcon from "./icons/instagram-icon";
-import data from "../../data/social-media";
+import data from "../../data/social-media.json";
 import addStyling from "./social-media.styles";
 
-const SocialMedia = ({ classes }) => {
+interface SocialMediaProps {
+  classes: any;
+}
+
+const SocialMedia:React.FC<SocialMediaProps> = ({ classes }) => {
   return (
     <Grid
       container
@@ -27,7 +30,7 @@ const SocialMedia = ({ classes }) => {
                   label={platform.name}
                   url={platform.url}
                 >
-                  <TwitterIcon color={"primary"} />
+                  <TwitterIcon />
                 </SocialMediaLink>
               ),
               SoundCloud: (
@@ -63,10 +66,6 @@ const SocialMedia = ({ classes }) => {
       ))}
     </Grid>
   );
-};
-
-SocialMedia.propTypes = {
-  classes: PropTypes.object.isRequired
 };
 
 export default addStyling(SocialMedia);

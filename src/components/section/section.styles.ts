@@ -14,7 +14,7 @@ export default withStyles(theme => ({
     display: "inline-block",
     padding: theme.spacing(2),
     marginBottom: theme.spacing(2),
-    color: theme.palette.light.main,
+    color: theme.palette.primary.light,
     backgroundColor: theme.palette.background.default,
     [theme.breakpoints.up("lg")]: {
       height: 108

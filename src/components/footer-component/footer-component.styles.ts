@@ -2,7 +2,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 export default withStyles(theme => ({
   root: {
-    color: theme.palette.light.main
+    color: theme.palette.primary.light
   },
   footer: {
     paddingTop: theme.spacing(2),

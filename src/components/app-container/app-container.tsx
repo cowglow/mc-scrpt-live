@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Loader from '../loader/loader'
 import Layout from '../layout/layout'
 import Home from '../routes/home/home'
@@ -12,16 +12,16 @@ const AppContainer = () => {
     <React.Fragment>
       <Loader isLoading={loaded}/>
       <Layout>
-        <Router>
+        <BrowserRouter>
           <Switch>
-            <Router path="/booking">
-              <Booking onLoaded={value => updateLoadingStatus(value)}/>
-            </Router>
+            <Route path="/booking">
+              <Booking onLoaded={(value:any) => updateLoadingStatus(value)}/>
+            </Route>
             <Route path="/">
-              <Home onLoaded={value => updateLoadingStatus(value)}/>
+              <Home onLoaded={(value:any) => updateLoadingStatus(value)}/>
             </Route>
           </Switch>
-        </Router>
+        </BrowserRouter>
       </Layout>
     </React.Fragment>
   );

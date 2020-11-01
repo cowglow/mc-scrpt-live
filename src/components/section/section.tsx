@@ -1,9 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import addStyling from "./section.styles";
 
-const Section = ({ children, classes, label }) => {
+interface SectionProps{
+  children: any;
+  classes: any;
+  label: string;
+}
+const Section:React.FC<SectionProps> = ({ children, classes, label }) => {
   return (
     <section className={classes.root}>
       <Typography variant={"h5"} className={classes.header}>
@@ -12,12 +16,6 @@ const Section = ({ children, classes, label }) => {
       {children}
     </section>
   );
-};
-
-Section.propTypes = {
-  children: PropTypes.node.isRequired,
-  classes: PropTypes.object.isRequired,
-  label: PropTypes.string
 };
 
 export default addStyling(Section);

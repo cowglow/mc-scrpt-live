@@ -1,22 +1,27 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import { getYears } from '../../lib/get-years'
 import addStyling from './events.styles'
 import EventList from './event-list/event-list'
 
-const Events = ({ classes, bind, callback }) => {
+interface EventsProps {
+  classes: any;
+  bind: any;
+  callback: any;
+}
+
+const Events:React.FC<EventsProps> = ({ classes, bind, callback }) => {
   const currentTimestamp = Date.now()
   const tabLabels = ['Upcoming Shows', 'Previews Shows']
   const eventYears = getYears(bind, 'eventDate')
 
-  const pastEvents = bind.filter(item => {
+  const pastEvents = bind.filter((item:any) => {
     const eventDate = Date.parse(item['eventDate'])
     return eventDate < currentTimestamp
   })
 
-  const upcomingEvents = bind.filter(item => {
+  const upcomingEvents = bind.filter((item:any) => {
     const eventDate = Date.parse(item['eventDate'])
     return eventDate > currentTimestamp
   })
@@ -29,7 +34,7 @@ const Events = ({ classes, bind, callback }) => {
   const filterEvents =
     mode === 0 && modeDefault === 1
       ? upcomingEvents
-      : pastEvents.filter(event => {
+      : pastEvents.filter((event:any) => {
         const currentEventYear = new Date(event['eventDate']).getFullYear()
 
         return eventYears[yearFilter] === currentEventYear && event
@@ -37,12 +42,12 @@ const Events = ({ classes, bind, callback }) => {
 
   const eventList = filterEvents.length <= 0 ? bind : filterEvents
 
-  const handleTabChange = (event, newValue) => {
+  const handleTabChange = (event:any, newValue:any) => {
     callback(tabLabels[newValue])
     setMode(newValue)
   }
 
-  const handleYearFilter = (event, newValue) => {
+  const handleYearFilter = (event:any, newValue:any) => {
     setYearFilter(newValue)
   }
 
@@ -76,7 +81,10 @@ const Events = ({ classes, bind, callback }) => {
           className={classes.tabs}
         >
           {eventYears.map((year, index) => (
+            <>
+            <pre>{JSON.stringify(year)}</pre>
             <Tab wrapped key={index} label={year} className={classes.tab}/>
+            </>
           ))}
         </Tabs>
       )}
@@ -85,11 +93,5 @@ const Events = ({ classes, bind, callback }) => {
     </React.Fragment>
   );
 };
-
-Events.propTypes = {
-  classes: PropTypes.object.isRequired,
-  bind: PropTypes.array.isRequired,
-  callback: PropTypes.func.isRequired
-}
 
 export default addStyling(Events)
