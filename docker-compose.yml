@@ -1,0 +1,23 @@
+version: "3.3"
+
+services:
+  #  api:
+  #    image: cowglow/mc-scrpt-live:${IMAGE_TAG}
+  #    build:
+  #      context: 'services/api'
+  web-app:
+    image: cowglow/mc-scrpt-live:${IMAGE_TAG}
+    build:
+      context: "services/web-app"
+      dockerfile: "Dockerfile.dev"
+    volumes:
+      - ./services/web-app/package.json:/app/package.json
+      - ./services/web-app/src:/app/src
+      - ./services/web-app/static:/app/static
+      - yarn-cache:/usr/local-share/.cache/yarn
+    ports:
+      - "3000:3000"
+      - "24678:24678"
+
+volumes:
+  yarn-cache:
