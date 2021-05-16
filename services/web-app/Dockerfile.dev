@@ -1,0 +1,11 @@
+FROM node:14.16.0-alpine3.13
+WORKDIR /app
+
+ARG VITE_API
+ENV VITE_API=${VITE_API}
+
+COPY . ./
+
+EXPOSE 3000
+EXPOSE 24678
+CMD yarn install --mutex file:/usr/local/share/.cache/yarn/.yarn-mutex && yarn dev
