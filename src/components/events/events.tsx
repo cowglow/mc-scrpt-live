@@ -1,9 +1,9 @@
-import React from 'react'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import { getYears } from '../../lib/get-years'
-import addStyling from './events.styles'
-import EventList from './event-list/event-list'
+import React from "react";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import { getYears } from "../../lib/get-years";
+import addStyling from "./events.styles";
+import EventList from "./event-list/event-list";
 
 interface EventsProps {
   classes: any;
@@ -80,12 +80,7 @@ const Events:React.FC<EventsProps> = ({ classes, bind, callback }) => {
           aria-label={'event list tabs'}
           className={classes.tabs}
         >
-          {eventYears.map((year, index) => (
-            <>
-            <pre>{JSON.stringify(year)}</pre>
-            <Tab wrapped key={index} label={year} className={classes.tab}/>
-            </>
-          ))}
+          {eventYears.map((year, index) => <Tab wrapped key={index} label={year} className={classes.tab}/>)}
         </Tabs>
       )}
 

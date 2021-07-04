@@ -26,7 +26,7 @@ const Home:React.FC<HomeProps> = ({ classes, onLoaded: loadComplete }) => {
         loadComplete(true)
         setEvents(data.Events)
       })
-  })
+  }, [loadComplete, setEvents])
 
   const eventHandler = (data:any) => {
     setEventHeader(data);
