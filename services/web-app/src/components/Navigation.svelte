@@ -1,18 +1,18 @@
-<div id="social-media-navbar">
+<div id="navigation">
   <ul>
-    <li>sound cloud</li>
-    <li>twitter</li>
-    <li>instagram</li>
-    <li>youtube</li>
+    <li>events</li>
+    <li>videos</li>
+    <li>posts</li>
+    <li>tweets</li>
   </ul>
 </div>
 
 <style>
-  #social-media-navbar {
+  #navigation {
     border: thin solid yellow;
   }
 
-  #social-media-navbar ul {
+  #navigation ul {
     display: inline-block;
     margin: 0;
     padding: 0;
@@ -20,7 +20,7 @@
     text-align: center;
   }
 
-  #social-media-navbar ul > li {
+  #navigation ul > li {
     display: inline;
   }
 </style>

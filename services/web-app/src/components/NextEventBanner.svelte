@@ -1,8 +1,8 @@
 <script lang="ts">
-  export let active: boolean = false;
+  let active: boolean = false;
 </script>
 
-<div>
+<div id="next-event-banner">
   {#if !active}
     <h1>no next show</h1>
   {/if}
@@ -12,8 +12,14 @@
 </div>
 
 <style>
-  div {
-    border: thin solid red;
+  #next-event-banner {
+    border: thin solid yellow;
     text-align: center;
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    background-color: red;
+    position: relative;
+    top: 40px;
   }
 </style>
