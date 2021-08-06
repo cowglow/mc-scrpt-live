@@ -23,3 +23,12 @@ body {
   src: local("Share Tech Mono"), local("ShareTechMono"),
   url("/fonts/ShareTechMono-Regular.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: 'bd_console';
+  src: url('/fonts/bd_console.woff2') format('woff2'),
+  url('/fonts/bd_console.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
