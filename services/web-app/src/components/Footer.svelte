@@ -29,12 +29,13 @@
     display: flex;
     flex-direction: column;
     color: white;
+    padding: 38px;
   }
 
   div {
     border: thin solid green;
     width: 100%;
-    max-width: 1240px;
+    max-width: 1080px;
     margin: 0 auto;
   }
 
@@ -42,6 +43,7 @@
     border: thin solid red;
     font-family: "bd_console", sans-serif;
     width: 135px;
+    margin-top: 50px;
   }
 
   #description {

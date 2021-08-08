@@ -16,7 +16,7 @@
     border: thin solid yellow;
     text-align: center;
     width: 100%;
-    max-width: 880px;
+    max-width: 1080px;
     margin: 0 auto;
     background-color: red;
     position: relative;

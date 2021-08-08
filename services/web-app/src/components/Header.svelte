@@ -20,9 +20,10 @@
 
 <style>
   header {
+    padding: 10px;
     border: thin solid red;
     width: 100%;
-    height: 720px;
+    height: calc(81vh);
     background-position: center;
     background-repeat: no-repeat;
     background-color: black;
@@ -35,11 +36,26 @@
   div {
     border: thin solid green;
     width: 100%;
-    max-width: 1240px;
+    max-width: 1080px;
     margin: 0 auto;
     color: white;
-    padding: 38px;
+    padding: 0 16px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  @media only screen and (min-width: 600px) {
+    div {
+      padding: 38px;
+      flex-direction: row;
+    }
+  }
+
+  @media only screen and (min-width: 1240px) {
+    header {
+      height: calc(97vh);
+    }
   }
 </style>
