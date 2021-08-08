@@ -12,29 +12,31 @@
 </script>
 
 <header style="background-image: url('{backgroundImage}')">
-  <div>
-    <Navigation />
-    <SocialMedia />
+  <div id="nav-bar-wrapper">
+    <div id="nav-bar">
+      <Navigation />
+      <SocialMedia />
+    </div>
   </div>
 </header>
 
 <style>
   header {
-    padding: 10px;
     border: thin solid red;
     width: 100%;
     height: calc(81vh);
     background-position: center;
     background-repeat: no-repeat;
-    background-color: black;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
 
-  div {
-    border: thin solid green;
+  #nav-bar-wrapper {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  #nav-bar {
     width: 100%;
     max-width: 1080px;
     margin: 0 auto;
@@ -43,12 +45,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.5);
   }
 
   @media only screen and (min-width: 600px) {
-    div {
-      padding: 38px;
+    #nav-bar {
+      padding: 10px 38px 12px;
       flex-direction: row;
     }
   }

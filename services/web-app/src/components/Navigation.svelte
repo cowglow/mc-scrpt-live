@@ -1,15 +1,20 @@
+<script>
+  import Branding from "./Branding.svelte";
+</script>
+
 <div id="navigation">
+  <Branding />
   <ul>
-    <li>events</li>
-    <li>videos</li>
-    <li>posts</li>
-    <li>tweets</li>
+    <li><a href="#events">EVENTS</a></li>
+    <li><a href="#videos">VIDEOS</a></li>
+    <li><a href="#posts">POSTS</a></li>
+    <li><a href="#tweets">TWEETS</a></li>
   </ul>
 </div>
 
 <style>
   #navigation {
-    border: thin solid yellow;
+    /*border: thin solid yellow;*/
   }
 
   #navigation ul {
@@ -22,5 +27,14 @@
 
   #navigation ul > li {
     display: inline;
+    margin-right: 13px;
+  }
+
+  #navigation ul > li:last-child {
+    margin-right: unset;
+  }
+
+  #navigation ul > li a {
+    text-decoration: none;
   }
 </style>

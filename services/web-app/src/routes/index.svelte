@@ -21,7 +21,10 @@
   <InstagramGallery />
 </div>
 <div class="section">
-  <SectionLabel />
+  <SectionLabel
+    title="Recent Tweets"
+    description="See what’s happening around the Twitterverse"
+  />
   <HashtagFeed search="mcscrpt" />
 </div>
 
