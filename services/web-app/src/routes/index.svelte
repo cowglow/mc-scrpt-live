@@ -8,6 +8,7 @@
   let hasNextEvent: boolean = Math.random() < 0.5;
 </script>
 
+<NextEventBanner />
 <EventLog />
 <MediaPlayer />
 <InstagramGallery />

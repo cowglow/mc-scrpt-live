@@ -1,6 +1,5 @@
 <script lang="ts">
   import Navigation from "./Navigation.svelte";
-  import NextEventBanner from "./NextEventBanner.svelte";
   import SocialMedia from "./SocialMedia.svelte";
 
   const basePath: string = "/images";
@@ -17,7 +16,6 @@
     <Navigation />
     <SocialMedia />
   </div>
-  <NextEventBanner />
 </header>
 
 <style>

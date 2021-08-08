@@ -20,6 +20,6 @@
     margin: 0 auto;
     background-color: red;
     position: relative;
-    top: 40px;
+    top: -40px;
   }
 </style>
