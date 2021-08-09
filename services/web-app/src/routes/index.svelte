@@ -3,7 +3,7 @@
   import EventLog from "../components/EventLog.svelte";
   import MediaPlayer from "../components/MediaPlayer.svelte";
   import SectionLabel from "../components/SectionLabel.svelte";
-  import InstagramGallery from "../components/InstagramGallery.svelte";
+  import InstagramGallery from "components/InstagramGallery.svelte";
   import HashtagFeed from "../components/HashtagFeed.svelte";
 
   let hasNextEvent: boolean = Math.random() < 0.5;
@@ -14,8 +14,8 @@
   <div class="section">
     <EventLog />
   </div>
+  <MediaPlayer />
 </div>
-<MediaPlayer />
 <div class="section">
   <SectionLabel />
   <InstagramGallery />
