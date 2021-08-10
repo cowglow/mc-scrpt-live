@@ -28,3 +28,4 @@ package-lock.json
 /api/vendor/
 /vendor/
 /microservice/vendor/
+/services/web-app/.env
