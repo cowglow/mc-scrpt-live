@@ -5,7 +5,7 @@ import TwitterIcon from "./icons/twitter-icon";
 import SoundcloudIcon from "./icons/soundcloud-icon";
 import MixcloudIcon from "./icons/mixcloud-icon";
 import InstagramIcon from "./icons/instagram-icon";
-import data from "../../../../web-app/static/data/social-media.json";
+import data from "../../../../web-app/src/data/social-media.json";
 import addStyling from "./social-media.styles";
 
 interface SocialMediaProps {

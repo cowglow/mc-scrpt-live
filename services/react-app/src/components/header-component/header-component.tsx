@@ -3,7 +3,7 @@ import Container from "@material-ui/core/Container";
 import Grid from '@material-ui/core/Grid'
 import { Parallax } from 'react-parallax'
 import logo from '../../../../web-app/static/images/logo-animation.gif'
-import { logoAlt } from '../../../../web-app/static/data/content.json'
+import { logoAlt } from '../../../../web-app/src/data/content.json'
 import { backgroundImage } from '../../lib/background-image'
 import addStyling from './header-component.styles'
 

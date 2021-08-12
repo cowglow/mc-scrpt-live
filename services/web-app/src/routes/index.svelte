@@ -2,7 +2,7 @@
   import EventData from "../components/EventData.svelte";
   import MediaPlayer from "../components/MediaPlayer.svelte";
   import SectionLabel from "../components/SectionLabel.svelte";
-  import InstagramGallery from "../components/InstagramGallery.svelte";
+  import SoundCloudGallery from "../components/SoundCloudGallery.svelte";
   import HashtagFeed from "../components/HashtagFeed.svelte";
 
   let hasNextEvent: boolean = Math.random() < 0.5;
@@ -13,8 +13,8 @@
   <MediaPlayer />
 </div>
 <div class="section">
-  <SectionLabel />
-  <InstagramGallery />
+  <SectionLabel title="SoundCloud" description="MC Scrpt Playlist" />
+  <SoundCloudGallery />
 </div>
 <div class="section">
   <SectionLabel
