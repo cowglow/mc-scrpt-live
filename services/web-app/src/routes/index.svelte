@@ -3,7 +3,6 @@
   import MediaPlayer from "../components/MediaPlayer.svelte";
   import SectionLabel from "../components/SectionLabel.svelte";
   import SoundCloudGallery from "../components/SoundCloudGallery.svelte";
-  import HashtagFeed from "../components/HashtagFeed.svelte";
 
   let hasNextEvent: boolean = Math.random() < 0.5;
 </script>
@@ -15,13 +14,6 @@
 <div class="section">
   <SectionLabel title="SoundCloud" description="MC Scrpt Playlist" />
   <SoundCloudGallery />
-</div>
-<div class="section">
-  <SectionLabel
-    title="Recent Tweets"
-    description="See what’s happening around the Twitterverse"
-  />
-  <HashtagFeed search="mcscrpt" />
 </div>
 
 <style>

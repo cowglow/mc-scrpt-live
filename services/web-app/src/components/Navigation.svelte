@@ -7,8 +7,8 @@
   <ul>
     <li><a href="#events">EVENTS</a></li>
     <li><a href="#videos">VIDEOS</a></li>
-    <li><a href="#posts">POSTS</a></li>
-    <li><a href="#tweets">TWEETS</a></li>
+    <li><a href="#posts">AUDIO</a></li>
+    <li><a href="#tweets">CONTACT</a></li>
   </ul>
 </div>
 
