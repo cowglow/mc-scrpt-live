@@ -1,0 +1,3 @@
+export const ANCHOR_EVENTS = "ANCHOR_EVENTS";
+export const ANCHOR_VIDEOS = "ANCHOR_VIDEOS";
+export const ANCHOR_AUDIO = "ANCHOR_AUDIO";

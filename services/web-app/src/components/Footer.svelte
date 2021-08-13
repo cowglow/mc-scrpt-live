@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SocialMedia from "./SocialMedia.svelte";
+  import SocialMedia from "./SocialMediaMenu.svelte";
   import { footerYear } from "../lib/footer-year";
   import Branding from "./Branding.svelte";
 </script>
@@ -38,6 +38,10 @@
     width: 100%;
     max-width: 1080px;
     margin: 0 auto;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   #footer-description {

@@ -1,20 +1,18 @@
-<script>
-  import Branding from "./Branding.svelte";
+<script lang="ts">
+  import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS } from "../lib/constants";
 </script>
 
 <div id="navigation">
-  <Branding />
   <ul>
-    <li><a href="#events">EVENTS</a></li>
-    <li><a href="#videos">VIDEOS</a></li>
-    <li><a href="#posts">AUDIO</a></li>
-    <li><a href="#tweets">CONTACT</a></li>
+    <li><a href={`#${ANCHOR_EVENTS}`}>EVENTS</a></li>
+    <li><a href={`#${ANCHOR_VIDEOS}`}>VIDEOS</a></li>
+    <li><a href={`#${ANCHOR_AUDIO}`}>AUDIO</a></li>
   </ul>
 </div>
 
 <style>
   #navigation {
-    /*border: thin solid yellow;*/
+    margin: auto 0;
   }
 
   #navigation ul {

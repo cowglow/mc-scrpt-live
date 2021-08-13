@@ -1,6 +1,7 @@
 <script lang="ts">
+  import Branding from "./Branding.svelte";
   import Navigation from "./Navigation.svelte";
-  import SocialMedia from "./SocialMedia.svelte";
+  import SocialMedia from "./SocialMediaMenu.svelte";
 
   const basePath: string = "/images";
   const bgCollection: string[] = [
@@ -14,6 +15,7 @@
 <header style="background-image: url('{backgroundImage}')">
   <div id="nav-bar-wrapper">
     <div id="nav-bar">
+      <Branding />
       <Navigation />
       <SocialMedia />
     </div>
@@ -36,6 +38,7 @@
   #nav-bar-wrapper {
     background-color: rgba(0, 0, 0, 0.5);
   }
+
   #nav-bar {
     width: 100%;
     max-width: 1080px;
