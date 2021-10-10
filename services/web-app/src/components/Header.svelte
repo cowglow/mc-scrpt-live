@@ -12,7 +12,7 @@
   const backgroundImage: string = `${basePath}/${bgCollection[randomIndex]}`;
 </script>
 
-<header style="background-image: url('{backgroundImage}')">
+<header style={`background-image: url("${backgroundImage}")`}>
   <div id="nav-bar-wrapper">
     <div id="nav-bar">
       <Branding />
@@ -24,27 +24,28 @@
 
 <style>
   header {
-    border: thin solid red;
     width: 100%;
     height: calc(81vh);
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-content: center;
   }
 
   #nav-bar-wrapper {
     background-color: rgba(0, 0, 0, 0.5);
+    height: 90px;
   }
 
   #nav-bar {
     width: 100%;
+    height: 100%;
     max-width: 1080px;
     margin: 0 auto;
     color: white;
-    padding: 0 16px;
+    padding: 0 22px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -55,11 +56,21 @@
       padding: 10px 38px 12px;
       flex-direction: row;
     }
+    header {
+      height: calc(61vh);
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    header {
+      height: calc(81vh);
+      background-position: center;
+    }
   }
 
   @media only screen and (min-width: 1240px) {
     header {
-      height: calc(97vh);
+      height: calc(96vh);
     }
   }
 </style>
