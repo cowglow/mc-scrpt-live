@@ -6,7 +6,6 @@ const product =
   "AKfycbwDp2Qaqwuwkit2eIAgpCpi-oCVvVP3Y3CLdqgY4vpEtj2rWgwK";
 
 export async function get() {
-  // @ts-ignore
   const API_URL = "https://" + url + "/" + product + "/exec";
   if (DEV_MODE) {
     return {
