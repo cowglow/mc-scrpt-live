@@ -6,14 +6,16 @@
   let promise = getEventList();
 </script>
 
-{#await promise then events}
-  <NextEventBanner />
-  <div class="section">
+<div class="section">
+  {#await promise}
+    ...loading
+  {:then events}
+    <NextEventBanner />
     <EventLog data={events} />
-  </div>
-{:catch error}
-  <p style="color: red;">{error.message}</p>
-{/await}
+  {:catch error}
+    <p style="color: red;">{error.message}</p>
+  {/await}
+</div>
 
 <style>
   .section {
