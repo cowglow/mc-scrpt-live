@@ -1,4 +1,4 @@
-import fixtureData from "src/fixture/dev_events-fixture.json";
+import fixtureData from "../../fixture/dev_events-fixture.json";
 const DEV_MODE = import.meta.env.DEV_MODE || false;
 const url = import.meta.env.GAS_URL || "script.google.com/macros/s";
 const product =
@@ -15,7 +15,7 @@ export async function get() {
   } else {
     try {
       const response = await fetch(API_URL);
-      const events = response.json();
+      const events = await response.json();
       return {
         body: events,
       };
