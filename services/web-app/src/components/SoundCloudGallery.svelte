@@ -1,13 +1,16 @@
 <script lang="ts">
   import * as data from "../data/soundcloud-data.json";
   const { tracks } = data;
-  const baseUrl = "https://soundclound.com";
+  const baseUrl = "https://soundcloud.com";
 </script>
 
 <ul>
   {#each tracks as track}
     <li>
-      <a href={`${baseUrl}${track.url}`}
+      <a
+        href={`${baseUrl}${track.url}`}
+        rel="nofollow"
+        target="soundcloud"
         ><img
           src={track.image}
           alt={`Artwork for ${track.title}`}
