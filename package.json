@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "IMAGE_TAG=dev docker-compose -f docker-compose.yml",
-    "microservice": "php -S localhost:8080 -t microservice/"
+    "microservice": "php -S localhost:8080 -t microservice/",
+    "terminal": "docker exec -it php-apache bash"
   },
   "repository": {
     "type": "git",
@@ -14,9 +15,5 @@
   "bugs": {
     "url": "https://github.com/cowglow/mc-scrpt-live/issues"
   },
-  "homepage": "https://github.com/cowglow/mc-scrpt-live#readme",
-  "devDependencies": {
-    "@prettier/plugin-php": "^0.16.3",
-    "prettier": "^2.3.0"
-  }
+  "homepage": "https://github.com/cowglow/mc-scrpt-live#readme"
 }

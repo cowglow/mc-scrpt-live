@@ -2,6 +2,7 @@ version: "3.3"
 
 services:
   api:
+    container_name: php-apache
     image: cowglow/mc-scrpt-live-api:${IMAGE_TAG}
     build:
       context: "services/api"
@@ -11,6 +12,7 @@ services:
     ports:
       - "9000:80"
   web-app:
+    container_name: svelte-webapp
     image: cowglow/mc-scrpt-live:${IMAGE_TAG}
     build:
       context: "services/web-app"

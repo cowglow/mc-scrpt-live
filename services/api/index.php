@@ -1,10 +1,12 @@
 <?php
 //echo phpinfo();
 
-require "vendor/autoload.php";
+require __DIR__ . "/vendor/autoload.php";
+require __DIR__ . "kirby/bootstrap.php";
 
-echo (new Kirby\Cms\App([
+echo (new Kirby([
     "roots" => [
-        "index" => __DIR__ . "/src",
+        "index" => __DIR__,
     ],
+    "debug" => true,
 ]))->render();

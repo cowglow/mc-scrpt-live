@@ -1,1 +1,6 @@
-000-default.conf
+apache-config.conf
+Dockerfile.dev
+package.json
+true
+yarn.lock
+yarn-error.log
