@@ -1,0 +1,4 @@
+Title: Home
+----
+Text: Welcome to your Kirby based Backend Tool
+----

@@ -1,0 +1,26 @@
+FROM php:7.4.25-apache
+WORKDIR /var/www/html
+
+COPY composer.json composer.json
+COPY index.php index.php
+COPY kirby/ kirby
+
+## Install packages: web server & PHP plus extensions
+RUN docker-php-source extract \
+    && apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    zip
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN docker-php-ext-install zip
+RUN docker-php-ext-install gd
+
+# Create system user to run Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+EXPOSE 80

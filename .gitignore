@@ -28,3 +28,8 @@ package-lock.json
 /api/vendor/
 /vendor/
 /microservice/vendor/
+/services/web-app/.env
+/services/api/node_modules/
+/services/api/kirby/
+/services/api/vendor/
+/services/api/true
