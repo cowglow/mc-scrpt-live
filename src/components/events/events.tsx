@@ -11,45 +11,45 @@ interface EventsProps {
   callback: any;
 }
 
-const Events:React.FC<EventsProps> = ({ classes, bind, callback }) => {
-  const currentTimestamp = Date.now()
-  const tabLabels = ['Upcoming Shows', 'Previews Shows']
-  const eventYears = getYears(bind, 'eventDate')
+const Events: React.FC<EventsProps> = ({ classes, bind, callback }) => {
+  const currentTimestamp = Date.now();
+  const tabLabels = ["Upcoming Shows", "Previews Shows"];
+  const eventYears = getYears(bind, "eventDate");
 
-  const pastEvents = bind.filter((item:any) => {
-    const eventDate = Date.parse(item['eventDate'])
-    return eventDate < currentTimestamp
-  })
+  const pastEvents: Event[] = bind.filter((item: any) => {
+    const eventDate = Date.parse(item["eventDate"]);
+    return eventDate < currentTimestamp;
+  });
 
-  const upcomingEvents = bind.filter((item:any) => {
-    const eventDate = Date.parse(item['eventDate'])
-    return eventDate > currentTimestamp
-  })
+  const upcomingEvents: Event[] = bind.filter((item: any) => {
+    const eventDate = Date.parse(item["eventDate"]);
+    return eventDate > currentTimestamp;
+  });
 
-  const modeDefault = upcomingEvents.length > 0 ? 1 : 0
+  const modeDefault = upcomingEvents.length > 0 ? 1 : 0;
 
-  const [mode, setMode] = React.useState(modeDefault)
-  const [yearFilter, setYearFilter] = React.useState(0)
+  const [mode, setMode] = React.useState(modeDefault);
+  const [yearFilter, setYearFilter] = React.useState(0);
 
-  const filterEvents =
+  const filterEvents: Event[] =
     mode === 0 && modeDefault === 1
       ? upcomingEvents
-      : pastEvents.filter((event:any) => {
-        const currentEventYear = new Date(event['eventDate']).getFullYear()
+      : pastEvents.filter((event: any) => {
+          const currentEventYear = new Date(event["eventDate"]).getFullYear();
 
-        return eventYears[yearFilter] === currentEventYear && event
-      })
+          return eventYears[yearFilter] === currentEventYear && event;
+        });
 
-  const eventList = filterEvents.length <= 0 ? bind : filterEvents
+  const eventList = filterEvents.length <= 0 ? bind : filterEvents;
 
-  const handleTabChange = (event:any, newValue:any) => {
-    callback(tabLabels[newValue])
-    setMode(newValue)
-  }
+  const handleTabChange = (event: any, newValue: any) => {
+    callback(tabLabels[newValue]);
+    setMode(newValue);
+  };
 
-  const handleYearFilter = (event:any, newValue:any) => {
-    setYearFilter(newValue)
-  }
+  const handleYearFilter = (event: any, newValue: any) => {
+    setYearFilter(newValue);
+  };
 
   return (
     <React.Fragment>
@@ -61,11 +61,11 @@ const Events:React.FC<EventsProps> = ({ classes, bind, callback }) => {
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth"
-          aria-label={'event list tabs'}
+          aria-label={"event list tabs"}
           className={classes.tabs}
         >
-          <Tab wrapped label={tabLabels[0]} className={classes.tab}/>
-          <Tab wrapped label={tabLabels[1]} className={classes.tab}/>
+          <Tab wrapped label={tabLabels[0]} className={classes.tab} />
+          <Tab wrapped label={tabLabels[1]} className={classes.tab} />
         </Tabs>
       )}
 
@@ -76,17 +76,19 @@ const Events:React.FC<EventsProps> = ({ classes, bind, callback }) => {
           onChange={handleYearFilter}
           indicatorColor="primary"
           textColor="primary"
-          variant="fullWidth"
-          aria-label={'event list tabs'}
+          variant="scrollable"
+          scrollButtons="auto"
+          aria-label={"event list tabs"}
           className={classes.tabs}
         >
-          {eventYears.map((year, index) => <Tab wrapped key={index} label={year} className={classes.tab}/>)}
+          {eventYears.map((year, index) => (
+            <Tab wrapped key={index} label={year} className={classes.tab} />
+          ))}
         </Tabs>
       )}
-
-      <EventList classes={classes.list} events={eventList}/>
+      <EventList classes={classes.list} events={eventList} />
     </React.Fragment>
   );
 };
 
-export default addStyling(Events)
+export default addStyling(Events);

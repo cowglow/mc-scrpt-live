@@ -7,7 +7,7 @@ import LinkIcon from "@material-ui/icons/Link";
 import { getDate } from "../../../lib/get-date";
 
 interface EventListProps {
-  events: any;
+  events: Event[];
   classes: any;
 }
 
@@ -20,7 +20,7 @@ const EventList: React.FC<EventListProps> = ({ events, classes }) => {
 
   return (
     <List className={classes}>
-      {events.map((event:any, index:number) => {
+      {events.map((event: any, index: number) => {
         const link = event["eventLink"];
         return (
           <ListItem
