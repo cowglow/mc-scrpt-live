@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "getkirby/cms": "3.5.7.1"
+    "getkirby/cms": "3.5.8"
   },
   "config": {
     "optimize-autoloader": true
