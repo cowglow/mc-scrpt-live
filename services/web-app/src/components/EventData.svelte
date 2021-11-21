@@ -10,9 +10,9 @@
 <div class="section">
   {#await promise}
     ...loading
-  {:then { Events }}
-    <NextEventBanner data={getUpcomingDates(Events)} />
-    <EventLog data={Events} />
+  {:then events}
+    <NextEventBanner data={getUpcomingDates(events)} />
+    <EventLog data={events} />
   {:catch error}
     <p style="color: red;">{error.message}</p>
   {/await}

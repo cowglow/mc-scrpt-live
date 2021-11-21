@@ -33,3 +33,4 @@ package-lock.json
 /services/api/kirby/
 /services/api/vendor/
 /services/api/true
+/.env

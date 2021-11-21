@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "IMAGE_TAG=dev docker-compose -f docker-compose.yml",
     "microservice": "php -S localhost:8080 -t microservice/",
-    "terminal": "docker exec -it php-apache bash"
+    "terminal": "docker exec -it php-apache bash",
+    "sync": "node -r dotenv/config sync-resources.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/cowglow/mc-scrpt-live/issues"
   },
-  "homepage": "https://github.com/cowglow/mc-scrpt-live#readme"
+  "homepage": "https://github.com/cowglow/mc-scrpt-live#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0"
+  }
 }
