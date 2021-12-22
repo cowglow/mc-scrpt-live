@@ -1,25 +1,28 @@
 <script lang="ts">
+  import { onDestroy } from "svelte";
   export let date: Date;
-  const currentDate = new Date();
+  let currentDate = new Date(Date.now());
+
+  $: count = Math.round((date - currentDate) / 1000);
+  $: d = Math.floor(count / (3600 * 24));
+  $: h = Math.floor(count / 3600);
+  $: m = Math.floor((count - h * 3600) / 60);
+  $: s = count - h * 3600 - m * 60;
+
+  let interval = setInterval(() => {
+    currentDate = new Date(Date.now());
+  }, 1000);
+
+  onDestroy(() => {
+    clearInterval(interval);
+  });
 </script>
 
 <div>
-  <p>
-    {`0${date.getDate() - currentDate.getDate()}`.slice(-2)}
-    <span>Days</span>
-  </p>
-  <p>
-    {`0${date.getTime() - currentDate.getTime()}`.slice(-2)}
-    <span>Hrs</span>
-  </p>
-  <p>
-    {`0${date.getMinutes() - currentDate.getMinutes()}`.slice(-2)}
-    <span>Mins</span>
-  </p>
-  <p>
-    {`0${date.getSeconds() - currentDate.getSeconds()}`.slice(-2)}
-    <span>Secs</span>
-  </p>
+  <p>{`0${d}`.slice(-2)}<span>Days</span></p>
+  <p>{`0${h}`.slice(-2)}<span>Hrs</span></p>
+  <p>{`0${m}`.slice(-2)}<span>Min</span></p>
+  <p>{`0${s}`.slice(-2)}<span>Secs</span></p>
 </div>
 
 <style>
@@ -32,15 +35,15 @@
     justify-content: center;
     align-content: center;
     background-color: white;
-    width: 52.58px;
-    height: 59.41px;
+    width: 53px;
+    height: 59px;
     font-family: Teko, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 34px;
     text-align: center;
     color: #000000;
-    margin: 0 21.36px;
+    margin: 0 21px;
   }
   span {
     font-family: Teko, sans-serif;
