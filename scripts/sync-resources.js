@@ -14,6 +14,8 @@ const PLAYLIST_TRACKS_API_URL = "https://" + SC_URL + "/" + SC_MIX;
 const PLAYLIST_TRACKS_FILEPATH =
   "services/web-app/src/data/soundcloud-data.json";
 
+const SYNC = [EVENT_LIST_FILEPATH]
+
 async function getEventList() {
   try {
     const { data } = await axios.get(EVENT_LIST_API_URL);
@@ -37,7 +39,7 @@ async function getPlaylistTracks() {
 async function syncResources() {
   // Remove Old file
   try {
-    [EVENT_LIST_FILEPATH, PLAYLIST_TRACKS_FILEPATH].forEach((filePath) =>
+    SYNC.forEach((filePath) =>
       fs.unlinkSync(filePath)
     );
   } catch (err) {
