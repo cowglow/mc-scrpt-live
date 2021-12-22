@@ -1,9 +1,37 @@
 <script lang="ts">
+  import { writable } from "svelte/store";
   export let data: Event[];
+  const { events } = data;
+  const page = writable(1);
+  const MAX_EVENT = 5;
+
+  const filteredEvents = (list, page, max): Pagination => {
+    const offset = max * (page - 1);
+    const totalPages = Math.ceil(list.length / max);
+    const paginatedItems = list.slice(offset, max * page);
+
+    return {
+      previousPage: page - 1 >= 0 ? page - 1 : null,
+      nextPage: totalPages > page ? page + 1 : null,
+      total: list.length,
+      totalPages: totalPages,
+      items: paginatedItems,
+    };
+  };
+
+  $: eventData = filteredEvents(events, $page, MAX_EVENT);
+
+  const stepForward = () => {
+    page.set($page + 1);
+  };
+
+  const stepBackward = () => {
+    page.set($page - 1);
+  };
 </script>
 
 <h1>display events</h1>
-{#each data as event}
+{#each eventData.items as event}
   <div class="event">
     <div class="date">
       {`0${new Date(event.eventDate).getDate()}`.slice(-2)}
@@ -23,12 +51,20 @@
   </div>
 {/each}
 
+<div class="controller">
+  <button on:click={stepBackward} disabled={!eventData.previousPage}>
+    less
+  </button>
+  <button on:click={stepForward} disabled={!eventData.nextPage}> more </button>
+</div>
+
 <style>
   h1 {
     text-align: center;
   }
 
-  .event {
+  .event,
+  .controller {
     display: flex;
     justify-content: space-between;
     color: #ffffff;
@@ -41,6 +77,14 @@
   }
   .event:hover a {
     color: #ff0000;
+  }
+
+  .controller button {
+    width: 40%;
+    cursor: pointer;
+  }
+  .controller button:hover {
+    background: red;
   }
 
   .date {

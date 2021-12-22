@@ -6,3 +6,11 @@ type Event = {
   eventName: string;
   eventLink: string;
 };
+
+type Pagination = {
+  previousPage: number;
+  nextPage: number;
+  total: number;
+  totalPages: number;
+  items: Partial<Event>[];
+};
