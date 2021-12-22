@@ -8,6 +8,7 @@
     <div class="label">
       <span>Next Big Show</span>
       <h1>{data[0].eventName}</h1>
+      <span>{data[0].eventLocation}</span>
     </div>
     <CountDown date={new Date(data[0].eventDate)} />
     <a href={data[0].eventLink} rel="noreferrer nofollow" target="event-link">
@@ -22,7 +23,7 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 134.99px;
+    height: 135px;
     max-width: 1080px;
     margin: 0 auto;
     background-color: red;

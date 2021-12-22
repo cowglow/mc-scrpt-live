@@ -1,21 +1,13 @@
 <script>
   import EventLog from "./EventLog.svelte";
   import NextEventBanner from "./NextEventBanner.svelte";
-  import { getEventList } from "../network/get-event-list";
   import { getUpcomingDates } from "../lib/get-upcoming-dates";
-
-  let promise = getEventList();
+  import events from "../data/event-list.json";
 </script>
 
 <div class="section">
-  {#await promise}
-    ...loading
-  {:then events}
-    <NextEventBanner data={getUpcomingDates(events)} />
-    <EventLog data={events} />
-  {:catch error}
-    <p style="color: red;">{error.message}</p>
-  {/await}
+  <NextEventBanner data={getUpcomingDates(events)} />
+  <EventLog data={events} />
 </div>
 
 <style>
