@@ -33,7 +33,7 @@
 <h1>display events</h1>
 {#each eventData.items as event}
   <div class="event">
-    <div class="date">
+    <div class="event-date">
       {`0${new Date(event.eventDate).getDate()}`.slice(-2)}
       <span>
         {new Date(event.eventDate).toLocaleString("default", {
@@ -41,13 +41,18 @@
         })}
       </span>
     </div>
-    <div class="name">{event.eventName}</div>
-    <div class="link">
+    <div class="event-name">
+      {event.eventName}
+      <span>{event.eventLocation}</span>
+    </div>
+    <div class="event-link">
       <a href={event.eventLink} rel="noreferrer nofollow" target="event-link">
         {event.eventLink.replace(/^\/\/|^.*?:(\/\/)?/, "")}
       </a>
     </div>
-    <div class="time">{`${new Date(event.eventDate).getUTCHours()}:00`}</div>
+    <div class="event-time">
+      {`${new Date(event.eventDate).getUTCHours()}:00`}
+    </div>
   </div>
 {/each}
 
@@ -68,6 +73,7 @@
     display: flex;
     justify-content: space-between;
     color: #ffffff;
+    border: thin solid greenyellow;
   }
 
   .event:hover {
@@ -87,7 +93,7 @@
     background: red;
   }
 
-  .date {
+  .event-date {
     display: flex;
     flex-direction: column;
     padding: 14px 50px;
@@ -98,18 +104,41 @@
     font-size: 34px;
   }
 
-  .date > span {
+  .event-date > span {
     width: 23px;
     height: 23px;
     font-size: 16px;
     text-align: center;
   }
 
-  .name {
+  .event-name {
+    border: thin solid gold;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     flex-grow: 1;
+
+    /*max-width: 150px;*/
+    /*font-family: Teko, sans-serif;*/
+    /*font-style: normal;*/
+    /*font-weight: 500;*/
+    /*font-size: 34px;*/
+  }
+
+  .event-date,
+  .event-name,
+  .event-link,
+  .event-time {
+    border: thin solid gold;
+  }
+
+  .name {
+    border: thin solid red;
+  }
+
+  .location {
+    border: thin solid red;
   }
 
   .link {
