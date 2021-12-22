@@ -2,6 +2,12 @@
   "events": [
     {
       "zeitstempel": "2021-10-10T11:57:22.406Z",
+      "eventDate": "2021-12-30T22:00:00.000Z",
+      "eventName": "Monsters of Jungle - Future Date",
+      "eventLink": "https://www.facebook.com/events/555555555555555"
+    },
+    {
+      "zeitstempel": "2021-10-10T11:57:22.406Z",
       "eventDate": "2021-10-15T22:00:00.000Z",
       "eventName": "Monsters of Jungle",
       "eventLink": "https://www.facebook.com/events/383566643265231"

@@ -1,6 +1,6 @@
-export const getUpcomingDates = (dates) => {
+export const getUpcomingDates = ({ events }) => {
   const currentDate = new Date();
-  return dates.filter(({ eventDate }) => {
+  return events.filter(({ eventDate }) => {
     return Date.parse(eventDate) > currentDate.valueOf();
   });
 };
