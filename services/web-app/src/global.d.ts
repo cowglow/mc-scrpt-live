@@ -5,6 +5,8 @@ type Event = {
   eventDate: string;
   eventName: string;
   eventLink: string;
+  eventLocation: string;
+  eventStartTime: string;
 };
 
 type Pagination = {
