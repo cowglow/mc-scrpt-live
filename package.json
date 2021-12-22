@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "IMAGE_TAG=dev docker-compose -f docker-compose.yml",
+    "dev:web-app": "npm run dev --prefix services/web-app/",
     "microservice": "php -S localhost:8080 -t microservice/",
     "terminal": "docker exec -it php-apache bash",
-    "sync": "node -r dotenv/config sync-resources.js"
+    "sync": "node -r dotenv/config -r path scripts/sync-resources.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,11 @@
     "url": "https://github.com/cowglow/mc-scrpt-live/issues"
   },
   "homepage": "https://github.com/cowglow/mc-scrpt-live#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^17.0.2",
     "axios": "^0.24.0",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "jsdom": "^19.0.0"
   }
 }
