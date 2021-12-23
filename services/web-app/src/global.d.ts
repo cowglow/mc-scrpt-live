@@ -10,8 +10,8 @@ type Event = {
 };
 
 type Pagination = {
-  previousPage: number;
-  nextPage: number;
+  previousPage: number | null;
+  nextPage: number | null;
   total: number;
   totalPages: number;
   items: Partial<Event>[];
