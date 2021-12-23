@@ -27,7 +27,6 @@
   }
 
   .section {
-    border: thin solid red;
     width: 100%;
     max-width: 1080px;
     margin: 95px auto 83px;

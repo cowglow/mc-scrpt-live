@@ -73,7 +73,7 @@
     display: flex;
     justify-content: space-between;
     color: #ffffff;
-    border: thin solid greenyellow;
+    border: thick solid greenyellow;
   }
 
   .event:hover {
@@ -85,6 +85,24 @@
     color: #ff0000;
   }
 
+  .event div:nth-child(1) {
+      border: thick solid red;
+      width: 15%;
+  }
+  .event div:nth-child(2) {
+      border: thick solid red;
+      width: 37%;
+  }
+  .event div:nth-child(3) {
+      border: thick solid red;
+      width: 29%;
+  }
+  .event div:nth-child(4) {
+      border: thick solid red;
+      width: 19%;
+  }
+
+
   .controller button {
     width: 40%;
     cursor: pointer;
@@ -94,6 +112,7 @@
   }
 
   .event-date {
+    /*
     display: flex;
     flex-direction: column;
     padding: 14px 50px;
@@ -102,6 +121,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 34px;
+      */
   }
 
   .event-date > span {
@@ -112,12 +132,14 @@
   }
 
   .event-name {
+    /*
     border: thin solid gold;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     flex-grow: 1;
+    */
 
     /*max-width: 150px;*/
     /*font-family: Teko, sans-serif;*/
