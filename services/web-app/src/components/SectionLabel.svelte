@@ -24,5 +24,6 @@
     font-size: 24px;
     line-height: 21px;
     color: #666666;
+    margin-bottom: 34px;
   }
 </style>

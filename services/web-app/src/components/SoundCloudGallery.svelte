@@ -1,43 +1,43 @@
 <script lang="ts">
   import * as data from "../data/soundcloud-data.json";
   const { tracks } = data;
-  const baseUrl = "https://soundcloud.com";
+  const baseUrl = "https://w.soundcloud.com/player/";
+
+  type QueryObject = {
+    url: string;
+    color: string;
+    auto_play: boolean;
+    hide_related: boolean;
+    show_comments: boolean;
+    show_user: boolean;
+    show_reposts: boolean;
+    show_teaser: boolean;
+  };
+
+  const params: QueryObject = {
+    url: "https://api.soundcloud.com/playlists/633696606",
+    color: "#ff5500",
+    auto_play: false,
+    hide_related: false,
+    show_comments: true,
+    show_user: true,
+    show_reposts: false,
+    show_teaser: true,
+  };
+
+  const query = Object.keys(params)
+    .map((param) => {
+      return `${encodeURIComponent(param)}=${encodeURIComponent(
+        params[param]
+      )}`;
+    })
+    .join("&");
 </script>
 
-<ul>
-  {#each tracks as track}
-    <li>
-      <a
-        href={`${baseUrl}${track.url}`}
-        rel="nofollow"
-        target="soundcloud"
-        ><img
-          src={track.image}
-          alt={`Artwork for ${track.title}`}
-        />{track.title}</a
-      >
-    </li>
-  {/each}
-</ul>
-
-<style>
-  a,
-  a:visited {
-    color: black;
-  }
-
-  a:hover,
-  a:active {
-    color: red;
-  }
-
-  li {
-    line-height: 50px;
-  }
-
-  li img {
-    border: thin solid red;
-    padding: 10px;
-    display: block;
-  }
-</style>
+<iframe
+  width="100%"
+  height="450"
+  scrolling="no"
+  frameborder="no"
+  allow="autoplay"
+  src={`${baseUrl}?${query}`}></iframe>
