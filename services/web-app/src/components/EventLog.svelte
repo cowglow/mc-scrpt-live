@@ -71,9 +71,11 @@
   .event,
   .controller {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     color: #ffffff;
     border: thick solid greenyellow;
+    flex-wrap: wrap;
   }
 
   .event:hover {
@@ -85,23 +87,28 @@
     color: #ff0000;
   }
 
+  .event > * {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
   .event div:nth-child(1) {
-      border: thick solid red;
-      width: 15%;
+    border: thick solid red;
+    /*width: 15%;*/
+    width: 50%;
   }
   .event div:nth-child(2) {
-      border: thick solid red;
-      width: 37%;
+    border: thick solid red;
+    /*width: 37%;*/
+    width: 50%;
   }
   .event div:nth-child(3) {
-      border: thick solid red;
-      width: 29%;
+    border: thick solid red;
+    width: 29%;
   }
   .event div:nth-child(4) {
-      border: thick solid red;
-      width: 19%;
+    border: thick solid red;
+    width: 19%;
   }
-
 
   .controller button {
     width: 40%;
