@@ -20,38 +20,35 @@
 <style>
   #next-event-banner {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 135px;
-    max-width: 1080px;
-    margin: 0 auto;
+    flex-direction: column;
+    padding: 13px;
     background-color: red;
     position: relative;
-    top: -40px;
+    bottom: 0;
+    left: 0;
   }
 
   .label {
     display: flex;
     flex-direction: column;
     align-content: center;
+    width: 100%;
+    margin-bottom: 21px;
   }
 
   span {
     font-family: Teko, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 15px;
-    line-height: 21px;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
     color: #000000;
   }
 
   h1 {
-    font-family: Teko, sans-serif;
+    font-family: "bd_console", sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 32px;
-    line-height: 46px;
     padding: 0;
     margin: 0;
     color: #ffffff;
@@ -59,9 +56,39 @@
 
   a {
     color: #000000;
+    margin: 18px auto 0;
+    text-align: right;
   }
   a:hover {
     color: #ffffff;
     text-decoration: underline;
+  }
+  a:active {
+    color: #fff200ff;
+  }
+
+  @media screen and (min-width: 700px) {
+    #next-event-banner {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      top: -40px;
+      padding: 1.5rem;
+    }
+    .label {
+      width: unset;
+      margin-bottom: unset;
+    }
+    span {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    h1 {
+      font-size: 32px;
+      line-height: 46px;
+    }
+    a {
+      margin: 0 auto;
+    }
   }
 </style>
