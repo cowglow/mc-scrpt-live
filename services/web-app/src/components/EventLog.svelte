@@ -30,7 +30,11 @@
   };
 </script>
 
-<h1>display events</h1>
+<h1>Previous Events</h1>
+<h3>
+  You can usually catch me grooving alongside some of the coolest DJs in and
+  around the 'Mittelfranken' region.
+</h3>
 {#each eventData.items as event}
   <div class="event">
     <div class="event-date">
@@ -46,11 +50,16 @@
       <span>{event.eventLocation}</span>
     </div>
     <div class="event-link">
+      <img src="/images/event-link-icon.svg" alt="Event link icon" />
       <a href={event.eventLink} rel="noreferrer nofollow" target="event-link">
         {event.eventLink.replace(/^\/\/|^.*?:(\/\/)?/, "")}
       </a>
     </div>
     <div class="event-time">
+      <img
+        src="/images/event-start-time-icon.svg"
+        alt="Event Start Time icon"
+      />
       {`${new Date(event.eventDate).getUTCHours()}:00`}
     </div>
   </div>
@@ -58,24 +67,46 @@
 
 <div class="controller">
   <button on:click={stepBackward} disabled={!eventData.previousPage}>
-    less
+    <img src="/images/expand-less.svg" alt="Previous page" />
   </button>
-  <button on:click={stepForward} disabled={!eventData.nextPage}> more </button>
+  <button on:click={stepForward} disabled={!eventData.nextPage}>
+    <img src="images/expand-more.svg" alt="Next page" />
+  </button>
 </div>
 
 <style>
   h1 {
+    font-family: Teko, sans-serif;
+    font-size: 3.8rem;
+    text-align: center;
+    margin: 45px auto 0;
+    padding: 0;
+  }
+  h3 {
+    font-size: 1.2rem;
+    padding: 0 13px;
+    margin: 13px auto;
+    font-style: normal;
+    font-weight: normal;
     text-align: center;
   }
-
+  img {
+    padding: 0;
+    margin: 0;
+  }
   .event,
   .controller {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #ffffff;
-    border: thick solid greenyellow;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .event {
+    margin: 0 auto;
+    /*text-align: left;*/
   }
 
   .event:hover {
@@ -90,97 +121,83 @@
   .event > * {
     flex-grow: 1;
     flex-shrink: 1;
+    padding: 0.3rem;
   }
   .event div:nth-child(1) {
-    border: thick solid red;
-    /*width: 15%;*/
-    width: 50%;
+    width: 15%;
+    /*width: 50%;*/
   }
   .event div:nth-child(2) {
-    border: thick solid red;
+    width: 85%;
     /*width: 37%;*/
-    width: 50%;
+    /*width: 50%;*/
   }
   .event div:nth-child(3) {
-    border: thick solid red;
-    width: 29%;
+    /*width: 29%;*/
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .event div:nth-child(4) {
-    border: thick solid red;
     width: 19%;
+    display: none;
   }
 
   .controller button {
-    width: 40%;
+    margin-top: 1rem;
     cursor: pointer;
   }
   .controller button:hover {
     background: red;
   }
 
-  .event-date {
-    /*
-    display: flex;
-    flex-direction: column;
-    padding: 14px 50px;
-    max-width: 150px;
-    font-family: Teko, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 34px;
-      */
-  }
+  /*.event-date {*/
+  /*  display: flex;*/
+  /*  flex-direction: column;*/
+  /*  padding: 14px 50px;*/
+  /*  max-width: 150px;*/
+  /*  font-family: Teko, sans-serif;*/
+  /*  font-style: normal;*/
+  /*  font-weight: 500;*/
+  /*  font-size: 34px;*/
+  /*}*/
 
-  .event-date > span {
-    width: 23px;
-    height: 23px;
-    font-size: 16px;
-    text-align: center;
-  }
+  /*.event-date > span {*/
+  /*  width: 23px;*/
+  /*  height: 23px;*/
+  /*  font-size: 16px;*/
+  /*  text-align: center;*/
+  /*}*/
 
   .event-name {
-    /*
-    border: thin solid gold;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    flex-grow: 1;
-    */
-
-    /*max-width: 150px;*/
-    /*font-family: Teko, sans-serif;*/
-    /*font-style: normal;*/
-    /*font-weight: 500;*/
-    /*font-size: 34px;*/
   }
 
-  .event-date,
-  .event-name,
-  .event-link,
-  .event-time {
-    border: thin solid gold;
-  }
-
-  .name {
-    border: thin solid red;
-  }
-
-  .location {
-    border: thin solid red;
-  }
-
-  .link {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 14px 50px;
-  }
-
-  .time {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 14px 50px;
+  @media screen and (min-width: 700px) {
+    h1 {
+      font-size: 46px;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+    .event div:nth-child(1) {
+      width: 15%;
+      /*width: 50%;*/
+    }
+    .event div:nth-child(2) {
+      /*width: 85%;*/
+      width: 37%;
+      /*width: 50%;*/
+      text-align: left;
+    }
+    .event div:nth-child(3) {
+      width: 29%;
+      /*width: 100%;*/
+      text-align: left;
+    }
+    .event div:nth-child(4) {
+      width: 19%;
+      display: unset;
+    }
   }
 </style>
