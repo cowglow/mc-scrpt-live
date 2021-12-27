@@ -41,12 +41,16 @@
     font-style: normal;
     font-weight: normal;
     font-size: 1.2rem;
-    line-height: 1.6rem;
+    line-height: 0.75rem;
     color: #000000;
   }
 
+  span:nth-child(1) {
+    margin-top: 0.35rem;
+  }
+
   h1 {
-    font-family: "bd_console", sans-serif;
+    font-family: Teko, sans-serif;
     font-style: normal;
     font-weight: 500;
     padding: 0;
