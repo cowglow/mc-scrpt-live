@@ -45,9 +45,9 @@
     max-width: 1080px;
     margin: 0 auto;
     color: white;
-    padding: 0 22px;
+    padding: 0 var(--side-padding);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
   }
 
