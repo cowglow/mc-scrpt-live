@@ -21,7 +21,6 @@
   #next-event-banner {
     display: flex;
     flex-direction: column;
-    padding: 13px;
     background-color: red;
     position: relative;
     bottom: 0;
@@ -33,7 +32,8 @@
     flex-direction: column;
     align-content: center;
     width: 100%;
-    margin-bottom: 21px;
+    margin: 21px auto;
+    padding: 0 var(--side-padding);
   }
 
   span {
@@ -60,7 +60,7 @@
 
   a {
     color: #000000;
-    margin: 18px auto 0;
+    margin: 20px auto 14px;
     text-align: right;
   }
   a:hover {
@@ -77,11 +77,10 @@
       justify-content: space-around;
       align-items: center;
       top: -40px;
-      padding: 1.5rem;
     }
     .label {
       width: unset;
-      margin-bottom: unset;
+      margin: 3px 21px;
     }
     span {
       font-size: 1.5rem;
