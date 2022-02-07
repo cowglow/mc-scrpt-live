@@ -30,99 +30,73 @@
 
 <style>
   div {
-    /*border: thin solid yellow;*/
+    border: thin solid yellow;
   }
   .event {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: flex-start;
-    /*margin-bottom: 0.5rem;*/
+    height: 82px;
   }
-  .event:nth-child(even) {
-    color: white;
-    background-color: black;
-  }
-  .event:nth-child(odd) {
-    color: black;
-    background-color: white;
-  }
-  .event:hover {
-    cursor: pointer;
-  }
-  .event:hover:nth-child(odd) {
-    background-color: white;
-    color: black;
-  }
-  .event:hover:nth-child(even) {
-    background-color: black;
-    color: white;
-  }
-  .event:hover a {
-    color: #ff0000;
-  }
-  .event > * {
-    flex-grow: 1;
-    flex-shrink: 1;
-    padding: 0.3rem;
-  }
-  .event div:nth-child(1) {
-    width: 15%;
-    /*width: 50%;*/
-  }
-  .event div:nth-child(2) {
-    width: 85%;
-    /*width: 37%;*/
-    /*width: 50%;*/
-  }
-  .event div:nth-child(3) {
-    /*width: 29%;*/
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-    display: none;
-  }
-  .event div:nth-child(4) {
-    width: 19%;
-    display: none;
-  }
-  .event-date {
-    display: flex;
-    flex-direction: column;
-  }
-  .event-date span:nth-child(1) {
-    /*border: thin solid red;*/
-    /*font-size: 3.25rem;*/
-  }
-  .event-date span:nth-child(2) {
-    /*border: thin solid red;*/
-    /*font-size: 2.25rem;*/
-  }
-  .event-date span:nth-child(3) {
-    /*border: thin solid red;*/
-    display: none;
-  }
+  /*.event:nth-child(even) {*/
+  /*  color: white;*/
+  /*  background-color: black;*/
+  /*}*/
+  /*.event:nth-child(odd) {*/
+  /*  color: black;*/
+  /*  background-color: white;*/
+  /*}*/
+  /*.event:hover:nth-child(odd) {*/
+  /*  background-color: white;*/
+  /*  color: black;*/
+  /*}*/
+  /*.event:hover:nth-child(even) {*/
+  /*  background-color: black;*/
+  /*  color: white;*/
+  /*}*/
+  /*.event:hover a:nth-child(odd) {*/
+  /*  color: #ff0000;*/
+  /*}*/
+
+  /*.event div:nth-child(1) {*/
+  /*  text-align: center;*/
+  /*  width: 15%;*/
+  /*  !*width: 50%;*!*/
+  /*}*/
+  /*.event div:nth-child(2) {*/
+  /*  width: 85%;*/
+  /*  !*width: 37%;*!*/
+  /*  !*width: 50%;*!*/
+  /*}*/
+  /*.event div:nth-child(3) {*/
+  /*  !*width: 29%;*!*/
+  /*  width: 100%;*/
+  /*  white-space: nowrap;*/
+  /*  overflow: hidden;*/
+  /*  text-overflow: ellipsis;*/
+  /*  text-align: center;*/
+  /*  display: none;*/
+  /*}*/
+  /*.event div:nth-child(4) {*/
+  /*  width: 19%;*/
+  /*  display: none;*/
+  /*}*/
+
+  /*.event-date {*/
+  /*  display: flex;*/
+  /*  flex-direction: column;*/
+  /*}*/
+  /*.event-date span:nth-child(1) {*/
+  /*  border: thin solid red;*/
+  /*font-size: 1.8rem;*/
+  /*}*/
+  /*.event-date span:nth-child(2) {*/
+  /*  border: thin solid red;*/
+  /*  font-size: 2.25rem;*/
+  /*}*/
+  /*.event-date span:nth-child(3) {*/
+  /*  border: thin solid red;*/
+  /*display: none;*/
+  /*}*/
+
   @media screen and (min-width: 700px) {
-    .event div:nth-child(1) {
-      width: 15%;
-      /*width: 50%;*/
-    }
-    .event div:nth-child(2) {
-      /*width: 85%;*/
-      width: 37%;
-      /*width: 50%;*/
-      text-align: left;
-    }
-    .event div:nth-child(3) {
-      width: 29%;
-      /*width: 100%;*/
-      text-align: left;
-    }
-    .event div:nth-child(4) {
-      width: 19%;
-      display: unset;
-    }
   }
 </style>

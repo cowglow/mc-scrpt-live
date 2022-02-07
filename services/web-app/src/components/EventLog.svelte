@@ -26,38 +26,41 @@
   };
 </script>
 
-<h1>Previous Events</h1>
-<h3>
-  You can usually catch me grooving alongside some of the coolest DJs in and
-  around the 'Mittelfranken' region.
-</h3>
-<div class="events" bind:this={eventsElement}>
-  {#each eventData.items as event}
-    <EventLogEntry {event} />
-  {/each}
-</div>
+<div class="wrapper">
+  <h1>Previous Events</h1>
+  <h3>
+    You can usually catch me grooving alongside some of the coolest DJs in and
+    around the 'Mittelfranken' region.
+  </h3>
+  <div class="events" bind:this={eventsElement}>
+    {#each eventData.items as event}
+      <EventLogEntry {event} />
+    {/each}
+  </div>
 
-<div class="controller">
-  <button on:click={stepBackward} disabled={stepBackwardDisabled}>
-    <img src="/images/expand-less.svg" alt="Previous page" />
-  </button>
-  <button on:click={stepForward} disabled={stepForwardDisabled}>
-    <img src="images/expand-more.svg" alt="Next page" />
-  </button>
+  <div class="controller">
+    <button on:click={stepBackward} disabled={stepBackwardDisabled}>
+      <img src="/images/expand-less.svg" alt="Previous page" />
+    </button>
+    <button on:click={stepForward} disabled={stepForwardDisabled}>
+      <img src="images/expand-more.svg" alt="Next page" />
+    </button>
+  </div>
 </div>
 
 <style>
+  .wrapper {
+    padding: 0 var(--side-padding);
+  }
   h1 {
+    border: thin solid red;
     font-family: Teko, sans-serif;
     font-size: 3.8rem;
     text-align: center;
-    margin: 45px auto 0;
-    padding: 0;
   }
   h3 {
+    border: thin solid red;
     font-size: 1.2rem;
-    padding: 0 13px;
-    margin: 13px auto;
     font-style: normal;
     font-weight: normal;
     text-align: center;
@@ -67,9 +70,9 @@
     margin: 0;
   }
   .events {
+    border: thin solid red;
     height: 420px;
     overflow-y: auto;
-    padding: 0 1.25rem;
   }
   .controller {
     display: flex;
@@ -101,10 +104,10 @@
   }
   @media screen and (min-width: 700px) {
     h1 {
-      font-size: 46px;
+      margin: 0;
     }
     h3 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
   }
 </style>

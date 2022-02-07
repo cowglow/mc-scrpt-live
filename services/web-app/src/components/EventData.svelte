@@ -1,7 +1,7 @@
 <script>
   import EventLog from "./EventLog.svelte";
   import NextEventBanner from "./NextEventBanner.svelte";
-  import { getUpcomingDates } from "../lib/get-upcoming-dates";
+  import { getUpcomingDates } from "$lib/get-upcoming-dates";
   import events from "../data/event-list.json";
 </script>
 
