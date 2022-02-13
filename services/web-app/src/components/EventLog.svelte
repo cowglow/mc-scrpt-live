@@ -47,13 +47,14 @@
 
 <style>
   .wrapper {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     max-width: 1080px;
     padding: 0;
     margin: 0 auto;
   }
   h1 {
-    border: thin solid red;
     font-family: Teko, sans-serif;
     font-size: 3.8rem;
     text-align: left;
@@ -76,7 +77,6 @@
       text-align: center;
     }
     h3 {
-      border: thin solid purple;
       font-size: 1.8rem;
       text-align: center;
       padding: 0 13%;
