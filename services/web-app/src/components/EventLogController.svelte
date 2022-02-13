@@ -6,17 +6,16 @@
 </script>
 
 <div class="wrapper">
-  <button on:click={stepBackward} {stepBackwardDisabled ? "disabled" : null}>
+  <button on:click={stepBackward} disabled={stepBackwardDisabled}>
     <img src="/images/expand-less.svg" alt="Previous page" />
   </button>
-  <button on:click={stepForward} {stepForwardDisabled ? "disabled" : null}>
+  <button on:click={stepForward} disabled={stepForwardDisabled}>
     <img src="images/expand-more.svg" alt="Next page" />
   </button>
 </div>
 
 <style>
   .wrapper {
-    border: thin solid greenyellow;
     display: flex;
     justify-content: space-around;
     padding-top: 10px;
