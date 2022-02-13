@@ -11,7 +11,6 @@
 
 <style>
   .wrapper {
-    border: thin solid yellow;
     height: 420px;
     overflow-y: auto;
   }
