@@ -14,4 +14,9 @@
     height: 420px;
     overflow-y: auto;
   }
+  @media screen and (min-width: 700px) {
+    .wrapper {
+      height: 100%;
+    }
+  }
 </style>

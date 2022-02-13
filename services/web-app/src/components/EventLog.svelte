@@ -1,21 +1,24 @@
-<script lang="ts">
+<script>
+  import * as animateScroll from "svelte-scrollto";
   import { writable } from "svelte/store";
   import { paginateContent } from "$lib/paginate-content";
+  import { ANCHOR_EVENTS } from "$lib/constants";
   import EventLogList from "./EventLogList.svelte";
   import EventLogController from "./EventLogController.svelte";
   import { events } from "../data/event-list.json";
-
-  let elementRef: HTMLElement;
 
   const currentPage = writable(1);
   const MAX_EVENT = 7;
 
   $: eventData = paginateContent(events, $currentPage, MAX_EVENT);
+  $: content = eventData.items;
   $: stepBackwardDisabled = !eventData.previousPage;
   $: stepForwardDisabled = !eventData.nextPage;
 
   const resetScroll = () => {
-    elementRef.scrollTo(0, 0);
+    animateScroll.scrollTo({
+      element: document.getElementById(ANCHOR_EVENTS),
+    });
   };
   const stepForward = () => {
     currentPage.set($currentPage + 1);
@@ -34,7 +37,7 @@
     You can usually catch me grooving alongside some of the coolest DJs in and
     around the 'Mittelfranken' region.
   </h3>
-  <EventLogList data={eventData.items} bind:this={elementRef} />
+  <EventLogList data={content} />
   <EventLogController
     {...{
       stepBackwardDisabled,

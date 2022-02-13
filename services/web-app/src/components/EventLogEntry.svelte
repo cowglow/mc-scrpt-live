@@ -1,102 +1,148 @@
-<script>
+<script lang="ts">
+  import { formattedEventLinkString } from "$lib/formatted-event-link-string";
   export let event;
+  const { eventDate, eventName, eventLocation, eventLink } = event;
+
+  const eventDay = `0${new Date(eventDate).getDate().toString()}`.slice(-2);
+  const eventMonth = new Date(eventDate).toLocaleString("default", {
+    month: "short",
+  });
+  const eventYear = `${new Date(eventDate).getUTCFullYear()}`;
+  const eventUrl = formattedEventLinkString(eventLink);
+  const eventStartTime = `${new Date(eventDate).getUTCHours()}:00`;
 </script>
 
-<div class="event">
-  <div class="event-date">
-    <span>{`0${new Date(event.eventDate).getDate()}`.slice(-2)}</span>
-    <span>
-      {new Date(event.eventDate).toLocaleString("default", {
-        month: "short",
-      })}
-    </span>
-    <span>{`${new Date(event.eventDate).getUTCFullYear()}`}</span>
+<div class="wrapper">
+  <div class="flex-it event-date">
+    <span>{eventDay}</span>
+    <span>{eventMonth}</span>
   </div>
-  <div class="event-name">
-    {event.eventName}
-    <span>{event.eventLocation}</span>
+  <div class="flex-it event-name">
+    <span>{eventName}</span>
+    <span>{eventLocation}</span>
   </div>
-  <div class="event-link">
-    <img src="/images/event-link-icon.svg" alt="Event link icon" />
-    <a href={event.eventLink} rel="noreferrer nofollow" target="event-link">
-      {event.eventLink.replace(/^\/\/|^.*?:(\/\/)?/, "")}
-    </a>
+  <div class="flex-it event-link">
+    <div class="mobile">
+      <a href={eventLink} rel="noreferrer nofollow" target="event-link">
+        <img src="/images/event-link-icon.svg" alt="Event link icon" />
+      </a>
+    </div>
+    <div class="desktop">
+      <img src="/images/event-link-icon.svg" alt="Event link icon" />
+      <a href={eventLink} rel="noreferrer nofollow" target="event-link">
+        {eventUrl}
+      </a>
+    </div>
   </div>
-  <div class="event-time">
-    <img src="/images/event-start-time-icon.svg" alt="Event Start Time icon" />
-    {`${new Date(event.eventDate).getUTCHours()}:00`}
+  <div class="flex-it event-time">
+    <div class="mobile">
+      <img
+        src="/images/event-start-time-icon.svg"
+        alt={`Event Start Time is ${eventStartTime}`}
+      />
+    </div>
+    <div class="desktop">
+      <img
+        src="/images/event-start-time-icon.svg"
+        alt={`Event Start Time is ${eventStartTime}`}
+      />
+      <span>{eventStartTime}</span>
+    </div>
   </div>
 </div>
 
 <style>
-  div {
-    border: thin solid yellow;
-  }
-  .event {
+  .wrapper {
     display: flex;
     height: 82px;
   }
-  /*.event:nth-child(even) {*/
-  /*  color: white;*/
-  /*  background-color: black;*/
-  /*}*/
-  /*.event:nth-child(odd) {*/
-  /*  color: black;*/
-  /*  background-color: white;*/
-  /*}*/
-  /*.event:hover:nth-child(odd) {*/
-  /*  background-color: white;*/
-  /*  color: black;*/
-  /*}*/
-  /*.event:hover:nth-child(even) {*/
-  /*  background-color: black;*/
-  /*  color: white;*/
-  /*}*/
-  /*.event:hover a:nth-child(odd) {*/
-  /*  color: #ff0000;*/
-  /*}*/
-
-  /*.event div:nth-child(1) {*/
-  /*  text-align: center;*/
-  /*  width: 15%;*/
-  /*  !*width: 50%;*!*/
-  /*}*/
-  /*.event div:nth-child(2) {*/
-  /*  width: 85%;*/
-  /*  !*width: 37%;*!*/
-  /*  !*width: 50%;*!*/
-  /*}*/
-  /*.event div:nth-child(3) {*/
-  /*  !*width: 29%;*!*/
-  /*  width: 100%;*/
-  /*  white-space: nowrap;*/
-  /*  overflow: hidden;*/
-  /*  text-overflow: ellipsis;*/
-  /*  text-align: center;*/
-  /*  display: none;*/
-  /*}*/
-  /*.event div:nth-child(4) {*/
-  /*  width: 19%;*/
-  /*  display: none;*/
-  /*}*/
-
-  /*.event-date {*/
-  /*  display: flex;*/
-  /*  flex-direction: column;*/
-  /*}*/
-  /*.event-date span:nth-child(1) {*/
-  /*  border: thin solid red;*/
-  /*font-size: 1.8rem;*/
-  /*}*/
-  /*.event-date span:nth-child(2) {*/
-  /*  border: thin solid red;*/
-  /*  font-size: 2.25rem;*/
-  /*}*/
-  /*.event-date span:nth-child(3) {*/
-  /*  border: thin solid red;*/
-  /*display: none;*/
-  /*}*/
+  .wrapper:nth-child(even) {
+    color: white;
+    background-color: black;
+  }
+  .wrapper:nth-child(odd) a {
+    color: black;
+  }
+  .wrapper:nth-child(odd) a:hover {
+    color: red;
+  }
+  .wrapper:nth-child(odd) {
+    color: black;
+    background-color: white;
+  }
+  .flex-it {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .event-date {
+    width: 16%;
+    max-width: 165px;
+  }
+  .event-name {
+    width: 38%;
+    max-width: 400px;
+    flex-grow: 1;
+    align-items: flex-start;
+  }
+  .event-name span:nth-child(1) {
+    font-size: 22px;
+    line-height: 24px;
+  }
+  .event-name span:nth-child(2) {
+    color: red;
+  }
+  .event-link {
+    padding: 10px;
+    align-items: center;
+    width: 15%;
+  }
+  .event-link a {
+    margin-left: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .event-time {
+    padding: 15px;
+    align-items: center;
+    width: 15%;
+  }
+  .event-time span {
+    margin-left: 4px;
+  }
+  .mobile {
+    display: flex;
+  }
+  .desktop {
+    display: none;
+  }
 
   @media screen and (min-width: 700px) {
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: flex;
+    }
+    .event-date {
+      width: 16%;
+    }
+    .event-name {
+      width: 38%;
+    }
+    .event-link {
+      width: 28%;
+      max-width: 310px;
+      align-items: flex-start;
+      line-height: unset;
+      font-size: 20px;
+      overflow: hidden;
+    }
+    .event-time {
+      width: 18%;
+      max-width: 205px;
+    }
   }
 </style>
