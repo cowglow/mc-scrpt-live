@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SectionLabel from "../components/SectionLabel.svelte";
+
   const baseUrl = "https://w.soundcloud.com/player/";
 
   type QueryObject = {
@@ -32,8 +34,32 @@
     .join("&");
 </script>
 
-<iframe
-  width="100%"
-  height="420"
-  allow="autoplay"
-  src={`${baseUrl}?${query}`}></iframe>
+<div id="soundcloud-player">
+  <SectionLabel title="SoundCloud" description="MC Scrpt Playlist" />
+  <iframe
+    width="100%"
+    height="420"
+    allow="autoplay"
+    src={`${baseUrl}?${query}`}></iframe>
+</div>
+
+<style>
+  #soundcloud-player {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  #soundcloud-player::after {
+    display: block;
+    content: "";
+  }
+  #soundcloud-player iframe {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 420px;
+  }
+</style>

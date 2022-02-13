@@ -1,15 +1,14 @@
 <script lang="ts">
   import SocialMedia from "./SocialMediaMenu.svelte";
-  import { footerYear } from "../lib/footer-year";
   import Branding from "./Branding.svelte";
+  import { footerYear } from "$lib/footer-year";
 </script>
 
 <footer>
   <div>
     <Branding />
     <p id="footer-description">
-      You can usually catch me grooving alongside the coolest DJs in and around
-      the 'Mittelfranken' region.
+      You can catch live in the 'Mittelfranken' region.
       <br /><br />
       Feel free to contact me.
     </p>
@@ -19,6 +18,7 @@
       <a href="https://cowglow.com" target="_blank" rel="noreferrer nofolloer"
         >COWGLOW</a
       >. All rights reserved.
+      <a href="#" class="legal-link">Impressum</a>
     </p>
   </div>
 </footer>
@@ -45,14 +45,13 @@
   }
 
   #footer-description {
-    width: 200px;
     font-size: 17px;
-    line-height: 17pt;
+    line-height: 17px;
     margin-bottom: 26px;
   }
 
   #footer-details {
-    margin-top: 45px;
+    margin-top: 90px;
     font-style: normal;
     font-weight: normal;
     font-size: 1rem;
