@@ -1,6 +1,4 @@
 <script lang="ts">
-  import * as data from "../data/soundcloud-data.json";
-  const { tracks } = data;
   const baseUrl = "https://w.soundcloud.com/player/";
 
   type QueryObject = {
@@ -36,8 +34,6 @@
 
 <iframe
   width="100%"
-  height="450"
-  scrolling="no"
-  frameborder="no"
+  height="420"
   allow="autoplay"
   src={`${baseUrl}?${query}`}></iframe>

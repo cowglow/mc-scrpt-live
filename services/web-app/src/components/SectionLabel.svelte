@@ -13,7 +13,7 @@
     font-weight: 500;
     font-size: 33px;
     line-height: 47px;
-    margin: 0;
+    margin: var(--side-padding) auto 0;
     padding: 0;
   }
 
@@ -24,6 +24,6 @@
     font-size: 24px;
     line-height: 21px;
     color: #666666;
-    margin-bottom: 34px;
+    margin-bottom: calc(var(--side-padding) * 0.5);
   }
 </style>
