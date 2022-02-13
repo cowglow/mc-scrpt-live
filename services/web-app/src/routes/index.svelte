@@ -1,11 +1,9 @@
 <script lang="ts">
+  import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS } from "$lib/constants";
   import EventData from "../components/EventData.svelte";
   import MediaPlayer from "../components/MediaPlayer.svelte";
   import SectionLabel from "../components/SectionLabel.svelte";
   import SoundCloudPlaylist from "../components/SoundCloudPlaylist.svelte";
-  import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS } from "$lib/constants";
-
-  let hasNextEvent: true;
 </script>
 
 <div id={ANCHOR_EVENTS} class="event-data">
@@ -31,6 +29,7 @@
 
   .media-player {
     background-color: black;
+    color: #ffffff;
   }
 
   .soundcloud-playlist {
