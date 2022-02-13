@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "IMAGE_TAG=dev docker-compose -f docker-compose.yml",
-    "dev:web-app": "npm run dev --prefix services/web-app/",
+    "start:web-app": "npm run dev --prefix services/web-app/",
     "microservice": "php -S localhost:8080 -t microservice/",
     "terminal": "docker exec -it php-apache bash",
     "sync": "node -r dotenv/config -r path scripts/sync-resources.js"
