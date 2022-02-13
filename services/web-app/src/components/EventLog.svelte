@@ -1,25 +1,28 @@
-<script>
-  import * as animateScroll from "svelte-scrollto";
+<script lang="ts">
   import { writable } from "svelte/store";
   import { paginateContent } from "$lib/paginate-content";
+  import { getUpcomingDates } from "$lib/get-upcoming-dates";
   import { ANCHOR_EVENTS } from "$lib/constants";
+  import NextEventBanner from "./NextEventBanner.svelte";
   import EventLogList from "./EventLogList.svelte";
   import EventLogController from "./EventLogController.svelte";
   import { events } from "../data/event-list.json";
+  import { getPreviousDates } from "$lib/get-previous-dates";
 
   const currentPage = writable(1);
   const MAX_EVENT = 7;
 
-  $: eventData = paginateContent(events, $currentPage, MAX_EVENT);
+  const previousDates = getPreviousDates(events);
+  const upcomingDates = getUpcomingDates(events);
+
+  $: eventData = paginateContent(previousDates, $currentPage, MAX_EVENT);
   $: content = eventData.items;
   $: stepBackwardDisabled = !eventData.previousPage;
   $: stepForwardDisabled = !eventData.nextPage;
 
-  const resetScroll = () => {
-    animateScroll.scrollTo({
-      element: document.getElementById(ANCHOR_EVENTS),
-    });
-  };
+  const resetScroll = () =>
+    document.getElementById(ANCHOR_EVENTS).scrollIntoView();
+
   const stepForward = () => {
     currentPage.set($currentPage + 1);
     resetScroll();
@@ -31,6 +34,7 @@
   };
 </script>
 
+<NextEventBanner data={upcomingDates} />
 <div class="wrapper">
   <h1>Previous Events</h1>
   <h3>
@@ -54,7 +58,7 @@
     flex-direction: column;
     width: 100%;
     max-width: 1080px;
-    padding: 0;
+    padding: 0 var(--side-padding) var(--bottom-padding);
     margin: 0 auto;
   }
   h1 {
