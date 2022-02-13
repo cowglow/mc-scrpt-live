@@ -1,4 +1,8 @@
-export const paginateContent = (list, page, max): Pagination => {
+export const paginateContent = (
+  list: [],
+  page: number,
+  max: number
+): Pagination => {
   const offset = max * (page - 1);
   const totalPages = Math.ceil(list.length / max);
   const paginatedItems = list.slice(offset, max * page);
