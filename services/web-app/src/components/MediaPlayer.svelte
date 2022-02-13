@@ -5,20 +5,16 @@
       height="560"
       src="https://www.youtube-nocookie.com/embed/videoseries?list=PLvGoDsjMiifcRAccwKmrX4LNl4H6XV8jo"
       title="YouTube video player"
-      frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    />
+      allowfullscreen></iframe>
   </div>
 </div>
 
 <style>
   #media-player {
-    border: thin solid red;
     background-color: black;
   }
   #youtube-video {
-    border: thin solid yellow;
     overflow: hidden;
     position: relative;
     width: 100%;
