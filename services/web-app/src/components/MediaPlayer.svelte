@@ -1,19 +1,14 @@
-<div id="media-player">
-  <div id="youtube-video">
-    <iframe
-      width="100%"
-      height="560"
-      src="https://www.youtube-nocookie.com/embed/videoseries?list=PLvGoDsjMiifcRAccwKmrX4LNl4H6XV8jo"
-      title="YouTube video player"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-  </div>
+<div id="youtube-video">
+  <iframe
+    width="100%"
+    height="560"
+    src="https://www.youtube-nocookie.com/embed/videoseries?list=PLvGoDsjMiifcRAccwKmrX4LNl4H6XV8jo"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
 </div>
 
 <style>
-  #media-player {
-    background-color: black;
-  }
   #youtube-video {
     overflow: hidden;
     position: relative;
