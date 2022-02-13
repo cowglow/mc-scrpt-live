@@ -24,6 +24,8 @@
     cursor: pointer;
     background: red;
     border: thin solid white;
+    width: 30%;
+    line-height: 0;
   }
   button:active {
     opacity: unset;
