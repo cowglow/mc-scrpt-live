@@ -26,6 +26,7 @@
     border: thin solid white;
     width: 30%;
     line-height: 0;
+    padding: 8px;
   }
   button:active {
     opacity: unset;
@@ -38,6 +39,15 @@
   @media (hover: none) {
     button {
       opacity: unset;
+    }
+  }
+  @media screen and (min-width: 700px) {
+    .wrapper {
+      padding-top: var(--bottom-padding);
+    }
+    button {
+      border: thin solid purple;
+      padding: 18px 0 10px;
     }
   }
 </style>
