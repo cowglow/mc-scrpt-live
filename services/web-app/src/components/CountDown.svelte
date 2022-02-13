@@ -18,38 +18,44 @@
   });
 </script>
 
-<div>
-  <p>{`0${d}`.slice(-2)}<span>Days</span></p>
-  <p>{`0${h}`.slice(-2)}<span>Hrs</span></p>
-  <p>{`0${m}`.slice(-2)}<span>Min</span></p>
-  <p>{`0${s}`.slice(-2)}<span>Secs</span></p>
+<div class="wrapper">
+  <div class="container">{`0${d}`.slice(-2)}<span>Days</span></div>
+  <div class="container">{`0${h}`.slice(-2)}<span>Hrs</span></div>
+  <div class="container">{`0${m}`.slice(-2)}<span>Min</span></div>
+  <div class="container">{`0${s}`.slice(-2)}<span>Secs</span></div>
 </div>
 
 <style>
-  div {
+  .wrapper {
+    border: thin solid yellow;
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 276px;
+    margin-left: var(--side-padding);
   }
-  p {
+  .container {
+    border: thin solid white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
-    background-color: white;
+    text-align: center;
     width: 53px;
     height: 59px;
+    background-color: white;
     font-family: Teko, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 34px;
-    text-align: center;
     color: #000000;
-    margin: 0 21px;
+    padding: 0;
+    margin: 0;
   }
   span {
     font-family: Teko, sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 22px;
     text-align: center;
     color: #000000;
   }
@@ -57,6 +63,9 @@
   @media screen and (min-width: 700px) {
     div {
       margin: 0 auto;
+    }
+    p {
+      padding: 0;
     }
   }
 </style>

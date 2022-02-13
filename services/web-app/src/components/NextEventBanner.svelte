@@ -1,66 +1,91 @@
 <script lang="ts">
   import CountDown from "./CountDown.svelte";
   export let data: Event[];
+  let screenWidth;
 </script>
 
+<svelte:window bind:innerWidth={screenWidth} />
 {#if data.length > 0}
   <div id="next-event-banner">
-    <div class="label">
-      <span>Next Big Show</span>
-      <h1>{data[0].eventName}</h1>
-      <span>{data[0].eventLocation}</span>
+    <div class="title">
+      <h1>Next Big Show</h1>
+      <h2>{data[0].eventName}</h2>
+      <h3>{data[0].eventLocation}</h3>
     </div>
-    <CountDown date={new Date(data[0].eventDate)} />
-    <a href={data[0].eventLink} rel="noreferrer nofollow" target="event-link">
-      More Info
-    </a>
+    {#if screenWidth > 845}
+      <div><CountDown date={new Date(data[0].eventDate)} /></div>
+    {/if}
+    <div class="info">
+      <a href={data[0].eventLink} rel="noreferrer nofollow" target="event-link">
+        More Info
+      </a>
+    </div>
   </div>
 {/if}
 
 <style>
   #next-event-banner {
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
     background-color: red;
     position: relative;
-    bottom: 0;
-    left: 0;
+    width: 100%;
+    max-width: 1080px;
+    height: 135px;
+    margin: 0 auto;
+    padding: 0 var(--side-padding);
+    z-index: 1;
   }
-
-  .label {
+  .title {
     display: flex;
     flex-direction: column;
-    align-content: center;
-    width: 100%;
-    margin: 21px auto;
-    padding: 0 var(--side-padding);
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 1;
+    padding: 0;
   }
-
-  span {
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 21px 0 21px 21px;
+    padding: 0;
+  }
+  h1 {
+    font-family: Teko, sans-serif;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    padding: 0;
+    margin: 0.35rem 0 0;
+    color: #000000;
+  }
+  h2 {
+    padding: 0;
+    margin: 0;
+    font-family: Teko, sans-serif;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 46px;
+    display: flex;
+    align-items: flex-end;
+    color: #ffffff;
+  }
+  h3 {
+    padding: 0;
+    margin: 0;
     font-family: Teko, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.2rem;
-    line-height: 0.75rem;
+    font-size: 21px;
+    line-height: 21px;
     color: #000000;
   }
-
-  span:nth-child(1) {
-    margin-top: 0.35rem;
-  }
-
-  h1 {
-    font-family: Teko, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    padding: 0;
-    margin: 0;
-    color: #ffffff;
-  }
-
   a {
     color: #000000;
-    margin: 20px auto 14px;
     text-align: right;
   }
   a:hover {
@@ -70,7 +95,6 @@
   a:active {
     color: #fff200ff;
   }
-
   @media screen and (min-width: 700px) {
     #next-event-banner {
       flex-direction: row;
@@ -78,20 +102,27 @@
       align-items: center;
       top: -40px;
     }
-    .label {
-      width: unset;
-      margin: 3px 21px;
+    .title {
+      margin-left: 26px;
+      flex-grow: 0;
     }
-    span {
-      font-size: 1.5rem;
-      line-height: 2rem;
+    .info {
+      margin-right: 26px;
     }
-    h1 {
-      font-size: 32px;
-      line-height: 46px;
+    h1,
+    h3 {
+      font-size: 24px;
     }
-    a {
-      margin: 0 auto;
+    h2 {
+      font-size: 42px;
+    }
+  }
+  @media screen and (min-width: 1080px) {
+    .title {
+      margin-left: 52px;
+    }
+    .info {
+      margin-right: 52px;
     }
   }
 </style>
