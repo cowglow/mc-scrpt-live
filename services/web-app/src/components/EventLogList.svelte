@@ -1,11 +1,11 @@
 <script lang="ts">
   import EventLogEntry from "./EventLogEntry.svelte";
-  export let data: Event[];
+  export let data: Partial<Event>[];
 </script>
 
 <div class="wrapper">
   {#each data as event}
-    <EventLogEntry {...{ event }} />
+    <EventLogEntry {event} />
   {/each}
 </div>
 
