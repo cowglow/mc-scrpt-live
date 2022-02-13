@@ -1,13 +1,13 @@
 <script lang="ts">
   import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS } from "$lib/constants";
-  import EventData from "../components/EventData.svelte";
+  import EventLog from "../components/EventLog.svelte";
   import MediaPlayer from "../components/MediaPlayer.svelte";
   import SectionLabel from "../components/SectionLabel.svelte";
   import SoundCloudPlaylist from "../components/SoundCloudPlaylist.svelte";
 </script>
 
 <div id={ANCHOR_EVENTS} class="event-data">
-  <EventData />
+  <EventLog />
 </div>
 
 <div id={ANCHOR_VIDEOS} class="media-player">
