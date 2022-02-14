@@ -1,42 +1,46 @@
 <script lang="ts">
-  import { writable } from "svelte/store";
-  import { paginateContent } from "$lib/paginate-content";
-  import { getUpcomingDates } from "$lib/get-upcoming-dates";
-  import { ANCHOR_EVENTS } from "$lib/constants";
   import NextEventBanner from "./NextEventBanner.svelte";
   import EventLogList from "./EventLogList.svelte";
   import EventLogController from "./EventLogController.svelte";
-  import { events } from "../data/event-list.json";
-  import { getPreviousDates } from "$lib/get-previous-dates";
+  import {
+    EVENT_CONTENT_MAX_PAGES,
+    EVENT_CONTENT_PREVIOUS_DATES,
+    EVENT_CONTENT_UPCOMING_DATES,
+    eventContentStore,
+    eventContentStoreCurrentPage,
+  } from "../stores/event-content-store";
+  import { paginateContent } from "$lib/paginate-content";
 
-  const currentPage = writable(1);
-  const MAX_EVENT = 7;
+  const content = $eventContentStore.items;
+  const stepBackwardDisabled = !$eventContentStore.previousPage;
+  const stepForwardDisabled = !$eventContentStore.nextPage;
 
-  const previousDates = getPreviousDates(events);
-  const upcomingDates = getUpcomingDates(events);
-
-  $: eventData = paginateContent(previousDates, $currentPage, MAX_EVENT);
-  $: content = eventData.items;
-  $: stepBackwardDisabled = !eventData.previousPage;
-  $: stepForwardDisabled = !eventData.nextPage;
-
-  const resetScroll = () =>
-    document.getElementById(ANCHOR_EVENTS).scrollIntoView();
+  const resetScroll = () => {
+    // document.getElementById(ANCHOR_EVENTS).scrollIntoView();
+    const newValue = paginateContent(
+      EVENT_CONTENT_PREVIOUS_DATES,
+      $eventContentStoreCurrentPage,
+      EVENT_CONTENT_MAX_PAGES
+    );
+    console.log(newValue);
+    eventContentStore.set(newValue);
+  };
 
   const stepForward = () => {
-    currentPage.set($currentPage + 1);
+    eventContentStoreCurrentPage.set($eventContentStoreCurrentPage + 1);
     resetScroll();
   };
 
   const stepBackward = () => {
-    currentPage.set($currentPage - 1);
+    eventContentStoreCurrentPage.set($eventContentStoreCurrentPage - 1);
     resetScroll();
   };
 </script>
 
-<NextEventBanner data={upcomingDates} />
+<NextEventBanner data={EVENT_CONTENT_UPCOMING_DATES} />
 <div class="wrapper">
   <h1>Previous Events</h1>
+  {$eventContentStoreCurrentPage}
   <h3>
     You can usually catch me grooving alongside some of the coolest DJs in and
     around the 'Mittelfranken' region.
