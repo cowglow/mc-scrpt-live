@@ -1,6 +1,6 @@
 /// <reference types="@sveltejs/kit" />
 
-type Event = {
+type ShowData = {
   zeitstempel: string;
   eventDate: string;
   eventName: string;
@@ -14,5 +14,5 @@ type Pagination = {
   nextPage: number | null;
   total: number;
   totalPages: number;
-  items: Partial<Event>[];
+  items: Partial<ShowData>[];
 };
