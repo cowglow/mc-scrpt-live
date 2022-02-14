@@ -1,6 +1,6 @@
 <script lang="ts">
   import CountDown from "./CountDown.svelte";
-  export let data: Event[];
+  export let data: ShowData[];
   let screenWidth;
 </script>
 
@@ -12,8 +12,8 @@
       <h2>{data[0].eventName}</h2>
       <h3>{data[0].eventLocation}</h3>
     </div>
-    {#if screenWidth > 845}
-      <div><CountDown date={new Date(data[0].eventDate)} /></div>
+    {#if screenWidth > 699}
+      <CountDown date={new Date(data[0].eventDate)} />
     {/if}
     <div class="info">
       <a href={data[0].eventLink} rel="noreferrer nofollow" target="event-link">
@@ -103,11 +103,10 @@
       top: -40px;
     }
     .title {
-      margin-left: 26px;
-      flex-grow: 0;
+      flex-grow: 1;
     }
     .info {
-      margin-right: 26px;
+      flex-grow: 0;
     }
     h1,
     h3 {
@@ -119,10 +118,10 @@
   }
   @media screen and (min-width: 1080px) {
     .title {
-      margin-left: 52px;
+      flex-grow: 1;
     }
     .info {
-      margin-right: 52px;
+      flex-grow: 1;
     }
   }
 </style>

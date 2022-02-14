@@ -1,5 +1,5 @@
 export const paginateContent = (
-  list: [],
+  list: ShowData[],
   page: number,
   max: number
 ): Pagination => {

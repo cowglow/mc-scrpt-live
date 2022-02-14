@@ -1,6 +1,6 @@
 <script lang="ts">
   import EventLogEntry from "./EventLogEntry.svelte";
-  export let data: Partial<Event>[];
+  export let data: Partial<ShowData>[];
 </script>
 
 <div class="wrapper">
