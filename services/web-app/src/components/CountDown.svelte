@@ -27,7 +27,6 @@
 
 <style>
   .wrapper {
-    border: thin solid yellow;
     display: flex;
     justify-content: space-between;
     width: 100%;
