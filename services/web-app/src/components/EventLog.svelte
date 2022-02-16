@@ -40,7 +40,6 @@
 <NextEventBanner data={EVENT_CONTENT_UPCOMING_DATES} />
 <div class="wrapper">
   <h1>Previous Events</h1>
-  {$eventContentStoreCurrentPage}
   <h3>
     You can usually catch me grooving alongside some of the coolest DJs in and
     around the 'Mittelfranken' region.

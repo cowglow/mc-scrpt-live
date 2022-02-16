@@ -18,7 +18,7 @@
       <a href="https://cowglow.com" target="_blank" rel="noreferrer nofolloer"
         >COWGLOW</a
       >. All rights reserved.
-      <a href="#" class="legal-link">Impressum</a>
+      <a href="/impressum" class="legal-link">Impressum</a>
     </p>
   </div>
 </footer>
