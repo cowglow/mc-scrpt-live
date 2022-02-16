@@ -5,16 +5,16 @@
   import SoundCloudPlaylist from "../components/SoundCloudPlaylist.svelte";
 </script>
 
-<div id={ANCHOR_EVENTS} class="events">
+<div id="{ANCHOR_EVENTS}" class="events">
   <EventLog />
 </div>
 
-<div id={ANCHOR_VIDEOS} class="videos">
-  <MediaPlayer />
+<div id="{ANCHOR_VIDEOS}" class="videos">
+  <!-- <MediaPlayer /> -->
 </div>
 
-<div id={ANCHOR_AUDIO} class="audio">
-  <SoundCloudPlaylist />
+<div id="{ANCHOR_AUDIO}" class="audio">
+  <!-- <SoundCloudPlaylist /> -->
 </div>
 
 <style>

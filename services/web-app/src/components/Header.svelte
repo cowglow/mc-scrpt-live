@@ -1,18 +1,26 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   import Branding from "./Branding.svelte";
   import Navigation from "./Navigation.svelte";
   import SocialMedia from "./SocialMediaMenu.svelte";
 
-  const basePath: string = "/images";
-  const bgCollection: string[] = [
-    "background-001-min.jpg",
-    "background-002-min.jpg",
-  ];
-  const randomIndex: number = Math.floor(Math.random() * bgCollection.length);
-  const backgroundImage: string = `${basePath}/${bgCollection[randomIndex]}`;
+  let backgroundImage: string = "";
+  onMount(() => {
+    const basePath: string = "/images";
+    const bgCollection: string[] = [
+      "background-001-min.jpg",
+      "background-002-min.jpg",
+    ];
+    console.log(Math.random());
+    console.log(bgCollection.length);
+    const randomIndex: number = Math.floor(Math.random() * bgCollection.length);
+    console.log(randomIndex);
+    backgroundImage = `${basePath}/${bgCollection[randomIndex]}`;
+  });
 </script>
 
-<header style={`background-image: url("${backgroundImage}")`}>
+<header style="{`background-image: url("${backgroundImage}")`}">
   <div id="nav-bar-wrapper">
     <div id="nav-bar">
       <Branding />
@@ -32,6 +40,7 @@
     display: flex;
     flex-direction: column;
     align-content: center;
+    background-color: black;
   }
 
   #nav-bar-wrapper {
