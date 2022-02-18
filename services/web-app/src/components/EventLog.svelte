@@ -29,7 +29,7 @@
      You can usually catch me grooving alongside some of the coolest DJs in and
      around the 'Mittelfranken' region.
    </h3>
-  <EventLogList data={$eventContentStore.items} />
+  <EventLogList />
   <EventLogController
     {...{
       stepBackwardDisabled: !$eventContentStore.previousPage,

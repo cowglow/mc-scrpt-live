@@ -1,18 +1,18 @@
 <script lang="ts">
   import { formattedEventLinkString } from "$lib/formatted-event-link-string";
 
-  export let eventDate: Date = new Date();
-  export let eventName: string = "event-name";
-  export let eventLocation: string = "event-location";
-  export let eventLink: string = "event-link";
+  export let date: string = "";
+  export let name: string = "";
+  export let location: string = "";
+  export let link: string = "";
 
-  const eventDay = `0${new Date(eventDate).getDate().toString()}`.slice(-2);
-  const eventMonth = new Date(eventDate).toLocaleString("default", {
+  const eventDay = `0${new Date(date).getDate().toString()}`.slice(-2);
+  const eventMonth = new Date(date).toLocaleString("default", {
     month: "short"
   });
-  const eventYear = `${new Date(eventDate).getUTCFullYear()}`;
-  const eventUrl = formattedEventLinkString(eventLink);
-  const eventStartTime = `${new Date(eventDate).getUTCHours()}:00`;
+  const eventYear = `${new Date(date).getUTCFullYear()}`;
+  const eventUrl = formattedEventLinkString(link);
+  const eventStartTime = `${new Date(date).getUTCHours()}:00`;
 </script>
 
 <div class="wrapper">
@@ -21,18 +21,18 @@
     <span>{eventMonth}</span>
   </div>
   <div class="flex-it event-name">
-    <span>{eventName}</span>
-    <span>{eventLocation}</span>
+    <span>{name}</span>
+    <span>{location}</span>
   </div>
   <div class="flex-it event-link">
     <div class="mobile">
-      <a href={eventLink} rel="noreferrer nofollow" target="event-link">
+      <a href={link} rel="noreferrer nofollow" target="event-link">
         <img alt="Event link icon" src="/images/event-link-icon.svg" />
       </a>
     </div>
     <div class="desktop">
       <img alt="Event link icon" src="/images/event-link-icon.svg" />
-      <a href={eventLink} rel="noreferrer nofollow" target="event-link">
+      <a href={link} rel="noreferrer nofollow" target="event-link">
         {eventUrl}
       </a>
     </div>
