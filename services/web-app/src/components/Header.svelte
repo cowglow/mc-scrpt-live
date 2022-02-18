@@ -5,6 +5,7 @@
   import Navigation from "./Navigation.svelte";
   import SocialMedia from "./SocialMediaMenu.svelte";
 
+  export let fullPage
   let backgroundImage: string = "";
   onMount(() => {
     const basePath: string = "/images";
@@ -17,7 +18,7 @@
   });
 </script>
 
-<header style="{`background-image: url(\"${backgroundImage}\")`}">
+<header style="{`background-image: url(\"${backgroundImage}\"); ${fullPage && `height:calc(81vh)`};`}">
   <div id="nav-bar-wrapper">
     <div id="nav-bar">
       <Branding />
@@ -30,14 +31,15 @@
 <style>
   header {
     width: 100%;
-    height: calc(81vh);
+    height: calc(28vh);
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
     align-content: center;
-    background-color: black;
+    /*background-color: black;*/
+    background-color: white;
   }
 
   #nav-bar-wrapper {
