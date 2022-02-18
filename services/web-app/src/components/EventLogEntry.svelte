@@ -1,10 +1,10 @@
 <script lang="ts">
   import { formattedEventLinkString } from "$lib/formatted-event-link-string";
 
-  export let date: string = "";
-  export let name: string = "";
-  export let location: string = "";
-  export let link: string = "";
+  export let date: string;
+  export let name: string;
+  export let location: string;
+  export let link: string;
 
   const eventDay = `0${new Date(date).getDate().toString()}`.slice(-2);
   const eventMonth = new Date(date).toLocaleString("default", {

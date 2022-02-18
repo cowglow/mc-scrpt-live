@@ -3,6 +3,9 @@
   import EventLogList from "./EventLogList.svelte";
   import NextEventBanner from "./NextEventBanner.svelte";
   import { currentPage, eventContentStore, eventDataStore } from "../stores/event-content-store";
+  import { setContext } from "svelte";
+
+  setContext("data", $eventContentStore.items);
 
   const resetScroll = () => {
     // document.getElementById(ANCHOR_EVENTS).scrollIntoView();
@@ -25,10 +28,11 @@
 <NextEventBanner data={$eventDataStore.upcomingEvents} />
 <div class="wrapper">
   <h1>Previous Events</h1>
-   <h3>
-     You can usually catch me grooving alongside some of the coolest DJs in and
-     around the 'Mittelfranken' region.
-   </h3>
+  <h3>
+    You can usually catch me grooving alongside some of the coolest DJs in and
+    around the 'Mittelfranken' region.
+  </h3>
+  {JSON.stringify($eventContentStore.items)}
   <EventLogList />
   <EventLogController
     {...{
