@@ -10,9 +10,10 @@ type ShowData = {
 };
 
 type Pagination = {
-  previousPage: number | null;
-  nextPage: number | null;
-  total: number;
+  previousPage: boolean;
+  nextPage: boolean;
+  currentPage: number;
+  itemsTotal: number;
   totalPages: number;
   items: Partial<ShowData>[];
 };
