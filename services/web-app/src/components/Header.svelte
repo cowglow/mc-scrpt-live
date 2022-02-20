@@ -18,7 +18,7 @@
   });
 </script>
 
-<header style="{`background-image: url(\"${backgroundImage}\"); ${fullPage && `height:calc(81vh)`};`}">
+<header style="{`background-image: url(\"${backgroundImage}\"); ${fullPage && `height: 88px; background-image: unset;`}`}">
   <div id="nav-bar-wrapper">
     <div id="nav-bar">
       <Branding />
@@ -38,8 +38,8 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    /*background-color: black;*/
-    background-color: white;
+    background-color: black;
+    /*background-color: white;*/
   }
 
   #nav-bar-wrapper {
