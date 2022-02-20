@@ -18,7 +18,7 @@
   });
 </script>
 
-<header style="{`background-image: url(\"${backgroundImage}\"); ${fullPage && `height: 88px; background-image: unset;`}`}">
+<header style="{`background-image: url(\"${backgroundImage}\"); ${fullPage && `height: 47px; background-image: unset;`}`}">
   <div id="nav-bar-wrapper">
     <div id="nav-bar">
       <Branding />
