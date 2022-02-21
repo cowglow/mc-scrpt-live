@@ -1,7 +1,10 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
+
   export let date: Date = new Date(Date.now());
+
   let currentDate = new Date(Date.now());
+  let count, d, h, m, s: number;
 
   $: count = Math.round((date - currentDate) / 1000);
   $: d = Math.floor(count / (3600 * 24));
@@ -62,9 +65,6 @@
   @media screen and (min-width: 700px) {
     div {
       margin: 0 auto;
-    }
-    p {
-      padding: 0;
     }
   }
 </style>
