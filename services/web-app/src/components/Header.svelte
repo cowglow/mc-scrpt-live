@@ -39,7 +39,6 @@
     flex-direction: column;
     align-content: center;
     background-color: black;
-    /*background-color: white;*/
   }
 
   #nav-bar-wrapper {

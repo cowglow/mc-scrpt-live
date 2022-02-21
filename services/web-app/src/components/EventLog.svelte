@@ -76,11 +76,6 @@
         text-align: left;
     }
 
-    img {
-        padding: 0.25rem 3rem;
-        margin: 0;
-    }
-
     @media screen and (min-width: 700px) {
         h1 {
             text-align: center;
