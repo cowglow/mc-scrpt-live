@@ -1,43 +1,49 @@
 <script lang="ts">
+  import { writable } from "svelte/store";
+  import { ANCHOR_EVENTS } from "$lib/constants";
+  import { paginateContent } from "$lib/paginate-content";
+  import { CurrentPageStore, EVENT_CONTENT_DEFAULT_PAGE } from "$lib/stores/current-page-store";
+  import { EventDataStore } from "$lib/stores/event-content-store";
   import EventLogController from "./EventLogController.svelte";
   import EventLogList from "./EventLogList.svelte";
   import NextEventBanner from "./NextEventBanner.svelte";
-  import { currentPage, eventContentStore, eventDataStore } from "../stores/event-content-store";
-  import { setContext } from "svelte";
 
-  setContext("data", $eventContentStore.items);
+  let previousEvents = $EventDataStore.previousEvents;
+  let paginatedContent = writable<Pagination>(paginateContent(EVENT_CONTENT_DEFAULT_PAGE, previousEvents));
+
+  CurrentPageStore.subscribe(currentPage => {
+    const newPaginatedContent = paginateContent(currentPage, previousEvents);
+    paginatedContent.set(newPaginatedContent);
+  });
 
   const resetScroll = () => {
-    // document.getElementById(ANCHOR_EVENTS).scrollIntoView();
-    // console.log($eventContentStore.items[0].eventName)
+    document.getElementById(ANCHOR_EVENTS).scrollIntoView();
   };
 
   const stepForward = () => {
-    currentPage.set($currentPage + 1);
+    $CurrentPageStore++;
     resetScroll();
   };
 
   const stepBackward = () => {
-    currentPage.set($currentPage - 1);
+    $CurrentPageStore--;
     resetScroll();
   };
 
 </script>
 
-
-<NextEventBanner data={$eventDataStore.upcomingEvents} />
+<NextEventBanner data={$EventDataStore.upcomingEvents} />
 <div class="wrapper">
   <h1>Previous Events</h1>
   <h3>
     You can usually catch me grooving alongside some of the coolest DJs in and
     around the 'Mittelfranken' region.
   </h3>
-  {JSON.stringify($eventContentStore.items)}
-  <EventLogList />
+  <EventLogList data={$paginatedContent.items} />
   <EventLogController
     {...{
-      stepBackwardDisabled: !$eventContentStore.previousPage,
-      stepForwardDisabled: !$eventContentStore.nextPage,
+      stepBackwardDisabled: !$paginatedContent.previousPage,
+      stepForwardDisabled: !$paginatedContent.nextPage,
       stepForward,
       stepBackward,
     }}

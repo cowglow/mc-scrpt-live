@@ -1,18 +1,19 @@
 <script lang="ts">
   import { formattedEventLinkString } from "$lib/formatted-event-link-string";
 
-  export let date: string;
-  export let name: string;
-  export let location: string;
-  export let link: string;
+  export let eventDate = Date.now().toLocaleString();
+  export let eventName = "";
+  export let eventLink = "";
+  export let eventLocation = "";
 
-  const eventDay = `0${new Date(date).getDate().toString()}`.slice(-2);
-  const eventMonth = new Date(date).toLocaleString("default", {
+  $: eventDay = `0${new Date(eventDate).getDate().toString()}`.slice(-2);
+  $: eventMonth = new Date(eventDate).toLocaleString("default", {
     month: "short"
   });
-  const eventYear = `${new Date(date).getUTCFullYear()}`;
-  const eventUrl = formattedEventLinkString(link);
-  const eventStartTime = `${new Date(date).getUTCHours()}:00`;
+  $: eventYear = `${new Date(eventDate).getUTCFullYear()}`;
+  $: eventUrl = formattedEventLinkString(eventLink);
+  $: eventStartTime = `${new Date(eventDate).getUTCHours()}:00`;
+
 </script>
 
 <div class="wrapper">
@@ -21,18 +22,18 @@
     <span>{eventMonth}</span>
   </div>
   <div class="flex-it event-name">
-    <span>{name}</span>
-    <span>{location}</span>
+    <span>{eventName}</span>
+    <span>{eventLocation}</span>
   </div>
   <div class="flex-it event-link">
     <div class="mobile">
-      <a href={link} rel="noreferrer nofollow" target="event-link">
+      <a href={eventLink} rel="noreferrer nofollow" target="event-link">
         <img alt="Event link icon" src="/images/event-link-icon.svg" />
       </a>
     </div>
     <div class="desktop">
       <img alt="Event link icon" src="/images/event-link-icon.svg" />
-      <a href={link} rel="noreferrer nofollow" target="event-link">
+      <a href={eventLink} rel="noreferrer nofollow" target="event-link">
         {eventUrl}
       </a>
     </div>
@@ -60,20 +61,20 @@
         height: 82px;
     }
 
-    .wrapper:nth-child(even) {
+    .wrapper:nth-child(odd) {
         color: white;
         background-color: black;
     }
 
-    .wrapper:nth-child(odd) a {
+    .wrapper:nth-child(even) a {
         color: black;
     }
 
-    .wrapper:nth-child(odd) a:hover {
+    .wrapper:nth-child(even) a:hover {
         color: red;
     }
 
-    .wrapper:nth-child(odd) {
+    .wrapper:nth-child(even) {
         color: black;
         background-color: white;
     }

@@ -1,14 +1,27 @@
 <script lang="ts">
   import EventLogEntry from "./EventLogEntry.svelte";
-  import { getContext } from "svelte";
 
-  let data = getContext('data')
+  export let data: ShowData[] = [];
+
+  function createEventLogList(data){
+    let listData = []
+    for (let i = 0; i < data.length; i++) {
+      listData.push({
+        eventDate: data[i].eventDate,
+        eventName: data[i].eventName,
+        eventLink: data[i].eventLink,
+        eventLocation: data[i].eventLocation
+      });
+    }
+    return listData
+  }
+
+  $: listData = createEventLogList(data);
 </script>
 
 <div class="wrapper">
-  {#each data as event}
-    <EventLogEntry date={event.eventDate} name={event.eventName} location={event.eventLocation}
-                   link={event.eventLink} />
+  {#each listData as event, index}
+    <EventLogEntry {...event} />
   {/each}
 </div>
 

@@ -1,14 +1,6 @@
 {
   "events": [
     {
-      "zeitstempel": "2021-12-22T21:59:25.234Z",
-      "eventDate": "2022-02-19T21:00:00.000Z",
-      "eventStartTime": "1899-12-30T21:00:00.000Z",
-      "eventLocation": "Live on Twitch",
-      "eventName": "Booyaka - Carnival",
-      "eventLink": "https://www.facebook.com/events/420703709837211"
-    },
-    {
       "zeitstempel": "2021-10-10T11:57:22.406Z",
       "eventDate": "2021-10-15T22:00:00.000Z",
       "eventStartTime": "1899-12-30T21:00:00.000Z",
