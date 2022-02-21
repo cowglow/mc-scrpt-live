@@ -1,12 +1,17 @@
 <script lang="ts">
+  import { getContext } from "svelte";
   import CountDown from "./CountDown.svelte";
+
   export let data: ShowData[];
+
+  const isSubPage = getContext('subPage')
+
   let screenWidth;
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
 {#if data.length > 0}
-  <div id="next-event-banner">
+  <div id="next-event-banner" style={!isSubPage && `top: -40px;`}>
     <div class="title">
       <h1>Next Big Show</h1>
       <h2>{data[0].eventName}</h2>
@@ -100,7 +105,6 @@
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      top: -40px;
     }
     .title {
       flex-grow: 1;
