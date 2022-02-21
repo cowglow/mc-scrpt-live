@@ -1,8 +1,8 @@
 {
   "svelteSortOrder": "options-scripts-markup-styles",
   "svelteStrictMode": true,
-  "svelteBracketNewLine": false,
+  "svelteBracketNewLine": true,
   "svelteAllowShorthand": true,
-  "svelteIndentScriptAndStyle": true,
+  "svelteIndentScriptAndStyle": false,
   "plugins": ["prettier-plugin-svelte"]
 }
