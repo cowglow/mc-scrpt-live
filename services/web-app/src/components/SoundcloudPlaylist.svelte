@@ -37,6 +37,7 @@
 <div id="soundcloud-player">
   <SectionLabel title="SoundCloud" description="MC Scrpt Playlist" />
   <iframe
+    title="soundcloud-player-iframe"
     width="100%"
     height="420"
     allow="autoplay"
