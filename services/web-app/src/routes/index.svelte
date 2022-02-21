@@ -2,7 +2,7 @@
   import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS } from "$lib/constants";
   import EventLog from "../components/EventLog.svelte";
   import MediaPlayer from "../components/MediaPlayer.svelte";
-  import SoundCloudPlaylist from "../components/SoundCloudPlaylist.svelte";
+  import SoundcloudPlaylist from "../components/SoundcloudPlaylist.svelte";
 </script>
 
 <div id="{ANCHOR_EVENTS}" class="events">
@@ -10,11 +10,11 @@
 </div>
 
 <div id="{ANCHOR_VIDEOS}" class="videos">
-  <!-- <MediaPlayer /> -->
+   <MediaPlayer />
 </div>
 
 <div id="{ANCHOR_AUDIO}" class="audio">
-  <!-- <SoundCloudPlaylist /> -->
+   <SoundcloudPlaylist />
 </div>
 
 <style>
