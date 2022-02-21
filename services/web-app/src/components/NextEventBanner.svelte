@@ -4,7 +4,7 @@
 
   export let data: ShowData[];
 
-  const isSubPage = getContext('subPage')
+  const isSubPage = getContext('isSubPage')
 
   let screenWidth;
 </script>
