@@ -64,7 +64,7 @@
       flex-direction: row;
     }
     header {
-      height: calc(61vh);
+      height: calc(64vh);
     }
   }
 
@@ -72,12 +72,6 @@
     header {
       height: calc(81vh);
       background-position: center;
-    }
-  }
-
-  @media only screen and (min-width: 1240px) {
-    header {
-      height: calc(96vh);
     }
   }
 </style>
