@@ -4,9 +4,9 @@
 
 <div id="navigation">
   <ul>
-    <li><a href={`#${ANCHOR_EVENTS}`}>EVENTS</a></li>
-    <li><a href={`#${ANCHOR_VIDEOS}`}>VIDEOS</a></li>
-    <li><a href={`#${ANCHOR_AUDIO}`}>AUDIO</a></li>
+    <li><a href={`/#${ANCHOR_EVENTS}`}>EVENTS</a></li>
+    <li><a href={`/#${ANCHOR_VIDEOS}`}>VIDEOS</a></li>
+    <li><a href={`/#${ANCHOR_AUDIO}`}>AUDIO</a></li>
   </ul>
 </div>
 
