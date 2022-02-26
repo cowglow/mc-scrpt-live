@@ -6,13 +6,12 @@ const { JSDOM } = require("jsdom");
 const GAS_URL = process.env.GAS_URL;
 const GAS_PRODUCT = process.env.GAS_PRODUCT;
 const EVENT_LIST_API_URL = "https://" + GAS_URL + "/" + GAS_PRODUCT + "/exec";
-const EVENT_LIST_FILEPATH = "services/web-app/src/data/event-list.json";
+const EVENT_LIST_FILEPATH = "src/data/event-list.json";
 
 const SC_URL = process.env.SC_URL;
 const SC_MIX = process.env.SC_MIX;
 const PLAYLIST_TRACKS_API_URL = "https://" + SC_URL + "/" + SC_MIX;
-const PLAYLIST_TRACKS_FILEPATH =
-  "services/web-app/src/data/soundcloud-data.json";
+const PLAYLIST_TRACKS_FILEPATH = "src/data/soundcloud-data.json";
 
 // const SYNC = [EVENT_LIST_FILEPATH, PLAYLIST_TRACKS_FILEPATH];
 const SYNC = [EVENT_LIST_FILEPATH];
