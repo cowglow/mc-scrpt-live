@@ -1,4 +1,5 @@
 <div class="wrapper">
+  &nbsp;
   <h1>Impressum</h1>
   <h2>Angaben gemäß § 5 TMG:</h2>
   <address>
@@ -57,6 +58,7 @@
 <style>
 .wrapper {
   padding: 0 var(--side-padding) var(--bottom-padding);
+  width: 100%;
   max-width: 1080px;
   margin: 0 auto;
 }

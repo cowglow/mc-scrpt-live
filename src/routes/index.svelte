@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS } from "$lib/constants";
-  import EventLog from "$components/EventLog.svelte";
-  import MediaPlayer from "$components/MediaPlayer.svelte";
-  import SoundcloudPlaylist from "$components/SoundcloudPlaylist.svelte";
+import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS } from "$lib/constants";
+import EventLog from "$components/EventLog.svelte";
+import MediaPlayer from "$components/MediaPlayer.svelte";
+import SoundcloudPlaylist from "$components/SoundcloudPlaylist.svelte";
 </script>
 
 <div class="events" id="{ANCHOR_EVENTS}">

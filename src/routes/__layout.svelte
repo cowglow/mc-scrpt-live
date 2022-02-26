@@ -12,6 +12,5 @@ import Footer from "$components/Footer.svelte";
 <style>
 main {
   background-color: white;
-  border: thin solid black;
 }
 </style>
