@@ -1,12 +1,28 @@
 <script lang="ts">
-import data from "../data/social-media.json";
 import SocialMediaLink from "./SocialMediaLink.svelte";
 import Instagram from "./SocialMedia/Instagram.svelte";
 import Mixcloud from "./SocialMedia/Mixcloud.svelte";
 import SoundCloud from "./SocialMedia/SoundCloud.svelte";
 import Twitter from "./SocialMedia/Twitter.svelte";
 
-const { platforms } = data;
+const platforms = [
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/explore/tags/mcscrpt",
+  },
+  {
+    name: "Mixcloud",
+    url: "https://www.mixcloud.com/mcscrpt",
+  },
+  {
+    name: "SoundCloud",
+    url: "https://soundcloud.com/cowglow/sets/mc-scrpt",
+  },
+  {
+    name: "Twitter",
+    url: "https://twitter.com/MCSCRPT",
+  },
+];
 </script>
 
 <div id="social-media-navbar">
