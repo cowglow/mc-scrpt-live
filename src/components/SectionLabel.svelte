@@ -1,6 +1,6 @@
 <script lang="ts">
-export let title: string = "Section Label";
-export let description: string = "Lorem Ipsum";
+export let title = "Section Label";
+export let description = "Lorem Ipsum";
 </script>
 
 <h3>{title}</h3>

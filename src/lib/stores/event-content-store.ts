@@ -9,5 +9,5 @@ interface EventDataStoreInterface {
 
 export const EventDataStore = writable<EventDataStoreInterface>({
   previousEvents: getPreviousDates(events),
-  upcomingEvents: getUpcomingDates(events)
+  upcomingEvents: getUpcomingDates(events),
 });

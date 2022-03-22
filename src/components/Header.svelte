@@ -9,12 +9,12 @@ let bgCollection: string[] = [
   "background-002-min.jpg",
 ];
 let randomIndex: number = Math.floor(Math.random() * bgCollection.length);
-let basePath: string = "/images";
+let basePath = "/images";
 let backgroundImage = `${basePath}/${bgCollection[randomIndex]}`;
 
 $: headerStyle =
   $page.url.pathname === "/"
-    ? `background-image: url(\"${backgroundImage}\");`
+    ? `background-image: url("${backgroundImage}");`
     : `height: 47px; background-image: unset;`;
 </script>
 

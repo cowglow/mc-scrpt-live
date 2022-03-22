@@ -1,6 +1,14 @@
 {
   "events": [
     {
+      "zeitstempel": "2022-03-22T09:57:59.452Z",
+      "eventDate": "2022-04-15T22:00:00.000Z",
+      "eventStartTime": "1899-12-30T22:30:00.000Z",
+      "eventLocation": "Z-Bau",
+      "eventName": "Monsters of Jungle",
+      "eventLink": "https://www.facebook.com/events/1481846145551945"
+    },
+    {
       "zeitstempel": "2022-02-25T22:47:24.041Z",
       "eventDate": "2022-03-18T23:00:00.000Z",
       "eventStartTime": "1899-12-30T22:00:00.000Z",

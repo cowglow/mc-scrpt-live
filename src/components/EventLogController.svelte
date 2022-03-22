@@ -1,8 +1,8 @@
 <script lang="ts">
 export let stepForward: () => void;
 export let stepBackward: () => void;
-export let stepBackwardDisabled: boolean = true;
-export let stepForwardDisabled: boolean = true;
+export let stepBackwardDisabled = true;
+export let stepForwardDisabled = true;
 </script>
 
 <div class="wrapper">

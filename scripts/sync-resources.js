@@ -15,7 +15,7 @@ async function getEventList(filePath) {
     console.error(err);
   }
 }
-
+/*
 async function getPlaylistTracks(filePath) {
   const SC_URL = process.env.SC_URL;
   const SC_PLAYLIST_ID = process.env.SC_PLAYLIST_ID;
@@ -33,10 +33,11 @@ async function getPlaylistTracks(filePath) {
     console.error(err);
   }
 }
+*/
 
 const SYNC = [
   { filePath: "src/data/event-list.json", callback: getEventList },
-  { filePath: "src/data/soundcloud-data.json", callback: getPlaylistTracks },
+  // { filePath: "src/data/soundcloud-data.json", callback: getPlaylistTracks },
 ];
 
 async function syncResources() {
