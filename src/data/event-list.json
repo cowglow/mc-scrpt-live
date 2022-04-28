@@ -1,6 +1,14 @@
 {
   "events": [
     {
+      "zeitstempel": "2022-04-27T20:32:11.890Z",
+      "eventDate": "2022-04-28T22:00:00.000Z",
+      "eventStartTime": "1899-12-30T21:00:00.000Z",
+      "eventLocation": "Kopf und Kragen",
+      "eventName": "Booyaka",
+      "eventLink": "https://www.facebook.com/events/413055997258117"
+    },
+    {
       "zeitstempel": "2022-03-22T09:57:59.452Z",
       "eventDate": "2022-04-15T22:00:00.000Z",
       "eventStartTime": "1899-12-30T22:30:00.000Z",

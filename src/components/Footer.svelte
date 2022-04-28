@@ -18,7 +18,7 @@ import { footerYear } from "$lib/footer-year";
       <a href="https://cowglow.com" rel="noreferrer nofolloer" target="_blank"
         >COWGLOW</a
       >. All rights reserved.
-      <a class="legal-link" href="/impressum.html">Impressum</a>
+      <a class="legal-link" href="/impressum">Impressum</a>
     </p>
   </div>
 </footer>

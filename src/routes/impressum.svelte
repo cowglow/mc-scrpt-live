@@ -47,7 +47,14 @@
 
   <h2>Hosting</h2>
   <address>
-    <b>GoDaddy in the EU</b> <br />
+    <b
+      ><a
+        href="https://pages.github.com/"
+        rel="noopener noreferrer"
+        target="_blank">Github Pages</a
+      ></b
+    > <br />
+
     Europäische Union (EWR): <br />
     Attn: Legal, Office of the DPO <br />
     Hansestraße 79 <br />
