@@ -46,20 +46,14 @@
   </p>
 
   <h2>Hosting</h2>
-  <address>
-    <b
-      ><a
-        href="https://pages.github.com/"
-        rel="noopener noreferrer"
-        target="_blank">Github Pages</a
-      ></b
-    > <br />
-
-    Europäische Union (EWR): <br />
-    Attn: Legal, Office of the DPO <br />
-    Hansestraße 79 <br />
-    51149 Köln
-  </address>
+  <p>
+    The code and content for this website can be found on GitHub. To learn more
+    about Github Pages please visit their <a
+      href="https://pages.github.com/"
+      rel="noopener noreferrer"
+      target="_blank">website</a
+    >.
+  </p>
 </div>
 
 <style>

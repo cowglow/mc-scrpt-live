@@ -3,13 +3,14 @@ import adapter from "@sveltejs/adapter-static";
 import path from "path";
 
 const dev = process.env.NODE_ENV === "development";
+const basePath = dev ? "" : "/mc-scrpt-live";
 
 /** @type {import("@sveltejs/kit").Config} */
 const config = {
   preprocess: preprocess(),
   kit: {
     paths: {
-      base: dev ? "" : "/mc-scrpt-live",
+      base: basePath,
     },
     appDir: "internal",
     adapter: adapter({
