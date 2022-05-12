@@ -1,6 +1,14 @@
 {
   "events": [
     {
+      "zeitstempel": "2022-05-05T16:01:35.870Z",
+      "eventDate": "2022-05-24T22:00:00.000Z",
+      "eventStartTime": "1899-12-30T21:00:00.000Z",
+      "eventLocation": "Z-Bau",
+      "eventName": "DubWorXx Green feat. Monsters of Jungle & MC SCRPT",
+      "eventLink": "https://www.facebook.com/events/1348100822267976"
+    },
+    {
       "zeitstempel": "2022-04-27T20:32:11.890Z",
       "eventDate": "2022-04-28T22:00:00.000Z",
       "eventStartTime": "1899-12-30T21:00:00.000Z",
