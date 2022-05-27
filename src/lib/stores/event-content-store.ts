@@ -3,11 +3,32 @@ import { getPreviousDates, getUpcomingDates } from "../date-filters";
 import { events } from "../../data/event-list.json";
 
 interface EventDataStoreInterface {
-  previousEvents: ShowData[];
-  upcomingEvents: ShowData[];
+  previousEvents: EventShow[];
+  upcomingEvents: EventShow[];
 }
 
+const eventCollection: EventShow[] = events.map(
+  ({ eventName, eventDate, eventStartTime, eventLocation, eventLink }) => {
+    const date = new Date(eventDate);
+    const startTime = new Date(eventStartTime);
+    return {
+      name: eventName,
+      date: new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        startTime.getHours(),
+        startTime.getMinutes(),
+        startTime.getSeconds(),
+        startTime.getMilliseconds()
+      ),
+      venue: eventLocation,
+      link: eventLink,
+    };
+  }
+);
+
 export const EventDataStore = writable<EventDataStoreInterface>({
-  previousEvents: getPreviousDates(events),
-  upcomingEvents: getUpcomingDates(events),
+  previousEvents: getPreviousDates(eventCollection),
+  upcomingEvents: getUpcomingDates(eventCollection),
 });

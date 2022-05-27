@@ -1,13 +1,13 @@
-export const getPreviousDates = (events: ShowData[]): ShowData[] => {
+export const getPreviousDates = (events: EventShow[]): EventShow[] => {
   const currentDate = Date.now();
-  return events.filter(({ eventDate }) => {
-    return Date.parse(eventDate) < currentDate.valueOf();
+  return events.filter(({ date }) => {
+    return Date.parse(date.toUTCString()) < currentDate.valueOf();
   });
 };
 
-export const getUpcomingDates = (events: ShowData[]): ShowData[] => {
+export const getUpcomingDates = (events: EventShow[]): EventShow[] => {
   const currentDate = Date.now();
-  return events.filter(({ eventDate }) => {
-    return Date.parse(eventDate) > currentDate.valueOf();
+  return events.filter(({ date }) => {
+    return Date.parse(date.toUTCString()) > currentDate.valueOf();
   });
 };
