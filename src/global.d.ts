@@ -9,11 +9,18 @@ type ShowData = {
   eventStartTime: string;
 };
 
+type EventShow = {
+  name: string;
+  date: Date;
+  venue: string;
+  link: string;
+};
+
 type Pagination = {
   previousPage: boolean;
   nextPage: boolean;
   currentPage: number;
   itemsTotal: number;
   totalPages: number;
-  items: Partial<ShowData>[];
+  items: Partial<EventShow>[];
 };
