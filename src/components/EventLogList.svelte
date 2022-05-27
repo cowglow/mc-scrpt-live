@@ -7,10 +7,10 @@ function createEventLogList(data) {
   let listData = [];
   for (let i = 0; i < data.length; i++) {
     listData.push({
-      eventDate: data[i].eventDate,
-      eventName: data[i].eventName,
-      eventLink: data[i].eventLink,
-      eventLocation: data[i].eventLocation,
+      eventDate: data[i].date,
+      eventName: data[i].name,
+      eventLink: data[i].link,
+      eventLocation: data[i].venue,
     });
   }
   return listData;

@@ -11,7 +11,8 @@ import EventLogController from "./EventLogController.svelte";
 import EventLogList from "./EventLogList.svelte";
 import NextEventBanner from "./NextEventBanner.svelte";
 
-let previousEvents = $EventDataStore.previousEvents;
+const { previousEvents } = $EventDataStore;
+
 let paginatedContent = writable<Pagination>(
   paginateContent(EVENT_CONTENT_DEFAULT_PAGE, previousEvents)
 );
