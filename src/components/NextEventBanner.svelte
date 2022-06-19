@@ -94,15 +94,16 @@ h3 {
   font-weight: normal;
   font-size: 21px;
   line-height: 21px;
-  color: #000000;
+  color: #ffffff;
 }
 a {
   color: #000000;
   text-align: right;
+  text-decoration: underline;
 }
 a:hover {
   color: #ffffff;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:active {
   color: #fff200ff;
