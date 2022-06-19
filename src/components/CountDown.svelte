@@ -30,11 +30,12 @@ onDestroy(() => {
 
 <style>
 .wrapper {
+  border: 10px solid red;
   display: flex;
   justify-content: space-between;
   width: 100%;
   max-width: 276px;
-  margin-left: var(--side-padding);
+  gap: 10px;
 }
 .container {
   border: thin solid white;

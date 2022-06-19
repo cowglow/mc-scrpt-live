@@ -17,9 +17,7 @@ let screenWidth;
       <h2>{data[0].name}</h2>
       <h3>{data[0].venue}</h3>
     </div>
-    {#if screenWidth > 699}
-      <CountDown date="{new Date(data[0].date)}" />
-    {/if}
+    <div class="count-down"><CountDown date="{new Date(data[0].date)}" /></div>
     <div class="info">
       <a href="{data[0].link}" rel="noreferrer nofollow" target="event-link">
         More Info
@@ -30,17 +28,20 @@ let screenWidth;
 
 <style>
 #next-event-banner {
-  overflow: hidden;
   display: flex;
+  flex-wrap: wrap;
   background-color: red;
   position: relative;
-  width: 100%;
+  align-items: center;
+  flex-grow: 1;
   max-width: 1080px;
-  height: 135px;
+  width: 90%;
+  min-height: 135px;
   margin: 0 auto;
   padding: 0 var(--side-padding);
   z-index: 1;
 }
+
 .title {
   display: flex;
   flex-direction: column;
@@ -48,14 +49,20 @@ let screenWidth;
   align-items: flex-start;
   flex-grow: 1;
   padding: 0;
+  margin: 10px auto;
+}
+.count-down {
+  flex-grow: 1;
 }
 .info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  margin: 21px 0 21px 21px;
+  right: 0;
   padding: 0;
+  flex-grow: 1;
+  margin: var(--side-padding) 0;
 }
 h1 {
   font-family: Teko, sans-serif;
@@ -99,33 +106,5 @@ a:hover {
 }
 a:active {
   color: #fff200ff;
-}
-@media screen and (min-width: 700px) {
-  #next-event-banner {
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .title {
-    flex-grow: 1;
-  }
-  .info {
-    flex-grow: 0;
-  }
-  h1,
-  h3 {
-    font-size: 24px;
-  }
-  h2 {
-    font-size: 42px;
-  }
-}
-@media screen and (min-width: 1080px) {
-  .title {
-    flex-grow: 1;
-  }
-  .info {
-    flex-grow: 1;
-  }
 }
 </style>
