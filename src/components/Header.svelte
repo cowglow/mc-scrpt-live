@@ -1,24 +1,10 @@
 <script lang="ts">
-import { page } from "$app/stores";
 import Branding from "./Branding.svelte";
 import Navigation from "./Navigation.svelte";
 import SocialMedia from "./SocialMediaMenu.svelte";
-
-let bgCollection: string[] = [
-  "background-001-min.jpg",
-  "background-002-min.jpg",
-];
-let randomIndex: number = Math.floor(Math.random() * bgCollection.length);
-let basePath = "/images";
-let backgroundImage = `${basePath}/${bgCollection[randomIndex]}`;
-
-$: headerStyle =
-  $page.url.pathname === "/"
-    ? `background-image: url("${backgroundImage}");`
-    : `height: 47px; background-image: unset;`;
 </script>
 
-<header style="{headerStyle}">
+<header>
   <div id="nav-bar-wrapper">
     <div id="nav-bar">
       <Branding />
@@ -39,6 +25,7 @@ header {
   flex-direction: column;
   align-content: center;
   background-color: black;
+  background-image: url("/images/background-min.jpg");
 }
 
 #nav-bar-wrapper {
