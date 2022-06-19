@@ -1,12 +1,20 @@
 {
   "events": [
     {
-      "zeitstempel": "2022-05-26T05:39:08.743Z",
-      "eventDate": "2022-05-27T22:00:00.000Z",
+      "zeitstempel": "2022-06-02T13:13:17.489Z",
+      "eventDate": "2022-06-24T22:00:00.000Z",
       "eventStartTime": "1899-12-30T22:00:00.000Z",
-      "eventLocation": "Kassablanca Jena",
-      "eventName": "Überschall",
-      "eventLink": "https://facebook.com/events/s/uberschall/3234578523442653/"
+      "eventLocation": "Qì: Club Nürnberg",
+      "eventName": "ANÁSTASI #3",
+      "eventLink": "https://www.facebook.com/events/5546322915401292"
+    },
+    {
+      "zeitstempel": "2022-06-02T13:12:29.105Z",
+      "eventDate": "2022-06-17T22:00:00.000Z",
+      "eventStartTime": "1899-12-30T21:00:00.000Z",
+      "eventLocation": "Kopf und Kragen",
+      "eventName": "Booyaka",
+      "eventLink": "https://www.facebook.com/events/361708496026786"
     },
     {
       "zeitstempel": "2022-05-05T16:01:35.870Z",
@@ -263,6 +271,14 @@
       "eventLocation": "Juz Lauf",
       "eventName": "LightUp! DnB-Café #36",
       "eventLink": "https://www.facebook.com/events/165397407258255/"
+    },
+    {
+      "zeitstempel": "",
+      "eventDate": "",
+      "eventStartTime": "",
+      "eventLocation": "",
+      "eventName": "",
+      "eventLink": ""
     }
   ]
 }
