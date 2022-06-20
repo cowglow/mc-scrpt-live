@@ -1,4 +1,5 @@
 <script lang="ts">
+export let disableBanner: boolean;
 import { writable } from "svelte/store";
 import { ANCHOR_EVENTS } from "$lib/constants";
 import { paginateContent } from "$lib/paginate-content";
@@ -37,7 +38,9 @@ const stepBackward = () => {
 };
 </script>
 
-<NextEventBanner data="{$EventDataStore.upcomingEvents}" />
+{#if !disableBanner}
+  <NextEventBanner data="{$EventDataStore.upcomingEvents}" />
+{/if}
 <div class="wrapper">
   <h1>Previous Events</h1>
   <h3>
@@ -62,7 +65,7 @@ const stepBackward = () => {
   width: 100%;
   max-width: 1080px;
   padding: 0 var(--side-padding) var(--bottom-padding);
-  margin: 0 auto;
+  margin: -40px auto 0;
 }
 
 h1 {
