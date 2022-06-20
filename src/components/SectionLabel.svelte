@@ -1,10 +1,10 @@
 <script lang="ts">
 export let title = "Section Label";
-export let description = "Lorem Ipsum";
+export let description: string | undefined;
 </script>
 
 <h3>{title}</h3>
-<div class="section-label-desc">{description}</div>
+{#if description}<div class="section-label-desc">{description}</div>{/if}
 
 <style>
 h3 {

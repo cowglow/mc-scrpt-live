@@ -26,11 +26,12 @@ import SoundcloudPlaylist from "$components/SoundcloudPlaylist.svelte";
 .videos {
   background-color: black;
   color: #ffffff;
+  padding: var(--side-padding);
 }
 .audio {
   width: 100%;
   max-width: 1080px;
-  padding: 0 var(--side-padding) var(--bottom-padding);
+  padding: var(--side-padding);
   margin: 0 auto;
 }
 

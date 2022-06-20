@@ -1,14 +1,28 @@
-<div id="youtube-video">
-  <iframe
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-    height="560"
-    src="https://www.youtube-nocookie.com/embed/videoseries?list=PLvGoDsjMiifcRAccwKmrX4LNl4H6XV8jo"
-    title="YouTube video player"
-    width="100%"></iframe>
+<script lang="ts">
+import SectionLabel from "./SectionLabel.svelte";
+</script>
+
+<div id="media-player">
+  <SectionLabel title="YouTube Playlist #MCSCRPT" />
+  <div id="youtube-video">
+    <iframe
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      height="560"
+      src="https://www.youtube-nocookie.com/embed/videoseries?list=PLvGoDsjMiifcRAccwKmrX4LNl4H6XV8jo"
+      title="YouTube video player"
+      width="100%"></iframe>
+  </div>
 </div>
 
 <style>
+#media-player {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
 #youtube-video {
   overflow: hidden;
   position: relative;
