@@ -1,6 +1,14 @@
 {
   "events": [
     {
+      "zeitstempel": "2022-06-21T06:29:19.988Z",
+      "eventDate": "2022-07-08T22:00:00.000Z",
+      "eventStartTime": "1899-12-30T21:00:00.000Z",
+      "eventLocation": "Z-Bau",
+      "eventName": "Monsters of Jungle - Sunset Afterparty",
+      "eventLink": "https://www.facebook.com/events/1077445879648655"
+    },
+    {
       "zeitstempel": "2022-06-02T13:13:17.489Z",
       "eventDate": "2022-06-24T22:00:00.000Z",
       "eventStartTime": "1899-12-30T22:00:00.000Z",
