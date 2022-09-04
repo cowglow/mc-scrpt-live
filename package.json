@@ -10,7 +10,7 @@
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --write --plugin-search-dir=. .",
     "clean": "rm -r ./build ./.svelte-kit",
-    "deploy": "npm run build && gh-pages -t true -d build"
+    "deploy": "npm run sync && npm run build && gh-pages -t true -d build"
   },
   "repository": {
     "type": "git",
