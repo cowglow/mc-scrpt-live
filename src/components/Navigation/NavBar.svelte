@@ -1,17 +1,25 @@
 <script lang="ts">
-import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS } from "$lib/constants";
+import {
+  ANCHOR_AUDIO,
+  ANCHOR_EVENTS,
+  ANCHOR_VIDEOS,
+  DOWNLOAD_ROUTE,
+} from "$lib/constants";
 </script>
 
 <div id="navigation">
   <ul>
     <li><a href="{`/#${ANCHOR_EVENTS}`}">EVENTS</a></li>
-    <li><a href="{`/#${ANCHOR_VIDEOS}`}">VIDEOS</a></li>
-    <li><a href="{`/#${ANCHOR_AUDIO}`}">AUDIO</a></li>
+    <li><a href="{`/#${ANCHOR_VIDEOS}`}">YOUTUBE</a></li>
+    <li><a href="{`/#${ANCHOR_AUDIO}`}">SOUNDCLOUD</a></li>
+    <li><a href="{DOWNLOAD_ROUTE}">DOWNLOADS</a></li>
   </ul>
 </div>
 
 <style>
 #navigation {
+  flex-grow: 1;
+  text-align: right;
   display: none;
 }
 
