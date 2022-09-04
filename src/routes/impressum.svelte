@@ -22,6 +22,7 @@
       href="https://support.google.com/youtube/answer/171780"
       rel="noopener noreferrer"
       target="_blank"
+      class="text-link"
     >
       Privacy Enhanced Mode
     </a>.
@@ -38,6 +39,7 @@
       href="https://soundcloud.com/pages/cookies"
       rel="noopener noreferrer"
       target="_blank"
+      class="text-link"
     >
       Cookies policy
     </a>.
@@ -49,6 +51,7 @@
   <p>
     The code and content for this website can be found on GitHub. To learn more
     about Github Pages please visit their <a
+      class="text-link"
       href="https://pages.github.com/"
       rel="noopener noreferrer"
       target="_blank">website</a
@@ -58,26 +61,11 @@
   <h2>Downloads</h2>
   <p>
     For more information, please refer to the README.md file located in the
-    zipped downloaded asset.
+    zipped downloaded asset. Sharing concept modeled after <a
+      class="text-link"
+      href="https://www.caseycalhounbeats.com/music-usage.html"
+    >
+      Casey Calhoun
+    </a>
   </p>
 </div>
-
-<style>
-.wrapper {
-  padding: var(--top-padding) var(--side-padding) var(--bottom-padding);
-  width: 100%;
-  max-width: 1080px;
-  margin: 0 auto;
-}
-a {
-  color: red;
-}
-h1 {
-  margin: 0 auto;
-  line-height: 1.25;
-}
-address {
-  display: block;
-  font-style: italic;
-}
-</style>
