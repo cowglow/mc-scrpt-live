@@ -1,6 +1,22 @@
 {
   "events": [
     {
+      "zeitstempel": "2022-08-05T20:59:20.908Z",
+      "eventDate": "2022-10-21T22:00:00.000Z",
+      "eventStartTime": "1899-12-30T21:00:00.000Z",
+      "eventLocation": "Kopf und Kragen",
+      "eventName": "Booyaka",
+      "eventLink": "https://www.facebook.com/events/750009846275334/"
+    },
+    {
+      "zeitstempel": "2022-08-05T20:56:08.787Z",
+      "eventDate": "2022-08-18T22:00:00.000Z",
+      "eventStartTime": "1899-12-30T20:00:00.000Z",
+      "eventLocation": "Stellwerk 1",
+      "eventName": "SET-TINGZ",
+      "eventLink": "https://www.facebook.com/events/1336050560262380/"
+    },
+    {
       "zeitstempel": "2022-06-21T06:29:19.988Z",
       "eventDate": "2022-07-08T22:00:00.000Z",
       "eventStartTime": "1899-12-30T21:00:00.000Z",
