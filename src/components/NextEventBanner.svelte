@@ -2,6 +2,13 @@
 import { getContext } from "svelte";
 import CountDown from "./CountDown.svelte";
 
+export type EventShow = {
+  name: string;
+  date: Date;
+  venue: string;
+  link: string;
+};
+
 export let data: EventShow[];
 
 const isSubPage = getContext("isSubPage");
@@ -107,5 +114,10 @@ a:hover {
 }
 a:active {
   color: #fff200ff;
+}
+@media screen and (max-width: 370px) {
+  .info a {
+    margin: 0 auto;
+  }
 }
 </style>

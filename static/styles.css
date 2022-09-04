@@ -43,7 +43,7 @@ a:active {
 }
 
 .wrapper {
-  padding: var(--top-padding) var(--side-padding) var(--bottom-padding);
+  padding: var(--bottom-padding) var(--side-padding);
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
@@ -51,7 +51,6 @@ a:active {
 
 h1 {
   margin: 0 auto;
-  line-height: 1.25;
 }
 
 address {
