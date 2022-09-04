@@ -3,13 +3,14 @@
   "author": "@cowglow",
   "version": "1.0.0",
   "scripts": {
-    "sync": "node -r dotenv/config -r path scripts/sync-resources.js",
     "dev": "svelte-kit dev --host",
+    "dev:offline": " php -S localhost:8080 -t private/off-line/",
     "build": "rm -rf build && svelte-kit build",
-    "preview": "svelte-kit preview",
-    "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-    "format": "prettier --write --plugin-search-dir=. .",
+    "sync": "node -r dotenv/config -r path scripts/sync-resources.js",
     "clean": "rm -r ./build ./.svelte-kit",
+    "format": "prettier --write --plugin-search-dir=. .",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+    "preview": "svelte-kit preview",
     "deploy": "npm run sync && npm run build && gh-pages -t true -d build"
   },
   "repository": {
