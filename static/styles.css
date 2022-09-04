@@ -31,6 +31,34 @@ a:active {
   text-decoration: none;
 }
 
+.text-link,
+.text-link:active,
+.text-link:visited {
+  color: red;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.wrapper {
+  padding: var(--top-padding) var(--side-padding) var(--bottom-padding);
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 auto;
+  line-height: 1.25;
+}
+
+address {
+  display: block;
+  font-style: italic;
+}
+
 @font-face {
   font-family: "Press Start 2P";
   font-weight: 400;
