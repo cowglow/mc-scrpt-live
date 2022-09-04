@@ -1,15 +1,13 @@
 <script lang="ts">
-import Branding from "./Branding.svelte";
-import Navigation from "./Navigation.svelte";
-import SocialMedia from "./SocialMediaMenu.svelte";
+import Branding from "$components/Branding.svelte";
+import NavBar from "$components/Navigation/NavBar.svelte";
 </script>
 
 <header>
   <div id="nav-bar-wrapper">
     <div id="nav-bar">
       <Branding />
-      <Navigation />
-      <SocialMedia />
+      <NavBar />
     </div>
   </div>
 </header>

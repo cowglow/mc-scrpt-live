@@ -1,6 +1,6 @@
 <script lang="ts">
-import SocialMedia from "./SocialMediaMenu.svelte";
-import Branding from "./Branding.svelte";
+import SocialMedia from "$components/SocialMediaMenu.svelte";
+import Branding from "$components/Branding.svelte";
 import { footerYear } from "$lib/footer-year";
 </script>
 
