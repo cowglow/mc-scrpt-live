@@ -18,11 +18,10 @@ let downloads = {
     track and shares it with their producer friends! With that being said,
     credit would be much appreciated. It would mean the world to me!
   </p>
-  <br />
   <p>
-    inspired by <a href="https://www.caseycalhounbeats.com/music-usage.html"
-      >Casey Calhoun</a
-    >
+    inspired by <a href="https://www.caseycalhounbeats.com/music-usage.html">
+      Casey Calhoun
+    </a>
   </p>
   <ul>
     <li>
@@ -37,7 +36,7 @@ let downloads = {
 
 <style>
 .wrapper {
-  padding: 0 var(--side-padding) var(--bottom-padding);
+  padding: var(--top-padding) var(--side-padding) var(--bottom-padding);
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
@@ -45,10 +44,7 @@ let downloads = {
 a {
   color: red;
 }
-
 h1 {
-  border: thin solid red;
-  padding: 0;
   margin: 0 auto;
   line-height: 1.25;
 }

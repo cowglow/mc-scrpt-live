@@ -58,22 +58,18 @@
 
 <style>
 .wrapper {
-  padding: 0 var(--side-padding) var(--bottom-padding);
+  padding: var(--top-padding) var(--side-padding) var(--bottom-padding);
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
 }
-
 a {
   color: red;
 }
-
-h2 {
-  padding: 0;
+h1 {
   margin: 0 auto;
   line-height: 1.25;
 }
-
 address {
   display: block;
   font-style: italic;
