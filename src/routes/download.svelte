@@ -1,16 +1,12 @@
 <script lang="ts">
-const dryMix =
-  "/downloads/DRY%20MC%20SCRPT%20-%20Vocal%20Sample%20Pack%20-%202022.zip";
-const wasilliMix =
-  "/downloads/ILL.I.SAW%20WET%20MIX%20-%20Vocal%20Sample%20Pack%20-%202022.zip";
+import { scrollToView } from "$lib/scroll-to-view";
 
-let downloads = {
-  dryMix,
-  wasilliMix,
-};
+const DRY_MIX = "DRY%20MC%20SCRPT%20-%20Vocal%20Sample%20Pack%20-%202022";
+const WASILLI_MIX =
+  "ILL.I.SAW%20WET%20MIX%20-%20Vocal%20Sample%20Pack%20-%202022";
 </script>
 
-<div class="wrapper">
+<div id="download" class="wrapper" use:scrollToView>
   <h1>2022 Sound Pack</h1>
   <p>
     If you plan on using or have used these audio tacks, please read the
@@ -20,10 +16,12 @@ let downloads = {
   </p>
   <ul>
     <li>
-      <a class="text-link" href="{downloads.dryMix}">Download</a> Dry Mix
+      <a class="text-link" href="{`/downloads/${DRY_MIX}.zip`}">Download</a> Dry
+      Mix
     </li>
     <li>
-      <a class="text-link" href="{downloads.wasilliMix}">Download</a> ill.i.saw Mix
+      <a class="text-link" href="{`/downloads/${WASILLI_MIX}.zip`}">Download</a>
+      ill.i.saw Mix
     </li>
     <!--    <li><a href="#">Download</a> Al Gee</li>-->
   </ul>

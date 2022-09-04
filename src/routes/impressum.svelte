@@ -1,5 +1,8 @@
-<div class="wrapper">
-  &nbsp;
+<script lang="ts">
+import { scrollToView } from "$lib/scroll-to-view";
+</script>
+
+<div id="imprint" class="wrapper" use:scrollToView>
   <h1>Impressum</h1>
   <h2>Angaben gemäß § 5 TMG:</h2>
   <address>
