@@ -54,6 +54,12 @@
       target="_blank">website</a
     >.
   </p>
+
+  <h2>Downloads</h2>
+  <p>
+    For more information, please refer to the README.md file located in the
+    zipped downloaded asset.
+  </p>
 </div>
 
 <style>
