@@ -1,6 +1,6 @@
 <script lang="ts">
-import Branding from "$components/Branding.svelte";
-import NavBar from "$components/Navigation/NavBar.svelte";
+import Branding from "components/Branding.svelte";
+import NavBar from "components/Navigation/NavBar.svelte";
 </script>
 
 <header>

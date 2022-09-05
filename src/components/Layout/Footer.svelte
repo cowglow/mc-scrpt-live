@@ -1,7 +1,7 @@
 <script lang="ts">
-import SocialMedia from "$components/SocialMediaMenu.svelte";
-import Branding from "$components/Branding.svelte";
-import { footerYear } from "$lib/footer-year";
+import SocialMedia from "components/SocialMediaMenu.svelte";
+import Branding from "components/Branding.svelte";
+import { footerYear } from "lib/footer-year";
 </script>
 
 <footer>

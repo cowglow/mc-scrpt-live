@@ -1,8 +1,8 @@
 <script lang="ts">
-import EventLog from "$components/EventLog.svelte";
-import { ANCHOR_EVENTS } from "$lib/constants.ts";
+import EventLog from "components/EventLog.svelte";
+import { ANCHOR_EVENTS } from "lib/constants";
 </script>
 
 <div id="{ANCHOR_EVENTS}">
-  <EventLog disableBanner="true" />
+  <EventLog disableBanner="{false}" />
 </div>

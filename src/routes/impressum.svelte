@@ -1,5 +1,5 @@
 <script lang="ts">
-import { scrollToView } from "$lib/scroll-to-view";
+import { scrollToView } from "lib/scroll-to-view";
 </script>
 
 <div id="imprint" class="wrapper" use:scrollToView>

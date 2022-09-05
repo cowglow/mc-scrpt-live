@@ -1,13 +1,15 @@
-<script lang="ts">
-import { getContext } from "svelte";
-import CountDown from "./CountDown.svelte";
-
-export type EventShow = {
+<script context="module" lang="ts">
+type EventShow = {
   name: string;
   date: Date;
   venue: string;
   link: string;
 };
+</script>
+
+<script lang="ts">
+import { getContext } from "svelte";
+import CountDown from "./CountDown.svelte";
 
 export let data: EventShow[];
 
