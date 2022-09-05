@@ -1,6 +1,8 @@
 <script lang="ts">
 import Header from "components/Layout/Header.svelte";
 import Footer from "components/Layout/Footer.svelte";
+
+export const prerender = true;
 </script>
 
 <svelte:head>
