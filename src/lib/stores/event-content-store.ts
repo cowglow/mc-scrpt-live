@@ -23,12 +23,12 @@ const eventCollection: EventShow[] = events.map(
         startTime.getMilliseconds()
       ),
       venue: eventLocation,
-      link: eventLink,
+      link: eventLink
     };
   }
 );
 
 export const EventDataStore = writable<EventDataStoreInterface>({
   previousEvents: getPreviousDates(eventCollection),
-  upcomingEvents: getUpcomingDates(eventCollection),
+  upcomingEvents: getUpcomingDates(eventCollection)
 });

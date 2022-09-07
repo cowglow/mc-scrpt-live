@@ -36,7 +36,7 @@ async function getPlaylistTracks(filePath) {
 */
 
 const SYNC = [
-  { filePath: "src/data/event-list.json", callback: getEventList },
+  { filePath: "src/data/event-list.json", callback: getEventList }
   // { filePath: "src/data/soundcloud-data.json", callback: getPlaylistTracks },
 ];
 

@@ -15,6 +15,6 @@ export const paginateContent = (
     itemsTotal: list.length,
     totalPages: totalPages,
     // @ts-ignore
-    items: paginatedItems,
+    items: paginatedItems
   };
 };
