@@ -62,18 +62,19 @@ address {
   font-family: "Press Start 2P";
   font-weight: 400;
   src: local("Press Start 2P"), local("PressStart2P"),
-    url("/fonts/PressStart2P-Regular.woff2") format("woff2");
+    url("./fonts/PressStart2P-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Share Tech Mono";
   src: local("Share Tech Mono"), local("ShareTechMono"),
-    url("/fonts/ShareTechMono-Regular.woff2") format("woff2");
+    url("./fonts/ShareTechMono-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "bd_console";
-  src: url("/fonts/bd_console.woff2") format("woff2"), url("/fonts/bd_console.woff") format("woff");
+  src: url("./fonts/bd_console.woff2") format("woff2"),
+    url("./fonts/bd_console.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -81,15 +82,15 @@ address {
 @font-face {
   font-family: "Teko";
   font-weight: 400;
-  src: url("/fonts/teko-regular.woff2") format("woff2"),
-    url("/fonts/teko-regular.woff") format("woff");
+  src: url("./fonts/teko-regular.woff2") format("woff2"),
+    url("./fonts/teko-regular.woff") format("woff");
   font-style: normal;
 }
 
 @font-face {
   font-family: "Teko Medium";
   font-weight: 500;
-  src: url("/fonts/teko-medium.woff2") format("woff2"),
-    url("/fonts/teko-medium.woff") format("woff");
+  src: url("./fonts/teko-medium.woff2") format("woff2"),
+    url("./fonts/teko-medium.woff") format("woff");
   font-style: normal;
 }
