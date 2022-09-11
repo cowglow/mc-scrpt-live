@@ -3,8 +3,15 @@
   import EventLog from "$components/EventLog.svelte";
   import MediaPlayer from "$components/MediaPlayer.svelte";
   import SoundcloudPlaylist from "$components/SoundcloudPlaylist.svelte";
+
+  export let data;
 </script>
 
+<svelte:head>
+  {#if data.gateway === "download"}
+    <meta http-equiv="refresh" content="0; url=/download" />
+  {/if}
+</svelte:head>
 <div class="events" id={ANCHOR_EVENTS}>
   <EventLog />
 </div>

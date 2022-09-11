@@ -1,16 +1,9 @@
 <script lang="ts">
-  import { page } from "$app/stores";
   import Header from "$components/Layout/Header.svelte";
   import Footer from "$components/Layout/Footer.svelte";
-
-  const params = new URLSearchParams($page.url.search);
-  const gateway = params.get("gateway");
 </script>
 
 <svelte:head>
-  {#if gateway === "download"}
-    <meta http-equiv="refresh" content="0; url=/download" />
-  {/if}
   <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="icon" href="/favicon.ico" />
 </svelte:head>
