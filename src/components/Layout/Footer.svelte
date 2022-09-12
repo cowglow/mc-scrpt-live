@@ -12,7 +12,6 @@
       <br />
       Feel free to contact me.
       <br />
-      <a href="/download" class="text-link">Downloads</a>
     </p>
     <SocialMedia />
     <p id="footer-details">
