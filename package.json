@@ -14,7 +14,8 @@
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
     "clean": "rm -r ./build ./.svelte-kit",
-    "deploy": "npm run sync && npm run build && gh-pages -t true -d build"
+    "prod:update": "npm run sync && npm run build && npm run deploy",
+    "deploy": "gh-pages -t true -d build"
   },
   "repository": {
     "type": "git",
