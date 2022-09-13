@@ -1,3 +1,4 @@
+// @ts-nocheck
 /** @type {import('./$types').PageLoad} */
 import { redirect } from "@sveltejs/kit";
 
