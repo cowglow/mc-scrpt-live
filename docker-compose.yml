@@ -1,0 +1,22 @@
+services:
+  svelte-kit:
+    container_name: dev-mc-scrpt-live
+    image: mc-scrpt-live:dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - yarn-cache:/usr/local/share/.cache/yarn
+      - svelte-kit:/website/.svelte
+      - ./package.json:/website/package.json
+      - ./src:/website/src
+      - ./static:/website/static
+    environment:
+      APP_NAME: "svelte-kit"
+      VITE_PUBLIC_API_URL: "http://0.0.0.0:3000"
+
+volumes:
+  yarn-cache:
+  svelte-kit:
