@@ -10,4 +10,4 @@ ENV NODE_ENV=development
 
 EXPOSE 3000
 RUN yarn build
-CMD yarn dev --host
+CMD yarn dev

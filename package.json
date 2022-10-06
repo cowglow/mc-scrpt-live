@@ -3,6 +3,7 @@
   "author": "@cowglow",
   "version": "1.0.0",
   "scripts": {
+    "docker": "docker compose",
     "dev": "vite dev --port 3000 --host",
     "dev:offline": " php -S localhost:8080 -t private/off-line/",
     "build": "rm -rf build && vite build",
