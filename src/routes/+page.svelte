@@ -5,6 +5,9 @@
   import SoundcloudPlaylist from "$components/SoundcloudPlaylist.svelte";
 </script>
 
+<svelte:head>
+  <title>MC.SCRPT.LIVE | Drum and Bass MC</title>
+</svelte:head>
 <div class="events" id={ANCHOR_EVENTS}>
   <EventLog />
 </div>

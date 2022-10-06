@@ -5,6 +5,9 @@
   const WASILLI_MIX = "ILL.I.SAW%20WET%20MIX%20-%20Vocal%20Sample%20Pack%20-%202022";
 </script>
 
+<svelte:head>
+  <title>MC.SCRPT.LIVE | Downloads</title>
+</svelte:head>
 <div id="download" class="wrapper" use:scrollToView>
   <h1>2022 Sound Pack</h1>
   <p>
