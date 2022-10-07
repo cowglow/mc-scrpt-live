@@ -1,5 +1,6 @@
 import { writable } from "svelte/store";
 import { getPreviousDates, getUpcomingDates } from "$lib/date-filters";
+// @ts-ignore
 import { events } from "$data/event-list.json";
 
 interface EventDataStoreInterface {
@@ -8,6 +9,7 @@ interface EventDataStoreInterface {
 }
 
 const eventCollection: EventShow[] = events.map(
+  // @ts-ignore
   ({ eventName, eventDate, eventStartTime, eventLocation, eventLink }) => {
     const date = new Date(eventDate);
     const startTime = new Date(eventStartTime);
