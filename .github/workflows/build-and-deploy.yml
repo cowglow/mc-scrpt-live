@@ -9,6 +9,9 @@ jobs:
   build:
     name: Deploy Update
     runs-on: ubuntu-latest
+    env:
+      GAS_URL: ${{ secrets.GAS_URL }}
+      GAS_PRODUCT: ${{ secrets.GAS_PRODUCT }}
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3.0.2
