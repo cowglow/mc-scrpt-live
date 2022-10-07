@@ -2,6 +2,7 @@
 import fs from "fs";
 import axios from "axios";
 
+// @ts-ignore
 async function getEventList(filePath) {
   const GAS_URL = process.env.GAS_URL;
   const GAS_PRODUCT = process.env.GAS_PRODUCT;

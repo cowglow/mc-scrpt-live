@@ -3,7 +3,7 @@
 ### Links
 - [Production Website](https://mc.scrpt.live)
 - [Private Assets](/private)
-- [Scripts](/scripts)
+- [Scripts](/src/scripts)
 
 ---
 
