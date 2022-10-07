@@ -9,16 +9,11 @@ config({ path: path.resolve(".env") });
 const GAS_URL = process.env.GAS_URL;
 const GAS_PRODUCT = process.env.GAS_PRODUCT;
 
-console.log(GAS_URL);
-
 // @ts-ignore
 async function getEventList(filePath) {
-  const EVENT_LIST_API_URL = "https://" + GAS_URL + "/" + GAS_PRODUCT + "/exec";
-
   try {
-    const { data } = await axios.get(EVENT_LIST_API_URL);
+    const { data } = await axios.get(`https://${GAS_URL}/${GAS_PRODUCT}/exec`);
     const { Events } = data;
-    console.log(Events);
     fs.writeFileSync(filePath, JSON.stringify({ events: Events }, null, 2));
   } catch (err) {
     console.error(err);
@@ -62,4 +57,4 @@ async function syncResources() {
   }
 }
 
-syncResources().then(() => console.log("done"));
+syncResources().then(() => console.log("running"));
