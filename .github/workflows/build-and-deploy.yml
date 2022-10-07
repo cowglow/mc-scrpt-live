@@ -1,6 +1,8 @@
 name: Deploy a new version
 
 on:
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
     branches:
       - main
