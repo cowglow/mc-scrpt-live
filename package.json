@@ -9,7 +9,7 @@
     "build": "rm -rf build && vite build",
     "preview": "vite preview",
     "local-dev-sync": "node -r dotenv/config -r path src/scripts/sync-resources.js",
-    "sync": "node -r path src/scripts/sync-resources.js",
+    "sync": "node src/scripts/sync-resources.js",
     "test": "playwright test",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
