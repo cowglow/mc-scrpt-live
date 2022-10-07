@@ -12,7 +12,8 @@ const config = {
     }),
     alias: {
       $components: path.resolve("./src/components"),
-      $lib: path.resolve("./src/lib")
+      $lib: path.resolve("./src/lib"),
+      $data: path.resolve("./src/data")
     }
   }
 };

@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
-import { getPreviousDates, getUpcomingDates } from "../date-filters";
-import { events } from "../../data/event-list.json";
+import { getPreviousDates, getUpcomingDates } from "$lib/date-filters";
+import { events } from "$data/event-list.json";
 
 interface EventDataStoreInterface {
   previousEvents: EventShow[];
