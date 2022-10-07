@@ -1,11 +1,18 @@
 "use strict";
-import fs from "fs";
+import { config } from "dotenv";
+import path from "path";
 import axios from "axios";
+import fs from "fs";
+
+config({ path: path.resolve(".env") });
+
+const GAS_URL = process.env.GAS_URL;
+const GAS_PRODUCT = process.env.GAS_PRODUCT;
+
+console.log(GAS_URL);
 
 // @ts-ignore
 async function getEventList(filePath) {
-  const GAS_URL = process.env.GAS_URL;
-  const GAS_PRODUCT = process.env.GAS_PRODUCT;
   const EVENT_LIST_API_URL = "https://" + GAS_URL + "/" + GAS_PRODUCT + "/exec";
 
   try {
