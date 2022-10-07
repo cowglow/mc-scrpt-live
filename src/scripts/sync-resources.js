@@ -11,6 +11,7 @@ async function getEventList(filePath) {
   try {
     const { data } = await axios.get(EVENT_LIST_API_URL);
     const { Events } = data;
+    console.log(Events);
     fs.writeFileSync(filePath, JSON.stringify({ events: Events }, null, 2));
   } catch (err) {
     console.error(err);
