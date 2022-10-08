@@ -8,7 +8,9 @@
 <svelte:head>
   <title>MC.SCRPT.LIVE | Drum and Bass MC</title>
 </svelte:head>
-<div class="events" id={ANCHOR_EVENTS}>
+
+<div class="anchor-off-set" id={ANCHOR_EVENTS}></div>
+<div class="events">
   <EventLog />
 </div>
 
@@ -21,16 +23,23 @@
 </div>
 
 <style>
+  .anchor-off-set {
+    position: relative;
+    top: -40px;
+  }
+
   .events {
     background-color: black;
     color: #ffffff;
     padding: 0;
   }
+
   .videos {
     background-color: black;
     color: #ffffff;
     padding: var(--side-padding);
   }
+
   .audio {
     width: 100%;
     max-width: 1080px;
@@ -42,6 +51,7 @@
     .events {
       padding: 0 0 42px;
     }
+
     .audio {
       padding: 0 0 42px;
     }
