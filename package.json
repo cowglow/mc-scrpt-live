@@ -4,20 +4,17 @@
   "version": "1.0.0",
   "scripts": {
     "docker": "docker compose",
-    "dev": "vite dev --port 3000 --host",
+    "dev": "yarn clean && vite dev --port 3000 --host",
     "dev:offline": " php -S localhost:8080 -t private/off-line/",
     "build": "rm -rf build && vite build",
     "preview": "vite preview",
-    "local-dev-sync": "node -r dotenv/config -r path src/scripts/sync-resources.js",
     "sync": "node src/scripts/sync-resources.js",
     "test": "playwright test",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
-    "clean": "rm -r ./build ./.svelte-kit",
-    "prod:update": "npm run sync && npm run build && npm run deploy",
-    "deploy": "gh-pages -t true -d build"
+    "clean": "rm -r ./build ./.svelte-kit"
   },
   "repository": {
     "type": "git",
@@ -37,7 +34,6 @@
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-svelte3": "^4.0.0",
-    "gh-pages": "^3.2.3",
     "prettier": "~2.6.2",
     "prettier-plugin-svelte": "^2.7.0",
     "svelte": "^3.49.0",
