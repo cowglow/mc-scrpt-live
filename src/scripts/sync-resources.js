@@ -14,47 +14,34 @@ async function getEventList(filePath) {
   try {
     const { data } = await axios.get(`https://${GAS_URL}/${GAS_PRODUCT}/exec`);
     const { Events } = data;
-    fs.writeFileSync(filePath, JSON.stringify({ events: Events }, null, 2));
+    await fs.writeFileSync(filePath, JSON.stringify({ events: Events }, null, 2));
   } catch (err) {
     console.error(err);
   }
 }
-/*
-async function getPlaylistTracks(filePath) {
-  const SC_URL = process.env.SC_URL;
-  const SC_PLAYLIST_ID = process.env.SC_PLAYLIST_ID;
-  const PLAYLIST_TRACKS_API_URL =
-    "https://" +
-    SC_URL +
-    "/playlists/" +
-    SC_PLAYLIST_ID +
-    "/tracks?access=playable&linked_partitioning=true";
 
-  try {
-    const { data } = await axios.get(PLAYLIST_TRACKS_API_URL);
-    fs.writeFileSync(filePath, JSON.stringify({ tracks: data }, null, 2));
-  } catch (err) {
-    console.error(err);
-  }
-}
-*/
-
-const SYNC = [
-  { filePath: "src/data/event-list.json", callback: getEventList }
-  // { filePath: "src/data/soundcloud-data.json", callback: getPlaylistTracks },
-];
+/**
+ *
+ * @type {[{filePath: string, callback: ((function(*): Promise<void>)|*)}]}
+ */
+const resourceServices = [{ filePath: "src/data/event-list.json", callback: getEventList }];
 
 async function syncResources() {
   try {
-    SYNC.forEach(({ filePath, callback }) => {
-      // Remove old files
-      if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
-      // Create new files
-      callback(filePath);
-    });
+    await Promise.all(
+      resourceServices.map(async (service) => {
+        // Remove old files
+        console.log(`deleting ${service.filePath}`);
+        if (fs.existsSync(service.filePath)) fs.unlinkSync(service.filePath);
+        // Create new files
+        console.log(`calling ${service.callback.name}`);
+        // Return resolution from callback
+        return await service.callback(service.filePath);
+      })
+    );
   } catch (err) {
     console.error(err);
   }
 }
 
-syncResources().then(() => console.log("running"));
+syncResources().then(() => process.exit(0));
