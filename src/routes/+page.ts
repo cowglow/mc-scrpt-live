@@ -1,8 +1,6 @@
-// @ts-nocheck
 /** @type {import("./$types").PageLoad} */
 import { redirect } from "@sveltejs/kit";
 
-// @ts-ignore
 export function load({ url }) {
   const params = new URLSearchParams(url.search);
   console.log({ params });
