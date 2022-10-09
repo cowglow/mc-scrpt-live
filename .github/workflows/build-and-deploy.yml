@@ -22,7 +22,8 @@ jobs:
           yarn install
       - name: Sync & Build
         run: |
-          yarn sync && yarn build
+          yarn sync
+          yarn build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
