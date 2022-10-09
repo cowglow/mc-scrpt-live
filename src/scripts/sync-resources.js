@@ -14,6 +14,7 @@ async function getEventList(filePath) {
   try {
     const { data } = await axios.get(`https://${GAS_URL}/${GAS_PRODUCT}/exec`);
     const { Events } = data;
+    console.log(Events)
     await fs.writeFileSync(filePath, JSON.stringify({ events: Events }, null, 2));
   } catch (err) {
     console.error(err);
