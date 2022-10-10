@@ -1,4 +1,3 @@
-"use strict";
 import { config } from "dotenv";
 import path from "path";
 import axios from "axios";
@@ -9,20 +8,16 @@ config({ path: path.resolve(".env") });
 const GAS_URL = process.env.GAS_URL;
 const GAS_PRODUCT = process.env.GAS_PRODUCT;
 
-async function getEventList(filePath) {
+async function getEventList(filePath: string) {
   try {
     const { data } = await axios.get(`https://${GAS_URL}/${GAS_PRODUCT}/exec`);
     const { Events } = data;
-    await fs.writeFileSync(filePath, JSON.stringify({ events: Events }, null, 2));
+    fs.writeFileSync(filePath, JSON.stringify({ events: Events }, null, 2));
   } catch (err) {
     console.error(err);
   }
 }
 
-/**
- *
- * @type {[{filePath: string, callback: ((function(*): Promise<void>)|*)}]}
- */
 const resourceServices = [{ filePath: "src/data/event-list.json", callback: getEventList }];
 
 async function syncResources() {
@@ -43,4 +38,11 @@ async function syncResources() {
   }
 }
 
-syncResources().then(() => process.exit(0));
+syncResources()
+  .then(() => {
+    console.log("Done.");
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(0);
+  });

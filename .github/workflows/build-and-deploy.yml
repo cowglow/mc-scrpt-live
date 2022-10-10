@@ -2,7 +2,8 @@ name: Deploy a new version
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   workflow_dispatch:
     branches:
       - main
@@ -11,9 +12,6 @@ jobs:
   build:
     name: Deploy Update
     runs-on: ubuntu-latest
-    env:
-      GAS_URL: ${{ secrets.GAS_URL }}
-      GAS_PRODUCT: ${{ secrets.GAS_PRODUCT }}
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3.0.2
@@ -23,6 +21,9 @@ jobs:
       - name: Sync services
         run: |
           yarn sync
+        env:
+          GAS_URL: ${{ secrets.GAS_URL }}
+          GAS_PRODUCT: ${{ secrets.GAS_PRODUCT }}
       - name: Build
         run: |
           yarn build
@@ -30,4 +31,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
-          folder: build
+          folder: build/
