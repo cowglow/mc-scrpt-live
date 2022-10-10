@@ -1,0 +1,1 @@
+import{r as t}from"./index-d9e95725.js";function r({url:a}){const o=new URLSearchParams(a.search);console.log({params:o});const e=o.get("gateway");if(e==="download"||e==="impressum")throw t(302,`/${e}`);if(e==="event-log")throw t(302,"/#event-log")}const l=Object.freeze(Object.defineProperty({__proto__:null,load:r},Symbol.toStringTag,{value:"Module"}));export{l as _,r as l};
