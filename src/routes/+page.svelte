@@ -9,7 +9,7 @@
   <title>MC.SCRPT.LIVE | Drum and Bass MC</title>
 </svelte:head>
 
-<div class="anchor-off-set" id={ANCHOR_EVENTS}></div>
+<div class="anchor-off-set" id={ANCHOR_EVENTS} />
 <div class="events">
   <EventLog />
 </div>
