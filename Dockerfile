@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:18
 WORKDIR /website
 COPY package.json yarn.lock ./
 

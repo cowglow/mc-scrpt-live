@@ -9,16 +9,7 @@ services:
       - 3000:3000
     volumes:
       - yarn-cache:/usr/local/share/.cache/yarn
-      - svelte-kit:/website/.svelte
-      - node_modules:/website/node_modules
-      - ./package.json:/website/package.json
-      - ./src:/website/src
-      - ./static:/website/static
-    environment:
-      APP_NAME: "svelte-kit"
-      VITE_PUBLIC_API_URL: "http://0.0.0.0:3000"
+      - ./:/website/
 
 volumes:
   yarn-cache:
-  svelte-kit:
-  node_modules:
