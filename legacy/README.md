@@ -4,7 +4,7 @@
 
 - [Production Website](https://mc.scrpt.live)
 - [Private Assets](/private)
-- [Scripts](/legacy/scripts)
+- [Scripts](/scripts)
 
 ---
 
