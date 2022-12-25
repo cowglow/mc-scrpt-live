@@ -1,0 +1,94 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  --side-padding: 22px;
+  --bottom-padding: 44px;
+  --top-padding: 88px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+  background-color: black;
+  font-family: "Teko", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a,
+a:visited {
+  color: white;
+  text-decoration: underline;
+}
+
+a:hover,
+a:active {
+  color: red;
+  text-decoration: none;
+}
+
+.text-link,
+.text-link:active,
+.text-link:visited {
+  color: red;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.wrapper {
+  padding: var(--bottom-padding) var(--side-padding);
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 auto;
+}
+
+address {
+  display: block;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Press Start 2P";
+  font-weight: 400;
+  src: local("Press Start 2P"), local("PressStart2P"),
+    url("fonts/PressStart2P-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Share Tech Mono";
+  src: local("Share Tech Mono"), local("ShareTechMono"),
+    url("fonts/ShareTechMono-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "bd_console";
+  src: url("fonts/bd_console.woff2") format("woff2"), url("fonts/bd_console.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teko";
+  font-weight: 400;
+  src: url("fonts/teko-regular.woff2") format("woff2"),
+    url("fonts/teko-regular.woff") format("woff");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teko Medium";
+  font-weight: 500;
+  src: url("fonts/teko-medium.woff2") format("woff2"), url("fonts/teko-medium.woff") format("woff");
+  font-style: normal;
+}
