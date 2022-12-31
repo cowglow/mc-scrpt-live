@@ -1,0 +1,15 @@
+name: Sync Event Data and Publish Site
+
+on:
+  schedule:
+    - cron: '0 16 * * 4'
+
+  steps:
+    - name: Checkout 🛎
+      uses: actions/checkout@v3.0.2
+    - name: Sync services
+      run: |
+        yarn sync
+      env:
+        GAS_URL: ${{ secrets.GAS_URL }}
+        GAS_PRODUCT: ${{ secrets.GAS_PRODUCT }}
