@@ -6,7 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - 3000:3000 # Vite
+      - 4173:4173 # Playwright
     volumes:
       - yarn-cache:/usr/local/share/.cache/yarn
       - ./:/website/
