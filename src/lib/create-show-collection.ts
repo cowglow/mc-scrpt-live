@@ -1,7 +1,4 @@
-import { events } from '$lib/../data/event-list.json';
-import { readable } from 'svelte/store';
-
-const eventCollection: EventShow[] = events.map((event: EventData) => {
+function createShow(event: EventData) {
 	const { eventName, eventDate, eventStartTime, eventLocation, eventLink } = event;
 	const date = new Date(eventDate);
 	const startTime = new Date(eventStartTime);
@@ -19,12 +16,8 @@ const eventCollection: EventShow[] = events.map((event: EventData) => {
 		venue: eventLocation,
 		link: eventLink
 	};
-});
+}
 
-export const EventDataStore = readable({
-	...eventCollection,
-	latest: () => {
-		console.log('latest');
-		return eventCollection.splice(0, 6);
-	}
-});
+export default function (events: EventData[]): EventShow[] {
+	return events.map(createShow);
+}

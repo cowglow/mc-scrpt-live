@@ -1,12 +1,27 @@
 <script lang="ts">
-	import { EventDataStore } from '$stores/event-data';
-	const { latest } = $EventDataStore;
-	const events = latest();
+	import eventLog from '$stores/event-log';
+	import type { PageData } from './$types';
+	export let data: PageData;
+	const [eventData, loading, error, update] = eventLog('/data/event-list.json');
+	update();
+
+	function getFirst() {
+		update('FIRST_EVENT');
+	}
 </script>
 
-<section>
-	<pre>{JSON.stringify(events, null, 2)}</pre>
-</section>
+<button on:click={update}> Load </button>
+<button on:click={getFirst}> FIRST </button>
+
+{#if $loading}
+	Loading: {$loading}
+{:else if $error}
+	Error: {$error}
+{:else}
+	<section>
+		<pre>{JSON.stringify({ data, events: $eventData }, null, 2)}</pre>
+	</section>
+{/if}
 
 <style>
 	section {
