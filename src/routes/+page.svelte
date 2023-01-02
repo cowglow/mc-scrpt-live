@@ -1,17 +1,29 @@
 <script lang="ts">
-	import eventLog from '$stores/event-log';
 	import type { PageData } from './$types';
+	import dataLoader from '$stores/data-loader';
+	import { derived, readable, writable } from 'svelte/store';
+	import paginateContent from '$lib/paginate-content';
 	export let data: PageData;
-	const [eventData, loading, error, update] = eventLog('/data/event-list.json');
-	update();
+	const [loading, error, eventLogData] = dataLoader('/data/event-list.json');
+	const currentPage = writable(1);
+	const maxPages = readable(7);
+	const showsData = derived([eventLogData, currentPage, maxPages], paginateContent);
 
-	function getFirst() {
-		update('FIRST_EVENT');
+	function pageForward() {
+		$currentPage++;
+	}
+
+	function pageBack() {
+		$currentPage--;
 	}
 </script>
 
-<button on:click={update}> Load </button>
-<button on:click={getFirst}> FIRST </button>
+{#if $showsData.previousPage}
+	<button on:click={pageBack}> Previous Page </button>
+{/if}
+{#if $showsData.nextPage}
+	<button on:click={pageForward}> Next Page </button>
+{/if}
 
 {#if $loading}
 	Loading: {$loading}
@@ -19,7 +31,7 @@
 	Error: {$error}
 {:else}
 	<section>
-		<pre>{JSON.stringify({ data, events: $eventData }, null, 2)}</pre>
+		<pre>{JSON.stringify($showsData, null, 2)}</pre>
 	</section>
 {/if}
 

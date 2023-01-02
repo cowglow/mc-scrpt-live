@@ -24,11 +24,10 @@ type EventData = {
 	eventStartTime: string;
 };
 
-type Pagination = {
+type PaginatedShows = {
+	currentPage: number;
 	previousPage: boolean;
 	nextPage: boolean;
-	currentPage: number;
-	itemsTotal: number;
-	totalPages: number;
-	items: Partial<EventShow>[];
+	total: number;
+	shows: Partial<EventShow>[];
 };
