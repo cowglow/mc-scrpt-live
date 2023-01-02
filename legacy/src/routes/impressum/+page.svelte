@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { scrollToView } from "$lib/scroll-to-view";
+  import { scrollToView } from "legacy/src/lib/scroll-to-view";
 </script>
 
 <svelte:head>

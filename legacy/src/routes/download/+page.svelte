@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { scrollToView } from "$lib/scroll-to-view";
+  import { scrollToView } from "legacy/src/lib/scroll-to-view";
 
   const DRY_MIX = "DRY%20MC%20SCRPT%20-%20Vocal%20Sample%20Pack%20-%202022";
   const WASILLI_MIX = "ILL.I.SAW%20WET%20MIX%20-%20Vocal%20Sample%20Pack%20-%202022";
