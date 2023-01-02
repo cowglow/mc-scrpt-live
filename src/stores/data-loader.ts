@@ -10,15 +10,16 @@ export default function (url: string) {
 		try {
 			const response = await fetch(url);
 			const json = await response.json();
-			const shows = json.events;
-			data.set(shows);
+			return json.events;
 		} catch (err: unknown) {
 			error.set(err);
 		}
 		loading.set(false);
 	}
 
-	loadData(url).then((r) => console.log(r));
-
-	return [loading, error, data];
+	loadData(url).then((results) => {
+		data.set(results);
+		return [loading, error, results];
+	});
+	return url;
 }

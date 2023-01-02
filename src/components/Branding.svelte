@@ -1,4 +1,4 @@
-<a id="brand" href="/legacy/static">MC SCRPT</a>
+<a id="brand" href="/">MC SCRPT</a>
 
 <style>
   #brand {

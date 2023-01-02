@@ -1,7 +1,10 @@
-// since there's no dynamic data here, we can prerender
-// it so that it gets served as a static asset in production
 export const prerender = true;
+import { events } from '$data/event-list.json';
 
 import type { PageLoad } from './$types';
+import paginateContent from '$lib/paginate-content';
 
-export const load: PageLoad = (meta) => meta;
+export const load: PageLoad = async (meta) => {
+	const showData = paginateContent({ content: events, index: 1, max: 6 });
+	return { ...meta, data: showData };
+};
