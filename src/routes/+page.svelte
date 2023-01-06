@@ -1,39 +1,62 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	export let data: PageData;
-	/*
-	const currentPage = writable(1);
-	const maxPages = readable(7);
-	const showsData = derived([eventLogData, currentPage, maxPages], paginateContent);
+	import EventLogController from '$components/EventLogController.svelte';
+	import dataLoader from '$stores/data-loader';
+	import { derived, readable, writable } from 'svelte/store';
+	import paginateContent from '$lib/paginate-content';
+	import { JSON_PATH, MAX_EVENT_ITEMS } from '$lib/constants';
 
-	function pageForward() {
+	export let data: PageData;
+
+	let spawned = true;
+	const eventShowData = writable(data.data);
+	const currentPage = writable(1);
+	const maxPages = readable(MAX_EVENT_ITEMS);
+	const totalPages = readable(data.total);
+	const shows = derived([eventShowData, currentPage, maxPages, totalPages], paginateContent);
+
+	async function loadEventData() {
+		const { events } = await dataLoader(JSON_PATH, fetch);
+		return events;
+	}
+	async function onStepBackward() {
+		if (spawned) {
+			$eventShowData = await loadEventData();
+			spawned = false;
+		}
+		$currentPage--;
+	}
+	async function onStepForward() {
+		if (spawned) {
+			$eventShowData = await loadEventData();
+			spawned = false;
+		}
 		$currentPage++;
 	}
-
-	function pageBack() {
-		$currentPage--;
-	 }
-*/
 </script>
 
-<!--{#if $showsData.previousPage}-->
-<!--	<button on:click={pageBack}> Previous Page </button>-->
-<!--{/if}-->
-<!--{#if $showsData.nextPage}-->
-<!--	<button on:click={pageForward}> Next Page </button>-->
-<!--{/if}-->
-
-<section>
-	<pre>{JSON.stringify(data, null, 2)}</pre>
-</section>
+<EventLogController
+	stepBackward={onStepBackward}
+	stepForward={onStepForward}
+	stepBackwardDisabled={!$shows.previousPage}
+	stepForwardDisabled={!$shows.nextPage}
+/>
+<pre>{JSON.stringify($shows, null, 2)}</pre>
 
 <style>
 	section {
-		border: thin solid red;
-		/*display: flex;*/
-		/*flex-direction: column;*/
-		/*justify-content: center;*/
-		/*align-items: center;*/
-		/*flex: 0.6;*/
+		display: flex;
+	}
+
+	a {
+		padding: 0.23em 1em;
+		border: thick solid var(--color-theme-1);
+		text-decoration: none;
+	}
+	a:hover {
+		background-color: var(--color-theme-1);
+		border: thick solid var(--color-theme-2);
+		color: var(--color-text);
+		text-decoration: none;
 	}
 </style>

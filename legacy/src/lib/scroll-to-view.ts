@@ -1,20 +1,20 @@
-export const scrollToView = (node: HTMLElement, behavior: ScrollBehavior = "smooth") => {
-  const targetSelector = `#${node.getAttribute("id")}`;
-  const targetElement = document.querySelector(targetSelector);
+export const scrollToView = (node: HTMLElement, behavior: ScrollBehavior = 'smooth') => {
+	const targetSelector = `#${node.getAttribute('id')}`;
+	const targetElement = document.querySelector(targetSelector);
 
-  if (!targetElement) return;
+	if (!targetElement) return;
 
-  const timeout = setTimeout(() => {
-    const offset = 88;
-    window.scrollTo({
-      top: targetElement.getBoundingClientRect().top - offset,
-      behavior
-    });
-  }, 1000);
+	const timeout = setTimeout(() => {
+		const offset = 88;
+		window.scrollTo({
+			top: targetElement.getBoundingClientRect().top - offset,
+			behavior
+		});
+	}, 1000);
 
-  return {
-    destroy: () => {
-      clearTimeout(timeout);
-    }
-  };
+	return {
+		destroy: () => {
+			clearTimeout(timeout);
+		}
+	};
 };

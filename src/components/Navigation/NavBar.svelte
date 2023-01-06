@@ -1,48 +1,48 @@
 <script lang="ts">
-  import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS, DOWNLOAD_ROUTE } from "$lib/constants";
+	import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS, DOWNLOAD_ROUTE } from '$lib/constants';
 </script>
 
 <div id="navigation">
-  <ul>
-    <li><a href={`/#${ANCHOR_EVENTS}`}>EVENTS</a></li>
-    <li><a href={`/#${ANCHOR_VIDEOS}`}>YOUTUBE</a></li>
-    <li><a href={`/#${ANCHOR_AUDIO}`}>SOUNDCLOUD</a></li>
-    <li><a href={DOWNLOAD_ROUTE}>DOWNLOADS</a></li>
-  </ul>
+	<ul>
+		<li><a href={`/#${ANCHOR_EVENTS}`}>EVENTS</a></li>
+		<li><a href={`/#${ANCHOR_VIDEOS}`}>YOUTUBE</a></li>
+		<li><a href={`/#${ANCHOR_AUDIO}`}>SOUNDCLOUD</a></li>
+		<li><a href={DOWNLOAD_ROUTE}>DOWNLOADS</a></li>
+	</ul>
 </div>
 
 <style>
-  #navigation {
-    flex-grow: 1;
-    text-align: right;
-    display: none;
-  }
+	#navigation {
+		flex-grow: 1;
+		text-align: right;
+		display: none;
+	}
 
-  @media only screen and (min-width: 600px) {
-    #navigation {
-      display: block;
-      margin: auto 0;
-    }
+	@media only screen and (min-width: 600px) {
+		#navigation {
+			display: block;
+			margin: auto 0;
+		}
 
-    #navigation ul {
-      display: inline-block;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      text-align: center;
-    }
+		#navigation ul {
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			text-align: center;
+		}
 
-    #navigation ul > li {
-      display: inline;
-      margin-right: 13px;
-    }
+		#navigation ul > li {
+			display: inline;
+			margin-right: 13px;
+		}
 
-    #navigation ul > li:last-child {
-      margin-right: unset;
-    }
+		#navigation ul > li:last-child {
+			margin-right: unset;
+		}
 
-    #navigation ul > li a {
-      text-decoration: none;
-    }
-  }
+		#navigation ul > li a {
+			text-decoration: none;
+		}
+	}
 </style>

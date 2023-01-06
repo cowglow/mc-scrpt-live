@@ -1,4 +1,4 @@
-**![MC-SCRPT-LIVE](static/images/logo-static.jpg)
+\*\*![MC-SCRPT-LIVE](static/images/logo-static.jpg)
 
 ### Links
 
@@ -32,8 +32,6 @@ npm create svelte@latest
 # create a new project in my-app
 npm create svelte@latest my-app
 ```
-
-
 
 ## Building
 
