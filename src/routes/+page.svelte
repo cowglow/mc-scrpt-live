@@ -8,26 +8,23 @@
 		ANCHOR_AUDIO,
 		ANCHOR_EVENTS,
 		ANCHOR_VIDEOS,
+		EVENT_CONTENT_DEFAULT_PAGE,
 		JSON_PATH,
 		MAX_EVENT_ITEMS
 	} from '$lib/constants';
 	import MediaPlayer from '$components/MediaPlayer/MediaPlayer.svelte';
 	import SoundCloudPlayer from '$components/SoundCloudPlayer/SoundCloudPlayer.svelte';
+	import EventLog from '$components/EventLog.svelte';
 
 	export let data: PageData;
 
 	let spawned = true;
-	const currentPage = writable(1);
+	const currentPage = writable(EVENT_CONTENT_DEFAULT_PAGE);
 	const maxPages = readable(MAX_EVENT_ITEMS);
 	const eventShowData = writable(data.data);
 	const totalPages = readable(data.total);
 
 	const shows = derived([eventShowData, currentPage, maxPages, totalPages], paginateContent);
-
-	async function loadEventData() {
-		const { events } = await dataLoader(JSON_PATH, fetch);
-		return events;
-	}
 
 	async function onStepBackward() {
 		if (spawned) {
@@ -44,20 +41,20 @@
 		}
 		$currentPage++;
 	}
+
+	async function loadEventData() {
+		const { events } = await dataLoader(JSON_PATH, fetch);
+		return events;
+	}
 </script>
 
 <svelte:head>
 	<title>MC.SCRPT.LIVE | Drum and Bass MC</title>
 </svelte:head>
 
-<section><pre>{JSON.stringify($shows, null, 2)}</pre></section>
-<div class="anchor-off-set" id={ANCHOR_EVENTS}>anchor events</div>
-<EventLogController
-	stepBackward={onStepBackward}
-	stepForward={onStepForward}
-	stepBackwardDisabled={!$shows.previousPage}
-	stepForwardDisabled={!$shows.nextPage}
-/>
+<section class="events" id={ANCHOR_EVENTS}>
+	<EventLog data={$shows} stepForward={onStepForward} stepBackward={onStepBackward} />
+</section>
 
 <section class="videos" id={ANCHOR_VIDEOS}>
 	<MediaPlayer />
@@ -68,6 +65,11 @@
 </section>
 
 <style>
+	.events {
+		background-color: black;
+		color: #ffffff;
+		padding: 0;
+	}
 	.videos {
 		background-color: black;
 		color: #ffffff;
