@@ -15,7 +15,7 @@
 <style>
 	header {
 		width: 100%;
-		/*height: calc(42vh);*/
+		height: calc(42vh);
 		background-position: top;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -23,7 +23,7 @@
 		flex-direction: column;
 		align-content: center;
 		background-color: black;
-		/*background-image: url("/images/background-min.jpg");*/
+		background-image: url('/images/mc-scrpt-background.png');
 	}
 
 	#nav-bar-wrapper {
@@ -54,13 +54,13 @@
 		}
 
 		header {
-			/*height: calc(64vh);*/
+			height: calc(64vh);
 		}
 	}
 
 	@media only screen and (min-width: 1024px) {
 		header {
-			/*height: calc(81vh);*/
+			height: calc(81vh);
 			background-position: center;
 		}
 	}
