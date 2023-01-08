@@ -1,18 +1,14 @@
 <script lang="ts">
-	import { getContext } from 'svelte';
 	import CountDown from '$components/CountDown.svelte';
-	import type { EventShow } from '../app';
 
 	export let data: EventShow[];
-
-	const isSubPage = getContext('isSubPage');
 
 	let screenWidth;
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
 {#if data.reverse().length > 0}
-	<div id="next-event-banner" style={!isSubPage && `top: -40px;`}>
+	<div id="next-event-banner">
 		<div class="title">
 			<h1>Next Big Show</h1>
 			<h2>{data[0].name}</h2>
