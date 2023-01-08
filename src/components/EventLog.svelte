@@ -1,10 +1,8 @@
 <script lang="ts">
-	import type { Pagination } from '../app';
-
 	export let disableBanner: boolean;
 	import { writable } from 'svelte/store';
 	import { ANCHOR_EVENTS } from '$lib/constants';
-	import { paginateContent } from 'src/lib/paginate-content';
+	import { paginateContent } from '$lib/paginate-content';
 	import { CurrentPageStore, EVENT_CONTENT_DEFAULT_PAGE } from '$lib/stores/current-page-store';
 	import { EventDataStore } from '$lib/stores/event-content-store';
 	import EventLogController from '$components/EventLogController.svelte';
@@ -13,7 +11,7 @@
 
 	const { previousEvents } = $EventDataStore;
 
-	let paginatedContent = writable<Pagination>(
+	let paginatedContent = writable<PaginatedShows>(
 		paginateContent(EVENT_CONTENT_DEFAULT_PAGE, previousEvents)
 	);
 

@@ -6,9 +6,10 @@ export const prerender = true;
 
 export const load: PageLoad = async (meta: PageLoadEvent) => {
 	const eventData = await dataLoader(JSON_PATH, meta.fetch);
+	const { events } = eventData;
 	return {
 		...meta,
-		data: Array(...eventData.events).slice(0, MAX_EVENT_ITEMS),
-		total: eventData.events.length
+		data: Array(...events).slice(0, MAX_EVENT_ITEMS),
+		total: events.length
 	};
 };
