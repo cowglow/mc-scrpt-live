@@ -18,7 +18,7 @@ async function getEventList(filePath: string) {
 	}
 }
 
-const resourceServices = [{ filePath: 'src/data/event-list.json', callback: getEventList }];
+const resourceServices = [{ filePath: 'static/data/event-list.json', callback: getEventList }];
 
 async function syncResources() {
 	try {
