@@ -2,6 +2,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import SectionLabel from '$components/SectionLabel.svelte';
 	import GdprBanner from '$components/SoundCloudPlayer/GDPR-Soundcloud-Playlist.png';
+	import { SOUNDCLOUD_LOCALSTORAGE_KEY } from '$lib/constants';
 
 	type QueryObject = {
 		url: string;
@@ -15,15 +16,14 @@
 	};
 
 	let consent = false;
-	const LOCAL_STORAGE_KEY = 'soundcloud-consent';
 
 	onMount(() => {
-		consent = window.localStorage.getItem(LOCAL_STORAGE_KEY) === 'true';
+		consent = window.localStorage.getItem(SOUNDCLOUD_LOCALSTORAGE_KEY) === 'true';
 	});
 
 	function toggleEmbeddedContent(node) {
 		const handler = () => {
-			window.localStorage.setItem(LOCAL_STORAGE_KEY, 'true');
+			window.localStorage.setItem(SOUNDCLOUD_LOCALSTORAGE_KEY, 'true');
 			consent = true;
 		};
 

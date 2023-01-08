@@ -2,17 +2,17 @@
 	import { onDestroy, onMount } from 'svelte';
 	import SectionLabel from '$components/SectionLabel.svelte';
 	import GdprBanner from '$components/MediaPlayer/GDPR-YouTube-Playlist.png';
+	import { YOUTUBE_LOCALSTORAGE_KEY } from '$lib/constants';
 
 	let consent = false;
-	const LOCAL_STORAGE_KEY = 'youtube-consent';
 
 	onMount(() => {
-		consent = window.localStorage.getItem(LOCAL_STORAGE_KEY) === 'true';
+		consent = window.localStorage.getItem(YOUTUBE_LOCALSTORAGE_KEY) === 'true';
 	});
 
 	function toggleEmbeddedContent(node) {
 		const handler = () => {
-			window.localStorage.setItem(LOCAL_STORAGE_KEY, 'true');
+			window.localStorage.setItem(YOUTUBE_LOCALSTORAGE_KEY, 'true');
 			consent = true;
 		};
 

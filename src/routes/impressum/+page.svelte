@@ -1,5 +1,11 @@
 <script lang="ts">
-	import { scrollToView } from 'legacy/src/lib/scroll-to-view';
+	import { scrollToView } from '$lib/scroll-to-view';
+	import { SOUNDCLOUD_LOCALSTORAGE_KEY, YOUTUBE_LOCALSTORAGE_KEY } from '$lib/constants';
+
+	function resetConsentBanner(key) {
+		console.log(key);
+		window.localStorage.setItem(key, 'false');
+	}
 </script>
 
 <svelte:head>
@@ -14,7 +20,7 @@
 			Junglist MC<br />
 			Meckenhausen C8<br />
 			Hilpoltstein<br />
-			E-mail: <a href="mailto:cowglow@gmail.com">cowglow@gmail.com</a>
+			E-mail: <a href="mailto:cowglow@gmail.com" class="text-link">cowglow@gmail.com</a>
 		</p>
 	</address>
 	<br />
@@ -34,6 +40,10 @@
 		</a>.
 		<br />
 		They may also collect usage data for analytics purposes.
+		<br />
+		<button class="text-link" on:click={() => resetConsentBanner(YOUTUBE_LOCALSTORAGE_KEY)}>
+			Reset consent banner
+		</button>
 	</p>
 
 	<h2>SoundCloud</h2>
@@ -51,6 +61,10 @@
 		</a>.
 		<br />
 		They may also collect usage data for analytics purposes.
+		<br />
+		<button class="text-link" on:click={() => resetConsentBanner(SOUNDCLOUD_LOCALSTORAGE_KEY)}>
+			Reset consent banner
+		</button>
 	</p>
 
 	<h2>Hosting</h2>
@@ -75,3 +89,12 @@
 		</a>
 	</p>
 </div>
+
+<style>
+	button {
+		cursor: pointer;
+	}
+	button:hover {
+		text-decoration: none;
+	}
+</style>
