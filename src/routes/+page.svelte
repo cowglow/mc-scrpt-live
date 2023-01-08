@@ -19,13 +19,8 @@
 	let spawned = true;
 	const currentPage = writable(1);
 	const maxPages = readable(MAX_EVENT_ITEMS);
-	const eventShowData = writable([]);
-	const totalPages = readable(0);
-
-	if (data) {
-		$eventShowData = data.data;
-		$totalPages = data.total;
-	}
+	const eventShowData = writable(data.data);
+	const totalPages = readable(data.total);
 
 	const shows = derived([eventShowData, currentPage, maxPages, totalPages], paginateContent);
 
