@@ -1,4 +1,6 @@
-\*\*![MC-SCRPT-LIVE](static/images/logo-static.jpg)
+[![Site Published](https://github.com/cowglow/mc-scrpt-live/actions/workflows/publish.yml/badge.svg)](https://github.com/cowglow/mc-scrpt-live/actions/workflows/publish.yml)
+
+[MC-SCRPT-LIVE](static/images/logo-static.jpg)
 
 ### Links
 
