@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import EventLogController from '$components/EventLogController.svelte';
 	import dataLoader from '$stores/data-loader';
 	import { derived, readable, writable } from 'svelte/store';
 	import paginateContent from '$lib/paginate-content';
