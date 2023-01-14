@@ -8,8 +8,9 @@
 	export let data: PaginatedShows;
 	export let stepForward;
 	export let stepBackward;
-	const previousEvents = getPreviousDates(data.shows);
 	const upcomingEvents = getUpcomingDates(data.shows);
+	let previousEvents: EventShow[];
+	$: previousEvents = getPreviousDates(data.shows);
 </script>
 
 {#if !disableBanner}
