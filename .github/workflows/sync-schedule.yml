@@ -4,12 +4,18 @@ on:
   schedule:
     - cron: '0 16 * * 4'
 
-  steps:
-    - name: Checkout 🛎
-      uses: actions/checkout@v3.0.2
-    - name: Sync services
-      run: |
-        yarn sync
-      env:
-        GAS_URL: ${{ secrets.GAS_URL }}
-        GAS_PRODUCT: ${{ secrets.GAS_PRODUCT }}
+jobs:
+  sync-event:
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v3.0.2
+      - name: Setup node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: "18.12.1"+
+      - name: Sync services
+        run: |
+          yarn sync
+        env:
+          GAS_URL: ${{ secrets.GAS_URL }}
+          GAS_PRODUCT: ${{ secrets.GAS_PRODUCT }}
