@@ -1,5 +1,4 @@
 import { config } from 'dotenv';
-import axios from 'axios';
 import * as path from 'path';
 import * as fs from 'fs';
 
@@ -7,20 +6,25 @@ config({ path: path.resolve('.env') });
 
 const GAS_URL = process.env.GAS_URL;
 const GAS_PRODUCT = process.env.GAS_PRODUCT;
+/**
+ * Make sure the `data` directory exists or the script will fail
+ */
+const OUTPUT_FILE_PATH = 'static/data/event-list.json';
 
 async function getEventList(filePath: string) {
 	try {
-		const { data } = await axios.get(`https://${GAS_URL}/${GAS_PRODUCT}/exec`);
-		const { Events } = data;
-		fs.writeFileSync(filePath, JSON.stringify({ events: Events }, null, 2));
+		const data = await fetch(`https://${GAS_URL}/${GAS_PRODUCT}/exec`);
+		const { Events } = await data.json();
+		await fs.writeFileSync(filePath, JSON.stringify({ events: Events }, null, 2));
 	} catch (err) {
 		console.error(err);
 	}
 }
 
-const resourceServices = [{ filePath: 'static/data/event-list.json', callback: getEventList }];
+const resourceServices = [{ filePath: OUTPUT_FILE_PATH, callback: getEventList }];
 
 async function syncResources() {
+	console.log(' == SYNC RESOURCES ===');
 	try {
 		await Promise.all(
 			resourceServices.map(async (service) => {
