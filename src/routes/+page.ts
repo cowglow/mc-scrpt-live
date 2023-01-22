@@ -1,5 +1,5 @@
 import type { PageLoad, PageLoadEvent } from './$types';
-import dataLoader from '$stores/data-loader';
+import dataLoader from '$lib/data-loader';
 import { JSON_PATH, MAX_EVENT_ITEMS } from '$lib/constants';
 
 export const prerender = true;
