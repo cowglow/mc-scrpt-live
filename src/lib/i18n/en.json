@@ -1,12 +1,12 @@
 {
-    "events.all.cta": "See All Events",
-    "events.header.description": "You can usually catch me grooving alongside some of the coolest DJs in and around the 'Mittelfranken' region.",
-    "events.header.title": "Frühere Events",
-    "footer.message": "Available for booking and collaboration.\nFeel free to contact me.",
+    "nextEvent.banner.title": "Next Big Show",
     "nextEvent.banner.cta": "More Info",
     "nextEvent.banner.date.days": "Days",
     "nextEvent.banner.date.hours": "Hrs",
     "nextEvent.banner.date.minutes": "Mins",
     "nextEvent.banner.date.seconds": "Secs",
-    "nextEvent.banner.title": "Next Big Show"
+    "events.header.title": "Previous Events",
+    "events.header.description": "You can usually catch me grooving alongside some of the coolest DJs in and around the 'Mittelfranken' region.",
+    "events.all.cta": "See All Events",
+    "footer.message": "Available for booking and collaboration.\nFeel free to contact me."
 }
