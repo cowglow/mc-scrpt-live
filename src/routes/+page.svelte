@@ -46,11 +46,31 @@
 		const { events } = await dataLoader(JSON_PATH, fetch);
 		return events;
 	}
+
+	// eslint-disable-next-line no-undef
+	const locale = writable<Languages>('de');
+	const languageStore = writable(availableLanguages);
+
+	const translations = derived([locale, languageStore], translate);
+
+	function setLanguage(lang) {
+		$locale = lang;
+	}
 </script>
 
 <svelte:head>
 	<title>MC.SCRPT.LIVE | Drum and Bass MC</title>
 </svelte:head>
+
+<section>
+	<div style="text-align: center">
+		<b>Locale: {$locale}</b>
+		<br />
+		{$translations['events.all.cta']}
+		<button on:click={() => setLanguage('en')}>EN</button>
+		<button on:click={() => setLanguage('de')}>DE</button>
+	</div>
+</section>
 
 <section class="events" id={ANCHOR_EVENTS}>
 	<EventLog data={$shows} stepForward={onStepForward} stepBackward={onStepBackward} />
