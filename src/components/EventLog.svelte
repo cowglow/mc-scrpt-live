@@ -3,13 +3,17 @@
 	import EventLogController from '$components/EventLogController.svelte';
 	import NextEventBanner from '$components/NextEventBanner.svelte';
 	import { getPreviousDates, getUpcomingDates } from '$lib/date-filters';
+	import translations from '$stores/i18n-store';
+
+	$: label = $translations['events.header.title'];
+	$: content = $translations['events.header.description'];
 
 	export let disableBanner: boolean;
-	export let data: PaginatedShows;
+	export let data;
 	export let stepForward;
 	export let stepBackward;
 	const upcomingEvents = getUpcomingDates(data.shows);
-	let previousEvents: EventShow[];
+	let previousEvents;
 	$: previousEvents = getPreviousDates(data.shows);
 </script>
 
@@ -17,11 +21,8 @@
 	<NextEventBanner data={upcomingEvents} />
 {/if}
 <div class="wrapper">
-	<h1>Previous Events</h1>
-	<h3>
-		You can usually catch me grooving alongside some of the coolest DJs in and around the
-		'Mittelfranken' region.
-	</h3>
+	<h1>{label}</h1>
+	<h3>{content}</h3>
 	<EventLogList data={previousEvents} />
 	<EventLogController
 		{...{

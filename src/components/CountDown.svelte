@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
 	import { getTimeDifference } from '$lib/get-time-difference';
+	import translations from '$stores/i18n-store';
 
+	$: days = $translations['nextEvent.banner.date.days'];
+	$: hours = $translations['nextEvent.banner.date.hours'];
+	$: minutes = $translations['nextEvent.banner.date.minutes'];
+	$: seconds = $translations['nextEvent.banner.date.seconds'];
 	export let date: Date = new Date(Date.now());
 	let diff = getTimeDifference(date);
 
@@ -15,10 +20,10 @@
 </script>
 
 <div class="wrapper">
-	<div class="container"><span>{`0${diff.days}`.slice(-2)}</span><span>Days</span></div>
-	<div class="container"><span>{`0${diff.hours}`.slice(-2)}</span><span>Hrs</span></div>
-	<div class="container"><span>{`0${diff.minutes}`.slice(-2)}</span><span>Min</span></div>
-	<div class="container"><span>{`0${diff.seconds}`.slice(-2)}</span><span>Secs</span></div>
+	<div class="container"><span>{`0${diff.days}`.slice(-2)}</span><span>{days}</span></div>
+	<div class="container"><span>{`0${diff.hours}`.slice(-2)}</span><span>{hours}</span></div>
+	<div class="container"><span>{`0${diff.minutes}`.slice(-2)}</span><span>{minutes}</span></div>
+	<div class="container"><span>{`0${diff.seconds}`.slice(-2)}</span><span>{seconds}</span></div>
 </div>
 
 <style>

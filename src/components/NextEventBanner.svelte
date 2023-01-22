@@ -1,7 +1,12 @@
 <script lang="ts">
 	import CountDown from '$components/CountDown.svelte';
+	import translations from '$stores/i18n-store';
 
+	// eslint-disable-next-line no-undef
 	export let data: EventShow[];
+
+	$: label = $translations['nextEvent.banner.title'];
+	$: cta = $translations['nextEvent.banner.cta'];
 
 	let screenWidth;
 </script>
@@ -10,13 +15,13 @@
 {#if data.reverse().length > 0}
 	<div id="next-event-banner">
 		<div class="title">
-			<h1>Next Big Show</h1>
+			<h1>{label}</h1>
 			<h2>{data[0].name}</h2>
 			<h3>{data[0].venue}</h3>
 		</div>
 		<div class="count-down"><CountDown date={new Date(data[0].date)} /></div>
 		<div class="info">
-			<a href={data[0].link} rel="noreferrer nofollow" target="event-link"> More Info </a>
+			<a href={data[0].link} rel="noreferrer nofollow" target="event-link"> {cta} </a>
 		</div>
 	</div>
 {/if}
