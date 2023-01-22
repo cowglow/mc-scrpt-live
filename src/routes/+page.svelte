@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import translate, { availableLanguages } from '$stores/i18n-store';
+	import { locale } from '$stores/i18n-store';
 	import dataLoader from '$lib/data-loader';
 	import { derived, readable, writable } from 'svelte/store';
 	import paginateContent from '$lib/paginate-content';
@@ -47,12 +47,6 @@
 		return events;
 	}
 
-	// eslint-disable-next-line no-undef
-	const locale = writable<Languages>('de');
-	const languageStore = writable(availableLanguages);
-
-	const translations = derived([locale, languageStore], translate);
-
 	function setLanguage(lang) {
 		$locale = lang;
 	}
@@ -63,10 +57,9 @@
 </svelte:head>
 
 <section>
-	<div style="text-align: center">
-		<b>Locale: {$locale}</b>
+	<div>
 		<br />
-		{$translations['events.all.cta']}
+		<code>{JSON.stringify($locale, null, 2)}</code>
 		<button on:click={() => setLanguage('en')}>EN</button>
 		<button on:click={() => setLanguage('de')}>DE</button>
 	</div>
