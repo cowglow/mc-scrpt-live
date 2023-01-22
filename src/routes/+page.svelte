@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import dataLoader from '$stores/data-loader';
+	import translate, { availableLanguages } from '$stores/i18n-store';
+	import dataLoader from '$lib/data-loader';
 	import { derived, readable, writable } from 'svelte/store';
 	import paginateContent from '$lib/paginate-content';
 	import {
