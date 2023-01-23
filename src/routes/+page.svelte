@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { locale } from '$stores/i18n-store';
 	import dataLoader from '$lib/data-loader';
 	import { derived, readable, writable } from 'svelte/store';
 	import paginateContent from '$lib/paginate-content';
@@ -47,23 +46,11 @@
 		return events;
 	}
 
-	function setLanguage(lang) {
-		$locale = lang;
-	}
 </script>
 
 <svelte:head>
 	<title>MC.SCRPT.LIVE | Drum and Bass MC</title>
 </svelte:head>
-
-<section>
-	<div>
-		<br />
-		<code>{JSON.stringify($locale, null, 2)}</code>
-		<button on:click={() => setLanguage('en')}>EN</button>
-		<button on:click={() => setLanguage('de')}>DE</button>
-	</div>
-</section>
 
 <section class="events" id={ANCHOR_EVENTS}>
 	<EventLog data={$shows} stepForward={onStepForward} stepBackward={onStepBackward} />

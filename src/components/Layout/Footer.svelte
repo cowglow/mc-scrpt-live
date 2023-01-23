@@ -1,18 +1,22 @@
 <script lang="ts">
+	import translations, { locale } from '$stores/i18n-store';
 	import SocialMedia from '$components/SocialMediaMenu.svelte';
 	import Branding from '$components/Branding.svelte';
 	import { footerYear } from '$lib/footer-year';
+
+	$: description = $translations['footer.message'];
 </script>
 
 <footer>
 	<div>
 		<Branding />
-		<p id="footer-description">
-			Available for booking and collaboration.
-			<br />
-			Feel free to contact me.
-			<br />
-		</p>
+		<div id="footer-description">
+			{description}
+			&nbsp;&nbsp;&nbsp;
+			<button on:click={() => ($locale = 'en')}>EN</button>
+			&nbsp;
+			<button on:click={() => ($locale = 'de')}>DE</button>
+		</div>
 		<SocialMedia />
 		<p id="footer-details">
 			&copy; {footerYear()}
@@ -55,5 +59,19 @@
 		font-weight: normal;
 		font-size: 1rem;
 		line-height: 17px;
+	}
+
+	button {
+		background: none !important;
+		border: none;
+		padding: 0 !important;
+		/*input has OS specific font-family*/
+		color: red;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	button:hover {
+		text-decoration: none;
 	}
 </style>
