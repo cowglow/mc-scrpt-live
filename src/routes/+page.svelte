@@ -14,6 +14,7 @@
 	import MediaPlayer from '$components/MediaPlayer/MediaPlayer.svelte';
 	import SoundCloudPlayer from '$components/SoundCloudPlayer/SoundCloudPlayer.svelte';
 	import EventLog from '$components/EventLog.svelte';
+	import createShowCollection from '$lib/create-show-collection';
 
 	export let data: PageData;
 
@@ -21,21 +22,18 @@
 	const currentPage = writable(EVENT_CONTENT_DEFAULT_PAGE);
 	const maxPages = readable(MAX_EVENT_ITEMS);
 	const eventShowData = writable(data.data);
-	const totalPages = readable(data.total);
+	const totalPages = writable(data.total);
 
 	const shows = derived([eventShowData, currentPage, maxPages, totalPages], paginateContent);
 
 	async function onStepBackward() {
-		if (spawned) {
-			$eventShowData = await loadEventData();
-			spawned = false;
-		}
 		$currentPage--;
 	}
 
 	async function onStepForward() {
 		if (spawned) {
-			$eventShowData = await loadEventData();
+			const events = await loadEventData();
+			$eventShowData = createShowCollection(events);
 			spawned = false;
 		}
 		$currentPage++;
@@ -45,7 +43,6 @@
 		const { events } = await dataLoader(JSON_PATH, fetch);
 		return events;
 	}
-
 </script>
 
 <svelte:head>
