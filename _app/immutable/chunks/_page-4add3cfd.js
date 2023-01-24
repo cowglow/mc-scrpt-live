@@ -1,1 +1,0 @@
-import{d as o}from"./data-loader-cbe24a46.js";import{J as r,M as n}from"./constants-22b97265.js";const s=!0,c=async t=>{const a=await o(r,t.fetch),{events:e}=a;return{...t,data:Array(...e).slice(0,n),total:e.length}},d=Object.freeze(Object.defineProperty({__proto__:null,prerender:s,load:c},Symbol.toStringTag,{value:"Module"}));export{d as _,c as l,s as p};
