@@ -28,6 +28,5 @@ type PaginatedShows = {
 	currentPage: number;
 	previousPage: boolean;
 	nextPage: boolean;
-	total: number;
 	shows: Partial<EventShow>[];
 };
