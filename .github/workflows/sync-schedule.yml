@@ -6,16 +6,28 @@ on:
 
 jobs:
   sync-event:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3.0.2
       - name: Setup node
         uses: actions/setup-node@v2-beta
         with:
-          node-version: "18.12.1"
+          node-version: '18.12.1'
+      - name: Install dependencies 📦
+        run: |
+          yarn install
       - name: Sync services
         run: |
           yarn sync
         env:
           GAS_URL: ${{ secrets.GAS_URL }}
           GAS_PRODUCT: ${{ secrets.GAS_PRODUCT }}
+      - name: Build
+        run: |
+          yarn build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: build/
