@@ -4,9 +4,7 @@
 
 	export let data = [];
 
-	function createEventLogList(
-		data: EventShow[]
-	): {
+	function createEventLogList(data: EventShow[]): {
 		eventLocation: string;
 		eventName: string;
 		zeitstempel: string;
