@@ -74,10 +74,7 @@
 	}
 
 	.audio {
-		width: 100%;
-		max-width: 1080px;
 		padding: var(--side-padding);
-		margin: 0 auto;
 	}
 
 	@media screen and (min-width: 1080px) {

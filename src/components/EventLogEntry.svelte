@@ -51,9 +51,9 @@
 <style>
 	.wrapper {
 		display: flex;
-		min-height: 82px;
+		max-height: 4em;
 		background-color: red;
-		padding: 10px 0;
+		flex-grow: 1;
 	}
 
 	.wrapper:nth-child(odd) {

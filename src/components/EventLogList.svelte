@@ -33,9 +33,11 @@
 
 <style>
 	.wrapper {
-		height: 582px;
 		overflow-y: auto;
 		border: thin solid white;
+		display: flex;
+		flex-direction: column;
+		padding: var(--side-padding);
 	}
 
 	@media screen and (max-width: 700px) {
