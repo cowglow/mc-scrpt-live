@@ -14,8 +14,8 @@ const OUTPUT_FILE_PATH = 'static/data/event-list.json';
 async function getEventList(filePath: string) {
 	try {
 		const data = await fetch(`https://${GAS_URL}/${GAS_PRODUCT}/exec`);
-		const { Events } = await data.json();
-		await fs.writeFileSync(filePath, JSON.stringify({ events: Events }, null, 2));
+		const json = await data.json();
+		await fs.writeFileSync(filePath, JSON.stringify(json.data, null, 2));
 	} catch (err) {
 		console.error(err);
 	}
