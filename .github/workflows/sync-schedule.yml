@@ -3,11 +3,13 @@ name: Sync Event Data and Publish Site
 on:
   schedule:
     - cron: '0 16 * * 4'
+  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   sync-event:
-    runs-on: 
-      ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3.0.2
