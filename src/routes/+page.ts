@@ -1,19 +1,18 @@
-import type { PageLoad, PageLoadEvent } from './$types';
-import dataLoader from '$lib/data-loader';
-import { JSON_PATH, MAX_EVENT_ITEMS } from '$lib/constants';
+import type { PageLoad } from './$types';
+import { MAX_EVENT_ITEMS } from '$lib/constants';
 import { getPreviousDates, getUpcomingDates } from '$lib/date-filters';
 import createShowCollection from '$lib/create-show-collection';
+import eventData from '$data/event-list.json';
 
 export const prerender = true;
 
-export const load: PageLoad = async (meta: PageLoadEvent) => {
-	const eventData = await dataLoader(JSON_PATH, meta.fetch);
+export const load: PageLoad = async () => {
 	const shows = createShowCollection(eventData);
 	const upcomingEvents = getUpcomingDates(shows).slice(0, MAX_EVENT_ITEMS);
 	const previousEvents = getPreviousDates(shows).slice(0, MAX_EVENT_ITEMS);
+
 	return {
-		...meta,
-		data: [...upcomingEvents, ...previousEvents],
+		shows: [...upcomingEvents, ...previousEvents],
 		total: eventData.length
 	};
 };

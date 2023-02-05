@@ -1,29 +1,29 @@
 <script lang="ts">
-	import EventLogList from '$components/EventLogList.svelte';
+	// import EventLogList from '$components/EventLogList.svelte';
 	import EventLogController from '$components/EventLogController.svelte';
-	import NextEventBanner from '$components/NextEventBanner.svelte';
-	import { getPreviousDates, getUpcomingDates } from '$lib/date-filters';
+	// import NextEventBanner from '$components/NextEventBanner.svelte';
+	// import { getPreviousDates, getUpcomingDates } from '$lib/date-filters';
 	import translations from '$stores/i18n-store';
 
 	$: label = $translations['events.header.title'];
 	$: content = $translations['events.header.description'];
 
-	export let disableBanner: boolean;
+	// export let disableBanner: boolean;
 	export let data;
 	export let stepForward;
 	export let stepBackward;
-	const upcomingEvents = getUpcomingDates(data.shows);
-	let previousEvents;
-	$: previousEvents = getPreviousDates(data.shows);
+	// const upcomingEvents = getUpcomingDates(data.shows);
+	// let previousEvents;
+	// $: previousEvents = getPreviousDates(data.shows);
 </script>
 
-{#if !disableBanner}
-	<NextEventBanner data={upcomingEvents} />
-{/if}
+<!--{#if !disableBanner}-->
+<!--	<NextEventBanner data={upcomingEvents} />-->
+<!--{/if}-->
 <div class="wrapper">
 	<h1>{label}</h1>
 	<h3>{content}</h3>
-	<EventLogList data={previousEvents} />
+	<!--	<EventLogList data={previousEvents} />-->
 	<EventLogController
 		{...{
 			stepBackwardDisabled: !data.previousPage,

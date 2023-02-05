@@ -9,7 +9,7 @@ const GAS_PRODUCT = process.env.GAS_PRODUCT;
 /**
  * Make sure the `data` directory exists or the script will fail
  */
-const OUTPUT_FILE_PATH = 'static/data/event-list.json';
+const OUTPUT_FILE_PATH = 'src/data/event-list.json';
 
 async function getEventList(filePath: string) {
 	try {
