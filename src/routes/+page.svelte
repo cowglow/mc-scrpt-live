@@ -24,25 +24,24 @@
 	};
 	export let data: PageDataType<PageData>;
 
-	let spawned: Writable<boolean> = writable(true);
-
-	// eslint-disable-next-line no-undef
 	let eventShowData: Writable<EventShow[]> = writable(data.shows);
+	let totalPages: Writable<number> = writable(data.total);
+
 	let currentPage: Writable<number> = writable(EVENT_CONTENT_DEFAULT_PAGE);
 	let maxPages: Readable<number> = readable(MAX_EVENT_ITEMS);
-	let totalPages: Writable<number> = writable(data.total);
+
+	let spawned: Writable<boolean> = writable(true);
 
 	function onStepBackward() {
 		$currentPage--;
 	}
 
 	async function onStepForward() {
-		console.log('onStepForward');
-		// if ($spawned) {
-		// 	const { events } = await dataLoader(JSON_PATH, fetch);
-		// 	$eventShowData = createShowCollection(events);
-		// 	$spawned = false;
-		// }
+		if ($spawned) {
+			const events = await dataLoader(JSON_PATH, fetch);
+			$eventShowData = createShowCollection(events);
+			$spawned = false;
+		}
 		$currentPage++;
 	}
 
@@ -55,7 +54,6 @@
 
 <section class="events" id={ANCHOR_EVENTS}>
 	<EventLog data={$shows} stepForward={onStepForward} stepBackward={onStepBackward} />
-	<pre>--- {JSON.stringify({ $currentPage, $eventShowData }, null, 2)}</pre>
 </section>
 
 <section class="videos" id={ANCHOR_VIDEOS}>
@@ -72,6 +70,7 @@
 		color: #ffffff;
 		padding: 0;
 	}
+
 	.videos {
 		background-color: black;
 		color: #ffffff;

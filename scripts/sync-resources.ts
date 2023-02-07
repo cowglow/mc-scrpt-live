@@ -15,6 +15,7 @@ async function getEventList(filePath: string) {
 	try {
 		const data = await fetch(`https://${GAS_URL}/${GAS_PRODUCT}/exec`);
 		const json = await data.json();
+		console.log(json.data);
 		await fs.writeFileSync(filePath, JSON.stringify(json.data, null, 2));
 	} catch (err) {
 		console.error(err);
