@@ -17,6 +17,9 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: '18.12.1'
+      - name: Install dependencies 📦
+        run: |
+          yarn add ts-node
       - name: Sync services
         run: |
           yarn sync
