@@ -1,12 +1,9 @@
 name: Publish Site
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  workflow_dispatch:
-    branches:
-      - main
+   push:
+     branches:
+       - main
 
 jobs:
   build:
@@ -22,12 +19,6 @@ jobs:
       - name: Install dependencies 📦
         run: |
           yarn install
-      - name: Sync services
-        run: |
-          yarn sync
-        env:
-          GAS_URL: ${{ secrets.GAS_URL }}
-          GAS_PRODUCT: ${{ secrets.GAS_PRODUCT }}
       - name: Build
         run: |
           yarn build

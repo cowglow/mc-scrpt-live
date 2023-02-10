@@ -1,8 +1,11 @@
-name: Sync Event Data and Publish Site
+name: Sync Event Data
 
 on:
   schedule:
     - cron: '0 16 * * 4'
+  workflow_dispatch:
+    branches:
+      - main
 
 jobs:
   sync-event:
@@ -16,18 +19,16 @@ jobs:
           node-version: '18.12.1'
       - name: Install dependencies 📦
         run: |
-          yarn install
+          yarn add ts-node
       - name: Sync services
         run: |
           yarn sync
         env:
           GAS_URL: ${{ secrets.GAS_URL }}
           GAS_PRODUCT: ${{ secrets.GAS_PRODUCT }}
-      - name: Build
-        run: |
-          yarn build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
         with:
-          branch: gh-pages
-          folder: build/
+          message: Updated event data
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
