@@ -1,43 +1,57 @@
 <script lang="ts">
+    import {derived, readable, writable} from "svelte/store";
     import EventLogList from '$components/EventLogList.svelte';
     import EventLogController from '$components/EventLogController.svelte';
     import NextEventBanner from '$components/NextEventBanner.svelte';
-    import {getPreviousDates, getUpcomingDates} from '$lib/date-filters';
+    import {EVENT_CONTENT_DEFAULT_PAGE, JSON_PATH, MAX_EVENT_ITEMS} from "$lib/constants";
+    import dataLoader from '$lib/data-loader';
+    import paginateContent from '$lib/paginate-content';
     import translations from '$stores/i18n-store';
 
     $: label = $translations['events.header.title'];
     $: content = $translations['events.header.description'];
 
     export let disableBanner: boolean;
-    export let data;
-    export let stepForward;
-    export let stepBackward;
-    const upcomingEvents = getUpcomingDates(data.shows);
-    let previousEvents;
-    $: previousEvents = getPreviousDates(data.shows);
+    export let upcomingShows;
+    export let previousShows;
+
+    let spawned = writable(true);
+
+    let shows = writable(previousShows);
+    let currentPage = writable(EVENT_CONTENT_DEFAULT_PAGE);
+    let maxPages = readable(MAX_EVENT_ITEMS);
+    let eventsStore = derived([shows, currentPage, maxPages], paginateContent);
+
+    $: logData = $eventsStore.shows;
+
+    function stepBackward() {
+        $currentPage--;
+    }
+
+    async function stepForward() {
+        if ($spawned) {
+            $shows = await dataLoader(JSON_PATH, fetch);
+            $spawned = false;
+        }
+        $currentPage++;
+    }
 </script>
 
 {#if !disableBanner}
-    <NextEventBanner data={upcomingEvents}/>
+    <NextEventBanner data={upcomingShows.slice(0,1)}/>
 {/if}
 <div class="wrapper">
     <h1>{label}</h1>
     <h3>{content}</h3>
-    <EventLogList data={previousEvents}/>
-    <!--<EventLogController
+    <EventLogList data={logData}/>
+    <EventLogController
         {...{
-            stepBackwardDisabled: !data.previousPage,
-            stepForwardDisabled: !data.nextPage,
+            stepBackwardDisabled: !$eventsStore.previousPage,
+            stepForwardDisabled: !$eventsStore.nextPage,
             stepForward,
             stepBackward
         }}
-    />-->
-    <div class="cta">
-        <button>
-            <img src="images/expand-less.svg" alt="Next page" />
-            <img src="images/expand-more.svg" alt="Next page" />
-        </button>
-    </div>
+    />
 </div>
 
 <style>
@@ -66,37 +80,6 @@
         text-align: left;
     }
 
-    .cta {
-        display: flex;
-        justify-content: space-around;
-        padding-top: 10px;
-    }
-
-    button {
-        cursor: pointer;
-        background: red;
-        border: thin solid white;
-        width: 30%;
-        line-height: 0;
-        padding: 8px;
-    }
-
-    button:active {
-        opacity: unset;
-        border: thick solid white;
-    }
-
-    button[disabled] {
-        cursor: unset;
-        opacity: 0.56;
-    }
-
-    @media (hover: none) {
-        button {
-            opacity: unset;
-        }
-    }
-
     @media screen and (min-width: 700px) {
         h1 {
             text-align: center;
@@ -106,14 +89,6 @@
             font-size: 1.8rem;
             text-align: center;
             padding: 0 13%;
-        }
-
-        .cta {
-            padding-top: var(--bottom-padding);
-        }
-
-        button {
-            padding: 18px 0 10px;
         }
     }
 </style>
