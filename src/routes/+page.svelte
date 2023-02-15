@@ -4,48 +4,14 @@
 		ANCHOR_AUDIO,
 		ANCHOR_EVENTS,
 		ANCHOR_VIDEOS,
-		EVENT_CONTENT_DEFAULT_PAGE,
-		MAX_EVENT_ITEMS
 	} from '$lib/constants';
 	import MediaPlayer from '$components/MediaPlayer/MediaPlayer.svelte';
 	import SoundCloudPlayer from '$components/SoundCloudPlayer/SoundCloudPlayer.svelte';
 	import EventLog from '$components/EventLog.svelte';
-	import type { Readable, Writable } from 'svelte/store';
-	import { derived, readable, writable } from 'svelte/store';
-	import type EventShow from '../app.d.ts';
-	import paginateContent from '$lib/paginate-content.js';
-	import dataLoader from '$lib/data-loader';
-	import { JSON_PATH } from '$lib/constants';
-	import createShowCollection from '$lib/create-show-collection';
 
-	type PageDataType<T> = {
-		shows: EventShow[];
-		total: number;
-	};
-	export let data: PageDataType<PageData>;
+	export let data: PageData;
 
-	let eventShowData: Writable<EventShow[]> = writable(data.shows);
-	let totalPages: Writable<number> = writable(data.total);
-
-	let currentPage: Writable<number> = writable(EVENT_CONTENT_DEFAULT_PAGE);
-	let maxPages: Readable<number> = readable(MAX_EVENT_ITEMS);
-
-	let spawned: Writable<boolean> = writable(true);
-
-	function onStepBackward() {
-		$currentPage--;
-	}
-
-	async function onStepForward() {
-		if ($spawned) {
-			const events = await dataLoader(JSON_PATH, fetch);
-			$eventShowData = createShowCollection(events);
-			$spawned = false;
-		}
-		$currentPage++;
-	}
-
-	let shows = derived([eventShowData, currentPage, maxPages, totalPages], paginateContent);
+	const { upcomingShows, previousShows } = data;
 </script>
 
 <svelte:head>
@@ -53,7 +19,7 @@
 </svelte:head>
 
 <section class="events" id={ANCHOR_EVENTS}>
-	<EventLog data={$shows} stepForward={onStepForward} stepBackward={onStepBackward} />
+	<EventLog {upcomingShows} {previousShows} />
 </section>
 
 <section class="videos" id={ANCHOR_VIDEOS}>
