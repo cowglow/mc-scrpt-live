@@ -15,15 +15,6 @@ type EventShow = {
 	link: string;
 };
 
-type EventData = {
-	zeitstempel: string;
-	eventDate: string;
-	eventName: string;
-	eventLink: string;
-	eventLocation: string;
-	eventStartTime: string;
-};
-
 type PaginatedShows = {
 	currentPage: number;
 	previousPage: boolean;
