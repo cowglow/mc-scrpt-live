@@ -1,9 +1,8 @@
-import { json } from '@sveltejs/kit';
 import type { RequestHandler } from '@sveltejs/kit';
-import eventData from '$data/event-list.json';
+import previousShows from '$data/previous-shows.json';
 
 export const prerender = true;
 
-export const GET: RequestHandler = ({ request }) => {
-	return new Response(JSON.stringify(eventData));
+export const GET: RequestHandler = () => {
+	return new Response(JSON.stringify(previousShows));
 };
