@@ -1,7 +1,5 @@
 <script lang="ts">
     import EventLogEntry from '$components/EventLogEntry.svelte';
-    import EventShow from '$components/NextEventBanner.svelte';
-
     export let data = [];
 
 </script>

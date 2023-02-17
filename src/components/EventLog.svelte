@@ -1,12 +1,12 @@
 <script lang="ts">
     import {derived, readable, writable} from "svelte/store";
-    import EventLogList from '$components/EventLogList.svelte';
     import EventLogController from '$components/EventLogController.svelte';
     import NextEventBanner from '$components/NextEventBanner.svelte';
     import {EVENT_CONTENT_DEFAULT_PAGE, JSON_PATH, MAX_EVENT_ITEMS} from "$lib/constants";
     import dataLoader from '$lib/data-loader';
     import paginateContent from '$lib/paginate-content';
     import translations from '$stores/i18n-store';
+    import EventLogList from "./EventLogList.svelte";
 
     $: label = $translations['events.header.title'];
     $: content = $translations['events.header.description'];
@@ -45,12 +45,12 @@
     <h3>{content}</h3>
     <EventLogList data={logData}/>
     <EventLogController
-        {...{
-            stepBackwardDisabled: !$eventsStore.previousPage,
-            stepForwardDisabled: !$eventsStore.nextPage,
-            stepForward,
-            stepBackward
-        }}
+            {...{
+                stepBackwardDisabled: !$eventsStore.previousPage,
+                stepForwardDisabled: !$eventsStore.nextPage,
+                stepForward,
+                stepBackward
+            }}
     />
 </div>
 

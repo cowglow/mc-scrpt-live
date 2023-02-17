@@ -1,59 +1,78 @@
 <script lang="ts">
-    import {formattedEventLinkString} from '$lib/formatted-event-link-string';
+    import {formattedEventLinkString} from "$lib/formatted-event-link-string";
 
     export let name = '';
-    export let date = Date.now().toLocaleString();
+    export let date;
     export let venue = '';
     export let link = '';
 
-    const adjustedDate = new Date(date);
-    const formattedDate = new Date(adjustedDate.toLocaleString('de-DE', {
-        timeZone: 'Europe/Berlin'
-    }));
+    const eventDate = new Date(date);
+    // eventDate.setDate(eventDate.getDate() + 1);
+    const eventMonth = eventDate.toLocaleString('de-DE', {
+        timeZone: 'Europe/Berlin',
+        month: "2-digit",
+    });
 
-    // $: eventDay = `0${new Date(eventDate).getDate().toString()}`.slice(-2);
-    // $: eventMonth = new Date(eventDate).toLocaleString('default', {
-    // 	month: 'short'
-    // });
-    // $: eventYear = `${new Date(eventDate).getUTCFullYear()}`;
-    // $: eventUrl = formattedEventLinkString(eventLink);
-    // $: eventStartTime = `${new Date(eventDate).getUTCHours()}:00`;
+    const eventMonthMobile = eventDate.toLocaleString('de-DE', {
+        timeZone: 'Europe/Berlin',
+        month: "short",
+    });
+
+    const eventDay = eventDate.toLocaleString('de-DE', {
+        timeZone: 'Europe/Berlin',
+        day: "2-digit",
+    });
+
+    const eventYear = eventDate.toLocaleString('de-DE', {
+        timeZone: 'Europe/Berlin',
+        year: "numeric"
+    });
+
+    const eventUrl = formattedEventLinkString(link);
+
+    const eventStartTime = eventDate.toLocaleString('de-DE', {
+        timeZone: 'Europe/Berlin',
+        hour: "2-digit",
+        minute: "2-digit",
+    });
+
 </script>
 
 <div class="wrapper">
-    {adjustedDate.getDate()} -- {new Date(formattedDate)}
-    <!--
     <div class="flex-it event-date">
-        <span>{eventDay}</span>
-        <span>{eventMonth}</span>
+        <div class="mobile">
+            <span>{`${eventMonthMobile}`}<br>{`${eventYear}`}</span>
+        </div>
+        <div class="desktop">
+            <span>{`${eventMonth} ${eventDay}`}<br>{`${eventYear}`}</span>
+        </div>
     </div>
     <div class="flex-it event-name">
-        <span>{eventName}</span>
-        <span>{eventLocation}</span>
+        <span>{name}</span>
+        <span>{venue}</span>
     </div>
     <div class="flex-it event-link">
         <div class="mobile">
-            <a href={eventLink} rel="noreferrer nofollow" target="event-link">
-                <img alt="Event link icon" src="/images/event-link-icon.svg" />
+            <a href={link} rel="noreferrer nofollow" target="event-link">
+                <img alt="Event link icon" src="/images/event-link-icon.svg"/>
             </a>
         </div>
         <div class="desktop">
-            <img alt="Event link icon" src="/images/event-link-icon.svg" />
-            <a href={eventLink} rel="noreferrer nofollow" target="event-link">
+            <img alt="Event link icon" src="/images/event-link-icon.svg"/>
+            <a href={link} rel="noreferrer nofollow" target="event-link">
                 {eventUrl}
             </a>
         </div>
     </div>
     <div class="flex-it event-time">
         <div class="mobile">
-            <img alt={`Event Start Time is ${eventStartTime}`} src="/images/event-start-time-icon.svg" />
+            <img alt={`Event Start Time is ${eventStartTime}`} src="/images/event-start-time-icon.svg"/>
         </div>
         <div class="desktop">
-            <img alt={`Event Start Time is ${eventStartTime}`} src="/images/event-start-time-icon.svg" />
+            <img alt={`Event Start Time is ${eventStartTime}`} src="/images/event-start-time-icon.svg"/>
             <span>{eventStartTime}</span>
         </div>
     </div>
-    -->
 </div>
 
 <style>
