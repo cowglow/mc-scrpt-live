@@ -1,16 +1,15 @@
-import { getPreviousDates, getUpcomingDates } from '$lib/date-filters';
-
 type PaginateContent = [content: EventShow[], index: number, max: number];
 
-export default function ([content, index, max]: PaginateContent): PaginatedShows {
-	const offset = max * (index - 1);
-	const upcomingEvents = getUpcomingDates(content);
-	const previousEvents = getPreviousDates(content).slice(offset, max * index);
-	const paginatedItems = [...upcomingEvents, ...previousEvents];
+export default function ([content, currentPage, maxPages]: PaginateContent): PaginatedShows {
+	const startIndex = (currentPage - 1) * maxPages;
+	const endIndex = startIndex + maxPages;
+
+	const paginatedItems = content.slice(startIndex, endIndex);
+
 	return {
-		currentPage: index,
-		previousPage: index - 1 > 0,
-		nextPage: index - 1 < max,
+		currentPage,
+		previousPage: currentPage > 1,
+		nextPage: currentPage - 1 < maxPages,
 		shows: paginatedItems
 	};
 }

@@ -11,10 +11,11 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev --port 3000 --host",
-		"dev:offline": " php -S localhost:8080 -t private/off-line",
+		"dev:offline": "php -S localhost:8080 -t private/off-line",
+		"docker:dev": "docker compose run --service-ports svelte-kit bash",
 		"build": "rm -rf build && vite build",
 		"preview": "vite preview",
-		"sync": "node  --trace-warnings --loader ts-node/esm scripts/sync-resources.ts",
+		"sync": "node  --trace-warnings --loader ts-node/esm scripts/sync-events.ts",
 		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
