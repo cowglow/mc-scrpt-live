@@ -2,35 +2,34 @@
     import {formattedEventLinkString} from "$lib/formatted-event-link-string";
 
     export let name = '';
-    export let date;
+    export let date = new Date();
     export let venue = '';
     export let link = '';
 
-    const eventDate = new Date(date);
-    // eventDate.setDate(eventDate.getDate() + 1);
-    const eventMonth = eventDate.toLocaleString('de-DE', {
+    $: eventDate = new Date(date);
+    $: eventMonth = eventDate.toLocaleString('de-DE', {
         timeZone: 'Europe/Berlin',
         month: "2-digit",
     });
 
-    const eventMonthMobile = eventDate.toLocaleString('de-DE', {
+    $: eventMonthMobile = eventDate.toLocaleString('de-DE', {
         timeZone: 'Europe/Berlin',
         month: "short",
     });
 
-    const eventDay = eventDate.toLocaleString('de-DE', {
+    $: eventDay = eventDate.toLocaleString('de-DE', {
         timeZone: 'Europe/Berlin',
         day: "2-digit",
     });
 
-    const eventYear = eventDate.toLocaleString('de-DE', {
+    $: eventYear = eventDate.toLocaleString('de-DE', {
         timeZone: 'Europe/Berlin',
         year: "numeric"
     });
 
-    const eventUrl = formattedEventLinkString(link);
+    $: eventUrl = formattedEventLinkString(link);
 
-    const eventStartTime = eventDate.toLocaleString('de-DE', {
+    $: eventStartTime = eventDate.toLocaleString('de-DE', {
         timeZone: 'Europe/Berlin',
         hour: "2-digit",
         minute: "2-digit",
@@ -41,7 +40,7 @@
 <div class="wrapper">
     <div class="flex-it event-date">
         <div class="mobile">
-            <span>{`${eventMonthMobile}`}<br>{`${eventYear}`}</span>
+            <span>{eventMonthMobile}<br>{`${eventYear}`}</span>
         </div>
         <div class="desktop">
             <span>{`${eventMonth} ${eventDay}`}<br>{`${eventYear}`}</span>
