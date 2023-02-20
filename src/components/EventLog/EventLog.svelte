@@ -3,7 +3,7 @@
     import LogController from './LogController.svelte';
     import LogList from "./LogList.svelte";
     import NextEventBanner from './NextEventBanner.svelte';
-    import {EVENT_CONTENT_DEFAULT_PAGE, JSON_PATH, MAX_EVENT_ITEMS} from "$lib/constants";
+    import {EVENT_CONTENT_DEFAULT_PAGE, EVENT_LOCALSTORAGE_KEY, JSON_PATH, MAX_EVENT_ITEMS} from "$lib/constants";
     import {dataLoader} from '$lib/data-loader';
     import {paginateContent} from '$lib/paginate-content';
     import translations from '$stores/i18n-store';
@@ -30,7 +30,7 @@
 
     async function stepForward() {
         if ($spawned) {
-            $shows = await dataLoader(JSON_PATH);
+            $shows = await dataLoader(JSON_PATH, EVENT_LOCALSTORAGE_KEY);
             $spawned = false;
         }
         $currentPage++;
