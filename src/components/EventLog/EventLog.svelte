@@ -4,8 +4,8 @@
     import LogList from "./LogList.svelte";
     import NextEventBanner from './NextEventBanner.svelte';
     import {EVENT_CONTENT_DEFAULT_PAGE, JSON_PATH, MAX_EVENT_ITEMS} from "$lib/constants";
-    import dataLoader from '$lib/data-loader';
-    import paginateContent from '$lib/paginate-content';
+    import {dataLoader} from '$lib/data-loader';
+    import {paginateContent} from '$lib/paginate-content';
     import translations from '$stores/i18n-store';
 
     $: label = $translations['events.header.title'];
@@ -30,7 +30,7 @@
 
     async function stepForward() {
         if ($spawned) {
-            $shows = await dataLoader(JSON_PATH, fetch);
+            $shows = await dataLoader(JSON_PATH);
             $spawned = false;
         }
         $currentPage++;

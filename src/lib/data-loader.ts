@@ -1,8 +1,7 @@
-type dependencyInjection = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
-
-export default async function (url: string, fetch: dependencyInjection) {
+export async function dataLoader(url: string) {
 	try {
-		const response = await fetch(url);
+		const response = await fetch(url, { cache: 'force-cache' });
+		console.log('response', response);
 		return await response.json();
 	} catch (err: unknown) {
 		console.log(err);

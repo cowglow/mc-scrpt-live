@@ -1,6 +1,6 @@
 type PaginateContent = [content: EventShow[], index: number, max: number];
 
-export default function ([content, currentPage, maxPages]: PaginateContent): PaginatedShows {
+export function paginateContent([content, currentPage, maxPages]: PaginateContent): PaginatedShows {
 	const startIndex = (currentPage - 1) * maxPages;
 	const endIndex = startIndex + maxPages;
 

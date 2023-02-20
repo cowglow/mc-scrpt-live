@@ -1,4 +1,4 @@
-export const scrollToView = (node: HTMLElement, behavior: ScrollBehavior = 'smooth') => {
+export function scrollToView(node: HTMLElement, behavior: ScrollBehavior = 'smooth') {
 	const targetSelector = `#${node.getAttribute('id')}`;
 	const targetElement = document.querySelector(targetSelector);
 
@@ -17,4 +17,4 @@ export const scrollToView = (node: HTMLElement, behavior: ScrollBehavior = 'smoo
 			clearTimeout(timeout);
 		}
 	};
-};
+}
