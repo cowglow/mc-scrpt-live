@@ -4,30 +4,22 @@ import * as fs from 'fs';
 
 type EventShow = {
 	name: string;
-	date: Date;
+	date: string;
 	venue: string;
 	link: string;
 };
 
-type EventData = {
-	zeitstempel: string;
-	eventDate: string;
-	eventName: string;
-	eventLink: string;
-	eventLocation: string;
-	eventStartTime: string;
-};
-
 config({ path: path.resolve('.env') });
 
-const GAS_URL = process.env.GAS_URL;
-const GAS_PRODUCT = process.env.GAS_PRODUCT;
+const DEPLOY_URL = `https://${process.env.GAS_URL}/${process.env.DEPLOYMENT_ID}/exec`;
+console.log('DEPLOY_URL', DEPLOY_URL);
 
 /**
  * Make sure the `data` directory exists or the script will fail
  */
 const UPCOMING_SHOWS_FILE_PATH = 'src/data/upcoming-shows.json';
 const PREVIOUS_SHOWS_FILE_PATH = 'src/data/previous-shows.json';
+
 const PREVIOUS_SHOWS_TRIMMED_FILE_PATH = 'src/data/previous-shows-trimmed.json';
 
 const files = [
@@ -45,11 +37,11 @@ async function syncEvents() {
 		});
 
 		console.log(' -- Fetch data');
-		const events = await fetch(`https://${GAS_URL}/${GAS_PRODUCT}/exec`);
-		const { data } = await events.json();
-
-		console.log(' -- Convert to shows');
-		const shows = data.map(createShow);
+		const data = await fetch(DEPLOY_URL, {
+			method: 'GET',
+			headers: { Accept: 'application/json' }
+		});
+		const shows = await data.json();
 
 		console.log(' -- Filter shows');
 		const upcomingDates = getUpcomingDates(shows);
@@ -71,36 +63,17 @@ async function syncEvents() {
 function getPreviousDates(events: EventShow[]): EventShow[] {
 	const currentDate = Date.now();
 	return events.filter(({ date }) => {
-		return Date.parse(date.toISOString()) < currentDate.valueOf();
+		const eventDate = Date.parse(date);
+		return eventDate < currentDate;
 	});
 }
 
 function getUpcomingDates(events: EventShow[]): EventShow[] {
 	const currentDate = Date.now();
 	return events.filter(({ date }) => {
-		return Date.parse(date.toUTCString()) > currentDate.valueOf();
+		const eventDate = Date.parse(date);
+		return eventDate > currentDate.valueOf();
 	});
-}
-
-function createShow(event: EventData): EventShow {
-	const { eventName, eventDate, eventStartTime, eventLocation, eventLink } = event;
-	const date = new Date(eventDate);
-	const startTime = new Date(eventStartTime);
-	const showDate = new Date(
-		date.getFullYear(),
-		date.getMonth(),
-		date.getDate(),
-		startTime.getHours(),
-		startTime.getMinutes(),
-		startTime.getSeconds(),
-		startTime.getMilliseconds()
-	);
-	return {
-		name: eventName,
-		date: showDate,
-		venue: eventLocation,
-		link: eventLink
-	};
 }
 
 syncEvents()
