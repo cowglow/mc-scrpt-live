@@ -1,5 +1,5 @@
 <script lang="ts">
-    import EventLogEntry from '$components/EventLogEntry.svelte';
+    import EventLogEntry from './LogEntry.svelte';
     export let data = [];
 
 </script>
