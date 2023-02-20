@@ -19,7 +19,6 @@ console.log('DEPLOY_URL', DEPLOY_URL);
  */
 const UPCOMING_SHOWS_FILE_PATH = 'src/data/upcoming-shows.json';
 const PREVIOUS_SHOWS_FILE_PATH = 'src/data/previous-shows.json';
-
 const PREVIOUS_SHOWS_TRIMMED_FILE_PATH = 'src/data/previous-shows-trimmed.json';
 
 const files = [
