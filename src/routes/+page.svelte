@@ -7,7 +7,7 @@
 	} from '$lib/constants';
 	import MediaPlayer from '$components/MediaPlayer/MediaPlayer.svelte';
 	import SoundCloudPlayer from '$components/SoundCloudPlayer/SoundCloudPlayer.svelte';
-	import EventLog from '$components/EventLog.svelte';
+	import EventLog from '$components/EventLog/EventLog.svelte';
 
 	export let data: PageData;
 
