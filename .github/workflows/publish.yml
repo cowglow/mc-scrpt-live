@@ -24,7 +24,7 @@ jobs:
         run: yarn sync
         env:
           GAS_URL: ${{ secrets.GAS_URL }}
-          GAS_PRODUCT: ${{ secrets.GAS_PRODUCT }}
+          DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
       - name: Build
         run: |
           yarn build
