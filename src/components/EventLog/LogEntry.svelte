@@ -63,10 +63,7 @@
             </a>
         </div>
     </div>
-    <div class="flex-it event-time">
-        <div class="mobile">
-            <img alt={`Event Start Time is ${eventStartTime}`} src="/images/event-start-time-icon.svg"/>
-        </div>
+    <div class="flex-it event-time desktop">
         <div class="desktop">
             <img alt={`Event Start Time is ${eventStartTime}`} src="/images/event-start-time-icon.svg"/>
             <span>{eventStartTime}</span>

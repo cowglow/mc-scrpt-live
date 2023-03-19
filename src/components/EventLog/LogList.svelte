@@ -1,11 +1,9 @@
 <script lang="ts">
     import EventLogEntry from './LogEntry.svelte';
     export let data = [];
-
 </script>
 
 <div class="wrapper">
-
     {#each data as event, index}
         <EventLogEntry {...event} />
     {/each}
@@ -17,7 +15,8 @@
         border: thin solid white;
         display: flex;
         flex-direction: column;
-        padding: var(--side-padding);
+        margin: var(--side-padding) auto;
+        padding: 0;
     }
 
     @media screen and (max-width: 700px) {
