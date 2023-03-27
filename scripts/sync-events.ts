@@ -48,7 +48,10 @@ async function syncEvents() {
 		const trimmedPreviousDates = previousDates.slice(0, 6);
 
 		console.log(' -- Create new files');
-		await fs.writeFileSync(UPCOMING_SHOWS_FILE_PATH, JSON.stringify(upcomingDates, null, 2));
+		await fs.writeFileSync(
+			UPCOMING_SHOWS_FILE_PATH,
+			JSON.stringify(upcomingDates.reverse(), null, 2)
+		);
 		await fs.writeFileSync(PREVIOUS_SHOWS_FILE_PATH, JSON.stringify(previousDates, null, 2));
 		await fs.writeFileSync(
 			PREVIOUS_SHOWS_TRIMMED_FILE_PATH,
