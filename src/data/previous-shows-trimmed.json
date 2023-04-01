@@ -1,5 +1,11 @@
 [
   {
+    "name": "ROLLING VIBEZ",
+    "date": "2023-03-31T20:00:00.000Z",
+    "venue": "Club Black Stone",
+    "link": "https://www.facebook.com/events/1134726820528360/"
+  },
+  {
     "name": "Monsters of Jungle feat. Olymp feat. NASB",
     "date": "2023-02-18T20:00:00.000Z",
     "venue": "Z-Bau",
@@ -28,11 +34,5 @@
     "date": "2022-12-17T20:00:00.000Z",
     "venue": "Kopf und Kragen",
     "link": "https://www.facebook.com/events/359357679728146/"
-  },
-  {
-    "name": "dotBass 2022",
-    "date": "2022-11-05T20:00:00.000Z",
-    "venue": "Z-Bau",
-    "link": "https://facebook.com/events/597681822010776/"
   }
 ]
