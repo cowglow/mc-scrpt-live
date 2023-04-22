@@ -1,19 +1,19 @@
-export function getTimeDifference(dateFuture: Date, currentDate = new Date(Date.now())) {
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-ignore
+interface TimeDifference {
+	days: number;
+	hours: number;
+	minutes: number;
+	seconds: number;
+}
 
-	let diff = Math.abs((dateFuture - currentDate) / 1000);
-
-	const days = Math.floor(diff / 86400);
-	diff -= days * 86400;
-
-	const hours = Math.floor(diff / 3600) % 24;
-	diff -= hours * 3600;
-
-	const minutes = Math.floor(diff / 60) % 60;
-	diff -= minutes * 60;
-
-	const seconds = Math.floor((diff / 60) * 60) % 60;
-
-	return { days, hours, minutes, seconds };
+export function getTimeDifference(
+	dateFuture: Date,
+	currentDate: Date = new Date()
+): TimeDifference {
+	const diff = Math.floor((dateFuture.getTime() - currentDate.getTime()) / 1000);
+	return {
+		days: Math.floor(diff / 86400),
+		hours: Math.floor((diff % 86400) / 3600),
+		minutes: Math.floor((diff % 3600) / 60),
+		seconds: Math.floor(diff % 60)
+	};
 }
