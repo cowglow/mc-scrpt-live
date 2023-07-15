@@ -1,6 +1,7 @@
 FROM node:18
 WORKDIR /website
-COPY package.json yarn.lock ./
+COPY ./package.json /website
+COPY ./yarn.lock /website
 
 RUN yarn install --mutex file:/usr/local/share/.cache/yarn/.yarn-mutex
 

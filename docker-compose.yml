@@ -1,16 +1,14 @@
 services:
   svelte-kit:
-    container_name: dev-mc-scrpt-live
-    image: mc-scrpt-live:dev
+    working_dir: /website
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: dev-mc-scrpt-live
+    entrypoint: /bin/sh
     ports:
       - 3000:3000 # Vite
       - 4173:4173 # Playwright
     volumes:
-      - yarn-cache:/usr/local/share/.cache/yarn
       - ./:/website/
-
-volumes:
-  yarn-cache:
+    tty: true
