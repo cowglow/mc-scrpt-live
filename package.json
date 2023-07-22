@@ -13,6 +13,7 @@
 		"dev": "vite dev --port 3000 --host",
 		"dev:offline": "php -S localhost:8080 -t private/off-line",
 		"docker:dev": "docker compose run --service-ports svelte-kit bash",
+		"termial": "docker-compose run --service-ports svelte-kit bash\n",
 		"build": "rm -rf build && vite build",
 		"preview": "vite preview",
 		"sync": "node  --trace-warnings --loader ts-node/esm scripts/sync-events.ts",
