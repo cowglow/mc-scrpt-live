@@ -1,5 +1,11 @@
 [
   {
+    "name": "Booyaka",
+    "date": "2023-07-21T19:00:00.000Z",
+    "venue": "Kopf und Kragen",
+    "link": "https://www.facebook.com/events/3526793250976480/"
+  },
+  {
     "name": "dotBass 2023 Summer Edition",
     "date": "2023-07-15T13:00:00.000Z",
     "venue": "Z-Bau",
@@ -28,11 +34,5 @@
     "date": "2023-02-04T20:00:00.000Z",
     "venue": "Kopf und Kragen",
     "link": "https://www.facebook.com/events/819972422445516"
-  },
-  {
-    "name": "DubWorXx w/Phace + MC Fava",
-    "date": "2023-01-28T20:00:00.000Z",
-    "venue": "Z-Bau",
-    "link": "https://z-bau.com/programm/2023-01-28/galerie/dubworxx-w-phace-mc-fava/"
   }
 ]
