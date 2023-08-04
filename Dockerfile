@@ -1,7 +1,7 @@
 FROM node:18
-WORKDIR /website
-COPY ./package.json /website
-COPY ./yarn.lock /website
+WORKDIR /app
+COPY ./package.json /app
+COPY ./yarn.lock /app
 
 RUN yarn install --mutex file:/usr/local/share/.cache/yarn/.yarn-mutex
 
@@ -10,4 +10,4 @@ ENV PORT=3000
 ENV NODE_ENV=development
 
 EXPOSE 3000
-CMD ["yarn", "start"]
+CMD ["yarn", "dev"]

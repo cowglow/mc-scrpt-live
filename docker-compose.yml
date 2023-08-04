@@ -1,13 +1,12 @@
 services:
   svelte-kit:
-    container_name: dev-mc-scrpt-live
-    working_dir: /website
+    container_name: mc-scrpt-live-dev
+    working_dir: /app
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 3000:3000 # Vite
-      - 4173:4173 # Playwright
+      - "3000:3000"
+      - "4173:4173"
     volumes:
-      - ./:/website/
-    tty: true
+      - ./:/app/
