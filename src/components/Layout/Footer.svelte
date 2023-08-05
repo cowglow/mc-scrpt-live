@@ -9,7 +9,7 @@
 
 <footer>
 	<div>
-		<Branding />
+		<Branding style="display: inline-block" />
 		<div id="footer-description">
 			{description}
 			&nbsp;&nbsp;&nbsp;

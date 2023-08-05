@@ -1,4 +1,4 @@
-<a id="brand" href="/">MC SCRPT</a>
+<a id="brand" href="/" {...$$props}>MC SCRPT</a>
 
 <style>
 	a#brand {
@@ -11,6 +11,6 @@
         text-decoration: none;
     }
 	a#brand:hover {
-        color: white;
+        color: red;
 	}
 </style>
