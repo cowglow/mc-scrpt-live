@@ -1,6 +1,7 @@
 <script lang="ts">
     import Branding from '$components/Branding.svelte';
     import NavBar from '$components/Navigation/NavBar.svelte';
+    import DrBass from "$components/DrBass.svelte";
 </script>
 
 <header>
@@ -8,6 +9,7 @@
         <div id="nav-bar">
             <Branding/>
             <NavBar/>
+            <DrBass/>
         </div>
     </div>
 </header>

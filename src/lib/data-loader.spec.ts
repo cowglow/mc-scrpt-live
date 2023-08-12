@@ -9,6 +9,7 @@ describe('Test dataLoader Utility Function', () => {
 
 	test('should fetch data from URL and cache it', async () => {
 		// clear the cache
+		console.log({ storageKey });
 		localStorage.removeItem(storageKey);
 		localStorage.removeItem(`${storageKey}_LAST_UPDATE`);
 
@@ -18,6 +19,7 @@ describe('Test dataLoader Utility Function', () => {
 		expect(data).toBeDefined();
 		expect(localStorage.getItem(storageKey)).toBeDefined();
 		expect(localStorage.getItem(`${storageKey}_LAST_UPDATE`)).toBeDefined();
+		expect(true).not.toBeFalsy();
 	});
 
 	test('should fetch data from cache if it exists and is not expired', async () => {
