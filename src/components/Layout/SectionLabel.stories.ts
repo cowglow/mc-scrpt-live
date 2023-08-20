@@ -13,7 +13,7 @@ const meta = {
         title: {
             control: "string"
         },
-        description: {Ø
+        description: {
             control: "string",
         }
     }
