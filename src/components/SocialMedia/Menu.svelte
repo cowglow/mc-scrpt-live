@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SocialMediaLink from '$components/SocialMediaLink.svelte';
+	import SocialMediaLink from '$components/SocialMedia/Link.svelte';
 	import Instagram from '$components/SocialMedia/Instagram.svelte';
 	import Mixcloud from '$components/SocialMedia/Mixcloud.svelte';
 	import SoundCloud from '$components/SocialMedia/SoundCloud.svelte';

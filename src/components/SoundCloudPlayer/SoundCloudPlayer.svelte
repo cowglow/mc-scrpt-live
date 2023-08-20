@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	import SectionLabel from '$components/SectionLabel.svelte';
+	import SectionLabel from '$components/Layout/SectionLabel.svelte';
 	import GdprBanner from '$components/SoundCloudPlayer/GDPR-Soundcloud-Playlist.png';
 	import { SOUNDCLOUD_LOCALSTORAGE_KEY } from '$lib/constants';
 
@@ -64,8 +64,7 @@
 			height="420"
 			src={`https://w.soundcloud.com/player/?${query}`}
 			title="soundcloud-player-iframe"
-			width="100%"
-		/>
+			width="100%"></iframe>
 	{/if}
 </div>
 

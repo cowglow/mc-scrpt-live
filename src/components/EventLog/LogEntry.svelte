@@ -79,20 +79,20 @@
         flex-grow: 1;
     }
 
-    .wrapper:nth-child(odd) {
+    .wrapper:nth-child(even) {
         color: white;
         background-color: black;
     }
 
-    .wrapper:nth-child(even) a {
+    .wrapper:nth-child(odd) a {
         color: black;
     }
 
-    .wrapper:nth-child(even) a:hover {
+    .wrapper:nth-child(odd) a:hover {
         color: red;
     }
 
-    .wrapper:nth-child(even) {
+    .wrapper:nth-child(odd) {
         color: black;
         background-color: white;
     }

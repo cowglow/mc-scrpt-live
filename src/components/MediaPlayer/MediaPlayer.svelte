@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	import SectionLabel from '$components/SectionLabel.svelte';
+	import SectionLabel from '$components/Layout/SectionLabel.svelte';
 	import GdprBanner from '$components/MediaPlayer/GDPR-YouTube-Playlist.png';
 	import { YOUTUBE_LOCALSTORAGE_KEY } from '$lib/constants';
 
@@ -38,8 +38,7 @@
 				allowfullscreen
 				height="560"
 				src="https://www.youtube-nocookie.com/embed/videoseries?list=PLvGoDsjMiifcRAccwKmrX4LNl4H6XV8jo"
-				title="YouTube video player"
-			/>
+				title="YouTube video player"></iframe>
 		</div>
 	{/if}
 </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import translations, { locale } from '$stores/i18n-store';
-	import SocialMedia from '$components/SocialMediaMenu.svelte';
+	import SocialMedia from '$components/SocialMedia/Menu.svelte';
 	import Branding from '$components/Branding.svelte';
 	import { footerYear } from '$lib/footer-year';
 
