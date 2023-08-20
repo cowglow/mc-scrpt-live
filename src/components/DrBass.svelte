@@ -1,4 +1,4 @@
-<a href="https://monstersofjungle.de" target="_blank" rel="nofollow">
+<a href="https://monstersofjungle.de" target="_blank" rel="noreferrer nofollow">
     <svg width="852" height="794" viewBox="0 0 852 794" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M25.8681 671.087C61.1209 697.521 96.1738 724.153 130.336 751.676C130.39 763.893 130.75 775.806 132.327 786.499C98.2523 786.081 61.0387 780.184 24.8736 778.538C24.6112 742.129 26.6272 707.994 25.8681 671.087Z" fill="white"/>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M825.795 786.5C789.917 788.098 751.994 791.838 719.336 793.464C719.005 782.85 717.911 773.005 717.347 762.623C750.696 735.613 786.458 711.013 820.82 685.016C825.004 716.317 824.556 752.251 825.795 786.5Z" fill="white"/>
