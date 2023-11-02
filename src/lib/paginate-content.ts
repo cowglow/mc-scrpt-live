@@ -1,3 +1,5 @@
+import type { EventShow, PaginatedShows } from '../app';
+
 type PaginateContent = [content: EventShow[], index: number, max: number];
 
 export function paginateContent([content, currentPage, maxPages]: PaginateContent): PaginatedShows {

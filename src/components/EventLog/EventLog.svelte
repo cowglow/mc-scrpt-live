@@ -7,13 +7,14 @@
     import {dataLoader} from '$lib/data-loader';
     import {paginateContent} from '$lib/paginate-content';
     import translations from '$stores/i18n-store';
+    import {validUpcomingShows} from "$lib/valid-upcoming-shows";
+    import type {EventShow} from "../../app";
 
     $: label = $translations['events.header.title'];
     $: content = $translations['events.header.description'];
 
-    export let disableBanner: boolean;
-    export let upcomingShows;
-    export let previousShows;
+    export let upcomingShows: EventShow[];
+    export let previousShows: EventShow[];
 
     let spawned = writable(true);
 
@@ -23,6 +24,8 @@
     let eventsStore = derived([shows, currentPage, maxPages], paginateContent);
 
     $: logData = $eventsStore.shows;
+
+    const disableBanner = validUpcomingShows(upcomingShows)
 
     function stepBackward() {
         $currentPage--;
@@ -37,7 +40,7 @@
     }
 </script>
 
-{#if !disableBanner}
+{#if disableBanner}
     <NextEventBanner data={upcomingShows.slice(0,1)}/>
 {/if}
 <div class="wrapper">
