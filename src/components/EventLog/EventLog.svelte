@@ -13,8 +13,8 @@
     $: label = $translations['events.header.title'];
     $: content = $translations['events.header.description'];
 
-    export let upcomingShows: EventShow[];
-    export let previousShows: EventShow[];
+    export let upcomingShows: EventShow[] = [];
+    export let previousShows: EventShow[] = [];
 
     let spawned = writable(true);
 
@@ -41,7 +41,7 @@
 </script>
 
 {#if disableBanner}
-    <NextEventBanner data={upcomingShows.slice(0,1)}/>
+    <NextEventBanner data={upcomingShows}/>
 {/if}
 <div class="wrapper">
     <h1>{label}</h1>
