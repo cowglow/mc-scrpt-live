@@ -40,7 +40,7 @@
         top: 0;
         left: 0;
         position: sticky;
-        padding: 1rem;
+        padding: 0.25rem;
     }
 
     #nav-bar {
@@ -51,7 +51,6 @@
         color: white;
         padding: 0 var(--side-padding);
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         font-size: var(--floating-clamp);
         gap: 1rem;
