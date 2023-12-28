@@ -1,5 +1,11 @@
 [
   {
+    "name": "Monsters of Jungle",
+    "date": "2023-12-25T20:00:00.000Z",
+    "venue": "Kunstverein im Z-Bau",
+    "link": "https://www.facebook.com/events/935388014924191/"
+  },
+  {
     "name": "Booyaka presents MC Fava",
     "date": "2023-12-16T20:00:00.000Z",
     "venue": "Kopf und Kragen",
@@ -28,11 +34,5 @@
     "date": "2023-07-15T13:00:00.000Z",
     "venue": "Z-Bau",
     "link": "https://fb.me/e/4iEl7unea"
-  },
-  {
-    "name": "Booyaka feat. Light Up!",
-    "date": "2023-04-22T19:00:00.000Z",
-    "venue": "Kopf und Kragen",
-    "link": "https://www.facebook.com/events/214406401172984"
   }
 ]
