@@ -1,13 +1,25 @@
-FROM node:18
+# Define a build argument for the base image
+ARG NODE_IMAGE=node:lts
+
+# Stage for building the application
+FROM ${NODE_IMAGE} as BUILDER
+
 WORKDIR /app
-COPY ./package.json /app
-COPY ./yarn.lock /app
 
-RUN yarn install --mutex file:/usr/local/share/.cache/yarn/.yarn-mutex
+COPY ./ /app
 
-COPY . ./
-ENV PORT=3000
-ENV NODE_ENV=development
+# Set the environment variable to use the custom npm binary path
+ENV PATH="/usr/local/share/npm-global/bin:${PATH}"
 
-EXPOSE 3000
-CMD ["yarn", "dev"]
+# Stage for development
+FROM ${NODE_IMAGE} as DEVELOPMENT
+
+WORKDIR /app
+
+COPY --from=BUILDER /app /app
+
+# Set the environment variable to use the custom npm binary path
+ENV PATH="/usr/local/share/npm-global/bin:${PATH}"
+
+# Install dependencies with npm, force resolution
+RUN npm install --force && npm cache clean --force
