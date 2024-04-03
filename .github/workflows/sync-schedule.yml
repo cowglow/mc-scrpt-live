@@ -2,7 +2,7 @@ name: Sync Event Data
 
 on:
   schedule:
-    - cron: '0 16 * * 4'
+    - cron: '0 5 * * 7'
   workflow_dispatch:
     branches:
       - main
