@@ -10,28 +10,35 @@ on:
 
 jobs:
   build:
-    name: Deploy Update
+    name: Build and Deploy
     runs-on: ubuntu-latest
+    permissions:
+       contents: read
+       pages: write
+       id-token: write
+    environment:
+       name: github-pages
+       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@v4
       - name: Setup node
-        uses: actions/setup-node@v2-beta
+        uses: actions/setup-node@v4
         with:
-          node-version: "18.12.1"
+          node-version: "lts/*"
       - name: Install dependencies 📦
-        run: |
-          yarn install
+        run: npm ci
       - name: Sync services
-        run: yarn sync
+        run: npm run sync
         env:
           GAS_URL: ${{ secrets.GAS_URL }}
           DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
       - name: Build
-        run: |
-          yarn build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        run: npm run build
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
-          branch: gh-pages
-          folder: build/
+          path: build
+      - name: Deploy 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4
