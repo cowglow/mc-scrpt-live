@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: "lts/*"
       - name: Install dependencies 📦
-        run: npm ci
+        run: npm install
       - name: Sync services
         run: npm run sync
         env:
