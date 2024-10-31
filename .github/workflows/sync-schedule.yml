@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 5 * * 7'
   workflow_dispatch:
-    branches:
+    - branches:
       - main
 
 jobs:
@@ -16,13 +16,13 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2-beta
         with:
-          node-version: '18.12.1'
+          node-version: "20.15.0"
       - name: Install dependencies 📦
         run: |
-          yarn add ts-node
+          npm install
       - name: Sync services
         run: |
-          yarn sync
+          npx tsx scripts/sync-events.ts
         env:
           GAS_URL: ${{ secrets.GAS_URL }}
           DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}

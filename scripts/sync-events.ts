@@ -1,13 +1,8 @@
 import { config } from 'dotenv';
 import * as path from 'path';
 import * as fs from 'fs';
-
-type EventShow = {
-	name: string;
-	date: string;
-	venue: string;
-	link: string;
-};
+import getUpcomingDates from './lib/get-upcoming-dates';
+import getPreviousDates from './lib/get-previuos-dates';
 
 config({ path: path.resolve('.env') });
 
@@ -48,34 +43,15 @@ async function syncEvents() {
 		const trimmedPreviousDates = previousDates.slice(0, 6);
 
 		console.log(' -- Create new files');
-		await fs.writeFileSync(
-			UPCOMING_SHOWS_FILE_PATH,
-			JSON.stringify(upcomingDates.reverse(), null, 2)
-		);
-		await fs.writeFileSync(PREVIOUS_SHOWS_FILE_PATH, JSON.stringify(previousDates, null, 2));
-		await fs.writeFileSync(
+		fs.writeFileSync(UPCOMING_SHOWS_FILE_PATH, JSON.stringify(upcomingDates.reverse(), null, 2));
+		fs.writeFileSync(PREVIOUS_SHOWS_FILE_PATH, JSON.stringify(previousDates, null, 2));
+		fs.writeFileSync(
 			PREVIOUS_SHOWS_TRIMMED_FILE_PATH,
 			JSON.stringify(trimmedPreviousDates, null, 2)
 		);
 	} catch (err) {
 		console.error(err);
 	}
-}
-
-function getPreviousDates(events: EventShow[]): EventShow[] {
-	const currentDate = Date.now();
-	return events.filter(({ date }) => {
-		const eventDate = Date.parse(date);
-		return eventDate < currentDate;
-	});
-}
-
-function getUpcomingDates(events: EventShow[]): EventShow[] {
-	const currentDate = Date.now();
-	return events.filter(({ date }) => {
-		const eventDate = Date.parse(date);
-		return eventDate > currentDate.valueOf();
-	});
 }
 
 syncEvents()

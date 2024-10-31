@@ -1,0 +1,5 @@
+### GET request to example server
+GET https://script.google.com/macros/s/AKfycbyLVFLeOlsx-Nj5POxQCZvh8NFJmznYIfKJycrbGJ2LPZHfjJAvopSDIZ8aPyPFJBv_Jg/exec
+Accept: application/json
+
+###

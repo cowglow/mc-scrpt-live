@@ -2,7 +2,7 @@ name: Publish Site
 
 on:
    workflow_dispatch:
-    branches:
+    - branches:
        - main 
    push:
      branches:
@@ -18,18 +18,19 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2-beta
         with:
-          node-version: "18.12.1"
+          node-version: "20.15.0"
       - name: Install dependencies 📦
         run: |
-          yarn install
+          npm install
       - name: Sync services
-        run: yarn sync
+        run: |
+          npx tsx scripts/sync-events.ts
         env:
           GAS_URL: ${{ secrets.GAS_URL }}
           DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
       - name: Build
         run: |
-          yarn build
+          npm run build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
