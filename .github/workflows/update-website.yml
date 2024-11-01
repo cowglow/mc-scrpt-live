@@ -22,12 +22,6 @@ jobs:
       - name: Install dependencies 📦
         run: |
           npm install
-      - name: Sync services
-        run: |
-          npx tsx ./scripts/sync-events.ts
-        env:
-          GAS_URL: ${{ secrets.GAS_URL }}
-          DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
       - name: Build
         run: |
           npm run build
