@@ -1,4 +1,5 @@
 ![MC-SCRPT-LIVE](static/images/logo-static.jpg)
+
 [![Update Website](https://github.com/cowglow/mc-scrpt-live/actions/workflows/update-website.yml/badge.svg)](https://github.com/cowglow/mc-scrpt-live/actions/workflows/update-website.yml)
 
 ### Links
