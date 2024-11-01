@@ -1,20 +1,15 @@
-import { config } from 'dotenv';
-import * as path from 'path';
-import * as fs from 'fs';
-import getUpcomingDates from './lib/get-upcoming-dates';
-import getPreviousDates from './lib/get-previuos-dates';
-
-config({ path: path.resolve('.env') });
+import getUpcomingDates from "./lib/get-upcoming-dates";
+import getPreviousDates from "./lib/get-previuos-dates";
+import * as fs from "node:fs";
 
 const DEPLOY_URL = `https://${process.env.GAS_URL}/${process.env.DEPLOYMENT_ID}/exec`;
-console.log('DEPLOY_URL', DEPLOY_URL);
 
 /**
  * Make sure the `data` directory exists or the script will fail
  */
-const UPCOMING_SHOWS_FILE_PATH = 'src/data/upcoming-shows.json';
-const PREVIOUS_SHOWS_FILE_PATH = 'src/data/previous-shows.json';
-const PREVIOUS_SHOWS_TRIMMED_FILE_PATH = 'src/data/previous-shows-trimmed.json';
+const UPCOMING_SHOWS_FILE_PATH = "src/data/upcoming-shows.json";
+const PREVIOUS_SHOWS_FILE_PATH = "src/data/previous-shows.json";
+const PREVIOUS_SHOWS_TRIMMED_FILE_PATH = "src/data/previous-shows-trimmed.json";
 
 const files = [
 	UPCOMING_SHOWS_FILE_PATH,
@@ -23,26 +18,26 @@ const files = [
 ];
 
 async function syncEvents() {
-	console.log(' == SYNC RESOURCES ===');
+	console.log(" == SYNC RESOURCES ===");
 	try {
-		console.log(' -- Remove old files');
+		console.log(" -- Remove old files");
 		files.map((file) => {
 			if (fs.existsSync(file)) fs.unlinkSync(file);
 		});
 
-		console.log(' -- Fetch data');
+		console.log(" -- Fetch data");
 		const data = await fetch(DEPLOY_URL, {
-			method: 'GET',
-			headers: { Accept: 'application/json' }
+			method: "GET",
+			headers: { Accept: "application/json" }
 		});
 		const shows = await data.json();
 
-		console.log(' -- Filter shows');
+		console.log(" -- Filter shows");
 		const upcomingDates = getUpcomingDates(shows);
 		const previousDates = getPreviousDates(shows);
 		const trimmedPreviousDates = previousDates.slice(0, 6);
 
-		console.log(' -- Create new files');
+		console.log(" -- Create new files");
 		fs.writeFileSync(UPCOMING_SHOWS_FILE_PATH, JSON.stringify(upcomingDates.reverse(), null, 2));
 		fs.writeFileSync(PREVIOUS_SHOWS_FILE_PATH, JSON.stringify(previousDates, null, 2));
 		fs.writeFileSync(
@@ -56,7 +51,7 @@ async function syncEvents() {
 
 syncEvents()
 	.then(() => {
-		console.log(' == END ==');
+		console.log(" == END ==");
 	})
 	.catch((err) => {
 		console.error(err);

@@ -1,4 +1,4 @@
-import type { EventShow } from '../app';
+import type { EventShow } from "../app";
 
 export function getUpcomingShow(shows: EventShow[], currentDateTime: Date = new Date()) {
 	return shows.reduce((upcomingShows: EventShow[], show) => {

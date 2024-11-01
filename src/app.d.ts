@@ -1,13 +1,18 @@
-// See https://kit.svelte.dev/docs/types#app
+// See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
-// and what to do when importing types
-import type {StoryObj} from "@storybook/svelte";
+declare global {
+	namespace App {
+		// interface Error {}
+		// interface Locals {}
+		// interface PageData {}
+		// interface PageState {}
+		// interface Platform {}
+	}
+}
 
-declare namespace App {
-	// interface Error {}
-	// interface Locals {}
-	// interface PageData {}
-	// interface Platform {}
+interface PageData {
+	upcomingShows: unknown; // Replace 'any' with the appropriate type
+	previousShows: unknown; // Replace 'any' with the appropriate type
 }
 
 type EventShow = {
@@ -24,4 +29,4 @@ type PaginatedShows = {
 	shows: Partial<EventShow>[];
 };
 
-type StorybookStory<T> = StoryObj<typeof T>
+export { PageData, EventShow, PaginatedShows };

@@ -1,6 +1,10 @@
 <script lang="ts">
-	import { scrollToView } from '$lib/scroll-to-view';
-	import { SOUNDCLOUD_LOCALSTORAGE_KEY, YOUTUBE_LOCALSTORAGE_KEY,EVENT_LOCALSTORAGE_KEY } from '$lib/constants';
+	import { scrollToView } from "$lib/scroll-to-view";
+	import {
+		SOUNDCLOUD_LOCALSTORAGE_KEY,
+		YOUTUBE_LOCALSTORAGE_KEY,
+		EVENT_LOCALSTORAGE_KEY
+	} from "$lib/constants";
 
 	function removeLocalStorageItem(key) {
 		window.localStorage.removeItem(key);
@@ -26,13 +30,13 @@
 
 	<h2>Event Log</h2>
 	<p>
-		Please be advised that this website will store the event calendar data in your browser's local storage. This is
-		done to avoid unnecessary requests to the server.
+		Please be advised that this website will store the event calendar data in your browser's local
+		storage. This is done to avoid unnecessary requests to the server.
 		<br />
-		The data will be stored indefinitely. Or until you clear the cache. But the validity of the data will only last
-		1 week. That means if you visit the website after 1 week, the data be invalid and a request will be made to the
-		server to retrieve the latest data.
-		<br>
+		The data will be stored indefinitely. Or until you clear the cache. But the validity of the data
+		will only last 1 week. That means if you visit the website after 1 week, the data be invalid and
+		a request will be made to the server to retrieve the latest data.
+		<br />
 		<button class="text-link" on:click={() => removeLocalStorageItem(EVENT_LOCALSTORAGE_KEY)}>
 			Reset stored event data
 		</button>

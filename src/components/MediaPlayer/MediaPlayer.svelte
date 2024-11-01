@@ -1,25 +1,25 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
-	import SectionLabel from '$components/Layout/SectionLabel.svelte';
-	import GdprBanner from '$components/MediaPlayer/GDPR-YouTube-Playlist.png';
-	import { YOUTUBE_LOCALSTORAGE_KEY } from '$lib/constants';
+	import { onDestroy, onMount } from "svelte";
+	import SectionLabel from "$components/Layout/SectionLabel.svelte";
+	import GdprBanner from "$components/MediaPlayer/GDPR-YouTube-Playlist.png";
+	import { YOUTUBE_LOCALSTORAGE_KEY } from "$lib/constants";
 
 	let consent = false;
 
 	onMount(() => {
-		consent = window.localStorage.getItem(YOUTUBE_LOCALSTORAGE_KEY) === 'true';
+		consent = window.localStorage.getItem(YOUTUBE_LOCALSTORAGE_KEY) === "true";
 	});
 
 	function toggleEmbeddedContent(node) {
 		const handler = () => {
-			window.localStorage.setItem(YOUTUBE_LOCALSTORAGE_KEY, 'true');
+			window.localStorage.setItem(YOUTUBE_LOCALSTORAGE_KEY, "true");
 			consent = true;
 		};
 
-		node.addEventListener('click', handler);
+		node.addEventListener("click", handler);
 
 		onDestroy(() => {
-			node.removeEventListener('click', handler);
+			node.removeEventListener("click", handler);
 		});
 	}
 </script>
@@ -38,7 +38,8 @@
 				allowfullscreen
 				height="560"
 				src="https://www.youtube-nocookie.com/embed/videoseries?list=PLvGoDsjMiifcRAccwKmrX4LNl4H6XV8jo"
-				title="YouTube video player"></iframe>
+				title="YouTube video player"
+			></iframe>
 		</div>
 	{/if}
 </div>
@@ -62,7 +63,7 @@
 	#youtube-video::after {
 		padding-top: 56.25%;
 		display: block;
-		content: '';
+		content: "";
 	}
 
 	#youtube-video iframe {

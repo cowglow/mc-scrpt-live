@@ -14,10 +14,10 @@
 
 Launch Docker container to start the development server: `docker compose run --service-ports svelte-kit bash`
 
-Once the project is running and installed dependencies with `yarn install`, start the vite server.
+Once the project is running and installed dependencies with `npm install`, start the vite server.
 
 ```bash
-yarn dev
+npm run dev
 
 ```
 

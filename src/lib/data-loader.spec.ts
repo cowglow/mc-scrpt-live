@@ -1,14 +1,14 @@
-import { describe, test } from 'vitest';
+import { describe, test } from "vitest";
 
 // import { dataLoader } from './data-loader';
 
 // TODO: Find a better way to test this
-describe('Test dataLoader Utility Function', () => {
-	const url = 'https://jsonplaceholder.typicode.com/todos/1';
-	const storageKey = 'testData';
+describe("Test dataLoader Utility Function", () => {
+	const url = "https://jsonplaceholder.typicode.com/todos/1";
+	const storageKey = "testData";
 	const expirationTime = 5000;
 
-	test('should fetch data from URL and cache it', async () => {
+	test("should fetch data from URL and cache it", async () => {
 		/*
         // clear the cache
         console.log({ storageKey });

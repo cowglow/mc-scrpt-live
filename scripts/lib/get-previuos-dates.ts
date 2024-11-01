@@ -1,4 +1,4 @@
-import type { EventShow } from '../types';
+import type { EventShow } from "../types";
 
 export default function getPreviousDates(events: EventShow[]): EventShow[] {
 	const currentDate = Date.now();

@@ -1,9 +1,9 @@
-import { describe, test } from 'vitest';
+import { describe, test } from "vitest";
 // import { scrollToView } from './scroll-to-view';
 
 // TODO: Update test to work with vitest
-describe('Test scrollToView function', async () => {
-	test('Scroll to view', () => {
+describe("Test scrollToView function", async () => {
+	test("Scroll to view", () => {
 		/*
     // create a new element to scroll to
     const el = document.createElement('div');

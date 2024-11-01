@@ -16,7 +16,7 @@ export async function dataLoader(
 	}
 
 	try {
-		const response = await fetch(url, { cache: 'force-cache' });
+		const response = await fetch(url, { cache: "force-cache" });
 		const json = await response.json();
 
 		// Cache the data and update the last update time

@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
-	import { getTimeDifference } from '$lib/get-time-difference';
-	import translations from '$stores/i18n-store';
+	import { onDestroy } from "svelte";
+	import { getTimeDifference } from "$lib/get-time-difference";
+	import translations from "$stores/i18n-store";
 
-	$: days = $translations['nextEvent.banner.date.days'];
-	$: hours = $translations['nextEvent.banner.date.hours'];
-	$: minutes = $translations['nextEvent.banner.date.minutes'];
-	$: seconds = $translations['nextEvent.banner.date.seconds'];
+	$: days = $translations["nextEvent.banner.date.days"];
+	$: hours = $translations["nextEvent.banner.date.hours"];
+	$: minutes = $translations["nextEvent.banner.date.minutes"];
+	$: seconds = $translations["nextEvent.banner.date.seconds"];
 	export let date: Date = new Date(Date.now());
 	let diff = getTimeDifference(date);
 

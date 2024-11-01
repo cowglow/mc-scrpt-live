@@ -1,13 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<title>https://mc.scrpt.live -=- Offline ...</title>
 		<style>
 			@font-face {
-				font-family: 'bd_console';
-				src: url('/fonts/bd_console.woff2') format('woff2'),
-					url('/fonts/bd_console.woff') format('woff');
+				font-family: "bd_console";
+				src:
+					url("./fonts/bd_console.woff2") format("woff2"),
+					url("./fonts/bd_console.woff") format("woff");
 				font-weight: normal;
 				font-style: normal;
 			}
@@ -24,7 +25,7 @@
 				font-size: 1.75em;
 				background-color: #000000;
 				color: #ffffff;
-				font-family: 'bd_console', sans-serif;
+				font-family: "bd_console", sans-serif;
 				scroll-behavior: smooth;
 				display: flex;
 				flex-direction: column;
@@ -34,7 +35,7 @@
 			}
 		</style>
 		<script defer>
-			if ('serviceWorker' in navigator) {
+			if ("serviceWorker" in navigator) {
 				function iterateRegistrations(registrations) {
 					for (let registration of registrations) {
 						registration.unregister();
@@ -42,7 +43,7 @@
 				}
 
 				function failedGetRegistrations(error) {
-					console.log('Service Worker registration failed: ', error);
+					console.log("Service Worker registration failed: ", error);
 				}
 
 				navigator.serviceWorker
