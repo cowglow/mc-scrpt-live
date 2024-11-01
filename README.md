@@ -1,12 +1,11 @@
+![MC-SCRPT-LIVE](static/images/logo-static.jpg)
 [![Update Website](https://github.com/cowglow/mc-scrpt-live/actions/workflows/update-website.yml/badge.svg)](https://github.com/cowglow/mc-scrpt-live/actions/workflows/update-website.yml)
-
-[MC-SCRPT-LIVE](static/images/logo-static.jpg)
 
 ### Links
 
-- [Production Website](https://mc.scrpt.live)
-- [Private Assets](/private)
-- [Scripts](/scripts)
+- [Go to website](https://mc.scrpt.live)
+- [See Private Assets](/private)
+- [Read Scripts](/scripts)
 
 ---
 
