@@ -1,10 +1,10 @@
 <script lang="ts">
-	import translations, { locale } from '$stores/i18n-store';
-	import SocialMedia from '$components/SocialMedia/Menu.svelte';
-	import Branding from '$components/Branding.svelte';
-	import { footerYear } from '$lib/footer-year';
+	import translations, { locale } from "$stores/i18n-store";
+	import SocialMedia from "$components/SocialMedia/Menu.svelte";
+	import Branding from "$components/Branding.svelte";
+	import { footerYear } from "$lib/footer-year";
 
-	$: description = $translations['footer.message'];
+	$: description = $translations["footer.message"];
 </script>
 
 <footer>
@@ -13,9 +13,9 @@
 		<div id="footer-description">
 			{description}
 			&nbsp;&nbsp;&nbsp;
-			<button on:click={() => ($locale = 'en')}>EN</button>
+			<button on:click={() => ($locale = "en")}>EN</button>
 			&nbsp;
-			<button on:click={() => ($locale = 'de')}>DE</button>
+			<button on:click={() => ($locale = "de")}>DE</button>
 		</div>
 		<SocialMedia />
 		<p id="footer-details">

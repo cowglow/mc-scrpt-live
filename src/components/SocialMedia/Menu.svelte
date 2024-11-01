@@ -1,26 +1,26 @@
 <script lang="ts">
-	import SocialMediaLink from '$components/SocialMedia/Link.svelte';
-	import Instagram from '$components/SocialMedia/Instagram.svelte';
-	import Mixcloud from '$components/SocialMedia/Mixcloud.svelte';
-	import SoundCloud from '$components/SocialMedia/SoundCloud.svelte';
-	import Twitter from '$components/SocialMedia/Twitter.svelte';
+	import SocialMediaLink from "$components/SocialMedia/Link.svelte";
+	import Instagram from "$components/SocialMedia/Instagram.svelte";
+	import Mixcloud from "$components/SocialMedia/Mixcloud.svelte";
+	import SoundCloud from "$components/SocialMedia/SoundCloud.svelte";
+	import Twitter from "$components/SocialMedia/Twitter.svelte";
 
 	const platforms = [
 		{
-			name: 'Instagram',
-			url: 'https://www.instagram.com/explore/tags/mcscrpt'
+			name: "Instagram",
+			url: "https://www.instagram.com/explore/tags/mcscrpt"
 		},
 		{
-			name: 'Mixcloud',
-			url: 'https://www.mixcloud.com/mcscrpt'
+			name: "Mixcloud",
+			url: "https://www.mixcloud.com/mcscrpt"
 		},
 		{
-			name: 'SoundCloud',
-			url: 'https://soundcloud.com/cowglow/sets/mc-scrpt'
+			name: "SoundCloud",
+			url: "https://soundcloud.com/cowglow/sets/mc-scrpt"
 		},
 		{
-			name: 'Twitter',
-			url: 'https://twitter.com/MCSCRPT'
+			name: "Twitter",
+			url: "https://twitter.com/MCSCRPT"
 		}
 	];
 </script>
@@ -30,13 +30,13 @@
 		{#each platforms as platform}
 			<li>
 				<SocialMediaLink bind:platform>
-					{#if platform.name === 'Instagram'}
+					{#if platform.name === "Instagram"}
 						<Instagram />
-					{:else if platform.name === 'Mixcloud'}
+					{:else if platform.name === "Mixcloud"}
 						<Mixcloud />
-					{:else if platform.name === 'SoundCloud'}
+					{:else if platform.name === "SoundCloud"}
 						<SoundCloud />
-					{:else if platform.name === 'Twitter'}
+					{:else if platform.name === "Twitter"}
 						<Twitter />
 					{/if}
 				</SocialMediaLink>

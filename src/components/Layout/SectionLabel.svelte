@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let title = 'Section Label';
+	export let title = "Section Label";
 	export let description: string | undefined;
 </script>
 
@@ -8,7 +8,7 @@
 
 <style>
 	h3 {
-		font-family: 'Teko Medium', sans-serif;
+		font-family: "Teko Medium", sans-serif;
 		font-style: normal;
 		font-weight: 500;
 		font-size: 33px;
@@ -18,7 +18,7 @@
 	}
 
 	.section-label-desc {
-		font-family: 'Teko', sans-serif;
+		font-family: "Teko", sans-serif;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 24px;

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte';
-	import SectionLabel from '$components/Layout/SectionLabel.svelte';
-	import GdprBanner from '$components/SoundCloudPlayer/GDPR-Soundcloud-Playlist.png';
-	import { SOUNDCLOUD_LOCALSTORAGE_KEY } from '$lib/constants';
+	import { onDestroy, onMount } from "svelte";
+	import SectionLabel from "$components/Layout/SectionLabel.svelte";
+	import GdprBanner from "$components/SoundCloudPlayer/GDPR-Soundcloud-Playlist.png";
+	import { SOUNDCLOUD_LOCALSTORAGE_KEY } from "$lib/constants";
 
 	type QueryObject = {
 		url: string;
@@ -18,25 +18,25 @@
 	let consent = false;
 
 	onMount(() => {
-		consent = window.localStorage.getItem(SOUNDCLOUD_LOCALSTORAGE_KEY) === 'true';
+		consent = window.localStorage.getItem(SOUNDCLOUD_LOCALSTORAGE_KEY) === "true";
 	});
 
 	function toggleEmbeddedContent(node) {
 		const handler = () => {
-			window.localStorage.setItem(SOUNDCLOUD_LOCALSTORAGE_KEY, 'true');
+			window.localStorage.setItem(SOUNDCLOUD_LOCALSTORAGE_KEY, "true");
 			consent = true;
 		};
 
-		node.addEventListener('click', handler);
+		node.addEventListener("click", handler);
 
 		onDestroy(() => {
-			node.removeEventListener('click', handler);
+			node.removeEventListener("click", handler);
 		});
 	}
 
 	const params: QueryObject = {
-		url: 'https://api.soundcloud.com/playlists/633696606',
-		color: '#ff5500',
+		url: "https://api.soundcloud.com/playlists/633696606",
+		color: "#ff5500",
 		auto_play: false,
 		hide_related: false,
 		show_comments: true,
@@ -49,7 +49,7 @@
 		.map((param) => {
 			return `${encodeURIComponent(param)}=${encodeURIComponent(params[param])}`;
 		})
-		.join('&');
+		.join("&");
 </script>
 
 <div id="soundcloud-player">
@@ -64,7 +64,8 @@
 			height="420"
 			src={`https://w.soundcloud.com/player/?${query}`}
 			title="soundcloud-player-iframe"
-			width="100%"></iframe>
+			width="100%"
+		></iframe>
 	{/if}
 </div>
 
@@ -78,7 +79,7 @@
 	}
 	#soundcloud-player::after {
 		display: block;
-		content: '';
+		content: "";
 	}
 	#soundcloud-player iframe {
 		position: relative;

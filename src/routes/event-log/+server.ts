@@ -1,5 +1,5 @@
-import type { RequestHandler } from '@sveltejs/kit';
-import previousShows from '$data/previous-shows.json';
+import type { RequestHandler } from "@sveltejs/kit";
+import previousShows from "$data/previous-shows.json";
 
 export const prerender = true;
 

@@ -1,4 +1,4 @@
-import type { EventShow } from '../app';
+import type { EventShow } from "../app";
 
 export function validUpcomingShows(shows: EventShow[], currentData: Date = new Date()) {
 	return shows.some((show) => {

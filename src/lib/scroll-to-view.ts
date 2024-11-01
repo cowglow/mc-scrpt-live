@@ -1,5 +1,5 @@
-export function scrollToView(node: HTMLElement, behavior: ScrollBehavior = 'smooth') {
-	const targetSelector = `#${node.getAttribute('id')}`;
+export function scrollToView(node: HTMLElement, behavior: ScrollBehavior = "smooth") {
+	const targetSelector = `#${node.getAttribute("id")}`;
 	const targetElement = document.querySelector(targetSelector);
 
 	if (!targetElement) return;

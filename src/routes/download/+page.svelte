@@ -1,16 +1,13 @@
 <script lang="ts">
-	import { scrollToView } from '$lib/scroll-to-view';
-
-	const DRY_MIX_2022 = 'DRY%20MC%20SCRPT%20-%20Vocal%20Sample%20Pack%20-%202022';
-	const DRY_MIX_2023 = 'DRY%20MC%20SCRPT%20-%20Vocal%20Sample%20Pack%20-%202023';
-	const WASILLI_MIX = 'ILL.I.SAW%20WET%20MIX%20-%20Vocal%20Sample%20Pack%20-%202022';
-
+	const DRY_MIX_2022 = "DRY%20MC%20SCRPT%20-%20Vocal%20Sample%20Pack%20-%202022";
+	const DRY_MIX_2023 = "DRY%20MC%20SCRPT%20-%20Vocal%20Sample%20Pack%20-%202023";
+	const WASILLI_MIX = "ILL.I.SAW%20WET%20MIX%20-%20Vocal%20Sample%20Pack%20-%202022";
 </script>
 
 <svelte:head>
 	<title>MC.SCRPT.LIVE | Downloads</title>
 </svelte:head>
-<div id="download" class="wrapper" use:scrollToView>
+<div id="download" class="wrapper">
 	<h1>Sound Packs</h1>
 	<p>
 		If you plan on using or have used these audio tacks, please read the following. First off, I
@@ -19,7 +16,11 @@
 	</p>
 	<ul>
 		<li>
-			2023 - Recorded by <a class="text-link" href="https://www.instagram.com/salve_shamlic/" rel="noreferrer nofollow">Salve Shamlic</a>
+			2023 - Recorded by <a
+				class="text-link"
+				href="https://www.instagram.com/salve_shamlic/"
+				rel="noreferrer nofollow">Salve Shamlic</a
+			>
 			<ul>
 				<li>
 					<a class="text-link" href={`/downloads/${DRY_MIX_2023}.zip`}>Dry Mix</a>
@@ -27,7 +28,11 @@
 			</ul>
 		</li>
 		<li>
-			2022 - Recorded by <a class="text-link" href="https://www.instagram.com/ill.i.saw/" rel="noreferrer nofollow">ill.i.saw</a>
+			2022 - Recorded by <a
+				class="text-link"
+				href="https://www.instagram.com/ill.i.saw/"
+				rel="noreferrer nofollow">ill.i.saw</a
+			>
 			<ul>
 				<li>
 					<a class="text-link" href={`/downloads/${DRY_MIX_2022}.zip`}>Dry Mix</a>
@@ -37,12 +42,15 @@
 				</li>
 			</ul>
 		</li>
-
 	</ul>
 </div>
 
 <style>
 	li {
 		line-height: var(--bottom-padding);
+	}
+
+	.wrapper {
+		border: thin solid red;
 	}
 </style>

@@ -1,4 +1,4 @@
-import type { EventShow, PaginatedShows } from '../app';
+import type { EventShow, PaginatedShows } from "../app";
 
 type PaginateContent = [content: EventShow[], index: number, max: number];
 

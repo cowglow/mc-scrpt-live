@@ -1,9 +1,9 @@
-import { derived, writable } from 'svelte/store';
-import languages from '$lib/i18n/languages';
+import { derived, writable } from "svelte/store";
+import languages from "$lib/i18n/languages";
 
 type i18nStores = [locale: Languages, languages: typeof languages];
 
-export const locale = writable<Languages>('de');
+export const locale = writable<Languages>("de");
 
 const availableLanguages = writable(languages);
 
