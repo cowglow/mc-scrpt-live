@@ -1,6 +1,7 @@
 import getUpcomingDates from "./lib/get-upcoming-dates";
 import getPreviousDates from "./lib/get-previuos-dates";
 import * as fs from "node:fs";
+import process from "node:process";
 
 const DEPLOY_URL = `https://${process.env.GAS_URL}/${process.env.DEPLOYMENT_ID}/exec`;
 
@@ -39,6 +40,7 @@ async function syncEvents() {
 
 		console.log(" -- Create new files");
 		fs.writeFileSync(UPCOMING_SHOWS_FILE_PATH, JSON.stringify(upcomingDates.reverse(), null, 2));
+		console.log(JSON.stringify(upcomingDates.map(date => date.name).join("\n")))
 		fs.writeFileSync(PREVIOUS_SHOWS_FILE_PATH, JSON.stringify(previousDates, null, 2));
 		fs.writeFileSync(
 			PREVIOUS_SHOWS_TRIMMED_FILE_PATH,
