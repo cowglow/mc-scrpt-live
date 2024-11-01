@@ -1,0 +1,151 @@
+{
+  ".svelte-kit/generated/server/internal.js": {
+    "file": "internal.js",
+    "name": "internal",
+    "src": ".svelte-kit/generated/server/internal.js",
+    "isEntry": true,
+    "imports": [
+      "_internal.js"
+    ]
+  },
+  "_client.js": {
+    "file": "chunks/client.js",
+    "name": "client",
+    "imports": [
+      "_exports.js"
+    ]
+  },
+  "_exports.js": {
+    "file": "chunks/exports.js",
+    "name": "exports"
+  },
+  "_i18n-store.js": {
+    "file": "chunks/i18n-store.js",
+    "name": "i18n-store",
+    "imports": [
+      "_index2.js"
+    ]
+  },
+  "_index.js": {
+    "file": "chunks/index.js",
+    "name": "index"
+  },
+  "_index2.js": {
+    "file": "chunks/index2.js",
+    "name": "index",
+    "imports": [
+      "_index.js"
+    ]
+  },
+  "_internal.js": {
+    "file": "chunks/internal.js",
+    "name": "internal",
+    "imports": [
+      "_index.js"
+    ]
+  },
+  "node_modules/@sveltejs/kit/src/runtime/components/svelte-5/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "name": "entries/fallbacks/error.svelte",
+    "src": "node_modules/@sveltejs/kit/src/runtime/components/svelte-5/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_client.js"
+    ]
+  },
+  "node_modules/@sveltejs/kit/src/runtime/server/index.js": {
+    "file": "index.js",
+    "name": "index",
+    "src": "node_modules/@sveltejs/kit/src/runtime/server/index.js",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_internal.js",
+      "_exports.js",
+      "_index2.js"
+    ]
+  },
+  "src/components/MediaPlayer/GDPR-YouTube-Playlist.png": {
+    "file": "_app/immutable/assets/GDPR-YouTube-Playlist.ClWzAsHS.png",
+    "src": "src/components/MediaPlayer/GDPR-YouTube-Playlist.png"
+  },
+  "src/components/SoundCloudPlayer/GDPR-Soundcloud-Playlist.png": {
+    "file": "_app/immutable/assets/GDPR-Soundcloud-Playlist.CUG6r6wP.png",
+    "src": "src/components/SoundCloudPlayer/GDPR-Soundcloud-Playlist.png"
+  },
+  "src/routes/+layout.svelte": {
+    "file": "entries/pages/_layout.svelte.js",
+    "name": "entries/pages/_layout.svelte",
+    "src": "src/routes/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_i18n-store.js",
+      "_client.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_layout.CaGgaN3j.css"
+    ]
+  },
+  "src/routes/+page.svelte": {
+    "file": "entries/pages/_page.svelte.js",
+    "name": "entries/pages/_page.svelte",
+    "src": "src/routes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_i18n-store.js",
+      "_index2.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.D7wzYrje.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/GDPR-YouTube-Playlist.ClWzAsHS.png",
+      "_app/immutable/assets/GDPR-Soundcloud-Playlist.CUG6r6wP.png"
+    ]
+  },
+  "src/routes/+page.ts": {
+    "file": "entries/pages/_page.ts.js",
+    "name": "entries/pages/_page.ts",
+    "src": "src/routes/+page.ts",
+    "isEntry": true
+  },
+  "src/routes/download/+page.svelte": {
+    "file": "entries/pages/download/_page.svelte.js",
+    "name": "entries/pages/download/_page.svelte",
+    "src": "src/routes/download/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.BGf3WwY9.css"
+    ]
+  },
+  "src/routes/download/+page.ts": {
+    "file": "entries/pages/download/_page.ts.js",
+    "name": "entries/pages/download/_page.ts",
+    "src": "src/routes/download/+page.ts",
+    "isEntry": true
+  },
+  "src/routes/event-log/+server.ts": {
+    "file": "entries/endpoints/event-log/_server.ts.js",
+    "name": "entries/endpoints/event-log/_server.ts",
+    "src": "src/routes/event-log/+server.ts",
+    "isEntry": true
+  },
+  "src/routes/impressum/+page.svelte": {
+    "file": "entries/pages/impressum/_page.svelte.js",
+    "name": "entries/pages/impressum/_page.svelte",
+    "src": "src/routes/impressum/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.OTILZseU.css"
+    ]
+  }
+}

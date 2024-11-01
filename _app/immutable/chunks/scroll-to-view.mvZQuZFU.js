@@ -1,1 +1,0 @@
-function c(e,o="smooth"){const r=`#${e.getAttribute("id")}`,t=document.querySelector(r);if(!t)return;const n=setTimeout(()=>{window.scrollTo({top:t.getBoundingClientRect().top-88,behavior:o})},1e3);return{destroy:()=>{clearTimeout(n)}}}export{c as s};
