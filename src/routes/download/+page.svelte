@@ -49,8 +49,4 @@
 	li {
 		line-height: var(--bottom-padding);
 	}
-
-	.wrapper {
-		border: thin solid red;
-	}
 </style>
