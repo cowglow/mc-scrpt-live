@@ -31,9 +31,6 @@ jobs:
       - name: Install dependencies 📦
         run: |
           npm install
-      - name: Sync Events
-        run: |
-          npx tsx ./scripts/sync-events.ts
       - name: Build
         run: |
           npm run build
