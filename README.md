@@ -1,5 +1,4 @@
-[![Site Published](https://github.com/cowglow/mc-scrpt-live/actions/workflows/publish.yml/badge.svg)](https://github.com/cowglow/mc-scrpt-live/actions/workflows/publish.yml)
-
+[![Update Website](https://github.com/cowglow/mc-scrpt-live/actions/workflows/update-website.yml/badge.svg)](https://github.com/cowglow/mc-scrpt-live/actions/workflows/update-website.yml)
 [MC-SCRPT-LIVE](static/images/logo-static.jpg)
 
 ### Links
