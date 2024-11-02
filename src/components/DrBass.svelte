@@ -1,4 +1,9 @@
-<a href="https://monstersofjungle.de" target="_blank" rel="noreferrer nofollow" aria-label="To Monsters of Jungle Website">
+<a
+	href="https://monstersofjungle.de"
+	target="_blank"
+	rel="noreferrer nofollow"
+	aria-label="To Monsters of Jungle Website"
+>
 	<svg
 		width="852"
 		height="794"

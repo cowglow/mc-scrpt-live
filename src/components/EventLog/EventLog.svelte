@@ -7,7 +7,7 @@
 		EVENT_CONTENT_DEFAULT_PAGE,
 		EVENT_LOCALSTORAGE_KEY,
 		JSON_PATH,
-		MAX_EVENT_ITEMS
+		EVENT_CONTENT_MAX_PER_PAGE
 	} from "$lib/constants";
 	import { dataLoader } from "$lib/data-loader";
 	import { paginateContent } from "$lib/paginate-content";
@@ -24,8 +24,8 @@
 
 	let shows = writable(previousShows);
 	let currentPage = writable(EVENT_CONTENT_DEFAULT_PAGE);
-	let maxPages = readable(MAX_EVENT_ITEMS);
-	let eventsStore = derived([shows, currentPage, maxPages], paginateContent);
+	let maxPerPage = readable(EVENT_CONTENT_MAX_PER_PAGE);
+	let eventsStore = derived([shows, currentPage, maxPerPage], paginateContent);
 
 	$: logData = $eventsStore.shows;
 

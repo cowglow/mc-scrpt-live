@@ -5,7 +5,7 @@ export const DOWNLOAD_ROUTE = "/download";
 
 export const EVENT_LOCALSTORAGE_KEY = "EVENT_LOG";
 export const EVENT_CONTENT_DEFAULT_PAGE = 1;
-export const MAX_EVENT_ITEMS = 6;
+export const EVENT_CONTENT_MAX_PER_PAGE = 6;
 export const JSON_PATH = "/event-log";
 
 export const SOUNDCLOUD_LOCALSTORAGE_KEY = "soundcloud-consent";
