@@ -34,6 +34,9 @@
 	ul#navigation > li a:hover {
 		color: red;
 	}
+	ul#navigation > li a:active {
+		color: #fff200ff;
+	}
 
 	@media only screen and (min-width: 720px) {
 		ul#navigation {

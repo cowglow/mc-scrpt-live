@@ -15,6 +15,9 @@
 	a#brand:hover {
 		color: red;
 	}
+	a#brand:active {
+		color: #fff200ff;
+	}
 
 	@media only screen and (min-width: 840px) {
 		a#brand {

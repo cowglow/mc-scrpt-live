@@ -25,31 +25,24 @@
 	button {
 		flex: 1;
 		cursor: pointer;
-		background: var(--secondary);
+		background-color: var(--secondary);
 		border: thin solid white;
 		line-height: 0;
 		padding: 8px;
 	}
 
 	button:active {
-		opacity: unset;
-		border: thick solid white;
+		border-color: var(--active);
 	}
 
 	button[disabled] {
-		border: thin solid var(--primary);
+		border-color: var(--secondary);
 		cursor: unset;
-		background-color: var(--secondary);
 	}
 
 	button[disabled] img {
-		opacity: 0;
-	}
-
-	@media (hover: none) {
-		button {
-			opacity: unset;
-		}
+		mix-blend-mode: soft-light;
+		fill: var(--active);
 	}
 
 	@media screen and (min-width: 700px) {

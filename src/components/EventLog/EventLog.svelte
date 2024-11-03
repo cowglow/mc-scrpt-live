@@ -45,7 +45,7 @@
 </script>
 
 {#if disableBanner}
-	<NextEventBanner data={upcomingShows} />
+	<NextEventBanner data={upcomingShows} screenWidth={100} />
 {/if}
 <div class="wrapper">
 	<h1>{label}</h1>

@@ -3,20 +3,23 @@
 	import translations from "$stores/i18n-store";
 	import type { EventShow } from "../../app";
 	import { getUpcomingShow } from "$lib/get-upcoming-show";
+	import formattedEventDate from "$lib/formatted-event-date.js";
 
 	let { data = [], screenWidth } = $props<{ data: EventShow[]; screenWidth: number }>();
+	const nextShow = getUpcomingShow(data);
 
+	let eventIndex = $state(0);
 	let label = $derived($translations["nextEvent.banner.title"]);
 	let cta = $derived($translations["nextEvent.banner.cta"]);
 
-	let eventIndex = $state(0);
-	const nextShow = getUpcomingShow(data);
+	const canGoBackwards = $derived(eventIndex - 1 >= 0);
+	const canGoForwards = $derived(eventIndex + 1 < data.length);
 
 	function changeEventIndex(action: "forward" | "backward" = "forward") {
-		if (action === "backward" && eventIndex - 1 >= 0) {
+		if (action === "backward" && canGoBackwards) {
 			eventIndex--;
 		}
-		if (action === "forward" && eventIndex + 1 < data.length) {
+		if (action === "forward" && canGoForwards) {
 			eventIndex++;
 		}
 	}
@@ -24,11 +27,11 @@
 
 <svelte:window bind:innerWidth={screenWidth} />
 <div class="wrapper">
-	<button onclick={() => changeEventIndex("backward")}>&lt;</button>
+	<button onclick={() => changeEventIndex("backward")} disabled={!canGoBackwards}>&lt;</button>
 	{#if nextShow.length > 0}
 		<div id="next-event-banner">
 			<div class="title">
-				<h1>{label}</h1>
+				<h1>{eventIndex < 1 ? label : formattedEventDate(new Date(nextShow[eventIndex].date))}</h1>
 				<h2>{nextShow[eventIndex].name}</h2>
 				<h3>{nextShow[eventIndex].venue}</h3>
 			</div>
@@ -42,23 +45,35 @@
 			</div>
 		</div>
 	{/if}
-	<button onclick={() => changeEventIndex("forward")}>&gt;</button>
+	<button onclick={() => changeEventIndex("forward")} disabled={!canGoForwards}>&gt;</button>
 </div>
 
 <style>
 	.wrapper {
-		border: thin solid red;
 		display: flex;
 		margin: 0 auto;
 		padding: 0;
 	}
 
 	button {
+		cursor: pointer;
 		background-color: var(--secondary);
 		margin: 0;
 		padding: 0 0.5rem;
 		border: unset;
 		color: white;
+		border: thin solid white;
+	}
+
+	button:active {
+		color: var(--active);
+		border-color: var(--active);
+	}
+
+	button[disabled] {
+		border-color: var(--secondary);
+		color: var(--primary);
+		cursor: unset;
 	}
 
 	#next-event-banner {
@@ -132,18 +147,18 @@
 	}
 
 	a {
-		color: #000000;
+		color: white;
 		text-align: right;
 		text-decoration: underline;
 	}
 
 	a:hover {
-		color: #ffffff;
-		text-decoration: none;
+		color: var(--secondary);
 	}
 
 	a:active {
-		color: #fff200ff;
+		color: var(--active);
+		text-decoration: none;
 	}
 
 	@media screen and (max-width: 370px) {
