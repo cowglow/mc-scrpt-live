@@ -7,6 +7,8 @@
 	--side-padding: 22px;
 	--bottom-padding: 44px;
 	--top-padding: 88px;
+	--primary: red;
+	--secondary: darkred;
 }
 
 html,

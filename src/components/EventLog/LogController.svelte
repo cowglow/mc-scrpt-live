@@ -18,33 +18,41 @@
 	.wrapper {
 		display: flex;
 		justify-content: space-around;
-		padding-top: 10px;
+		padding: 0;
+		margin: 0 auto;
 	}
+
 	button {
+		flex: 1;
 		cursor: pointer;
-		background: red;
+		background: var(--secondary);
 		border: thin solid white;
-		width: 30%;
 		line-height: 0;
 		padding: 8px;
 	}
+
 	button:active {
 		opacity: unset;
 		border: thick solid white;
 	}
+
 	button[disabled] {
+		border: thin solid var(--primary);
 		cursor: unset;
-		opacity: 0.56;
+		background-color: var(--secondary);
 	}
+
+	button[disabled] img {
+		opacity: 0;
+	}
+
 	@media (hover: none) {
 		button {
 			opacity: unset;
 		}
 	}
+
 	@media screen and (min-width: 700px) {
-		.wrapper {
-			padding-top: var(--bottom-padding);
-		}
 		button {
 			padding: 18px 0 10px;
 		}

@@ -4,40 +4,66 @@
 	import type { EventShow } from "../../app";
 	import { getUpcomingShow } from "$lib/get-upcoming-show";
 
-	export let data: EventShow[] = [];
+	let { data = [], screenWidth } = $props<{ data: EventShow[]; screenWidth: number }>();
 
-	$: label = $translations["nextEvent.banner.title"];
-	$: cta = $translations["nextEvent.banner.cta"];
+	let label = $derived($translations["nextEvent.banner.title"]);
+	let cta = $derived($translations["nextEvent.banner.cta"]);
 
-	let screenWidth;
-
+	let eventIndex = $state(0);
 	const nextShow = getUpcomingShow(data);
+
+	function changeEventIndex(action: "forward" | "backward" = "forward") {
+		if (action === "backward" && eventIndex - 1 >= 0) {
+			eventIndex--;
+		}
+		if (action === "forward" && eventIndex + 1 < data.length) {
+			eventIndex++;
+		}
+	}
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
-{#if nextShow.length > 0}
-	<div id="next-event-banner">
-		<div class="title">
-			<h1>{label}</h1>
-			<h2>{nextShow[0].name}</h2>
-			<h3>{nextShow[0].venue}</h3>
+<div class="wrapper">
+	<button onclick={() => changeEventIndex("backward")}>&lt;</button>
+	{#if nextShow.length > 0}
+		<div id="next-event-banner">
+			<div class="title">
+				<h1>{label}</h1>
+				<h2>{nextShow[eventIndex].name}</h2>
+				<h3>{nextShow[eventIndex].venue}</h3>
+			</div>
+			<div class="count-down">
+				<CountDown date={new Date(nextShow[eventIndex].date)} />
+			</div>
+			<div class="info">
+				<a href={nextShow[eventIndex].link} rel="noreferrer nofollow" target="event-link">
+					{cta}
+				</a>
+			</div>
 		</div>
-		<div class="count-down">
-			<CountDown date={new Date(nextShow[0].date)} />
-		</div>
-		<div class="info">
-			<a href={nextShow[0].link} rel="noreferrer nofollow" target="event-link"> {cta} </a>
-		</div>
-	</div>
-{/if}
+	{/if}
+	<button onclick={() => changeEventIndex("forward")}>&gt;</button>
+</div>
 
 <style>
+	.wrapper {
+		border: thin solid red;
+		display: flex;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	button {
+		background-color: var(--secondary);
+		margin: 0;
+		padding: 0 0.5rem;
+		border: unset;
+		color: white;
+	}
+
 	#next-event-banner {
 		display: flex;
-		flex-wrap: wrap;
-		background-color: red;
-		position: relative;
-		align-items: center;
+		background-color: var(--primary);
 		flex-grow: 1;
 		max-width: 1080px;
 		width: 95%;
@@ -57,7 +83,7 @@
 	}
 
 	.count-down {
-		flex-grow: 1;
+		width: 25%;
 	}
 
 	.info {
@@ -67,7 +93,6 @@
 		align-items: flex-end;
 		right: 0;
 		padding: 0;
-		flex-grow: 1;
 		margin: var(--side-padding) 0;
 	}
 

@@ -1,5 +1,11 @@
 [
 	{
+		"name": "Booyaka",
+		"date": "2024-11-02T21:00:00.000Z",
+		"venue": "Kofferfabrik",
+		"link": "https://www.facebook.com/events/1960097107824089"
+	},
+	{
 		"name": "Monsters of Jungle feat. Conrad Subs",
 		"date": "2024-10-19T20:00:00.000Z",
 		"venue": "Z-Bau",
@@ -28,11 +34,5 @@
 		"date": "2024-06-08T20:00:00.000Z",
 		"venue": "Kopf und Kragen",
 		"link": "https://www.facebook.com/events/1120179539198780/"
-	},
-	{
-		"name": "DubWorXx feat. Mc Raida",
-		"date": "2024-05-08T20:00:00.000Z",
-		"venue": "Z-Bau",
-		"link": "https://www.facebook.com/events/1153566106070267"
 	}
 ]
