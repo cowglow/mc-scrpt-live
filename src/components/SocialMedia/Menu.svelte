@@ -3,7 +3,6 @@
 	import Instagram from "$components/SocialMedia/Instagram.svelte";
 	import Mixcloud from "$components/SocialMedia/Mixcloud.svelte";
 	import SoundCloud from "$components/SocialMedia/SoundCloud.svelte";
-	import Twitter from "$components/SocialMedia/Twitter.svelte";
 
 	const platforms = [
 		{
@@ -17,10 +16,6 @@
 		{
 			name: "SoundCloud",
 			url: "https://soundcloud.com/cowglow/sets/mc-scrpt"
-		},
-		{
-			name: "Twitter",
-			url: "https://twitter.com/MCSCRPT"
 		}
 	];
 </script>
@@ -36,8 +31,6 @@
 						<Mixcloud />
 					{:else if platform.name === "SoundCloud"}
 						<SoundCloud />
-					{:else if platform.name === "Twitter"}
-						<Twitter />
 					{/if}
 				</SocialMediaLink>
 			</li>
