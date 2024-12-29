@@ -15,8 +15,6 @@
 	<meta property="og:url" content="https://mc.scrpt.live" />
 	<meta property="og:image" content="https://mc.scrpt.live/images/og-image.png" />
 	<meta property="og:description" content="Upcoming shows, videos and music." />
-	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:creator" content="@MCScrpt" />
 	<link
 		rel="preload"
 		href="/fonts/PressStart2P-Regular.woff2"
