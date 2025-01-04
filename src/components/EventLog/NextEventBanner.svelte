@@ -29,7 +29,7 @@
 
 <svelte:window bind:innerWidth={screenWidth} />
 <div class='wrapper'>
-	{#if screenWidth > MAX_SCREEN_WIDTH}
+	{#if screenWidth > MAX_SCREEN_WIDTH && data.length > 1}
 		<button onclick={() => changeEventIndex("backward")} disabled={!canGoBackwards}>&lt;</button>
 	{/if}
 	{#if nextShow.length > 0}
@@ -51,7 +51,7 @@
 			</div>
 		</div>
 	{/if}
-	{#if screenWidth > MAX_SCREEN_WIDTH}
+	{#if screenWidth > MAX_SCREEN_WIDTH && data.length > 1}
 		<button onclick={() => changeEventIndex("forward")} disabled={!canGoForwards}>&gt;</button>
 	{/if}
 </div>
