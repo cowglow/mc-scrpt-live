@@ -1,20 +1,14 @@
 [
-	{
-		"name": "dotBass 2024",
-		"date": "2024-11-09T21:00:00.000Z",
-		"venue": "Z-Bau",
-		"link": "https://www.facebook.com/events/524079690308836"
-	},
-	{
-		"name": "Booyaka feat. MC Fava",
-		"date": "2024-12-14T21:00:00.000Z",
-		"venue": "Kopf und Kragen",
-		"link": "https://www.facebook.com/events/2083267788737099"
-	},
-	{
-		"name": "Monsters of Jungle X-Mas Bash",
-		"date": "2024-12-25T22:00:00.000Z",
-		"venue": "Kunstverein Hintere-Cramergasse e.V",
-		"link": "https://www.monstersofjungle.de"
-	}
+  {
+    "name": "Booyaka - Jungle & Drum and Bass",
+    "date": "2025-01-25T21:00:00.000Z",
+    "venue": "Kofferfabrik",
+    "link": "https://www.facebook.com/events/632690749181987"
+  },
+  {
+    "name": "Monsters of Jungle feat. Dope Ammo",
+    "date": "2025-02-15T21:00:00.000Z",
+    "venue": "Z-Bau",
+    "link": "https://www.facebook.com/events/534126496448207"
+  }
 ]
