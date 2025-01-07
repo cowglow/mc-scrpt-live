@@ -13,6 +13,7 @@
 	import { paginateContent } from "$lib/paginate-content";
 	import translations from "$stores/i18n-store";
 	import { validUpcomingShows } from "$lib/valid-upcoming-shows";
+	import { innerWidth } from "svelte/reactivity/window";
 
 	$: label = $translations["events.header.title"];
 	$: content = $translations["events.header.description"];
@@ -45,9 +46,10 @@
 </script>
 
 {#if disableBanner}
-	<NextEventBanner data={upcomingShows} screenWidth={100} />
+	<NextEventBanner data={upcomingShows} screenWidth={innerWidth.current} />
 {/if}
 <div class="wrapper">
+	{JSON.stringify()}
 	<h1>{label}</h1>
 	<h3>{content}</h3>
 	<LogList data={logData} />

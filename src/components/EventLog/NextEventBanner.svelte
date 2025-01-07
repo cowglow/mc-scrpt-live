@@ -5,7 +5,7 @@
 	import { getUpcomingShow } from "$lib/get-upcoming-show";
 	import formattedEventDate from "$lib/formatted-event-date.js";
 
-	let { data = [], screenWidth } = $props<{ data: EventShow[]; screenWidth: number }>();
+	let { data = [] as EventShow[], screenWidth = 0 } = $props();
 	const nextShow = getUpcomingShow(data);
 
 	let eventIndex = $state(0);
@@ -24,7 +24,10 @@
 		}
 	}
 
-	const MAX_SCREEN_WIDTH = 360;
+	const hasMultipleEvents = data.length > 1;
+
+	const MAX_SCREEN_WIDTH = 412;
+	const isHiddenForMobile = screenWidth <= MAX_SCREEN_WIDTH;
 </script>
 
 <div class="wrapper">
@@ -38,8 +41,8 @@
 				<h2>{nextShow[eventIndex].name}</h2>
 				<h3>{nextShow[eventIndex].venue}</h3>
 			</div>
-			{#if screenWidth > MAX_SCREEN_WIDTH}
-				<div class='count-down'>
+			{#if !isHiddenForMobile}
+				<div class="count-down">
 					<CountDown date={new Date(nextShow[eventIndex].date)} />
 				</div>
 			{/if}
@@ -50,7 +53,7 @@
 			</div>
 		</div>
 	{/if}
-	{#if screenWidth > MAX_SCREEN_WIDTH && data.length > 1}
+	{#if hasMultipleEvents && !isHiddenForMobile}
 		<button onclick={() => changeEventIndex("forward")} disabled={!canGoForwards}>&gt;</button>
 	{/if}
 </div>
