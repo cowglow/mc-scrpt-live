@@ -27,10 +27,8 @@
 	const MAX_SCREEN_WIDTH = 360;
 </script>
 
-<svelte:window bind:innerWidth={screenWidth} />
-<div class='wrapper'>
-	{#if screenWidth > MAX_SCREEN_WIDTH && data.length > 1}
 <div class="wrapper">
+	{#if hasMultipleEvents && !isHiddenForMobile}
 		<button onclick={() => changeEventIndex("backward")} disabled={!canGoBackwards}>&lt;</button>
 	{/if}
 	{#if nextShow.length > 0}
