@@ -1,11 +1,11 @@
 name: Sync Event Data
 
-on:
-  schedule:
-    - cron: "0 5 * * 7"
-  workflow_dispatch:
-    branches:
-      - main
+on: workflow_dispatch
+#  schedule:
+#    - cron: "0 5 * * 7"
+#  workflow_dispatch:
+#    branches:
+#      - main
 
 jobs:
   sync-event:
