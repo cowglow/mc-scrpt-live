@@ -43,6 +43,26 @@
 			</ul>
 		</li>
 	</ul>
+	<h1>Releases</h1>
+	<ul>
+		<li>
+			Kontrolfreek by <a
+				class="text-link"
+				href="https://www.instagram.com/ill.i.saw/"
+				rel="noreferrer nofollow">ill.i.saw</a
+			>.
+			<ul>
+				<li>
+					Available on
+					<a
+						class="text-link"
+						href="https://on.soundcloud.com/g5gtswzcyiafsAmt5"
+						rel="noreferrer nofollow">SoundCloud</a
+					>
+				</li>
+			</ul>
+		</li>
+	</ul>
 </div>
 
 <style>
