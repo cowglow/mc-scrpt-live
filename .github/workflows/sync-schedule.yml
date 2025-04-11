@@ -1,6 +1,10 @@
 name: Sync Event Data
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 #  schedule:
 #    - cron: "0 5 * * 7"
 #  workflow_dispatch:
@@ -33,10 +37,10 @@ jobs:
       - name: Install dependencies 📦
         run: |
           npm install
-          
+
       - name: Sync services
         run: |
-          npm run sync
+          npx tsx scripts/sync-events.ts
         env:
           GAS_URL: ${{ secrets.GAS_URL }}
           DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
