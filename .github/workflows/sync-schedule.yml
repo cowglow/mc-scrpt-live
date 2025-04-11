@@ -9,26 +9,53 @@ on: workflow_dispatch
 
 jobs:
   sync-event:
+    name: Update Website Events
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v3.0.2
-      - name: Setup node
-        uses: actions/setup-node@v2-beta
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: "20.15.0"
+          node-version: "lts/*"
+          
       - name: Install dependencies 📦
         run: |
           npm install
+          
       - name: Sync services
         run: |
-          npx tsx scripts/sync-events.ts
+          npm run sync
         env:
           GAS_URL: ${{ secrets.GAS_URL }}
           DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
+        
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           message: Updated event data
           committer_name: GitHub Actions
           committer_email: actions@github.com
+      
+      - name: Build
+        run: |
+          npm run build
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+      
+      - name: Deploy 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4
