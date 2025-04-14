@@ -2,9 +2,9 @@ name: Sync Event Data
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+#  push:
+#    branches:
+#      - main
 #  schedule:
 #    - cron: "0 5 * * 7"
 #  workflow_dispatch:
@@ -45,21 +45,21 @@ jobs:
           GAS_URL: ${{ secrets.GAS_URL }}
           DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
         
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: Updated event data
-          committer_name: GitHub Actions
-          committer_email: actions@github.com
-      
-      - name: Build
-        run: |
-          npm run build
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
-      
-      - name: Deploy 🚀
-        id: deployment
-        uses: actions/deploy-pages@v4
+#      - name: Commit changes
+#        uses: EndBug/add-and-commit@v9
+#        with:
+#          message: Updated event data
+#          committer_name: GitHub Actions
+#          committer_email: actions@github.com
+#
+#      - name: Build
+#        run: |
+#          npm run build
+#      - uses: actions/configure-pages@v4
+#      - uses: actions/upload-pages-artifact@v3
+#        with:
+#          path: build
+#
+#      - name: Deploy 🚀
+#        id: deployment
+#        uses: actions/deploy-pages@v4
