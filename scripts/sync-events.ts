@@ -5,6 +5,10 @@ import getUpcomingDates from "./lib/get-upcoming-dates";
 import getPreviousDates from "./lib/get-previuos-dates";
 import type { EventShow } from "./types";
 
+if (!process.env.VITE_GAS_URL || !process.env.VITE_DEPLOYMENT_ID) {
+	throw new Error("Environment variables VITE_GAS_URL or VITE_DEPLOYMENT_ID are not set.");
+}
+
 const DEPLOY_URL = `https://${process.env.VITE_GAS_URL}/${process.env.VITE_DEPLOYMENT_ID}/exec`;
 
 /**
