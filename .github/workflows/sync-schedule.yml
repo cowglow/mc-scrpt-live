@@ -1,15 +1,9 @@
 name: Sync Event Data
 
 on:
+  schedule:
+    - cron: "0 5 * * 4" # Every Thursday at 5:00 AM UTC
   workflow_dispatch:
-  push:
-    branches:
-      - main
-#  schedule:
-#    - cron: "0 5 * * 7"
-#  workflow_dispatch:
-#    branches:
-#      - main
 
 jobs:
   sync-event:
@@ -48,19 +42,7 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
-          message: Updated event data
+          message: "Chore: Update Event Data"
           add: "src/data/*.json"
-          committer_name: GitHub Actions
-          committer_email: actions@github.com
-
-      - name: Build
-        run: |
-          npm run build
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
-
-      - name: Deploy 🚀
-        id: deployment
-        uses: actions/deploy-pages@v4
+          committer_name: "GitHub Actions"
+          committer_email: "actions@github.com"
