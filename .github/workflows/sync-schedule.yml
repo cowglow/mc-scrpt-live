@@ -38,7 +38,10 @@ jobs:
         env:
           VITE_GAS_URL: ${{ secrets.VITE_GAS_URL }}
           VITE_DEPLOYMENT_ID: ${{ secrets.VITE_DEPLOYMENT_ID }}
-        
+
+      - name: Debug files
+        run: ls -R src/data
+
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
