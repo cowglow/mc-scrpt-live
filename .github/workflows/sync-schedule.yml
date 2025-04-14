@@ -42,8 +42,8 @@ jobs:
         run: |
           npx tsx scripts/sync-events.ts
         env:
-          GAS_URL: ${{ secrets.GAS_URL }}
-          DEPLOYMENT_ID: ${{ secrets.DEPLOYMENT_ID }}
+          GAS_URL: ${{ secrets.VITE_GAS_URL }}
+          DEPLOYMENT_ID: ${{ secrets.VITE_DEPLOYMENT_ID }}
         
 #      - name: Commit changes
 #        uses: EndBug/add-and-commit@v9
