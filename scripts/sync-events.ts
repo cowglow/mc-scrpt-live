@@ -1,3 +1,4 @@
+import "dotenv/config";
 import process from "node:process";
 import * as fs from "node:fs";
 import fetch from "node-fetch";
