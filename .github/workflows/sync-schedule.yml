@@ -45,21 +45,22 @@ jobs:
           VITE_GAS_URL: ${{ secrets.VITE_GAS_URL }}
           VITE_DEPLOYMENT_ID: ${{ secrets.VITE_DEPLOYMENT_ID }}
         
-#      - name: Commit changes
-#        uses: EndBug/add-and-commit@v9
-#        with:
-#          message: Updated event data
-#          committer_name: GitHub Actions
-#          committer_email: actions@github.com
-#
-#      - name: Build
-#        run: |
-#          npm run build
-#      - uses: actions/configure-pages@v4
-#      - uses: actions/upload-pages-artifact@v3
-#        with:
-#          path: build
-#
-#      - name: Deploy 🚀
-#        id: deployment
-#        uses: actions/deploy-pages@v4
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: Updated event data
+          add: "src/data/*.json"
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
+
+      - name: Build
+        run: |
+          npm run build
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+      - name: Deploy 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4
