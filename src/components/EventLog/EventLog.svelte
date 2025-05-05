@@ -14,6 +14,7 @@
 	import translations from "$stores/i18n-store";
 	import { validUpcomingShows } from "$lib/valid-upcoming-shows";
 	import { innerWidth } from "svelte/reactivity/window";
+	import LogEntry from "$components/EventLog/LogEntry.svelte";
 
 	$: label = $translations["events.header.title"];
 	$: content = $translations["events.header.description"];
@@ -49,7 +50,15 @@
 	<NextEventBanner data={upcomingShows} screenWidth={innerWidth.current} />
 {/if}
 <div class="wrapper">
-	{JSON.stringify()}
+	{#if $eventsStore.shows.length > 0}
+		<div class="event-log">
+			{#each $eventsStore.shows as event}
+				<LogEntry {...event} />
+			{/each}
+		</div>
+	{:else}
+		<p>{translations["events.noEvents"]}</p>
+	{/if}
 	<h1>{label}</h1>
 	<h3>{content}</h3>
 	<LogList data={logData} />

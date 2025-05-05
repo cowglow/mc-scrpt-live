@@ -4,13 +4,17 @@
 	import type { EventShow } from "../../app";
 	import { getUpcomingShow } from "$lib/get-upcoming-show";
 	import formattedEventDate from "$lib/formatted-event-date.js";
+	import { verifyVenue } from "$lib/verify-venu";
 
 	let { data = [] as EventShow[], screenWidth = 0 } = $props();
 	const nextShow = getUpcomingShow(data);
 
 	let eventIndex = $state(0);
 	let label = $derived($translations["nextEvent.banner.title"]);
-	let cta = $derived($translations["nextEvent.banner.cta"]);
+	let fbEvent = $derived($translations["nextEvent.banner.fbEvent"]);
+	let googleMap = $derived($translations["nextEvent.banner.googleMap"]);
+
+	const verifiedVenue = $derived(verifyVenue(nextShow[eventIndex].venue));
 
 	const canGoBackwards = $derived(eventIndex - 1 >= 0);
 	const canGoForwards = $derived(eventIndex + 1 < data.length);
@@ -26,8 +30,8 @@
 
 	const hasMultipleEvents = data.length > 1;
 
-	const MAX_SCREEN_WIDTH = 412;
-	const isHiddenForMobile = screenWidth <= MAX_SCREEN_WIDTH;
+	const MAX_SCREEN_WIDTH = 640;
+	const isHiddenForMobile = $derived(screenWidth <= MAX_SCREEN_WIDTH);
 </script>
 
 <div class="wrapper">
@@ -37,18 +41,34 @@
 	{#if nextShow.length > 0}
 		<div id="next-event-banner">
 			<div class="title">
-				<h1>{eventIndex < 1 ? label : formattedEventDate(new Date(nextShow[eventIndex].date))}</h1>
-				<h2>{nextShow[eventIndex].name}</h2>
-				<h3>{nextShow[eventIndex].venue}</h3>
+				<h1>{label}: <span>{formattedEventDate(new Date(nextShow[eventIndex].date))}</span></h1>
 			</div>
-			{#if !isHiddenForMobile}
-				<div class="count-down">
+			<div class="count-down">
+				<h2>{nextShow[eventIndex].name}</h2>
+				{#if !isHiddenForMobile}
 					<CountDown date={new Date(nextShow[eventIndex].date)} />
-				</div>
-			{/if}
+				{/if}
+			</div>
 			<div class="info">
-				<a href={nextShow[eventIndex].link} rel="noreferrer nofollow" target="event-link">
-					{cta}
+				{#if verifiedVenue}
+					<a
+						href="https://www.google.com/maps/search/{nextShow[eventIndex].venue}/"
+						rel="noreferrer nofollow"
+						target="map-link"
+						aria-label={googleMap}
+					>
+						{nextShow[eventIndex].venue}
+					</a>
+				{:else}
+					<span>{nextShow[eventIndex].venue}</span>
+				{/if}
+				<a
+					href={nextShow[eventIndex].link}
+					rel="noreferrer nofollow"
+					target="event-link"
+					aria-label={fbEvent}
+				>
+					{fbEvent}
 				</a>
 			</div>
 		</div>
@@ -88,8 +108,8 @@
 
 	#next-event-banner {
 		display: flex;
+		flex-direction: column;
 		background-color: var(--primary);
-		flex-grow: 1;
 		max-width: 1080px;
 		width: 95%;
 		min-height: 135px;
@@ -100,21 +120,24 @@
 	.title {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		align-items: flex-start;
-		flex-grow: 1;
-		padding: 0;
-		margin: 10px auto;
+		margin: 10px 0;
 	}
 
 	.count-down {
-		width: 25%;
+		display: flex;
+		align-content: space-between;
+		flex: 1;
+	}
+
+	.count-down h2 {
+		flex: 1;
 	}
 
 	.info {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		gap: 8px;
+		justify-content: space-between;
 		align-items: flex-end;
 		right: 0;
 		padding: 0;
@@ -122,6 +145,8 @@
 	}
 
 	h1 {
+		display: flex;
+		justify-content: space-between;
 		font-family: Teko, sans-serif;
 		font-size: 21px;
 		font-style: normal;
@@ -130,6 +155,11 @@
 		padding: 0;
 		margin: 0.35rem 0 0;
 		color: #000000;
+		width: 100%;
+	}
+
+	h1 span {
+		color: white;
 	}
 
 	h2 {

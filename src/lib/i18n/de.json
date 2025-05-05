@@ -1,8 +1,9 @@
 {
 	"nextEvent.banner.title": "Nächste Show",
-	"nextEvent.banner.cta": "Mehr Infos",
+	"nextEvent.banner.fbEvent": "Facebook-Link",
+	"nextEvent.banner.googleMap": "Google-Maps-Link",
 	"nextEvent.banner.date.days": "Tage",
-	"nextEvent.banner.date.hours": "Std\n",
+	"nextEvent.banner.date.hours": "Std",
 	"nextEvent.banner.date.minutes": "Mins",
 	"nextEvent.banner.date.seconds": "Sek",
 	"events.header.title": "Frühere Ereignisse",

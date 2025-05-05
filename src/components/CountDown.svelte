@@ -30,12 +30,13 @@
 	.wrapper {
 		display: flex;
 		justify-content: space-between;
+		padding: 0;
 		width: 100%;
 		max-width: 276px;
-		gap: 10px;
 	}
 
 	.container {
+		border: thin solid mediumpurple;
 		display: flex;
 		flex-direction: column;
 		text-align: center;
