@@ -79,135 +79,125 @@
 </div>
 
 <style>
-	.wrapper {
-		display: flex;
-		margin: 0 auto;
-		padding: 0;
-	}
+    .wrapper {
+        display: flex;
+        margin: 0 auto;
+        padding: 0;
+    }
 
-	button {
-		cursor: pointer;
-		background-color: var(--secondary);
-		margin: 0;
-		padding: 0 0.5rem;
-		border: unset;
-		color: white;
-		border: thin solid white;
-	}
+    button {
+        cursor: pointer;
+        background-color: var(--secondary);
+        margin: 0;
+        padding: 0 0.5rem;
+        border: unset;
+        color: white;
+        border: thin solid white;
+    }
 
-	button:active {
-		color: var(--active);
-		border-color: var(--active);
-	}
+    button:active {
+        color: var(--active);
+        border-color: var(--active);
+    }
 
-	button[disabled] {
-		border-color: var(--secondary);
-		color: var(--primary);
-		cursor: unset;
-	}
+    button[disabled] {
+        border-color: var(--secondary);
+        color: var(--primary);
+        cursor: unset;
+    }
 
-	#next-event-banner {
-		display: flex;
-		flex-direction: column;
-		background-color: var(--primary);
-		max-width: 1080px;
-		width: 95%;
-		min-height: 135px;
-		margin: 0 auto;
-		padding: 0 var(--side-padding);
-	}
+    #next-event-banner {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--primary);
+        max-width: 1080px;
+        width: 95%;
+        min-height: 135px;
+        margin: 0 auto;
+        padding: 0 var(--side-padding);
+    }
 
-	.title {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		margin: 10px 0;
-	}
+    .title {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px 0;
+    }
 
-	.count-down {
-		display: flex;
-		align-content: space-between;
-		flex: 1;
-	}
+    .count-down {
+        display: flex;
+        align-content: space-between;
+        flex: 1;
+    }
 
-	.count-down h2 {
-		flex: 1;
-	}
+    .count-down h2 {
+        flex: 1;
+    }
 
-	.info {
-		display: flex;
-		gap: 8px;
-		justify-content: space-between;
-		align-items: flex-end;
-		right: 0;
-		padding: 0;
-		margin: var(--side-padding) 0;
-	}
+    .info {
+        display: flex;
+        gap: 8px;
+        justify-content: space-between;
+        align-items: flex-end;
+        right: 0;
+        padding: 0;
+        margin: var(--side-padding) 0;
+    }
 
-	h1 {
-		display: flex;
-		justify-content: space-between;
-		font-family: Teko, sans-serif;
-		font-size: 21px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 21px;
-		padding: 0;
-		margin: 0.35rem 0 0;
-		color: #000000;
-		width: 100%;
-	}
+    h1 {
+        display: flex;
+        justify-content: space-between;
+        font-family: Teko, sans-serif;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 21px;
+        padding: 0;
+        margin: 0.35rem 0 0;
+        color: #000000;
+    }
 
-	h1 span {
-		color: white;
-	}
+    h1 span {
+        flex: 1;
+        color: white;
+        margin-left: 0.2rem;
+    }
 
-	h2 {
-		padding: 0;
-		margin: 0;
-		font-family: Teko, sans-serif;
-		font-size: 38px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 46px;
-		display: flex;
-		align-items: flex-end;
-		color: #ffffff;
-	}
+    h2 {
+        padding: 0;
+        margin: 0;
+        font-family: Teko, sans-serif;
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 46px;
+        display: flex;
+        align-items: flex-end;
+        color: #ffffff;
+    }
 
-	h3 {
-		padding: 0;
-		margin: 0;
-		font-family: Teko, sans-serif;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 21px;
-		line-height: 21px;
-		color: #ffffff;
-	}
+    a {
+        color: white;
+        text-align: right;
+        text-decoration: underline;
+    }
 
-	a {
-		color: white;
-		text-align: right;
-		text-decoration: underline;
-	}
+    a:hover {
+        color: var(--secondary);
+    }
 
-	a:hover {
-		color: var(--secondary);
-	}
+    a:active {
+        color: var(--active);
+        text-decoration: none;
+    }
 
-	a:active {
-		color: var(--active);
-		text-decoration: none;
-	}
+    @media screen and (max-width: 370px) {
+        #next-event-banner {
+            flex-direction: column;
+        }
 
-	@media screen and (max-width: 370px) {
-		#next-event-banner {
-			flex-direction: column;
-		}
-
-		.title {
-			margin: 0.25rem 0;
-		}
-	}
+        .title {
+            margin: 0.25rem 0;
+        }
+    }
 </style>
