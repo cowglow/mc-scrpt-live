@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { derived, readable, writable } from "svelte/store";
 	import LogController from "./LogController.svelte";
-	import LogList from "./LogList.svelte";
 	import NextEventBanner from "./NextEventBanner.svelte";
 	import {
 		EVENT_CONTENT_DEFAULT_PAGE,
+		EVENT_CONTENT_MAX_PER_PAGE,
 		EVENT_LOCALSTORAGE_KEY,
-		JSON_PATH,
-		EVENT_CONTENT_MAX_PER_PAGE
+		JSON_PATH
 	} from "$lib/constants";
 	import { dataLoader } from "$lib/data-loader";
 	import { paginateContent } from "$lib/paginate-content";
@@ -29,8 +28,6 @@
 	let maxPerPage = readable(EVENT_CONTENT_MAX_PER_PAGE);
 	let eventsStore = derived([shows, currentPage, maxPerPage], paginateContent);
 
-	$: logData = $eventsStore.shows;
-
 	const disableBanner = validUpcomingShows(upcomingShows);
 
 	function stepBackward() {
@@ -49,6 +46,8 @@
 {#if disableBanner}
 	<NextEventBanner data={upcomingShows} screenWidth={innerWidth.current} />
 {/if}
+<h1>{label}</h1>
+<h3>{content}</h3>
 <div class="wrapper">
 	{#if $eventsStore.shows.length > 0}
 		<div class="event-log">
@@ -59,9 +58,6 @@
 	{:else}
 		<p>{translations["events.noEvents"]}</p>
 	{/if}
-	<h1>{label}</h1>
-	<h3>{content}</h3>
-	<LogList data={logData} />
 	<LogController
 		{...{
 			stepBackwardDisabled: !$eventsStore.previousPage,
