@@ -55,7 +55,7 @@
 						href="https://www.google.com/maps/search/{nextShow[eventIndex].venue}/"
 						rel="noreferrer nofollow"
 						target="map-link"
-						aria-label={googleMap}
+						aria-label={`View ${googleMap} location on Google Maps`}
 					>
 						{nextShow[eventIndex].venue}
 					</a>
@@ -66,7 +66,7 @@
 					href={nextShow[eventIndex].link}
 					rel="noreferrer nofollow"
 					target="event-link"
-					aria-label={fbEvent}
+					aria-label="View Facebook event"
 				>
 					{fbEvent}
 				</a>
@@ -135,6 +135,7 @@
     }
 
     .info {
+        color: #cc0000;
         display: flex;
         gap: 8px;
         justify-content: space-between;
