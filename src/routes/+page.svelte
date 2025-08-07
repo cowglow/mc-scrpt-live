@@ -52,6 +52,18 @@
 	/>
 </svelte:head>
 
+<section class="videos">
+	<div style="width: 70%; margin: 0 auto;">
+		<h1>Servus!</h1>
+		<p>Ich bin jetzt schon seit fast 10 Jahren als MC Scrpt unterwegs.</p>
+		<p>
+			Ich bin echt stolz und froh, dass ich mich kreativ ausleben kann.
+			ich bin froh, dass ihr mich so gut aufgenommen habt!
+			Ich weiß nicht, was die Zukunft bringt, aber ich muss meine Website aktualisieren!
+		</p>
+		<p>Tanzt weiter!</p>
+	</div>
+</section>
 <section class="events" id={ANCHOR_EVENTS}>
 	<EventLog {upcomingShows} {previousShows} />
 </section>
@@ -65,25 +77,25 @@
 </section>
 
 <style>
-	.events {
-		background-color: black;
-		color: #ffffff;
-		padding: 0;
-	}
+    .events {
+        background-color: black;
+        color: #ffffff;
+        padding: 0;
+    }
 
-	.videos {
-		background-color: black;
-		color: #ffffff;
-		padding: var(--side-padding);
-	}
+    .videos {
+        background-color: black;
+        color: #ffffff;
+        padding: var(--side-padding);
+    }
 
-	.audio {
-		padding: var(--side-padding);
-	}
+    .audio {
+        padding: var(--side-padding);
+    }
 
-	@media screen and (min-width: 1080px) {
-		.audio {
-			padding: 0 0 42px;
-		}
-	}
+    @media screen and (min-width: 1080px) {
+        .audio {
+            padding: 0 0 42px;
+        }
+    }
 </style>
