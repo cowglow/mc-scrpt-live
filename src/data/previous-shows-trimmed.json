@@ -1,5 +1,11 @@
 [
   {
+    "name": "Booyaka",
+    "date": "2025-08-09T20:00:00.000Z",
+    "venue": "Koffer Fabrik",
+    "link": "https://www.instagram.com/booyakadnb"
+  },
+  {
     "name": "Z-Bau Biergarten mit Monsters of Jungle",
     "date": "2025-07-11T15:00:00.000Z",
     "venue": "Z-Bau",
@@ -28,11 +34,5 @@
     "date": "2025-04-19T21:45:00.000Z",
     "venue": "Z-Bau",
     "link": "https://www.facebook.com/events/1144371576990142"
-  },
-  {
-    "name": "DubWorXx",
-    "date": "2025-03-22T21:00:00.000Z",
-    "venue": "Roter Salon",
-    "link": "https://www.instagram.com/p/DGCn54gtZfB/"
   }
 ]
