@@ -98,12 +98,6 @@
 	<h2>Downloads</h2>
 	<p>
 		For more information, please refer to the README.md file located in the zipped downloaded asset.
-		Sharing concept modeled after <a
-			class="text-link"
-			href="https://www.caseycalhounbeats.com/music-usage.html"
-		>
-			Casey Calhoun
-		</a>
 	</p>
 </div>
 

@@ -3,10 +3,15 @@
 	import MediaPlayer from "$components/MediaPlayer/MediaPlayer.svelte";
 	import SoundCloudPlayer from "$components/SoundCloudPlayer/SoundCloudPlayer.svelte";
 	import EventLog from "$components/EventLog/EventLog.svelte";
+	import translations from "$stores/i18n-store";
 
 	export let data;
 
 	const { upcomingShows, previousShows } = data;
+	$: messageOpening = $translations["message.opening"];
+	$: messageBody = $translations["message.body"];
+	$: messageClosing = $translations["message.closing"];
+
 </script>
 
 <svelte:head>
@@ -55,13 +60,9 @@
 <section class="videos">
 	<div style="width: 70%; margin: 0 auto;">
 		<h1>Servus!</h1>
-		<p>Ich bin jetzt schon seit fast 10 Jahren als MC Scrpt unterwegs.</p>
-		<p>
-			Ich bin echt stolz und froh, dass ich mich kreativ ausleben kann.
-			ich bin froh, dass ihr mich so gut aufgenommen habt!
-			Ich weiß nicht, was die Zukunft bringt, aber ich muss meine Website aktualisieren!
-		</p>
-		<p>Tanzt weiter!</p>
+		<p>{messageOpening}</p>
+		<p>{messageBody}</p>
+		<p>{messageClosing}</p>
 	</div>
 </section>
 <section class="events" id={ANCHOR_EVENTS}>
