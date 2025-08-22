@@ -57,14 +57,15 @@
 	/>
 </svelte:head>
 
-<section class="videos">
-	<div style="width: 70%; margin: 0 auto;">
+<section class="message">
+	<div>
 		<h1>Servus!</h1>
 		<p>{messageOpening}</p>
 		<p>{messageBody}</p>
 		<p>{messageClosing}</p>
 	</div>
 </section>
+
 <section class="events" id={ANCHOR_EVENTS}>
 	<EventLog {upcomingShows} {previousShows} />
 </section>
@@ -78,6 +79,20 @@
 </section>
 
 <style>
+    .message {
+        background-color: black;
+        color: #ffffff;
+        padding: var(--side-padding);
+    }
+
+    .message div {
+				width: 100%;
+        max-width: 1080px;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+    }
+
     .events {
         background-color: black;
         color: #ffffff;

@@ -51,7 +51,7 @@
 <div class="wrapper">
 	{#if $eventsStore.shows.length > 0}
 		<div class="event-log">
-			{#each $eventsStore.shows as event}
+			{#each $eventsStore.shows as event (event.date)}
 				<LogEntry {...event} />
 			{/each}
 		</div>
@@ -69,40 +69,40 @@
 </div>
 
 <style>
-	.wrapper {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		max-width: 1080px;
-		padding: 0 var(--side-padding) var(--bottom-padding);
-		margin: 0 auto;
-	}
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1080px;
+        padding: 0 var(--side-padding) var(--bottom-padding);
+        margin: 0 auto;
+    }
 
-	h1 {
-		font-family: Teko, sans-serif;
-		font-size: 3.8rem;
-		text-align: left;
-		left: 0;
-		margin: var(--side-padding) 0 0;
-		padding: 0;
-	}
+    h1 {
+        font-family: Teko, sans-serif;
+        font-size: 3.8rem;
+        text-align: left;
+        left: 0;
+        margin: var(--side-padding) 0 0;
+        padding: 0;
+    }
 
-	h3 {
-		font-size: 1.2rem;
-		font-style: normal;
-		font-weight: normal;
-		text-align: left;
-	}
+    h3 {
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: normal;
+        text-align: left;
+    }
 
-	@media screen and (min-width: 700px) {
-		h1 {
-			text-align: center;
-		}
+    @media screen and (min-width: 700px) {
+        h1 {
+            text-align: center;
+        }
 
-		h3 {
-			font-size: 1.8rem;
-			text-align: center;
-			padding: 0 13%;
-		}
-	}
+        h3 {
+            font-size: 1.8rem;
+            text-align: center;
+            padding: 0 13%;
+        }
+    }
 </style>
