@@ -22,7 +22,7 @@
 
 <div id="social-media-navbar">
 	<ul>
-		{#each platforms as platform}
+		{#each platforms as platform (platform.name)}
 			<li>
 				<SocialMediaLink bind:platform>
 					{#if platform.name === "Instagram"}
@@ -39,19 +39,19 @@
 </div>
 
 <style>
-	#social-media-navbar {
-		margin: auto 0;
-	}
+    #social-media-navbar {
+        margin: auto 0;
+    }
 
-	#social-media-navbar ul {
-		display: flex;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
+    #social-media-navbar ul {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 
-	#social-media-navbar ul > li {
-		display: inline;
-		margin: 0 10px;
-	}
+    #social-media-navbar ul > li {
+        display: inline;
+        margin: 0 12px 0 0;
+    }
 </style>

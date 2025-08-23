@@ -4,6 +4,7 @@
 	import SoundCloudPlayer from "$components/SoundCloudPlayer/SoundCloudPlayer.svelte";
 	import EventLog from "$components/EventLog/EventLog.svelte";
 	import translations from "$stores/i18n-store";
+	import SocialMedia from "$components/SocialMedia/Menu.svelte";
 
 	export let data;
 
@@ -62,7 +63,10 @@
 		<h1>Servus!</h1>
 		<p>{messageOpening}</p>
 		<p>{messageBody}</p>
-		<p>{messageClosing}</p>
+		<div style="display:flex;justify-content:space-between;">
+			{messageClosing}
+			<SocialMedia />
+		</div>
 	</div>
 </section>
 
@@ -86,7 +90,7 @@
     }
 
     .message div {
-				width: 100%;
+        width: 100%;
         max-width: 1080px;
         overflow: hidden;
         position: relative;
