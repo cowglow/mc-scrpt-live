@@ -18,7 +18,7 @@
 		<li>
 			2023 - Recorded by <a
 				class="text-link"
-				href="https://www.instagram.com/salve_shamlic/"
+				href="https://www.instagram.com/salveshamlic/"
 				rel="noreferrer nofollow">Salve Shamlic</a
 			>
 			<ul>
@@ -30,7 +30,7 @@
 		<li>
 			2022 - Recorded by <a
 				class="text-link"
-				href="https://www.instagram.com/ill.i.saw/"
+				href="https://www.instagram.com/ill_i_saw/"
 				rel="noreferrer nofollow">ill.i.saw</a
 			>
 			<ul>
@@ -48,7 +48,7 @@
 		<li>
 			Kontrolfreek by <a
 				class="text-link"
-				href="https://www.instagram.com/ill.i.saw/"
+				href="https://www.instagram.com/ill_i_saw/"
 				rel="noreferrer nofollow">ill.i.saw</a
 			>.
 			<ul>
