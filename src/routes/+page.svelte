@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS } from "$lib/constants";
+	import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS, BANNER_DISMISSED_KEY } from "$lib/constants";
 	import MediaPlayer from "$components/MediaPlayer/MediaPlayer.svelte";
 	import SoundCloudPlayer from "$components/SoundCloudPlayer/SoundCloudPlayer.svelte";
 	import EventLog from "$components/EventLog/EventLog.svelte";
@@ -7,12 +7,22 @@
 	import SocialMedia from "$components/SocialMedia/Menu.svelte";
 
 	export let data;
-
 	const { upcomingShows, previousShows } = data;
 	$: messageOpening = $translations["message.opening"];
 	$: messageBody = $translations["message.body"];
 	$: messageClosing = $translations["message.closing"];
 
+
+	let showBanner = false;
+
+	if (typeof window !== "undefined") {
+		showBanner = localStorage.getItem(BANNER_DISMISSED_KEY) !== "true";
+	}
+
+	function hideBanner() {
+		showBanner = false;
+		localStorage.setItem(BANNER_DISMISSED_KEY, "true");
+	}
 </script>
 
 <svelte:head>
@@ -58,17 +68,24 @@
 	/>
 </svelte:head>
 
-<section class="message">
-	<div>
-		<h1>Servus!</h1>
-		<p>{messageOpening}</p>
-		<p>{messageBody}</p>
-		<div style="display:flex;justify-content:space-between;">
-			{messageClosing}
-			<SocialMedia />
+{#if showBanner}
+	<section class="message">
+		<div>
+			<h1>Servus!</h1>
+			<p>{messageOpening}</p>
+			<p>{messageBody}</p>
+			<div style="display:flex;justify-content:space-between;">
+				<SocialMedia />
+				<button on:click={hideBanner}>
+					{messageClosing}
+				</button>
+			</div>
+			<br />
+			<br />
+			<br />
 		</div>
-	</div>
-</section>
+	</section>
+{/if}
 
 <section class="events" id={ANCHOR_EVENTS}>
 	<EventLog {upcomingShows} {previousShows} />
@@ -84,9 +101,31 @@
 
 <style>
     .message {
+        top: 0;
+        position: absolute;
         background-color: black;
         color: #ffffff;
+        padding: var(--top-padding);
+        width: 100%;
+        height: 100%;
+    }
+
+    .message button {
+        font-family: var(--font-family-body), serif;
+				font-size: larger;
+        color: var(--white);
+        background: var(--primary);
         padding: var(--side-padding);
+    }
+
+    .message button:hover {
+        background: var(--secondary);
+        color: var(--primary);
+        cursor: pointer;
+    }
+
+    .message button:active {
+        color: var(--white);
     }
 
     .message div {

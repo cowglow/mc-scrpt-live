@@ -3,11 +3,20 @@
 	import {
 		SOUNDCLOUD_LOCALSTORAGE_KEY,
 		YOUTUBE_LOCALSTORAGE_KEY,
-		EVENT_LOCALSTORAGE_KEY
+		EVENT_LOCALSTORAGE_KEY, BANNER_DISMISSED_KEY, EVENT_LOG_LAST_UPDATE_KEY
 	} from "$lib/constants";
 
 	function removeLocalStorageItem(key) {
 		window.localStorage.removeItem(key);
+	}
+
+	function removeAllLocalStorageItems() {
+		window.localStorage.removeItem(SOUNDCLOUD_LOCALSTORAGE_KEY);
+		window.localStorage.removeItem(YOUTUBE_LOCALSTORAGE_KEY);
+		window.localStorage.removeItem(EVENT_LOCALSTORAGE_KEY);
+		window.localStorage.removeItem(BANNER_DISMISSED_KEY);
+		window.localStorage.removeItem(EVENT_LOG_LAST_UPDATE_KEY);
+		console.log(EVENT_LOG_LAST_UPDATE_KEY)
 	}
 </script>
 
@@ -27,6 +36,13 @@
 		</p>
 	</address>
 	<br />
+
+
+	<h2>Message Banner</h2>
+	<p>Please be advised that this website will store the message banner dismissal in your browser's local storage. </p>
+	<button class="text-link" on:click={() => removeLocalStorageItem(BANNER_DISMISSED_KEY)}>
+		Reset stored banner dismissal
+	</button>
 
 	<h2>Event Log</h2>
 	<p>
@@ -84,15 +100,19 @@
 		</button>
 	</p>
 
+	<button class="text-link" style="font-size: large;padding:7px 30px;" on:click={() => removeAllLocalStorageItems()}>
+		Reset all
+	</button>
+
 	<h2>Hosting</h2>
 	<p>
 		The code and content for this website can be found on GitHub. To learn more about Github Pages
 		please visit their <a
-			class="text-link"
-			href="https://pages.github.com/"
-			rel="noopener noreferrer"
-			target="_blank">website</a
-		>.
+		class="text-link"
+		href="https://pages.github.com/"
+		rel="noopener noreferrer"
+		target="_blank">website</a
+	>.
 	</p>
 
 	<h2>Downloads</h2>
@@ -102,10 +122,11 @@
 </div>
 
 <style>
-	button {
-		cursor: pointer;
-	}
-	button:hover {
-		text-decoration: none;
-	}
+    button {
+        cursor: pointer;
+    }
+
+    button:hover {
+        text-decoration: none;
+    }
 </style>
