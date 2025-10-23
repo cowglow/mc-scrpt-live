@@ -12,7 +12,6 @@
 	$: messageBody = $translations["message.body"];
 	$: messageClosing = $translations["message.closing"];
 
-
 	let showBanner = false;
 
 	if (typeof window !== "undefined") {
@@ -100,61 +99,61 @@
 </section>
 
 <style>
-    .message {
-        top: 0;
-        position: absolute;
-        background-color: black;
-        color: #ffffff;
-        padding: var(--top-padding);
-        width: 100%;
-        height: 100%;
-    }
+	.message {
+		top: 0;
+		position: absolute;
+		background-color: black;
+		color: #ffffff;
+		padding: var(--top-padding);
+		width: 100%;
+		height: 100%;
+	}
 
-    .message button {
-        font-family: var(--font-family-body), serif;
-				font-size: larger;
-        color: var(--white);
-        background: var(--primary);
-        padding: var(--side-padding);
-    }
+	.message button {
+		font-family: var(--font-family-body), serif;
+		font-size: larger;
+		color: var(--white);
+		background: var(--primary);
+		padding: var(--side-padding);
+	}
 
-    .message button:hover {
-        background: var(--secondary);
-        color: var(--primary);
-        cursor: pointer;
-    }
+	.message button:hover {
+		background: var(--secondary);
+		color: var(--primary);
+		cursor: pointer;
+	}
 
-    .message button:active {
-        color: var(--white);
-    }
+	.message button:active {
+		color: var(--white);
+	}
 
-    .message div {
-        width: 100%;
-        max-width: 1080px;
-        overflow: hidden;
-        position: relative;
-        margin: 0 auto;
-    }
+	.message div {
+		width: 100%;
+		max-width: 1080px;
+		overflow: hidden;
+		position: relative;
+		margin: 0 auto;
+	}
 
-    .events {
-        background-color: black;
-        color: #ffffff;
-        padding: 0;
-    }
+	.events {
+		background-color: black;
+		color: #ffffff;
+		padding: 0;
+	}
 
-    .videos {
-        background-color: black;
-        color: #ffffff;
-        padding: var(--side-padding);
-    }
+	.videos {
+		background-color: black;
+		color: #ffffff;
+		padding: var(--side-padding);
+	}
 
-    .audio {
-        padding: var(--side-padding);
-    }
+	.audio {
+		padding: var(--side-padding);
+	}
 
-    @media screen and (min-width: 1080px) {
-        .audio {
-            padding: 0 0 42px;
-        }
-    }
+	@media screen and (min-width: 1080px) {
+		.audio {
+			padding: 0 0 42px;
+		}
+	}
 </style>

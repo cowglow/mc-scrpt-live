@@ -36,53 +36,53 @@
 </footer>
 
 <style>
-    footer {
-        width: 100%;
-        background-color: black;
-        display: flex;
-        flex-direction: column;
-        color: white;
-        padding: 38px;
-    }
+	footer {
+		width: 100%;
+		background-color: black;
+		display: flex;
+		flex-direction: column;
+		color: white;
+		padding: 38px;
+	}
 
-    div {
-        width: 100%;
-        max-width: 1080px;
-        margin: 0 auto;
-    }
+	div {
+		width: 100%;
+		max-width: 1080px;
+		margin: 0 auto;
+	}
 
-    a {
-        text-decoration: none;
-    }
+	a {
+		text-decoration: none;
+	}
 
-    #footer-description {
-        display: flex;
-        flex-wrap: wrap-reverse;
-        justify-content: space-between;
-    }
+	#footer-description {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		justify-content: space-between;
+	}
 
-    #footer-details {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap-reverse;
-        margin-top: 90px;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 1rem;
-        line-height: 17px;
-    }
+	#footer-details {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap-reverse;
+		margin-top: 90px;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 1rem;
+		line-height: 17px;
+	}
 
-    button {
-        background: none !important;
-        border: none;
-        /*padding: 0 !important;*/
-        /*input has OS specific font-family*/
-        color: white;
-        text-decoration: underline;
-        cursor: pointer;
-    }
+	button {
+		background: none !important;
+		border: none;
+		/*padding: 0 !important;*/
+		/*input has OS specific font-family*/
+		color: white;
+		text-decoration: underline;
+		cursor: pointer;
+	}
 
-    button:hover {
-        text-decoration: none;
-    }
+	button:hover {
+		text-decoration: none;
+	}
 </style>

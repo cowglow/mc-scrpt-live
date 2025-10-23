@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { formattedEventLinkString } from "$lib/formatted-event-link-string";
-	import { verifyVenue } from "$lib/verify-venu";
+	import { verifyVenue } from "$lib/verify-venue";
 
 	export let name = "";
 	export let date = new Date();
@@ -36,7 +36,7 @@
 		minute: "2-digit"
 	});
 
-	$: verifiedVenue = verifyVenue(venue);
+	$: verifiedVenueLink = verifyVenue(venue);
 </script>
 
 <div class="wrapper">
@@ -50,11 +50,13 @@
 	</div>
 	<div class="flex-it event-name">
 		<span>{name}</span>
-		{#if verifiedVenue}
+		{#if verifiedVenueLink}
 			<a
-				href="https://www.google.com/maps/search/{venue}/"
+				href={verifiedVenueLink}
 				rel="noreferrer nofollow"
 				target="map-link"
+				title="Wait! You're about to go to Google Maps. Click to Proceed."
+				aria-label="Wait! You're about to go to Google Maps. Click to Proceed."
 			>
 				{venue}
 			</a>

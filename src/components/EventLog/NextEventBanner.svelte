@@ -4,7 +4,7 @@
 	import type { EventShow } from "../../app";
 	import { getUpcomingShow } from "$lib/get-upcoming-show";
 	import formattedEventDate from "$lib/formatted-event-date.js";
-	import { verifyVenue } from "$lib/verify-venu";
+	import { verifyVenue } from "$lib/verify-venue";
 
 	let { data = [] as EventShow[], screenWidth = 0 } = $props();
 	const nextShow = getUpcomingShow(data);
