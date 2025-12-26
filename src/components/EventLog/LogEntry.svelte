@@ -70,12 +70,14 @@
 				<img alt="Event link icon" src="/images/event-link-icon.svg" />
 			</a>
 		</div>
-		<div class="desktop">
-			<img alt="Event link icon" src="/images/event-link-icon.svg" />
-			<a href={link} rel="noreferrer nofollow" target="event-link">
-				{eventUrl}
-			</a>
-		</div>
+		{#if verifiedVenueLink}
+			<div class="desktop">
+				<img alt="Event link icon" src="/images/event-link-icon.svg" />
+				<a href={link} rel="noreferrer nofollow" target="event-link">
+					{eventUrl}
+				</a>
+			</div>
+		{/if}
 	</div>
 	<div class="flex-it event-time desktop">
 		<div class="desktop">
@@ -86,119 +88,119 @@
 </div>
 
 <style>
-	.wrapper {
-		display: flex;
-		max-height: 4em;
-		background-color: red;
-		flex-grow: 1;
-	}
+    .wrapper {
+        display: flex;
+        max-height: 4em;
+        background-color: red;
+        flex-grow: 1;
+    }
 
-	.wrapper:nth-child(even) {
-		color: white;
-		background-color: black;
-	}
+    .wrapper:nth-child(even) {
+        color: white;
+        background-color: black;
+    }
 
-	.wrapper:nth-child(odd) a {
-		color: black;
-	}
+    .wrapper:nth-child(odd) a {
+        color: black;
+    }
 
-	.wrapper:nth-child(odd) a:hover {
-		color: red;
-	}
+    .wrapper:nth-child(odd) a:hover {
+        color: red;
+    }
 
-	.wrapper:nth-child(odd) {
-		color: black;
-		background-color: white;
-	}
+    .wrapper:nth-child(odd) {
+        color: black;
+        background-color: white;
+    }
 
-	.flex-it {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
+    .flex-it {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-	.event-date {
-		width: 16%;
-		max-width: 165px;
-	}
+    .event-date {
+        width: 16%;
+        max-width: 165px;
+    }
 
-	.event-name {
-		width: 38%;
-		max-width: 400px;
-		flex-grow: 1;
-		align-items: flex-start;
-	}
+    .event-name {
+        width: 38%;
+        max-width: 400px;
+        flex-grow: 1;
+        align-items: flex-start;
+    }
 
-	.event-name span:nth-child(1) {
-		font-size: 22px;
-		line-height: 24px;
-	}
+    .event-name span:nth-child(1) {
+        font-size: 22px;
+        line-height: 24px;
+    }
 
-	.event-name span:nth-child(2) {
-		color: red;
-	}
+    .event-name span:nth-child(2) {
+        color: red;
+    }
 
-	.event-link {
-		padding: 10px;
-		align-items: center;
-		width: 15%;
-	}
+    .event-link {
+        padding: 10px;
+        align-items: center;
+        width: 15%;
+    }
 
-	.event-link a {
-		margin-left: 4px;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-	}
+    .event-link a {
+        margin-left: 4px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
 
-	.event-time {
-		padding: 15px;
-		align-items: center;
-		width: 15%;
-	}
+    .event-time {
+        padding: 15px;
+        align-items: center;
+        width: 15%;
+    }
 
-	.event-time span {
-		margin-left: 4px;
-	}
+    .event-time span {
+        margin-left: 4px;
+    }
 
-	.mobile {
-		display: flex;
-	}
+    .mobile {
+        display: flex;
+    }
 
-	.desktop {
-		display: none;
-	}
+    .desktop {
+        display: none;
+    }
 
-	@media screen and (min-width: 700px) {
-		.mobile {
-			display: none;
-		}
+    @media screen and (min-width: 700px) {
+        .mobile {
+            display: none;
+        }
 
-		.desktop {
-			display: flex;
-		}
+        .desktop {
+            display: flex;
+        }
 
-		.event-date {
-			width: 16%;
-		}
+        .event-date {
+            width: 16%;
+        }
 
-		.event-name {
-			width: 38%;
-		}
+        .event-name {
+            width: 38%;
+        }
 
-		.event-link {
-			width: 28%;
-			max-width: 310px;
-			align-items: flex-start;
-			line-height: unset;
-			font-size: 20px;
-			overflow: hidden;
-		}
+        .event-link {
+            width: 28%;
+            max-width: 310px;
+            align-items: flex-start;
+            line-height: unset;
+            font-size: 20px;
+            overflow: hidden;
+        }
 
-		.event-time {
-			width: 18%;
-			max-width: 205px;
-		}
-	}
+        .event-time {
+            width: 18%;
+            max-width: 205px;
+        }
+    }
 </style>
