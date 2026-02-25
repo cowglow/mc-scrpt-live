@@ -7,7 +7,7 @@
 	import { verifyVenue } from "$lib/verify-venue";
 
 	let { data = [] as EventShow[], screenWidth = 0 } = $props();
-	const nextShow = getUpcomingShow(data);
+	const nextShow = $derived(getUpcomingShow(data));
 
 	let eventIndex = $state(0);
 	let label = $derived($translations["nextEvent.banner.title"]);
@@ -29,7 +29,7 @@
 		}
 	}
 
-	const hasMultipleEvents = data.length > 1;
+	const hasMultipleEvents = $derived(data.length > 1);
 
 	const MAX_SCREEN_WIDTH = 640;
 	const isHiddenForMobile = $derived(screenWidth <= MAX_SCREEN_WIDTH);
