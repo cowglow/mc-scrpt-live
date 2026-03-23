@@ -9,12 +9,33 @@
 	<title>MC.SCRPT.LIVE | Downloads</title>
 </svelte:head>
 <div id="download" class="wrapper">
+	<h1>Press Kit</h1>
+	<ul>
+		<li>Web Based
+			<a class="text-link" href="https://www.canva.com/design/DAHEywanYKM/0xlwWiGOuucgUulcHJfwfw/view" target="_blank"
+				 rel="noreferrer nofollow">Quick Intro Presentation</a> [Canva]
+		</li>
+		<li>
+			Hi-Res Photo <a class="text-link" href={`/downloads/${EPK}.zip`}>Download Kit</a> [Zip]
+		</li>
+	</ul>
+	<h1>Releases</h1>
+	<ul>
+		<li>
+			Kontrolfreek by <a
+			class="text-link"
+			href="https://www.instagram.com/ill_i_saw/"
+			rel="noreferrer nofollow">ill.i.saw</a
+		>. Available on
+			<a
+				class="text-link"
+				href="https://on.soundcloud.com/g5gtswzcyiafsAmt5"
+				rel="noreferrer nofollow">SoundCloud</a
+			>
+		</li>
+	</ul>
+	<p>More music scheduled to release latest this years.</p>
 	<h1>Sound Packs</h1>
-	<p>
-		If you plan on using or have used these audio tacks, please read the following. First off, I
-		really appreciate anyone who downloads these audio track and shares it with their producer
-		friends! With that being said, credit would be much appreciated. It would mean the world to me!
-	</p>
 	<ul>
 		<li>
 			2023 - Recorded by <a
@@ -44,36 +65,11 @@
 			</ul>
 		</li>
 	</ul>
-	<h1>Releases</h1>
-	<ul>
-		<li>
-			Kontrolfreek by <a
-			class="text-link"
-			href="https://www.instagram.com/ill_i_saw/"
-			rel="noreferrer nofollow">ill.i.saw</a
-		>.
-			<ul>
-				<li>
-					Available on
-					<a
-						class="text-link"
-						href="https://on.soundcloud.com/g5gtswzcyiafsAmt5"
-						rel="noreferrer nofollow">SoundCloud</a
-					>
-				</li>
-			</ul>
-		</li>
-	</ul>
-	<h1>Press Kit</h1>
-	<ul>
-		<li>Web Based
-			<a class="text-link" href="https://www.canva.com/design/DAHEywanYKM/0xlwWiGOuucgUulcHJfwfw/view" target="_blank"
-				 rel="noreferrer nofollow">Quick Intro Presentation</a> [Canva]
-		</li>
-		<li>
-			Hi-Res Photo <a class="text-link" href={`/downloads/${EPK}.zip`}>Download Kit</a> [Zip]
-		</li>
-	</ul>
+	<p>
+		If you plan on using or have used these audio tacks, please read the following. First off, I
+		really appreciate anyone who downloads these audio track and shares it with their producer
+		friends! With that being said, credit would be much appreciated. It would mean the world to me!
+	</p>
 </div>
 
 <style>
