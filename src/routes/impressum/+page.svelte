@@ -116,12 +116,15 @@
 	<p>
 		The code and content for this website can be found on GitHub. To learn more about Github Pages
 		please visit their <a
-			class="text-link"
-			href="https://pages.github.com/"
-			rel="noopener noreferrer"
-			target="_blank">website</a
-		>.
+		class="text-link"
+		href="https://pages.github.com/"
+		rel="noopener noreferrer"
+		target="_blank">website</a
+	>.
 	</p>
+	<p>GitHub Repo: <a
+		class="text-link" href="https://github.com/cowglow/mc-scrpt-live" rel="noopener noreferrer"
+		target="_blank">https://github.com/cowglow/mc-scrpt-live</a></p>
 
 	<h2>Downloads</h2>
 	<p>
@@ -130,11 +133,11 @@
 </div>
 
 <style>
-	button {
-		cursor: pointer;
-	}
+    button {
+        cursor: pointer;
+    }
 
-	button:hover {
-		text-decoration: none;
-	}
+    button:hover {
+        text-decoration: none;
+    }
 </style>
