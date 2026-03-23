@@ -2,6 +2,7 @@
 	const DRY_MIX_2022 = "DRY%20MC%20SCRPT%20-%20Vocal%20Sample%20Pack%20-%202022";
 	const DRY_MIX_2023 = "DRY%20MC%20SCRPT%20-%20Vocal%20Sample%20Pack%20-%202023";
 	const WASILLI_MIX = "ILL.I.SAW%20WET%20MIX%20-%20Vocal%20Sample%20Pack%20-%202022";
+	const EPK = "MC%20Scrpt%20EPK";
 </script>
 
 <svelte:head>
@@ -17,10 +18,10 @@
 	<ul>
 		<li>
 			2023 - Recorded by <a
-				class="text-link"
-				href="https://www.instagram.com/salveshamlic/"
-				rel="noreferrer nofollow">Salve Shamlic</a
-			>
+			class="text-link"
+			href="https://www.instagram.com/salveshamlic/"
+			rel="noreferrer nofollow">Salve Shamlic</a
+		>
 			<ul>
 				<li>
 					<a class="text-link" href={`/downloads/${DRY_MIX_2023}.zip`}>Dry Mix</a>
@@ -29,10 +30,10 @@
 		</li>
 		<li>
 			2022 - Recorded by <a
-				class="text-link"
-				href="https://www.instagram.com/ill_i_saw/"
-				rel="noreferrer nofollow">ill.i.saw</a
-			>
+			class="text-link"
+			href="https://www.instagram.com/ill_i_saw/"
+			rel="noreferrer nofollow">ill.i.saw</a
+		>
 			<ul>
 				<li>
 					<a class="text-link" href={`/downloads/${DRY_MIX_2022}.zip`}>Dry Mix</a>
@@ -47,10 +48,10 @@
 	<ul>
 		<li>
 			Kontrolfreek by <a
-				class="text-link"
-				href="https://www.instagram.com/ill_i_saw/"
-				rel="noreferrer nofollow">ill.i.saw</a
-			>.
+			class="text-link"
+			href="https://www.instagram.com/ill_i_saw/"
+			rel="noreferrer nofollow">ill.i.saw</a
+		>.
 			<ul>
 				<li>
 					Available on
@@ -63,10 +64,20 @@
 			</ul>
 		</li>
 	</ul>
+	<h1>Press Kit</h1>
+	<ul>
+		<li>Web Based
+			<a class="text-link" href="https://www.canva.com/design/DAHEywanYKM/0xlwWiGOuucgUulcHJfwfw/view" target="_blank"
+				 rel="noreferrer nofollow">Quick Intro Presentation</a> [Canva]
+		</li>
+		<li>
+			Hi-Res Photo <a class="text-link" href={`/downloads/${EPK}.zip`}>Download Kit</a> [Zip]
+		</li>
+	</ul>
 </div>
 
 <style>
-	li {
-		line-height: var(--bottom-padding);
-	}
+    li {
+        line-height: var(--bottom-padding);
+    }
 </style>
