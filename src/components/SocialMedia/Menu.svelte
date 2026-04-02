@@ -7,7 +7,7 @@
 	const platforms = [
 		{
 			name: "Instagram",
-			url: "https://www.instagram.com/explore/tags/mcscrpt"
+			url: "https://www.instagram.com/mc.scrpt"
 		},
 		{
 			name: "Mixcloud",
