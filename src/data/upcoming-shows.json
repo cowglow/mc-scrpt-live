@@ -1,20 +1,14 @@
 [
-  {
-    "name": "Booyaka",
-    "date": "2026-04-04T20:30:00.000Z",
-    "venue": "Kofferfabrik ",
-    "link": "https://instagram.com/booyakadnb"
-  },
-  {
-    "name": "Bass Culture ",
-    "date": "2026-04-11T17:00:00.000Z",
-    "venue": "Eckental Juz",
-    "link": "https://www.instagram.com/bass_culture_crew"
-  },
-  {
-    "name": "Dubworxx ",
-    "date": "2026-05-15T20:00:00.000Z",
-    "venue": "Roter Salon",
-    "link": "https://www.instagram.com/dubworxx.nbg"
-  }
+	{
+		"name": "Bass Culture Vol 6",
+		"date": "2026-04-11T17:00:00.000Z",
+		"venue": "JUZ Eckental",
+		"link": "https://www.instagram.com/bass_culture_crew"
+	},
+	{
+		"name": "DubWorXx",
+		"date": "2026-05-15T20:00:00.000Z",
+		"venue": "Roter Salon",
+		"link": "https://www.instagram.com/dubworxx.nbg"
+	}
 ]
