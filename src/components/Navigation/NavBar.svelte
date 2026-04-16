@@ -31,32 +31,33 @@
 		font-size: clamp(0.42rem, 3.2vw, 2.5rem);
 	}
 
-	ul#navigation > li a:hover {
-		color: red;
-	}
-	ul#navigation > li a:active {
-		color: #fff200ff;
-	}
+    ul#navigation > li a:hover {
+        color: red;
+    }
 
-	@media only screen and (min-width: 720px) {
-		ul#navigation {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-		}
-	}
+    ul#navigation > li a:active {
+        color: #fff200ff;
+    }
 
-	@media only screen and (min-width: 1080px) {
-		ul#navigation {
-			justify-content: flex-end;
-		}
+    @media only screen and (min-width: 720px) {
+        ul#navigation {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
 
-		ul#navigation > li {
-			margin-right: unset;
-		}
+    @media only screen and (min-width: 1080px) {
+        ul#navigation {
+            justify-content: flex-end;
+        }
 
-		ul#navigation > li:not(:first-child) {
-			margin-left: 13px;
-		}
-	}
+        ul#navigation > li {
+            margin-right: unset;
+        }
+
+        ul#navigation > li:not(:first-child) {
+            margin-left: 13px;
+        }
+    }
 </style>

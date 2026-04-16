@@ -2,8 +2,7 @@
 
 <style>
 	a#brand {
-		font-family: "bd_console", sans-serif;
-		flex-grow: 1;
+		font-family: "ON THE BLOCK 3D", sans-serif;
 		line-height: var(--floating-clamp);
 		margin: 0 auto;
 		padding: 0;

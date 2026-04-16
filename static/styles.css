@@ -104,3 +104,12 @@ address {
 		url("./fonts/teko-medium.woff") format("woff");
 	font-style: normal;
 }
+
+
+@font-face {
+	font-family: "ON THE BLOCK 3D";
+	src:
+		url("./fonts/ONTHEBLOCK3D.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
