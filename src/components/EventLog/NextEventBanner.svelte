@@ -124,7 +124,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		margin: 10px 0;
+		margin: 0.25rem 0;
 	}
 
 	.count-down {
@@ -151,10 +151,10 @@
 		display: flex;
 		justify-content: space-between;
 		font-family: Teko, sans-serif;
-		font-size: 21px;
+		font-size: 1.3125rem;
 		font-style: normal;
 		font-weight: 500;
-		line-height: 21px;
+		line-height: 1;
 		padding: 0;
 		margin: 0.35rem 0 0;
 		color: #000000;
@@ -170,10 +170,10 @@
 		padding: 0;
 		margin: 0;
 		font-family: Teko, sans-serif;
-		font-size: 38px;
+		font-size: 2.375rem;
 		font-style: normal;
 		font-weight: 500;
-		line-height: 46px;
+		line-height: 1.21;
 		display: flex;
 		align-items: flex-end;
 		color: #ffffff;
@@ -194,13 +194,4 @@
 		text-decoration: none;
 	}
 
-	@media screen and (max-width: 370px) {
-		#next-event-banner {
-			flex-direction: column;
-		}
-
-		.title {
-			margin: 0.25rem 0;
-		}
-	}
 </style>

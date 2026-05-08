@@ -82,9 +82,8 @@
 		font-family: Teko, sans-serif;
 		font-size: 3.8rem;
 		text-align: left;
-		left: 0;
 		margin: var(--side-padding) 0 0;
-		padding: 0;
+		padding: 0 var(--side-padding);
 	}
 
 	h3 {
@@ -92,17 +91,19 @@
 		font-style: normal;
 		font-weight: normal;
 		text-align: left;
+		padding: 0 var(--side-padding);
 	}
 
 	@media screen and (min-width: 700px) {
 		h1 {
 			text-align: center;
+			padding: 0;
 		}
 
 		h3 {
 			font-size: 1.8rem;
 			text-align: center;
-			padding: 0 13%;
+			padding: 0;
 		}
 	}
 </style>

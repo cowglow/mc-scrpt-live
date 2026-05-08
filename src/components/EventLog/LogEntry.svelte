@@ -39,58 +39,62 @@
 	$: verifiedVenueLink = verifyVenue(venue);
 </script>
 
-<div class="wrapper">
+<article class="wrapper h-event">
 	<div class="flex-it event-date">
-		<div class="mobile">
-			<span>{eventMonthMobile}<br />{`${eventYear}`}</span>
-		</div>
-		<div class="desktop">
-			<span>{`${eventMonth} ${eventDay}`}<br />{`${eventYear}`}</span>
-		</div>
+		<time class="dt-start" datetime={eventDate.toISOString()}>
+			<div class="mobile">
+				<span>{eventMonthMobile}<br />{eventYear}</span>
+			</div>
+			<div class="desktop">
+				<span>{eventMonth} {eventDay}<br />{eventYear}</span>
+			</div>
+		</time>
 	</div>
 	<div class="flex-it event-name">
-		<span>{name}</span>
+		<span class="p-name">{name}</span>
 		{#if verifiedVenueLink}
 			<a
+				class="p-location"
 				href={verifiedVenueLink}
 				rel="noreferrer nofollow"
 				target="map-link"
-				title="Wait! You're about to go to Google Maps. Click to Proceed."
-				aria-label="Wait! You're about to go to Google Maps. Click to Proceed."
+				aria-label="View {venue} on Google Maps"
 			>
 				{venue}
 			</a>
 		{:else}
-			<span>{venue}</span>
+			<span class="p-location">{venue}</span>
 		{/if}
 	</div>
 	<div class="flex-it event-link">
-		<div class="mobile">
-			<a href={link} rel="noreferrer nofollow" target="event-link">
-				<img alt="Event link icon" src="/images/event-link-icon.svg" />
-			</a>
-		</div>
-		{#if verifiedVenueLink}
-			<div class="desktop">
-				<img alt="Event link icon" src="/images/event-link-icon.svg" />
-				<a href={link} rel="noreferrer nofollow" target="event-link">
-					{eventUrl}
+		{#if link}
+			<div class="mobile">
+				<a class="u-url" href={link} rel="noreferrer nofollow" target="event-link" aria-label="Event details for {name}">
+					<img alt="" src="/images/event-link-icon.svg" role="presentation" />
 				</a>
 			</div>
+			{#if verifiedVenueLink}
+				<div class="desktop">
+					<img alt="" src="/images/event-link-icon.svg" role="presentation" />
+					<a class="u-url" href={link} rel="noreferrer nofollow" target="event-link">
+						{eventUrl}
+					</a>
+				</div>
+			{/if}
 		{/if}
 	</div>
 	<div class="flex-it event-time desktop">
 		<div class="desktop">
-			<img alt={`Event Start Time is ${eventStartTime}`} src="/images/event-start-time-icon.svg" />
+			<img alt="" src="/images/event-start-time-icon.svg" role="presentation" />
 			<span>{eventStartTime}</span>
 		</div>
 	</div>
-</div>
+</article>
 
 <style>
 	.wrapper {
 		display: flex;
-		max-height: 4em;
+		min-height: 5em;
 		background-color: red;
 		flex-grow: 1;
 	}
@@ -130,14 +134,15 @@
 		max-width: 400px;
 		flex-grow: 1;
 		align-items: flex-start;
+		padding: 0.5em 0;
 	}
 
-	.event-name span:nth-child(1) {
-		font-size: 22px;
-		line-height: 24px;
+	.event-name .p-name {
+		font-size: 1.375rem;
+		line-height: 1.1;
 	}
 
-	.event-name span:nth-child(2) {
+	.event-name .p-location {
 		color: red;
 	}
 
@@ -194,7 +199,7 @@
 			max-width: 310px;
 			align-items: flex-start;
 			line-height: unset;
-			font-size: 20px;
+			font-size: 1.25rem;
 			overflow: hidden;
 		}
 

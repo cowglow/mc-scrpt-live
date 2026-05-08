@@ -11,8 +11,8 @@
 		font-family: "Teko Medium", sans-serif;
 		font-style: normal;
 		font-weight: 500;
-		font-size: 33px;
-		line-height: 47px;
+		font-size: 2.0625rem;
+		line-height: 1.42;
 		margin: var(--side-padding) auto 0;
 		padding: 0;
 	}
@@ -21,8 +21,8 @@
 		font-family: "Teko", sans-serif;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 24px;
-		line-height: 21px;
+		font-size: 1.5rem;
+		line-height: 1.2;
 		color: #666666;
 		margin-bottom: calc(var(--side-padding) * 0.5);
 	}

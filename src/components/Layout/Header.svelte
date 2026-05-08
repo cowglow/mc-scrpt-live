@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Branding from "$components/Branding.svelte";
 	import NavBar from "$components/Navigation/NavBar.svelte";
-	import DrBass from "$components/DrBass.svelte";
 	import { afterNavigate } from "$app/navigation";
 
 	let clampHeader = false;
@@ -15,7 +14,6 @@
 		<div id="nav-bar">
 			<Branding />
 			<NavBar />
-			<DrBass />
 		</div>
 	</div>
 </header>
@@ -53,6 +51,7 @@
 		left: 0;
 		position: sticky;
 		padding: 0.25rem;
+		z-index: 100;
 	}
 
 	#nav-bar {

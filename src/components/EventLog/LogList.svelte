@@ -19,19 +19,4 @@
 		padding: 0;
 	}
 
-	@media screen and (max-width: 700px) {
-		:root {
-			--side-padding: 11px;
-			--bottom-padding: 22px;
-			--top-padding: 44px;
-		}
-	}
-
-	@media screen and (max-width: 370px) {
-		:root {
-			--side-padding: 11px;
-			--bottom-padding: 8px;
-			--top-padding: 88px;
-		}
-	}
 </style>

@@ -27,7 +27,9 @@
 		cursor: pointer;
 		background-color: var(--secondary);
 		border: thin solid white;
-		line-height: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		padding: 8px;
 	}
 

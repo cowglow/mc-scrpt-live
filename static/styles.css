@@ -4,12 +4,26 @@
 }
 
 :root {
-	--side-padding: 22px;
-	--bottom-padding: 44px;
-	--top-padding: 88px;
+	--side-padding: 11px;
+	--bottom-padding: 8px;
+	--top-padding: 44px;
 	--primary: red;
 	--secondary: darkred;
 	--active: #fff200ff;
+}
+
+@media screen and (min-width: 370px) {
+	:root {
+		--bottom-padding: 22px;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	:root {
+		--side-padding: 22px;
+		--bottom-padding: 44px;
+		--top-padding: 88px;
+	}
 }
 
 html,
