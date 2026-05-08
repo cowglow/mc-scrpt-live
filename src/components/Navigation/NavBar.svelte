@@ -63,129 +63,132 @@
 		<li><a href={`/#${ANCHOR_VIDEOS}`} onclick={close}>{navVideos}</a></li>
 		<li><a href={`/#${ANCHOR_AUDIO}`} onclick={close}>{navAudio}</a></li>
 		<li><a href={DOWNLOAD_ROUTE} onclick={close}>{navDownloads}</a></li>
-		<li class="mascot"><DrBass /></li>
+		<li class="mascot">
+			<DrBass />
+		</li>
 	</ul>
 </nav>
 
 <style>
-	nav {
-		flex-grow: 1;
-		display: flex;
-		align-items: center;
-	}
+    nav {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
 
-	.nav-toggle {
-		display: none;
-		margin-left: auto;
-		background: none;
-		border: none;
-		color: inherit;
-		cursor: pointer;
-		padding: 0.25rem;
-		line-height: 0;
-	}
+    .nav-toggle {
+        display: none;
+        margin-left: auto;
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        padding: 0.25rem;
+        line-height: 0;
+    }
 
-	.nav-toggle:focus-visible {
-		outline: 2px solid white;
-		outline-offset: 4px;
-	}
+    .nav-toggle:focus-visible {
+        outline: 2px solid white;
+        outline-offset: 4px;
+    }
 
-	ul#navigation-menu {
-		flex-grow: 1;
-		margin: 0 auto;
-		padding: 0;
-		display: none;
-		list-style-type: none;
-	}
+    ul#navigation-menu {
+        flex-grow: 1;
+        margin: 0 auto;
+        padding: 0;
+        display: none;
+        list-style-type: none;
+    }
 
-	ul#navigation-menu > li {
-		display: flex;
-		align-items: center;
-		margin-right: 13px;
-	}
+    ul#navigation-menu > li {
+        display: flex;
+        align-items: center;
+        margin-right: 13px;
+    }
 
-	ul#navigation-menu > li a {
-		color: inherit;
-		padding: 0;
-		margin: 0;
-		text-decoration: none;
-		font-size: clamp(1rem, 3.2vw, 2.5rem);
-	}
+    ul#navigation-menu > li a {
+        color: inherit;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        font-size: clamp(1rem, 3.2vw, 2.5rem);
+    }
 
-	ul#navigation-menu > li a:hover {
-		color: red;
-	}
+    ul#navigation-menu > li a:hover {
+        color: red;
+    }
 
-	ul#navigation-menu > li a:active {
-		color: #fff200ff;
-	}
+    ul#navigation-menu > li a:active {
+        color: #fff200ff;
+    }
 
-	.mascot {
-		display: none;
-	}
+    .mascot {
+        display: none;
+    }
 
-	/* Mobile */
-	@media only screen and (max-width: 719px) {
-		.nav-toggle {
-			display: flex;
-		}
+    /* Mobile */
+    @media only screen and (max-width: 719px) {
+        .nav-toggle {
+            display: flex;
+        }
 
-		ul#navigation-menu.open {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			gap: 2rem;
-			position: fixed;
-			inset: 0;
-			z-index: 99;
-			background-color: black;
-			padding: 90px var(--side-padding) var(--side-padding);
-		}
+        ul#navigation-menu.open {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            position: fixed;
+            inset: 0;
+            z-index: 99;
+            background-color: black;
+            padding: 90px var(--side-padding) var(--side-padding);
+        }
 
-		ul#navigation-menu.open > li {
-			margin: 0;
-		}
+        ul#navigation-menu.open > li {
+            margin: 0;
+        }
 
-		ul#navigation-menu.open > li a {
-			font-size: clamp(2rem, 8vw, 3rem);
-		}
+        ul#navigation-menu.open > li a {
+            font-family: var(--font-brand), sans-serif;
+            font-size: clamp(2rem, 8vw, 3rem);
+        }
 
-		ul#navigation-menu.open > li a:focus-visible {
-			outline: 2px solid white;
-			outline-offset: 4px;
-		}
+        ul#navigation-menu.open > li a:focus-visible {
+            outline: 2px solid white;
+            outline-offset: 4px;
+        }
 
-		ul#navigation-menu.open .mascot {
-			display: flex;
-		}
+        ul#navigation-menu.open .mascot {
+            display: flex;
+        }
 
-		ul#navigation-menu.open .mascot :global(svg) {
-			height: 35vmin;
-			width: auto;
-		}
-	}
+        ul#navigation-menu.open .mascot :global(svg) {
+            height: 35vmin;
+            width: auto;
+        }
+    }
 
-	/* Desktop */
-	@media only screen and (min-width: 720px) {
-		ul#navigation-menu {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-		}
-	}
+    /* Desktop */
+    @media only screen and (min-width: 720px) {
+        ul#navigation-menu {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
 
-	@media only screen and (min-width: 1080px) {
-		ul#navigation-menu {
-			justify-content: flex-end;
-		}
+    @media only screen and (min-width: 1080px) {
+        ul#navigation-menu {
+            justify-content: flex-end;
+        }
 
-		ul#navigation-menu > li {
-			margin-right: unset;
-		}
+        ul#navigation-menu > li {
+            margin-right: unset;
+        }
 
-		ul#navigation-menu > li:not(:first-child) {
-			margin-left: 13px;
-		}
-	}
+        ul#navigation-menu > li:not(:first-child) {
+            margin-left: 13px;
+        }
+    }
 </style>
