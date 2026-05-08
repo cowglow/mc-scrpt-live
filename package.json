@@ -55,6 +55,9 @@
 		"vite-plugin-devtools-json": "^1.0.0",
 		"vitest": "^4.0.18"
 	},
+	"overrides": {
+		"cookie": "^0.7.0"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/cowglow/mc-scrpt-live.git"
