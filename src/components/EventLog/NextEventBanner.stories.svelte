@@ -1,25 +1,25 @@
 <script module>
-	import { defineMeta } from '@storybook/addon-svelte-csf';
-	import NextEventBanner from './NextEventBanner.svelte';
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import NextEventBanner from "./NextEventBanner.svelte";
 
 	const showA = {
-		name: 'Sound Journey Vol. 4',
-		date: new Date('2027-03-15T22:00:00'),
-		venue: 'Z-Bau',
-		link: 'https://facebook.com/events/123456789'
+		name: "Sound Journey Vol. 4",
+		date: new Date("2027-03-15T22:00:00"),
+		venue: "Z-Bau",
+		link: "https://facebook.com/events/123456789"
 	};
 
 	const showB = {
-		name: 'Open Air Festival',
-		date: new Date('2027-04-20T20:00:00'),
-		venue: 'Stadtpark Nürnberg',
-		link: 'https://facebook.com/events/987654321'
+		name: "Open Air Festival",
+		date: new Date("2027-04-20T20:00:00"),
+		venue: "Stadtpark Nürnberg",
+		link: "https://facebook.com/events/987654321"
 	};
 
 	const { Story } = defineMeta({
-		title: 'Components/EventLog/NextEventBanner',
+		title: "Components/EventLog/NextEventBanner",
 		component: NextEventBanner,
-		tags: ['autodocs']
+		tags: ["autodocs"]
 	});
 </script>
 

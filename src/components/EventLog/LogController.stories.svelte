@@ -1,14 +1,14 @@
 <script module>
-	import { defineMeta } from '@storybook/addon-svelte-csf';
-	import LogController from './LogController.svelte';
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import LogController from "./LogController.svelte";
 
 	const { Story } = defineMeta({
-		title: 'Components/EventLog/LogController',
+		title: "Components/EventLog/LogController",
 		component: LogController,
-		tags: ['autodocs'],
+		tags: ["autodocs"],
 		argTypes: {
-			stepBackwardDisabled: { control: 'boolean' },
-			stepForwardDisabled: { control: 'boolean' }
+			stepBackwardDisabled: { control: "boolean" },
+			stepForwardDisabled: { control: "boolean" }
 		}
 	});
 </script>

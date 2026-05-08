@@ -11,9 +11,14 @@
 <div id="download" class="page-wrapper">
 	<h1>Press Kit</h1>
 	<ul>
-		<li>Web Based
-			<a class="text-link" href="https://www.canva.com/design/DAHEywanYKM/0xlwWiGOuucgUulcHJfwfw/view" target="_blank"
-				 rel="noreferrer nofollow">Quick Intro Presentation</a> [Canva]
+		<li>
+			Web Based
+			<a
+				class="text-link"
+				href="https://www.canva.com/design/DAHEywanYKM/0xlwWiGOuucgUulcHJfwfw/view"
+				target="_blank"
+				rel="noreferrer nofollow">Quick Intro Presentation</a
+			> [Canva]
 		</li>
 		<li>
 			Hi-Res Photo <a class="text-link" href={`/downloads/${EPK}.zip`}>Download Kit</a> [Zip]
@@ -23,10 +28,10 @@
 	<ul>
 		<li>
 			Kontrolfreek by <a
-			class="text-link"
-			href="https://www.instagram.com/ill_i_saw/"
-			rel="noreferrer nofollow">ill.i.saw</a
-		>. Available on
+				class="text-link"
+				href="https://www.instagram.com/ill_i_saw/"
+				rel="noreferrer nofollow">ill.i.saw</a
+			>. Available on
 			<a
 				class="text-link"
 				href="https://on.soundcloud.com/g5gtswzcyiafsAmt5"
@@ -39,10 +44,10 @@
 	<ul>
 		<li>
 			2023 - Recorded by <a
-			class="text-link"
-			href="https://www.instagram.com/salveshamlic/"
-			rel="noreferrer nofollow">Salve Shamlic</a
-		>
+				class="text-link"
+				href="https://www.instagram.com/salveshamlic/"
+				rel="noreferrer nofollow">Salve Shamlic</a
+			>
 			<ul>
 				<li>
 					<a class="text-link" href={`/downloads/${DRY_MIX_2023}.zip`}>Dry Mix</a>
@@ -51,10 +56,10 @@
 		</li>
 		<li>
 			2022 - Recorded by <a
-			class="text-link"
-			href="https://www.instagram.com/ill_i_saw/"
-			rel="noreferrer nofollow">ill.i.saw</a
-		>
+				class="text-link"
+				href="https://www.instagram.com/ill_i_saw/"
+				rel="noreferrer nofollow">ill.i.saw</a
+			>
 			<ul>
 				<li>
 					<a class="text-link" href={`/downloads/${DRY_MIX_2022}.zip`}>Dry Mix</a>
@@ -73,7 +78,7 @@
 </div>
 
 <style>
-    li {
-        line-height: var(--bottom-padding);
-    }
+	li {
+		line-height: var(--bottom-padding);
+	}
 </style>

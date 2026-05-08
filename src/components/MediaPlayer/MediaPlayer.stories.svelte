@@ -1,11 +1,11 @@
 <script module>
-	import { defineMeta } from '@storybook/addon-svelte-csf';
-	import MediaPlayer from './MediaPlayer.svelte';
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import MediaPlayer from "./MediaPlayer.svelte";
 
 	const { Story } = defineMeta({
-		title: 'Components/MediaPlayer/MediaPlayer',
+		title: "Components/MediaPlayer/MediaPlayer",
 		component: MediaPlayer,
-		tags: ['autodocs']
+		tags: ["autodocs"]
 	});
 </script>
 

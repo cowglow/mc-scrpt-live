@@ -52,9 +52,9 @@
 		Please be advised that this website will store the event calendar data in your browser's local
 		storage. This is done to avoid unnecessary requests to the server.
 		<br />
-		The data will be stored indefinitely. Or until you clear the cache. But the validity of the data
-		will only last 1 week. That means if you visit the website after 1 week, the data be invalid and
-		a request will be made to the server to retrieve the latest data.
+		The data will be stored indefinitely. Or until you clear the cache. But the validity of the data will
+		only last 1 week. That means if you visit the website after 1 week, the data be invalid and a request
+		will be made to the server to retrieve the latest data.
 		<br />
 		<button class="text-link" on:click={() => removeLocalStorageItem(EVENT_LOCALSTORAGE_KEY)}>
 			Reset stored event data
@@ -115,18 +115,28 @@
 	<p>
 		The code and content for this website can be found on GitHub. To learn more about Github Pages
 		please visit their <a
-		class="text-link"
-		href="https://pages.github.com/"
-		rel="noopener noreferrer"
-		target="_blank">website</a
-	>.
+			class="text-link"
+			href="https://pages.github.com/"
+			rel="noopener noreferrer"
+			target="_blank">website</a
+		>.
 	</p>
-	<p>GitHub Repo: <a
-		class="text-link" href="https://github.com/cowglow/mc-scrpt-live" rel="noopener noreferrer"
-		target="_blank">https://github.com/cowglow/mc-scrpt-live</a></p>
-	<p>Component Library: <a
-		class="text-link" href="/storybook" rel="noopener noreferrer"
-		target="_blank">mc.scrpt.live/storybook</a></p>
+	<p>
+		GitHub Repo: <a
+			class="text-link"
+			href="https://github.com/cowglow/mc-scrpt-live"
+			rel="noopener noreferrer"
+			target="_blank">https://github.com/cowglow/mc-scrpt-live</a
+		>
+	</p>
+	<p>
+		Component Library: <a
+			class="text-link"
+			href="/storybook"
+			rel="noopener noreferrer"
+			target="_blank">mc.scrpt.live/storybook</a
+		>
+	</p>
 
 	<h2>Downloads</h2>
 	<p>
@@ -135,11 +145,11 @@
 </div>
 
 <style>
-    button {
-        cursor: pointer;
-    }
+	button {
+		cursor: pointer;
+	}
 
-    button:hover {
-        text-decoration: none;
-    }
+	button:hover {
+		text-decoration: none;
+	}
 </style>

@@ -1,14 +1,14 @@
 [
-  {
-    "name": "DubWorXx",
-    "date": "2026-05-15T20:00:00.000Z",
-    "venue": "Roter Salon",
-    "link": "https://www.instagram.com/dubworxx.nbg"
-  },
-  {
-    "name": "DubWorXx",
-    "date": "2026-09-04T20:00:00.000Z",
-    "venue": "Roter Salon",
-    "link": "https://www.instagram.com/dubworxx.nbg"
-  }
+	{
+		"name": "DubWorXx",
+		"date": "2026-05-15T20:00:00.000Z",
+		"venue": "Roter Salon",
+		"link": "https://www.instagram.com/dubworxx.nbg"
+	},
+	{
+		"name": "DubWorXx",
+		"date": "2026-09-04T20:00:00.000Z",
+		"venue": "Roter Salon",
+		"link": "https://www.instagram.com/dubworxx.nbg"
+	}
 ]

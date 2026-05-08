@@ -21,6 +21,7 @@ npm run sync         # Fetch event data from Google Apps Script (requires .env)
 ```
 
 To run a single test file:
+
 ```bash
 npx vitest run src/lib/footer-year.spec.ts
 ```
@@ -38,6 +39,7 @@ Event data originates from a **Google Apps Script (GAS) spreadsheet**. The sync 
 These JSON files are committed to the repo. At build time, `src/routes/+page.ts` imports them directly — no API call at runtime. The sync runs automatically every Thursday at 5 AM UTC via `sync-schedule.yml`, which commits updated JSON and redeploys.
 
 For the `sync` script, you need a `.env` file with:
+
 ```
 VITE_GAS_URL=script.google.com/macros/s
 VITE_DEPLOYMENT_ID=<deployment-id>
@@ -52,6 +54,7 @@ The GAS endpoint is also in `http-request/google-apps-script.http` for manual te
 ### Path aliases
 
 Defined in `svelte.config.js`:
+
 - `$lib` → `src/lib/*`
 - `$components` → `src/components/*`
 - `$data` → `src/data/*`
@@ -72,6 +75,7 @@ The single-page layout uses anchor IDs for in-page navigation (Events, Videos, A
 **Commented-out test bodies:** `data-loader.spec.ts` and `scroll-to-view.spec.ts` have all assertions commented out. Both need a browser/jsdom environment (`localStorage`, `document`, `window.scrollTo`) which isn't configured for the unit test project — only the Storybook project uses Playwright browser mode.
 
 **Boilerplate leftovers from project scaffolding:**
+
 - `src/App.svelte` — Vite+Svelte welcome screen, not connected to the SvelteKit router
 - `src/components/Counter.svelte` — referenced only by `App.svelte`
 - `src/stories/` — default Storybook template stories (Button, Header, Page), not stories for actual project components

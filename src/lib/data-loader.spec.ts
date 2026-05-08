@@ -1,5 +1,5 @@
 import { describe, test, expect, vi, beforeEach } from "vitest";
-import { dataLoader } from './data-loader';
+import { dataLoader } from "./data-loader";
 
 describe("Test dataLoader Utility Function", () => {
 	const url = "https://jsonplaceholder.typicode.com/todos/1";

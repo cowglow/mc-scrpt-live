@@ -1,12 +1,12 @@
 <script module>
-	import { defineMeta } from '@storybook/addon-svelte-csf';
-	import DrBass from './DrBass.svelte';
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import DrBass from "./DrBass.svelte";
 
 	const { Story } = defineMeta({
-		title: 'Components/DrBass',
+		title: "Components/DrBass",
 		component: DrBass,
-		tags: ['autodocs']
+		tags: ["autodocs"]
 	});
 </script>
 
-<Story name="Default"  />
+<Story name="Default" />

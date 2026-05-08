@@ -28,7 +28,7 @@ const config = {
 		}),
 		prerender: {
 			handleHttpError: ({ path, message }) => {
-				if (path.startsWith('/storybook')) return;
+				if (path.startsWith("/storybook")) return;
 				throw new Error(message);
 			}
 		}

@@ -13,12 +13,13 @@
 	});
 </script>
 
-<Story name="Title Only" args={{ title: 'Previous Events' }} />
+<Story name="Title Only" args={{ title: "Previous Events" }} />
 
 <Story
 	name="With Description"
 	args={{
-		title: 'Previous Events',
-		description: "You can usually catch me grooving alongside some of the coolest DJs in and around the 'Mittelfranken' region."
+		title: "Previous Events",
+		description:
+			"You can usually catch me grooving alongside some of the coolest DJs in and around the 'Mittelfranken' region."
 	}}
 />
