@@ -80,7 +80,7 @@
 
 	h1 {
 		font-family: var(--font-heading), sans-serif;
-		font-size: 3.8rem;
+		font-size: 2.4rem;
 		text-align: left;
 		margin: var(--side-padding) 0 0;
 		padding: 0 var(--side-padding);
