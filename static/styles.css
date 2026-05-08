@@ -10,6 +10,9 @@
 	--primary: red;
 	--secondary: darkred;
 	--active: #fff200ff;
+	--font-brand: "ON THE BLOCK 3D";
+	--font-heading: "ON THE BLOCK 3D";
+	--font-body: "Teko";
 }
 
 @media screen and (min-width: 370px) {
@@ -32,7 +35,7 @@ body {
 	padding: 0;
 	font-size: 1.2em;
 	background-color: black;
-	font-family: "Teko", sans-serif;
+	font-family: var(--font-body), sans-serif;
 	scroll-behavior: smooth;
 }
 

@@ -25,7 +25,7 @@
 </script>
 
 <div id="media-player">
-	<SectionLabel title="YouTube Playlist #MCSCRPT" />
+	<SectionLabel title="YouTube Playlist" description="#MCSCRPT" />
 
 	{#if !consent}
 		<button use:toggleEmbeddedContent>

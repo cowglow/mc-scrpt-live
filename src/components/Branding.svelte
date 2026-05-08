@@ -2,7 +2,7 @@
 
 <style>
     a#brand {
-        font-family: "ON THE BLOCK 3D", sans-serif;
+        font-family: var(--font-brand), sans-serif;
         line-height: var(--floating-clamp);
         flex: 1;
         display: flex;

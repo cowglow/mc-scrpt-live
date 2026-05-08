@@ -41,7 +41,7 @@
 		width: 3.4rem;
 		height: 3.4rem;
 		background-color: white;
-		font-family: Teko, sans-serif;
+		font-family: var(--font-body), sans-serif;
 		font-style: normal;
 		font-weight: 500;
 		color: #000000;

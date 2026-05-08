@@ -79,7 +79,7 @@
 	}
 
 	h1 {
-		font-family: Teko, sans-serif;
+		font-family: var(--font-heading), sans-serif;
 		font-size: 3.8rem;
 		text-align: left;
 		margin: var(--side-padding) 0 0;

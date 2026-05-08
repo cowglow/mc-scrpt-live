@@ -8,7 +8,7 @@
 
 <style>
 	h3 {
-		font-family: "Teko Medium", sans-serif;
+		font-family: var(--font-heading), sans-serif;
 		font-style: normal;
 		font-weight: 500;
 		font-size: 2.0625rem;
@@ -18,7 +18,7 @@
 	}
 
 	.section-label-desc {
-		font-family: "Teko", sans-serif;
+		font-family: var(--font-body), sans-serif;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 1.5rem;
