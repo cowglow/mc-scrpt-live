@@ -24,7 +24,7 @@
 <svelte:head>
 	<title>MC.SCRPT.LIVE | Impressum</title>
 </svelte:head>
-<div id="imprint" class="wrapper">
+<div id="imprint" class="page-wrapper">
 	<h1>Impressum</h1>
 	<h2>Angaben gemäß § 5 TMG:</h2>
 	<address>

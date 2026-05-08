@@ -1,14 +1,14 @@
 <script module>
-	import { defineMeta } from '@storybook/addon-svelte-csf';
-	import SectionLabel from './SectionLabel.svelte';
+	import { defineMeta } from "@storybook/addon-svelte-csf";
+	import SectionLabel from "./SectionLabel.svelte";
 
 	const { Story } = defineMeta({
-		title: 'Components/Layout/SectionLabel',
+		title: "Components/Layout/SectionLabel",
 		component: SectionLabel,
-		tags: ['autodocs'],
+		tags: ["autodocs"],
 		argTypes: {
-			title: { control: 'text' },
-			description: { control: 'text' }
+			title: { control: "text" },
+			description: { control: "text" }
 		}
 	});
 </script>

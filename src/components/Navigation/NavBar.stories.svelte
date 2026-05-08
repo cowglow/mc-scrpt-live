@@ -5,10 +5,7 @@
 	const { Story } = defineMeta({
 		title: 'Components/Navigation/NavBar',
 		component: NavBar,
-		tags: ['autodocs'],
-		parameters: {
-			backgrounds: { default: 'dark' }
-		}
+		tags: ['autodocs']
 	});
 </script>
 

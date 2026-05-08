@@ -5,11 +5,8 @@
 	const { Story } = defineMeta({
 		title: 'Components/DrBass',
 		component: DrBass,
-		tags: ['autodocs'],
-		parameters: {
-			backgrounds: { default: 'dark' }
-		}
+		tags: ['autodocs']
 	});
 </script>
 
-<Story name="Default" />
+<Story name="Default"  />

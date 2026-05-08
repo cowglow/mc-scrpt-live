@@ -1,10 +1,10 @@
 <script module>
 	import { defineMeta } from '@storybook/addon-svelte-csf';
-	import Menu from './Menu.svelte';
+	import Header from './Header.svelte';
 
 	const { Story } = defineMeta({
-		title: 'Components/SocialMedia/Menu',
-		component: Menu,
+		title: 'Components/Layout/Header',
+		component: Header,
 		tags: ['autodocs']
 	});
 </script>

@@ -8,7 +8,7 @@
 <svelte:head>
 	<title>MC.SCRPT.LIVE | Downloads</title>
 </svelte:head>
-<div id="download" class="wrapper">
+<div id="download" class="page-wrapper">
 	<h1>Press Kit</h1>
 	<ul>
 		<li>Web Based

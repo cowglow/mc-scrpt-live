@@ -1,10 +1,10 @@
 <script module>
 	import { defineMeta } from "@storybook/addon-svelte-csf";
-	import Branding from "./Branding.svelte";
+	import Footer from "./Footer.svelte";
 
 	const { Story } = defineMeta({
-		title: "Components/Branding",
-		component: Branding,
+		title: "Components/Layout/Footer",
+		component: Footer,
 		tags: ["autodocs"]
 	});
 </script>
