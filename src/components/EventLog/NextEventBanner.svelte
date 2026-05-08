@@ -63,8 +63,8 @@
 </script>
 
 <div class="wrapper">
-	{#if hasMultipleEvents && !isHiddenForMobile}
-		<button onclick={() => changeEventIndex("backward")} disabled={!canGoBackwards}>&lt;</button>
+	{#if hasMultipleEvents}
+		<button class="arrow" onclick={() => changeEventIndex("backward")} disabled={!canGoBackwards}>&lt;</button>
 	{/if}
 
 	{#if nextShow.length > 0}
@@ -138,8 +138,8 @@
 		</div>
 	{/if}
 
-	{#if hasMultipleEvents && !isHiddenForMobile}
-		<button onclick={() => changeEventIndex("forward")} disabled={!canGoForwards}>&gt;</button>
+	{#if hasMultipleEvents}
+		<button class="arrow" onclick={() => changeEventIndex("forward")} disabled={!canGoForwards}>&gt;</button>
 	{/if}
 </div>
 
@@ -158,6 +158,17 @@
 		padding: 0 0.5rem;
 		border: thin solid white;
 		color: white;
+	}
+
+	.arrow {
+		display: none;
+	}
+
+	@media screen and (min-width: 641px) {
+		.arrow {
+			display: flex;
+			align-items: center;
+		}
 	}
 
 	button:active {

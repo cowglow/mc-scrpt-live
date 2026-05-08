@@ -31,6 +31,7 @@
 		<button use:toggleEmbeddedContent>
 			<img src={GdprBanner} alt="YouTube GDPR Consent Banner." />
 		</button>
+		<noscript><p class="noscript-notice">JavaScript is required to play this content.</p></noscript>
 	{:else}
 		<div id="youtube-video">
 			<iframe

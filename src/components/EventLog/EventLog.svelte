@@ -56,7 +56,7 @@
 			{/each}
 		</div>
 	{:else}
-		<p>{translations["events.noEvents"]}</p>
+		<p>{$translations["events.noEvents"]}</p>
 	{/if}
 	<LogController
 		{...{

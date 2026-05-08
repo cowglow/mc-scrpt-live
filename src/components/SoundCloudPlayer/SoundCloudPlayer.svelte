@@ -58,6 +58,7 @@
 		<button use:toggleEmbeddedContent>
 			<img src={GdprBanner} alt="SoundCloud GDPR Consent Banner" />
 		</button>
+		<noscript><p class="noscript-notice">JavaScript is required to play this content.</p></noscript>
 	{:else}
 		<iframe
 			allow="autoplay"

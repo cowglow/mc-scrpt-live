@@ -8,6 +8,7 @@
         display: flex;
         text-decoration: none;
         font-size: 0.66em;
+				text-wrap: nowrap;
     }
 
     a#brand:hover {
