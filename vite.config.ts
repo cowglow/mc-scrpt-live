@@ -10,6 +10,9 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 
 export default defineConfig({
   plugins: [sveltekit(), devtoolsJson()],
+  optimizeDeps: {
+    include: ['storybook/test']
+  },
   test: {
     environment: 'jsdom',
     projects: [
@@ -31,9 +34,9 @@ export default defineConfig({
             enabled: true,
             headless: true,
             provider: playwright({}),
-            instances: [{ browser: 'chromium' }]
+            instances: [{ browser: 'firefox' }]
           },
-          setupFiles: ['.storybook/vitest.setup.ts']
+          setupFiles: []
         }
       }
     ]
