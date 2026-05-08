@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { scrollToView } from "$lib/scroll-to-view";
 	import {
 		SOUNDCLOUD_LOCALSTORAGE_KEY,
 		YOUTUBE_LOCALSTORAGE_KEY,
@@ -25,7 +24,7 @@
 <svelte:head>
 	<title>MC.SCRPT.LIVE | Impressum</title>
 </svelte:head>
-<div id="imprint" class="wrapper" use:scrollToView>
+<div id="imprint" class="wrapper">
 	<h1>Impressum</h1>
 	<h2>Angaben gemäß § 5 TMG:</h2>
 	<address>
