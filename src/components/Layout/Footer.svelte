@@ -5,6 +5,10 @@
 	import { footerYear } from "$lib/footer-year";
 
 	$: description = $translations["footer.message"];
+	$: subscribe = $translations["footer.subscribe"];
+	$: rights = $translations["footer.rights"];
+	$: langEn = $translations["footer.language.en"];
+	$: langDe = $translations["footer.language.de"];
 </script>
 
 <footer>
@@ -16,7 +20,7 @@
 			<p>{description}</p>
 			<div id="footer-details">
 				<p><a class="legal-link" href="/impressum">Impressum</a></p>
-				<p><a class="legal-link" href="/calendar.ics">Subscribe to Events</a></p>
+				<p><a class="legal-link" href="/calendar.ics">{subscribe}</a></p>
 				<p class="language-toggle">
 					<svg class="language-icon" aria-label="Language" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
@@ -27,10 +31,10 @@
 						<path d="M3.5 16.5H20.5" stroke="currentColor" stroke-width="1.5"/>
 					</svg>
 					{#if $locale !== "en"}
-						<button class="legal-link" on:click={() => ($locale = "en")}>English</button>
+						<button class="legal-link" on:click={() => ($locale = "en")}>{langEn}</button>
 					{/if}
 					{#if $locale !== "de"}
-						<button class="legal-link" on:click={() => ($locale = "de")}>German</button>
+						<button class="legal-link" on:click={() => ($locale = "de")}>{langDe}</button>
 					{/if}
 				</p>
 			</div>
@@ -38,8 +42,7 @@
 
 		<p>
 			&copy; {footerYear()}
-			<a href="https://cowglow.com" rel="noreferrer nofolloer" target="_blank">COWGLOW</a>. All
-			rights reserved.
+			<a href="https://cowglow.com" rel="noreferrer nofolloer" target="_blank">COWGLOW</a>. {rights}
 		</p>
 	</div>
 </footer>

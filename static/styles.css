@@ -42,9 +42,13 @@ a:visited {
 	text-decoration: underline;
 }
 
-a:hover,
-a:active {
+a:hover {
 	color: red;
+	text-decoration: none;
+}
+
+a:active {
+	color: var(--active);
 	text-decoration: none;
 }
 

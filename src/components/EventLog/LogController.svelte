@@ -1,23 +1,36 @@
 <script lang="ts">
+	import translations from "$stores/i18n-store";
+
 	export let stepForward: () => void;
 	export let stepBackward: () => void;
 	export let stepBackwardDisabled = true;
 	export let stepForwardDisabled = true;
+
+	$: labelPrevious = $translations["pagination.previous"];
+	$: labelNext = $translations["pagination.next"];
 </script>
 
 <div class="wrapper">
-	<button on:click={stepBackward} disabled={stepBackwardDisabled}>
-		<img src="/images/expand-less.svg" alt="Previous page" />
+	<button
+		on:click={stepBackward}
+		disabled={stepBackwardDisabled}
+		aria-label={labelPrevious}
+	>
+		<img src="/images/expand-less.svg" alt="" role="presentation" />
 	</button>
-	<button on:click={stepForward} disabled={stepForwardDisabled}>
-		<img src="images/expand-more.svg" alt="Next page" />
+	<button
+		on:click={stepForward}
+		disabled={stepForwardDisabled}
+		aria-label={labelNext}
+	>
+		<img src="/images/expand-more.svg" alt="" role="presentation" />
 	</button>
 </div>
 
 <style>
 	.wrapper {
 		display: flex;
-		justify-content: space-around;
+		width: 100%;
 		padding: 0;
 		margin: 0 auto;
 	}
@@ -33,6 +46,11 @@
 		padding: 8px;
 	}
 
+	button:focus-visible {
+		outline: 2px solid white;
+		outline-offset: -4px;
+	}
+
 	button:active {
 		border-color: var(--active);
 	}
@@ -44,7 +62,6 @@
 
 	button[disabled] img {
 		mix-blend-mode: soft-light;
-		fill: var(--active);
 	}
 
 	@media screen and (min-width: 700px) {

@@ -1,10 +1,18 @@
 <script lang="ts">
 	import { ANCHOR_AUDIO, ANCHOR_EVENTS, ANCHOR_VIDEOS, DOWNLOAD_ROUTE } from "$lib/constants";
 	import DrBass from "$components/DrBass.svelte";
+	import translations from "$stores/i18n-store";
 
 	let isOpen = $state(false);
 	let toggleButton = $state<HTMLButtonElement | null>(null);
 	let menuEl = $state<HTMLUListElement | null>(null);
+
+	const navEvents = $derived($translations["nav.events"]);
+	const navVideos = $derived($translations["nav.videos"]);
+	const navAudio = $derived($translations["nav.audio"]);
+	const navDownloads = $derived($translations["nav.downloads"]);
+	const menuOpenLabel = $derived($translations["nav.menu.open"]);
+	const menuCloseLabel = $derived($translations["nav.menu.close"]);
 
 	function toggle() {
 		isOpen = !isOpen;
@@ -33,7 +41,7 @@
 		class="nav-toggle"
 		aria-expanded={isOpen}
 		aria-controls="navigation-menu"
-		aria-label={isOpen ? "Close menu" : "Open menu"}
+		aria-label={isOpen ? menuCloseLabel : menuOpenLabel}
 		onclick={toggle}
 	>
 		{#if isOpen}
@@ -51,10 +59,10 @@
 	</button>
 
 	<ul bind:this={menuEl} id="navigation-menu" class:open={isOpen}>
-		<li><a href={`/#${ANCHOR_EVENTS}`} onclick={close}>EVENTS</a></li>
-		<li><a href={`/#${ANCHOR_VIDEOS}`} onclick={close}>YOUTUBE</a></li>
-		<li><a href={`/#${ANCHOR_AUDIO}`} onclick={close}>SOUNDCLOUD</a></li>
-		<li><a href={DOWNLOAD_ROUTE} onclick={close}>DOWNLOADS</a></li>
+		<li><a href={`/#${ANCHOR_EVENTS}`} onclick={close}>{navEvents}</a></li>
+		<li><a href={`/#${ANCHOR_VIDEOS}`} onclick={close}>{navVideos}</a></li>
+		<li><a href={`/#${ANCHOR_AUDIO}`} onclick={close}>{navAudio}</a></li>
+		<li><a href={DOWNLOAD_ROUTE} onclick={close}>{navDownloads}</a></li>
 		<li class="mascot"><DrBass /></li>
 	</ul>
 </nav>

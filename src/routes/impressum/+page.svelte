@@ -3,9 +3,11 @@
 		SOUNDCLOUD_LOCALSTORAGE_KEY,
 		YOUTUBE_LOCALSTORAGE_KEY,
 		EVENT_LOCALSTORAGE_KEY,
-		BANNER_DISMISSED_KEY,
 		EVENT_LOG_LAST_UPDATE_KEY
 	} from "$lib/constants";
+	import translations from "$stores/i18n-store";
+
+	$: t = $translations;
 
 	function removeLocalStorageItem(key) {
 		window.localStorage.removeItem(key);
@@ -15,9 +17,7 @@
 		window.localStorage.removeItem(SOUNDCLOUD_LOCALSTORAGE_KEY);
 		window.localStorage.removeItem(YOUTUBE_LOCALSTORAGE_KEY);
 		window.localStorage.removeItem(EVENT_LOCALSTORAGE_KEY);
-		window.localStorage.removeItem(BANNER_DISMISSED_KEY);
 		window.localStorage.removeItem(EVENT_LOG_LAST_UPDATE_KEY);
-		console.log(EVENT_LOG_LAST_UPDATE_KEY);
 	}
 </script>
 
@@ -26,7 +26,7 @@
 </svelte:head>
 <div id="imprint" class="page-wrapper">
 	<h1>Impressum</h1>
-	<h2>Angaben gemäß § 5 TMG:</h2>
+	<h2>{t["impressum.legal.heading"]}</h2>
 	<address>
 		<p>
 			Philip Saa<br />
@@ -38,34 +38,22 @@
 	</address>
 	<br />
 
-	<h2>Message Banner</h2>
+	<h2>{t["impressum.eventLog.title"]}</h2>
 	<p>
-		Please be advised that this website will store the message banner dismissal in your browser's
-		local storage.
-	</p>
-	<button class="text-link" on:click={() => removeLocalStorageItem(BANNER_DISMISSED_KEY)}>
-		Reset stored banner dismissal
-	</button>
-
-	<h2>Event Log</h2>
-	<p>
-		Please be advised that this website will store the event calendar data in your browser's local
-		storage. This is done to avoid unnecessary requests to the server.
+		{t["impressum.eventLog.description"]}
 		<br />
-		The data will be stored indefinitely. Or until you clear the cache. But the validity of the data will
-		only last 1 week. That means if you visit the website after 1 week, the data be invalid and a request
-		will be made to the server to retrieve the latest data.
+		{t["impressum.eventLog.expiry"]}
 		<br />
 		<button class="text-link" on:click={() => removeLocalStorageItem(EVENT_LOCALSTORAGE_KEY)}>
-			Reset stored event data
+			{t["impressum.eventLog.reset"]}
 		</button>
 	</p>
 
-	<h2>YouTube</h2>
+	<h2>{t["impressum.youtube.title"]}</h2>
 	<p>
-		Please be advised that this website uses a Youtube embedded playlist.
+		{t["impressum.youtube.description"]}
 		<br />
-		This embedded playlist uses
+		{t["impressum.youtube.enhanced"]}
 		<a
 			href="https://support.google.com/youtube/answer/171780"
 			rel="noopener noreferrer"
@@ -75,18 +63,18 @@
 			Privacy Enhanced Mode
 		</a>.
 		<br />
-		They may also collect usage data for analytics purposes.
+		{t["impressum.youtube.analytics"]}
 		<br />
 		<button class="text-link" on:click={() => removeLocalStorageItem(YOUTUBE_LOCALSTORAGE_KEY)}>
-			Reset consent banner
+			{t["impressum.youtube.reset"]}
 		</button>
 	</p>
 
-	<h2>SoundCloud</h2>
+	<h2>{t["impressum.soundcloud.title"]}</h2>
 	<p>
-		Please be advised that this website uses a SoundCloud embedded media player.
+		{t["impressum.soundcloud.description"]}
 		<br />
-		This embedded media player uses cookies in accordance SoundCloud's
+		{t["impressum.soundcloud.policy"]}
 		<a
 			href="https://soundcloud.com/pages/cookies"
 			rel="noopener noreferrer"
@@ -96,10 +84,10 @@
 			Cookies policy
 		</a>.
 		<br />
-		They may also collect usage data for analytics purposes.
+		{t["impressum.soundcloud.analytics"]}
 		<br />
 		<button class="text-link" on:click={() => removeLocalStorageItem(SOUNDCLOUD_LOCALSTORAGE_KEY)}>
-			Reset consent banner
+			{t["impressum.soundcloud.reset"]}
 		</button>
 	</p>
 
@@ -108,17 +96,17 @@
 		style="font-size: large;padding:7px 30px;"
 		on:click={() => removeAllLocalStorageItems()}
 	>
-		Reset all
+		{t["impressum.reset.all"]}
 	</button>
 
-	<h2>Hosting</h2>
+	<h2>{t["impressum.hosting.title"]}</h2>
 	<p>
-		The code and content for this website can be found on GitHub. To learn more about Github Pages
-		please visit their <a
+		{t["impressum.hosting.description"]}
+		<a
 			class="text-link"
 			href="https://pages.github.com/"
 			rel="noopener noreferrer"
-			target="_blank">website</a
+			target="_blank">{t["impressum.hosting.link"]}</a
 		>.
 	</p>
 	<p>
@@ -138,9 +126,9 @@
 		>
 	</p>
 
-	<h2>Downloads</h2>
+	<h2>{t["impressum.downloads.title"]}</h2>
 	<p>
-		For more information, please refer to the README.md file located in the zipped downloaded asset.
+		{t["impressum.downloads.description"]}
 	</p>
 </div>
 
