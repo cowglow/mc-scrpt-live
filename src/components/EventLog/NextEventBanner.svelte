@@ -14,37 +14,48 @@
 	let fbEvent = $derived($translations["nextEvent.banner.fbEvent"]);
 	let googleMap = $derived($translations["nextEvent.banner.googleMap"]);
 
-	const verifiedVenue = $derived(verifyVenue(nextShow[eventIndex].venue));
-	const hasValidLink = $derived(nextShow[eventIndex].link.trim() !== "");
-
 	const canGoBackwards = $derived(eventIndex - 1 >= 0);
 	const canGoForwards = $derived(eventIndex + 1 < nextShow.length);
 
 	function changeEventIndex(action: "forward" | "backward" = "forward") {
-		if (action === "backward" && canGoBackwards) {
-			eventIndex--;
-		}
-		if (action === "forward" && canGoForwards) {
-			eventIndex++;
-		}
+		if (action === "backward" && canGoBackwards) eventIndex--;
+		if (action === "forward" && canGoForwards) eventIndex++;
 	}
 
 	const hasMultipleEvents = $derived(nextShow.length > 1);
-
 	const MAX_SCREEN_WIDTH = 640;
 	const isHiddenForMobile = $derived(screenWidth <= MAX_SCREEN_WIDTH);
 
+	// Swipe / drag tracking
 	let touchStartX = $state(0);
 	let touchStartY = $state(0);
+	let dragOffset = $state(0);
+	let isDragging = $state(false);
 
 	function handleTouchStart(e: TouchEvent) {
 		touchStartX = e.touches[0].clientX;
 		touchStartY = e.touches[0].clientY;
+		isDragging = false;
+		dragOffset = 0;
+	}
+
+	function handleTouchMove(e: TouchEvent) {
+		const deltaX = e.touches[0].clientX - touchStartX;
+		const deltaY = e.touches[0].clientY - touchStartY;
+		if (!isDragging && Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+			isDragging = true;
+		}
+		if (isDragging) {
+			dragOffset = deltaX;
+			e.preventDefault();
+		}
 	}
 
 	function handleTouchEnd(e: TouchEvent) {
 		const deltaX = e.changedTouches[0].clientX - touchStartX;
 		const deltaY = e.changedTouches[0].clientY - touchStartY;
+		dragOffset = 0;
+		isDragging = false;
 		if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
 			changeEventIndex(deltaX < 0 ? "forward" : "backward");
 		}
@@ -55,45 +66,62 @@
 	{#if hasMultipleEvents && !isHiddenForMobile}
 		<button onclick={() => changeEventIndex("backward")} disabled={!canGoBackwards}>&lt;</button>
 	{/if}
+
 	{#if nextShow.length > 0}
 		<div
 			id="next-event-banner"
 			ontouchstart={handleTouchStart}
+			ontouchmove={handleTouchMove}
 			ontouchend={handleTouchEnd}
 		>
-			<div class="title">
-				<h1>{label}: <span>{formattedEventDate(new Date(nextShow[eventIndex].date))}</span></h1>
+			<div class="slide-container">
+				<div
+					class="slide-track"
+					style="transform: translateX(calc(-{eventIndex * 100}% + {dragOffset}px));
+					       transition: {isDragging ? 'none' : 'transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94)'};"
+				>
+					{#each nextShow as event, i}
+						{@const venue = verifyVenue(event.venue)}
+						{@const validLink = event.link.trim() !== ""}
+						<div class="slide-item" aria-hidden={i !== eventIndex}>
+							<div class="title">
+								<h1>{label}: <span>{formattedEventDate(new Date(event.date))}</span></h1>
+							</div>
+							<div class="count-down">
+								<h2>{event.name}</h2>
+								{#if !isHiddenForMobile}
+									<CountDown date={new Date(event.date)} />
+								{/if}
+							</div>
+							<div class="info">
+								{#if venue}
+									<a
+										href="https://www.google.com/maps/search/{event.venue}/"
+										rel="noreferrer nofollow"
+										target="map-link"
+										aria-label={`View ${googleMap} location on Google Maps`}
+									>
+										{event.venue}
+									</a>
+								{:else}
+									<span>{event.venue}</span>
+								{/if}
+								{#if validLink}
+									<a
+										href={event.link}
+										rel="noreferrer nofollow"
+										target="event-link"
+										aria-label="View Facebook event"
+									>
+										{fbEvent}
+									</a>
+								{/if}
+							</div>
+						</div>
+					{/each}
+				</div>
 			</div>
-			<div class="count-down">
-				<h2>{nextShow[eventIndex].name}</h2>
-				{#if !isHiddenForMobile}
-					<CountDown date={new Date(nextShow[eventIndex].date)} />
-				{/if}
-			</div>
-			<div class="info">
-				{#if verifiedVenue}
-					<a
-						href="https://www.google.com/maps/search/{nextShow[eventIndex].venue}/"
-						rel="noreferrer nofollow"
-						target="map-link"
-						aria-label={`View ${googleMap} location on Google Maps`}
-					>
-						{nextShow[eventIndex].venue}
-					</a>
-				{:else}
-					<span>{nextShow[eventIndex].venue}</span>
-				{/if}
-				{#if hasValidLink}
-					<a
-						href={nextShow[eventIndex].link}
-						rel="noreferrer nofollow"
-						target="event-link"
-						aria-label="View Facebook event"
-					>
-						{fbEvent}
-					</a>
-				{/if}
-			</div>
+
 			{#if hasMultipleEvents}
 				<div class="dots" role="group" aria-label="Event navigation">
 					{#each nextShow as _, i}
@@ -109,6 +137,7 @@
 			{/if}
 		</div>
 	{/if}
+
 	{#if hasMultipleEvents && !isHiddenForMobile}
 		<button onclick={() => changeEventIndex("forward")} disabled={!canGoForwards}>&gt;</button>
 	{/if}
@@ -149,8 +178,27 @@
 		max-width: 1080px;
 		width: 95%;
 		min-height: 135px;
-		padding: 0 var(--side-padding);
+		padding: 0 var(--side-padding) var(--side-padding);
 		touch-action: pan-y;
+		overflow: hidden;
+	}
+
+	.slide-container {
+		flex: 1;
+		overflow: hidden;
+	}
+
+	.slide-track {
+		display: flex;
+		width: 100%;
+		will-change: transform;
+	}
+
+	.slide-item {
+		flex-shrink: 0;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.title {
@@ -175,9 +223,8 @@
 		gap: 8px;
 		justify-content: space-between;
 		align-items: flex-end;
-		right: 0;
 		padding: 0;
-		margin: var(--side-padding) 0;
+		margin: var(--side-padding) 0 0;
 	}
 
 	h1 {
@@ -231,7 +278,7 @@
 		display: flex;
 		justify-content: center;
 		gap: 0.5rem;
-		padding: 0.5rem 0;
+		padding: 0.5rem 0 0;
 	}
 
 	.dot {
@@ -241,9 +288,8 @@
 		border: 1.5px solid white;
 		background: transparent;
 		padding: 0;
-		/* expand tap target without changing visual size */
-		position: relative;
 		cursor: pointer;
+		position: relative;
 	}
 
 	.dot::before {
