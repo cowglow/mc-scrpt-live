@@ -124,6 +124,9 @@
 	<p>GitHub Repo: <a
 		class="text-link" href="https://github.com/cowglow/mc-scrpt-live" rel="noopener noreferrer"
 		target="_blank">https://github.com/cowglow/mc-scrpt-live</a></p>
+	<p>Component Library: <a
+		class="text-link" href="/storybook" rel="noopener noreferrer"
+		target="_blank">mc.scrpt.live/storybook</a></p>
 
 	<h2>Downloads</h2>
 	<p>
