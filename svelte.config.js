@@ -25,7 +25,13 @@ const config = {
 			fallback: undefined,
 			precompress: false,
 			strict: true
-		})
+		}),
+		prerender: {
+			handleHttpError: ({ path, message }) => {
+				if (path.startsWith('/storybook')) return;
+				throw new Error(message);
+			}
+		}
 	}
 };
 
