@@ -109,7 +109,7 @@
 		padding: 0;
 		margin: 0;
 		text-decoration: none;
-		font-size: clamp(0.42rem, 3.2vw, 2.5rem);
+		font-size: clamp(1rem, 3.2vw, 2.5rem);
 	}
 
 	ul#navigation-menu > li a:hover {

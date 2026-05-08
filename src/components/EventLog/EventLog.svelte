@@ -46,9 +46,9 @@
 {#if disableBanner}
 	<NextEventBanner data={upcomingShows} screenWidth={innerWidth.current} />
 {/if}
-<h1>{label}</h1>
-<h3>{content}</h3>
 <div class="wrapper">
+	<h1>{label}</h1>
+	<h3>{content}</h3>
 	{#if $eventsStore.shows.length > 0}
 		<div class="event-log">
 			{#each $eventsStore.shows as event (event.date)}
