@@ -39,7 +39,10 @@ jobs:
           VITE_DEPLOYMENT_ID: ${{ secrets.VITE_DEPLOYMENT_ID }}
 
       - name: Build with Vite
-        run: npm run build
+        run: |
+          npm run build
+          npm run build-storybook
+          cp -r storybook-static build/storybook
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9

@@ -36,6 +36,9 @@ jobs:
       - name: Build
         run: |
           npm run build
+          npm run build-storybook
+          cp -r storybook-static build/storybook
+
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:
