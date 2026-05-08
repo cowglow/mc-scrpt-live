@@ -4,7 +4,7 @@
 </script>
 
 <div class="wrapper">
-	{#each data as event}
+	{#each data as event (event.date)}
 		<EventLogEntry {...event} />
 	{/each}
 </div>
