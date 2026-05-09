@@ -1,6 +1,15 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Header from "$components/Layout/Header.svelte";
 	import Footer from "$components/Layout/Footer.svelte";
+
+	onMount(() => {
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.addEventListener('message', (e) => {
+				if (e.data?.type === 'SW_UPDATED') location.reload();
+			});
+		}
+	});
 </script>
 
 <svelte:head>
