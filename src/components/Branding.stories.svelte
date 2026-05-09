@@ -9,4 +9,10 @@
 	});
 </script>
 
-<Story name="Default" />
+<Story name="Default">
+	{#snippet template(args)}
+		<div style="font-size: clamp(1.4rem, 50vw, 10rem); color: white; display: flex; align-items: center;">
+			<Branding {...args} />
+		</div>
+	{/snippet}
+</Story>
