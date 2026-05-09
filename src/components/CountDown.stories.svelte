@@ -13,14 +13,21 @@
 </script>
 
 <Story
-	name="Upcoming Event"
+	name="Many Days Away"
 	args={{
-		date: new Date("2027-01-01T22:00:00")
+		date: new Date(Date.now() + 118 * 24 * 60 * 60 * 1000)
 	}}
 />
 
 <Story
-	name="Imminent"
+	name="Single Digit Days"
+	args={{
+		date: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000)
+	}}
+/>
+
+<Story
+	name="Same Day"
 	args={{
 		date: new Date(Date.now() + 3 * 60 * 60 * 1000)
 	}}

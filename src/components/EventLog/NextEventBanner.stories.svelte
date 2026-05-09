@@ -2,18 +2,25 @@
 	import { defineMeta } from "@storybook/addon-svelte-csf";
 	import NextEventBanner from "./NextEventBanner.svelte";
 
-	const showA = {
+	const showFarAway = {
 		name: "Sound Journey Vol. 4",
-		date: new Date("2027-03-15T22:00:00"),
+		date: new Date(Date.now() + 118 * 24 * 60 * 60 * 1000),
 		venue: "Z-Bau",
 		link: "https://facebook.com/events/123456789"
 	};
 
-	const showB = {
+	const showSoon = {
 		name: "Open Air Festival",
-		date: new Date("2027-04-20T20:00:00"),
+		date: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
 		venue: "Stadtpark Nürnberg",
 		link: "https://facebook.com/events/987654321"
+	};
+
+	const showToday = {
+		name: "Warehouse Sessions",
+		date: new Date(Date.now() + 3 * 60 * 60 * 1000),
+		venue: "Kunstwerk",
+		link: "https://facebook.com/events/111222333"
 	};
 
 	const { Story } = defineMeta({
@@ -26,7 +33,7 @@
 <Story
 	name="Single Event"
 	args={{
-		data: [showA],
+		data: [showFarAway],
 		screenWidth: 1024
 	}}
 />
@@ -34,7 +41,18 @@
 <Story
 	name="Multiple Events"
 	args={{
-		data: [showA, showB],
+		data: [
+			{ ...showSoon, date: new Date(Date.now() + 13 * 24 * 60 * 60 * 1000) },
+			{ ...showFarAway, date: new Date(Date.now() + 21 * 24 * 60 * 60 * 1000) }
+		],
+		screenWidth: 1024
+	}}
+/>
+
+<Story
+	name="Same Day"
+	args={{
+		data: [showToday],
 		screenWidth: 1024
 	}}
 />
@@ -42,7 +60,7 @@
 <Story
 	name="Mobile View"
 	args={{
-		data: [showA],
+		data: [showFarAway],
 		screenWidth: 375
 	}}
 />

@@ -20,7 +20,9 @@
 </script>
 
 <div class="wrapper">
-	<div class="container"><span>{`0${diff.days}`.slice(-2)}</span><span>{days}</span></div>
+	{#if diff.days > 0}
+		<div class="container"><span>{String(diff.days).padStart(2, '0')}</span><span>{days}</span></div>
+	{/if}
 	<div class="container"><span>{`0${diff.hours}`.slice(-2)}</span><span>{hours}</span></div>
 	<div class="container"><span>{`0${diff.minutes}`.slice(-2)}</span><span>{minutes}</span></div>
 	<div class="container"><span>{`0${diff.seconds}`.slice(-2)}</span><span>{seconds}</span></div>
