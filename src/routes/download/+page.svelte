@@ -21,7 +21,7 @@
 			> [Canva]
 		</li>
 		<li>
-			Hi-Res Photo <a class="text-link" href={`/downloads/${EPK}.zip`}>Download Kit</a> [Zip]
+			Hi-Res Photo <a class="text-link" href={`/downloads/${EPK}.zip`} target="_blank">Download Kit</a> [Zip]
 		</li>
 	</ul>
 	<h1>Releases</h1>
@@ -30,12 +30,14 @@
 			Kontrolfreek by <a
 			class="text-link"
 			href="https://www.instagram.com/ill_i_saw/"
-			rel="noreferrer nofollow">ill.i.saw</a
+			rel="noreferrer nofollow"
+			target="_blank">ill.i.saw</a
 		>. Available on
 			<a
 				class="text-link"
 				href="https://on.soundcloud.com/g5gtswzcyiafsAmt5"
-				rel="noreferrer nofollow">SoundCloud</a
+				rel="noreferrer nofollow"
+				target="_blank">SoundCloud</a
 			>
 		</li>
 	</ul>
@@ -46,11 +48,18 @@
 			2023 - Recorded by <a
 			class="text-link"
 			href="https://www.instagram.com/salveshamlic/"
-			rel="noreferrer nofollow">Salve Shamlic</a
+			rel="noreferrer nofollow"
+			target="_blank"
+		>Salve Shamlic</a
 		>
 			<ul>
 				<li>
-					<a class="text-link" href={`/downloads/${DRY_MIX_2023}.zip`}>Dry Mix</a>
+					<a
+						class="text-link"
+						href={`/downloads/${DRY_MIX_2023}.zip`}
+						rel="noreferrer nofollow"
+						target="_blank">Dry
+						Mix</a>
 				</li>
 			</ul>
 		</li>
@@ -58,14 +67,23 @@
 			2022 - Recorded by <a
 			class="text-link"
 			href="https://www.instagram.com/ill_i_saw/"
-			rel="noreferrer nofollow">ill.i.saw</a
+			rel="noreferrer nofollow"
+			target="_blank">ill.i.saw</a
 		>
 			<ul>
 				<li>
-					<a class="text-link" href={`/downloads/${DRY_MIX_2022}.zip`}>Dry Mix</a>
+					<a
+						class="text-link"
+						href={`/downloads/${DRY_MIX_2022}.zip`}
+						rel="noreferrer nofollow"
+						target="_blank">Dry Mix</a>
 				</li>
 				<li>
-					<a class="text-link" href={`/downloads/${WASILLI_MIX}.zip`}>Wet Mix</a>
+					<a
+						class="text-link"
+						href={`/downloads/${WASILLI_MIX}.zip`}
+						rel="noreferrer nofollow"
+						target="_blank">Wet Mix</a>
 				</li>
 			</ul>
 		</li>
@@ -83,6 +101,7 @@
 				class="text-link"
 				href="/downloads/Video%20Product%20Guide.pdf"
 				rel="noreferrer nofollow"
+				target="_blank"
 			>Video Product</a>
 		</li>
 	</ul>
