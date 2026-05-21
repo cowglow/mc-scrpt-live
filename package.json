@@ -30,7 +30,7 @@
 		"@storybook/global": "^5.0.0",
 		"@storybook/sveltekit": "^10.2.12",
 		"@sveltejs/adapter-static": "^3.0.9",
-		"@sveltejs/kit": "^2.53.2",
+		"@sveltejs/kit": "^2.60.1",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"@types/eslint": "^9.6.0",
 		"@types/node": "^24.3.0",
