@@ -1,11 +1,11 @@
 <script lang="ts">
 	import translations, { locale } from "$stores/i18n-store";
 	import SocialMedia from "$components/SocialMedia/Menu.svelte";
-	import Branding from "$components/Branding.svelte";
 	import { footerYear } from "$lib/footer-year";
 
 	$: description = $translations["footer.message"];
 	$: subscribe = $translations["footer.subscribe"];
+	$: subscribeGoogle = $translations["footer.subscribe.google"];
 	$: rights = $translations["footer.rights"];
 	$: langEn = $translations["footer.language.en"];
 	$: langDe = $translations["footer.language.de"];
@@ -17,7 +17,8 @@
 		<p>{description}</p>
 		<div id="footer-details">
 			<p><a class="legal-link" href="/impressum">Impressum</a></p>
-			<p><a class="legal-link" href="/calendar.ics">{subscribe}</a></p>
+			<p><a class="legal-link" href="webcal://mc.scrpt.live/calendar.ics">{subscribe}</a></p>
+			<p><a class="legal-link" href="https://calendar.google.com/calendar/r/settings/addbyurl?url=https%3A%2F%2Fmc.scrpt.live%2Fcalendar.ics" target="_blank" rel="noreferrer">{subscribeGoogle}</a></p>
 			<p class="language-toggle">
 				<svg class="language-icon" aria-label="Language" viewBox="0 0 24 24" fill="none"
 				     xmlns="http://www.w3.org/2000/svg">
