@@ -11,7 +11,7 @@
 	const nextShow = $derived(getUpcomingShow(data));
 
 	let eventIndex = $state(0);
-	let label = $derived($translations["nextEvent.banner.title"]);
+	let bannerTitle = $derived($translations["nextEvent.banner.title"]);
 	let eventLink = $derived($translations["nextEvent.banner.eventLink"]);
 	let googleMapLink = $derived($translations["nextEvent.banner.googleMapLink"]);
 
@@ -63,7 +63,7 @@
 	}
 </script>
 
-<section class="wrapper" aria-label={label}>
+<section class="wrapper" aria-label={bannerTitle}>
 	{#if hasMultipleEvents}
 		<button class="arrow" onclick={() => changeEventIndex("backward")} disabled={!canGoBackwards}>&lt;</button>
 	{/if}
@@ -88,10 +88,10 @@
 						{@const icsUrl = `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`}
 						<div class="slide-item" aria-hidden={i !== eventIndex}>
 							<div class="title">
-								<h1>{label}: <span>{formattedEventDate(new Date(event.date))}</span></h1>
+								<h2>{bannerTitle}: <span>{formattedEventDate(new Date(event.date))}</span></h2>
 							</div>
 							<div class="count-down">
-								<h2>{event.name}</h2>
+								<h3>{event.name}</h3>
 								{#if !isHiddenForMobile}
 									<CountDown date={new Date(event.date)} />
 								{/if}
@@ -225,7 +225,7 @@
         flex: 1;
     }
 
-    .count-down h2 {
+    .count-down h3 {
         flex: 1;
         text-shadow: black 1px 1px 1px;
     }
@@ -239,7 +239,7 @@
         margin: var(--side-padding) 0 0;
     }
 
-    h1 {
+    h2 {
         display: flex;
         justify-content: space-between;
         font-family: var(--font-body), sans-serif;
@@ -252,13 +252,13 @@
         color: #000000;
     }
 
-    h1 span {
+    h2 span {
         flex: 1;
         color: white;
         margin-left: 0.2rem;
     }
 
-    h2 {
+    h3 {
         padding: 0;
         margin: 0;
         font-family: var(--font-body), sans-serif;

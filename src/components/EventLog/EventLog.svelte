@@ -15,42 +15,42 @@
 	import { innerWidth } from "svelte/reactivity/window";
 	import LogEntry from "$components/EventLog/LogEntry.svelte";
 
-	$: label = $translations["events.header.title"];
-	$: content = $translations["events.header.description"];
+	$: eventLogTitle = $translations["events.header.title"];
+	$: eventLogDescription = $translations["events.header.description"];
 
 	export let upcomingShows = [];
 	export let previousShows = [];
 
-	let spawned = writable(true);
+	let initialLoadPending = writable(true);
 
-	let shows = writable(previousShows);
+	let showsStore = writable(previousShows);
 	let currentPage = writable(EVENT_CONTENT_DEFAULT_PAGE);
 	let maxPerPage = readable(EVENT_CONTENT_MAX_PER_PAGE);
-	let eventsStore = derived([shows, currentPage, maxPerPage], paginateContent);
+	let eventsStore = derived([showsStore, currentPage, maxPerPage], paginateContent);
 
-	const disableBanner = validUpcomingShows(upcomingShows);
+	const hasUpcomingShows = validUpcomingShows(upcomingShows);
 
 	function stepBackward() {
 		$currentPage--;
 	}
 
 	async function stepForward() {
-		if ($spawned) {
-			$shows = await dataLoader(JSON_PATH, EVENT_LOCALSTORAGE_KEY);
-			$spawned = false;
+		if ($initialLoadPending) {
+			$showsStore = await dataLoader(JSON_PATH, EVENT_LOCALSTORAGE_KEY);
+			$initialLoadPending = false;
 		}
 		$currentPage++;
 	}
 </script>
 
-{#if disableBanner}
+{#if hasUpcomingShows}
 	<NextEventBanner data={upcomingShows} screenWidth={innerWidth.current} />
 {/if}
 <div class="wrapper">
-	<h1>{label}</h1>
-	<h3>{content}</h3>
+	<h2 class="p-name">{eventLogTitle}</h2>
+	<p class="event-log-description">{eventLogDescription}</p>
 	{#if $eventsStore.shows.length > 0}
-		<div class="event-log">
+		<div class="event-log h-feed">
 			{#each $eventsStore.shows as event (event.date)}
 				<LogEntry {...event} />
 			{/each}
@@ -66,6 +66,7 @@
 			stepBackward
 		}}
 	/>
+	<a class="all-events-link" href="/event-log">{$translations["events.all.cta"]}</a>
 </div>
 
 <style>
@@ -78,7 +79,7 @@
 		margin: 0 auto;
 	}
 
-	h1 {
+	h2 {
 		font-family: var(--font-heading), sans-serif;
 		font-size: 2.4rem;
 		text-align: left;
@@ -86,7 +87,7 @@
 		padding: 0 var(--side-padding);
 	}
 
-	h3 {
+	.event-log-description {
 		font-size: 1.2rem;
 		font-style: normal;
 		font-weight: normal;
@@ -94,16 +95,27 @@
 		padding: 0 var(--side-padding);
 	}
 
+	.all-events-link {
+		display: block;
+		text-align: center;
+		padding: var(--side-padding);
+		font-size: 1.2rem;
+	}
+
 	@media screen and (min-width: 700px) {
-		h1 {
+		h2 {
 			text-align: center;
 			padding: 0;
 		}
 
-		h3 {
+		.event-log-description {
 			font-size: 1.8rem;
 			text-align: center;
 			padding: 0;
+		}
+
+		.all-events-link {
+			font-size: 1.5rem;
 		}
 	}
 </style>

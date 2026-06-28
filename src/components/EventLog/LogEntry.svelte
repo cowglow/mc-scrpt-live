@@ -8,21 +8,15 @@
 	export let link = "";
 
 	$: eventDate = new Date(date);
-	$: eventMonth = eventDate.toLocaleString("de-DE", {
-		timeZone: "Europe/Berlin",
-		month: "2-digit"
-	});
-
-	$: eventMonthMobile = eventDate.toLocaleString("de-DE", {
+	$: eventMonthShort = eventDate.toLocaleString("de-DE", {
 		timeZone: "Europe/Berlin",
 		month: "short"
 	});
-
-	$: eventDay = eventDate.toLocaleString("de-DE", {
+	$: eventMonthDay = eventDate.toLocaleString("de-DE", {
 		timeZone: "Europe/Berlin",
+		month: "2-digit",
 		day: "2-digit"
 	});
-
 	$: eventYear = eventDate.toLocaleString("de-DE", {
 		timeZone: "Europe/Berlin",
 		year: "numeric"
@@ -42,12 +36,9 @@
 <article class="wrapper h-event">
 	<div class="flex-it event-date">
 		<time class="dt-start" datetime={eventDate.toISOString()}>
-			<span class="mobile">
-				{eventMonthMobile}<br />{eventYear}
-			</span>
-			<span class="desktop">
-				{eventMonth} {eventDay}<br />{eventYear}
-			</span>
+			<span class="show-mobile">{eventMonthShort}</span>
+			<span class="show-desktop">{eventMonthDay}</span>
+			<span class="date-year">{eventYear}</span>
 		</time>
 	</div>
 	<div class="flex-it event-name">
@@ -68,14 +59,12 @@
 	</div>
 	<div class="flex-it event-link">
 		{#if link}
-			<div class="mobile">
-				<a class="u-url" href={link} rel="noreferrer nofollow" target="event-link"
-				   aria-label="Event details for {name}">
-					<img alt="" src="/images/event-link-icon.svg" role="presentation" />
-				</a>
-			</div>
+			<a class="u-url icon-link show-mobile" href={link} rel="noreferrer nofollow" target="event-link"
+			   aria-label="Event details for {name}">
+				<img alt="" src="/images/event-link-icon.svg" role="presentation" />
+			</a>
 			{#if verifiedVenueLink}
-				<div class="desktop">
+				<div class="show-desktop event-link-desktop">
 					<img alt="" src="/images/event-link-icon.svg" role="presentation" />
 					<a class="u-url" href={link} rel="noreferrer nofollow" target="event-link">
 						{eventUrl}
@@ -84,11 +73,9 @@
 			{/if}
 		{/if}
 	</div>
-	<div class="flex-it event-time desktop">
-		<div class="desktop">
-			<img alt="" src="/images/event-start-time-icon.svg" role="presentation" />
-			<span>{eventStartTime}</span>
-		</div>
+	<div class="flex-it event-time show-desktop">
+		<img alt="" src="/images/event-start-time-icon.svg" role="presentation" />
+		<span>{eventStartTime}</span>
 	</div>
 </article>
 
@@ -96,10 +83,9 @@
     .wrapper {
         display: flex;
         min-height: 5em;
-        background-color: red;
         flex-grow: 1;
     }
-		
+
     .wrapper:nth-child(even) {
         color: white;
         background-color: black;
@@ -130,6 +116,13 @@
         max-width: 165px;
     }
 
+    .event-date time {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
     .event-name {
         width: 38%;
         max-width: 400px;
@@ -153,8 +146,21 @@
         width: 15%;
     }
 
-    .event-link a {
-        margin-left: 4px;
+    .event-link img,
+    .event-time img {
+        width: 1.2rem;
+        height: 1.2rem;
+        flex-shrink: 0;
+    }
+
+    .event-link-desktop {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        overflow: hidden;
+    }
+
+    .event-link-desktop a {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -164,26 +170,24 @@
         padding: 15px;
         align-items: center;
         width: 15%;
+        flex-direction: row;
+        gap: 4px;
     }
 
-    .event-time span {
-        margin-left: 4px;
-    }
-
-    .mobile {
+    .show-mobile {
         display: flex;
     }
 
-    .desktop {
+    .show-desktop {
         display: none;
     }
 
     @media screen and (min-width: 700px) {
-        .mobile {
+        .show-mobile {
             display: none;
         }
 
-        .desktop {
+        .show-desktop {
             display: flex;
         }
 
