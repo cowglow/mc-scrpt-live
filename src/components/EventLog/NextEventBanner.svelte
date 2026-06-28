@@ -5,6 +5,7 @@
 	import { getUpcomingShow } from "$lib/get-upcoming-show";
 	import formattedEventDate from "$lib/formatted-event-date.js";
 	import { verifyVenue } from "$lib/verify-venue";
+	import { buildEvent } from "$lib/build-event";
 
 	let { data = [] as EventShow[], screenWidth = 0 } = $props();
 	const nextShow = $derived(getUpcomingShow(data));
@@ -62,7 +63,7 @@
 	}
 </script>
 
-<section class="wrapper" role="region" aria-label={label}>
+<section class="wrapper" aria-label={label}>
 	{#if hasMultipleEvents}
 		<button class="arrow" onclick={() => changeEventIndex("backward")} disabled={!canGoBackwards}>&lt;</button>
 	{/if}
@@ -83,8 +84,10 @@
 				>
 					{#each nextShow as event, i (i)}
 						{@const venue = verifyVenue(event.venue)}
-						{@const validLink = event.link.trim() !== ""}
+						{@const icsContent = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//mc.scrpt.live//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH", buildEvent({ ...event, date: new Date(event.date).toISOString() }), "END:VCALENDAR"].join("\r\n")}
+						{@const icsUrl = `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`}
 						<div class="slide-item" aria-hidden={i !== eventIndex}>
+							<pre>{JSON.stringify(event,null,2)}</pre>
 							<div class="title">
 								<h1>{label}: <span>{formattedEventDate(new Date(event.date))}</span></h1>
 							</div>
@@ -107,16 +110,9 @@
 								{:else}
 									<span>{event.venue}</span>
 								{/if}
-								{#if validLink}
-									<a
-										href={event.link}
-										rel="noreferrer nofollow"
-										target="event-link"
-										aria-label={eventLink}
-									>
-										{eventLink}
-									</a>
-								{/if}
+								<a href={icsUrl} download="{event.name}.ics" aria-label={eventLink}>
+									{eventLink}
+								</a>
 							</div>
 						</div>
 					{/each}

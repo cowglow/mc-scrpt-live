@@ -1,7 +1,7 @@
 {
 	"nextEvent.banner.title": "Nächste Show",
 	"nextEvent.banner.countdown.label": "Countdown bis zur nächsten Show",
-	"nextEvent.banner.eventLink": "Show-Link",
+	"nextEvent.banner.eventLink": "Veranstaltung herunterladen",
 	"nextEvent.banner.googleMapLink": "Google-Maps-Link",
 	"nextEvent.banner.date.days": "Tage",
 	"nextEvent.banner.date.hours": "Std",
