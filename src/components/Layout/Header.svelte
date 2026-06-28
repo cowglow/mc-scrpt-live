@@ -12,7 +12,7 @@
 <header class={clampHeader ? "clipHeader" : ""}>
 	<div id="nav-bar-wrapper">
 		<div id="nav-bar">
-			<Branding />
+			<Branding pageTitle={!clampHeader} />
 			<NavBar />
 		</div>
 	</div>

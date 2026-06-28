@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let title = "Section Label";
-	export let description: string | undefined;
+	export let description: string | undefined = undefined;
 </script>
 
 <h3>{title}</h3>
