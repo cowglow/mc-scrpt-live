@@ -73,6 +73,7 @@
 			ontouchstart={handleTouchStart}
 			ontouchmove={handleTouchMove}
 			ontouchend={handleTouchEnd}
+			role="banner"
 		>
 			<div class="slide-container">
 				<div
@@ -80,7 +81,7 @@
 					style="transform: translateX(calc(-{eventIndex * 100}% + {dragOffset}px));
 					       transition: {isDragging ? 'none' : 'transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94)'};"
 				>
-					{#each nextShow as event, i}
+					{#each nextShow as event, i (i)}
 						{@const venue = verifyVenue(event.venue)}
 						{@const validLink = event.link.trim() !== ""}
 						<div class="slide-item" aria-hidden={i !== eventIndex}>
@@ -219,6 +220,10 @@
         margin: 0.25rem 0;
     }
 
+		.title span {
+        text-shadow: black 1px 1px 1px;
+		}
+
     .count-down {
         display: flex;
         align-content: space-between;
@@ -227,6 +232,7 @@
 
     .count-down h2 {
         flex: 1;
+        text-shadow: black 1px 1px 1px;
     }
 
     .info {

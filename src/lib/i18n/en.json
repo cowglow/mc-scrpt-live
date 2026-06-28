@@ -1,5 +1,6 @@
 {
 	"nextEvent.banner.title": "Next Big Show",
+	"nextEvent.banner.countdown.label": "Count down to next show",
 	"nextEvent.banner.fbEvent": "Open Facebook Event",
 	"nextEvent.banner.googleMap": "Open on Google Maps",
 	"nextEvent.banner.date.days": "Days",
