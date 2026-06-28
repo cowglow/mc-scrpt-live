@@ -10,18 +10,22 @@
 	$: labelNext = $translations["pagination.next"];
 </script>
 
-<div class="wrapper">
+<div role="tablist" class="wrapper">
 	<button
+		role="tab"
 		on:click={stepBackward}
 		disabled={stepBackwardDisabled}
 		aria-label={labelPrevious}
+		aria-selected="false"
 	>
 		<img src="/images/expand-less.svg" alt="" role="presentation" />
 	</button>
 	<button
+		role="tab"
 		on:click={stepForward}
 		disabled={stepForwardDisabled}
 		aria-label={labelNext}
+		aria-selected="false"
 	>
 		<img src="/images/expand-more.svg" alt="" role="presentation" />
 	</button>
@@ -43,7 +47,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 8px;
+		padding: 0;
+		min-width: 44px;
+		min-height: 44px;
 	}
 
 	button:focus-visible {
@@ -62,11 +68,5 @@
 
 	button[disabled] img {
 		mix-blend-mode: soft-light;
-	}
-
-	@media screen and (min-width: 700px) {
-		button {
-			padding: 18px 0 10px;
-		}
 	}
 </style>

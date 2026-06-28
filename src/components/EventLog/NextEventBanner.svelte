@@ -11,8 +11,8 @@
 
 	let eventIndex = $state(0);
 	let label = $derived($translations["nextEvent.banner.title"]);
-	let fbEvent = $derived($translations["nextEvent.banner.fbEvent"]);
-	let googleMap = $derived($translations["nextEvent.banner.googleMap"]);
+	let eventLink = $derived($translations["nextEvent.banner.eventLink"]);
+	let googleMapLink = $derived($translations["nextEvent.banner.googleMapLink"]);
 
 	const canGoBackwards = $derived(eventIndex - 1 >= 0);
 	const canGoForwards = $derived(eventIndex + 1 < nextShow.length);
@@ -62,7 +62,7 @@
 	}
 </script>
 
-<div class="wrapper">
+<section class="wrapper" role="region" aria-label={label}>
 	{#if hasMultipleEvents}
 		<button class="arrow" onclick={() => changeEventIndex("backward")} disabled={!canGoBackwards}>&lt;</button>
 	{/if}
@@ -100,7 +100,7 @@
 										href="https://www.google.com/maps/search/{event.venue}/"
 										rel="noreferrer nofollow"
 										target="map-link"
-										aria-label={`View ${googleMap} location on Google Maps`}
+										aria-label={googleMapLink}
 									>
 										{event.venue}
 									</a>
@@ -112,9 +112,9 @@
 										href={event.link}
 										rel="noreferrer nofollow"
 										target="event-link"
-										aria-label="View Facebook event"
+										aria-label={eventLink}
 									>
-										{fbEvent}
+										{eventLink}
 									</a>
 								{/if}
 							</div>
@@ -125,7 +125,7 @@
 
 			{#if hasMultipleEvents}
 				<div class="dots" role="group" aria-label="Event navigation">
-					{#each nextShow as _, i}
+					{#each nextShow as event, i (event.date)}
 						<button
 							class="dot"
 							class:active={i === eventIndex}
@@ -142,7 +142,7 @@
 	{#if hasMultipleEvents}
 		<button class="arrow" onclick={() => changeEventIndex("forward")} disabled={!canGoForwards}>&gt;</button>
 	{/if}
-</div>
+</section>
 
 <style>
     .wrapper {
@@ -220,9 +220,9 @@
         margin: 0.25rem 0;
     }
 
-		.title span {
+    .title span {
         text-shadow: black 1px 1px 1px;
-		}
+    }
 
     .count-down {
         display: flex;
@@ -248,7 +248,7 @@
         display: flex;
         justify-content: space-between;
         font-family: var(--font-body), sans-serif;
-				font-size: 1.3125rem;
+        font-size: 1.3125rem;
         font-style: normal;
         font-weight: 500;
         line-height: 1;
