@@ -27,8 +27,8 @@
 	});
 </script>
 
-<div class="wrapper" role="timer" aria-live="polite" aria-label={label}>
-	<span class="sr-only">{countdownData.days}, {countdownData.hours}, {countdownData.minutes}</span>
+<div class="wrapper" role="timer"
+     aria-label={`${label}: ${countdownData.days}, ${countdownData.hours}, ${countdownData.minutes}`}>
 	<div class="countdown-container" aria-hidden="true">
 		{#if diff.days > 0}
 			<div class="container"><span>{countdownData.days}</span><span>{days}</span></div>
@@ -46,9 +46,11 @@
         width: 100%;
         max-width: 276px;
     }
-		.countdown-container {
-				display: flex;
-		}
+
+    .countdown-container {
+        display: flex;
+    }
+
     .container {
         display: flex;
         flex-direction: column;

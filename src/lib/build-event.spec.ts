@@ -1,9 +1,10 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { buildEvent } from "$lib/build-event";
+import type { EventShow } from "../app";
 
-const show = {
+const show: EventShow = {
 	name: "Monsters Of Jungle",
-	date: "2025-06-28T21:00:00.000Z",
+	date: new Date("2025-06-28T21:00:00.000Z"),
 	venue: "KV",
 	link: "https://venue.com/events/123"
 };

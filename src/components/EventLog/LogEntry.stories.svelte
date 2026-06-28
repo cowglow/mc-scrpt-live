@@ -27,6 +27,7 @@
 
 <Story
 	name="Unknown Venue"
+	parameters={{layout:"fullscreen"}}
 	args={{
 		name: "Open Air Session",
 		date: new Date("2026-07-20T20:00:00"),

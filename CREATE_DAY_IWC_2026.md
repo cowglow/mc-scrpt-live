@@ -4,5 +4,5 @@
 * ~~Add download link to ics file for specific event on the NextEventBanner~~
 * Improve overall layout
 * ~~Improve semantic HTML attributes~~
-* Implement h-calendar microformat
-* Export full event list in new route
+* ~~Implement h-calendar microformat~~
+* ~~Export full event list in new route~~
