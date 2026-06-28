@@ -9,7 +9,7 @@
 
 	$: t = $translations;
 
-	function removeLocalStorageItem(key) {
+	function removeLocalStorageItem(key: string) {
 		window.localStorage.removeItem(key);
 	}
 
@@ -36,7 +36,6 @@
 			E-mail: <a href="mailto:cowglow@gmail.com" class="text-link">cowglow@gmail.com</a>
 		</p>
 	</address>
-	<br />
 
 	<h2>{t["impressum.eventLog.title"]}</h2>
 	<p>
@@ -92,8 +91,7 @@
 	</p>
 
 	<button
-		class="text-link"
-		style="font-size: large;padding:7px 30px;"
+		class="text-link reset-all"
 		on:click={() => removeAllLocalStorageItems()}
 	>
 		{t["impressum.reset.all"]}
@@ -133,6 +131,15 @@
 </div>
 
 <style>
+	address {
+		margin-bottom: var(--side-padding);
+	}
+
+	.reset-all {
+		font-size: 1.2rem;
+		padding: 7px 30px;
+	}
+
 	button {
 		cursor: pointer;
 	}

@@ -1,7 +1,8 @@
 {
 	"nextEvent.banner.title": "Next Big Show",
-	"nextEvent.banner.fbEvent": "Open Facebook Event",
-	"nextEvent.banner.googleMap": "Open on Google Maps",
+	"nextEvent.banner.countdown.label": "Count down to next show",
+	"nextEvent.banner.eventLink": "Download Calendar Event",
+	"nextEvent.banner.googleMapLink": "Open on Google Maps",
 	"nextEvent.banner.date.days": "Days",
 	"nextEvent.banner.date.hours": "Hrs",
 	"nextEvent.banner.date.minutes": "Mins",

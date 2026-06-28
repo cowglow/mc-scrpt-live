@@ -5,6 +5,7 @@
 	const { Story } = defineMeta({
 		title: "Components/EventLog/LogEntry",
 		component: LogEntry,
+		parameters: { layout: "fullview" },
 		tags: ["autodocs"],
 		argTypes: {
 			name: { control: "text" },

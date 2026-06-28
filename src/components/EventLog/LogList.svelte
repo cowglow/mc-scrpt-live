@@ -3,7 +3,7 @@
 	export let data = [];
 </script>
 
-<div class="wrapper">
+<div class="wrapper h-feed">
 	{#each data as event (event.date)}
 		<EventLogEntry {...event} />
 	{/each}
@@ -12,10 +12,10 @@
 <style>
 	.wrapper {
 		overflow-y: auto;
-		border: thin solid white;
+		border: thin solid black;
 		display: flex;
 		flex-direction: column;
-		margin: var(--side-padding) auto;
+		margin: 1px auto;
 		padding: 0;
 	}
 

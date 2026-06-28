@@ -11,7 +11,15 @@
 
 <Story name="Default">
 	{#snippet template(args)}
-		<div style="font-size: clamp(1.4rem, 50vw, 10rem); color: white; display: flex; align-items: center;">
+		<div style="font-size: clamp(1.4rem, 50vw, 10rem); color: white; display: flex; align-items: center; background: black; padding: 1rem;">
+			<Branding {...args} />
+		</div>
+	{/snippet}
+</Story>
+
+<Story name="Page Title" args={{ pageTitle: true }}>
+	{#snippet template(args)}
+		<div style="font-size: clamp(1.4rem, 50vw, 10rem); color: white; display: flex; align-items: center; background: black; padding: 1rem;">
 			<Branding {...args} />
 		</div>
 	{/snippet}

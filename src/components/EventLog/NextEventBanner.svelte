@@ -5,14 +5,15 @@
 	import { getUpcomingShow } from "$lib/get-upcoming-show";
 	import formattedEventDate from "$lib/formatted-event-date.js";
 	import { verifyVenue } from "$lib/verify-venue";
+	import { createICSContent } from "$lib/create-ics-content";
 
 	let { data = [] as EventShow[], screenWidth = 0 } = $props();
 	const nextShow = $derived(getUpcomingShow(data));
 
 	let eventIndex = $state(0);
-	let label = $derived($translations["nextEvent.banner.title"]);
-	let fbEvent = $derived($translations["nextEvent.banner.fbEvent"]);
-	let googleMap = $derived($translations["nextEvent.banner.googleMap"]);
+	let bannerTitle = $derived($translations["nextEvent.banner.title"]);
+	let eventLink = $derived($translations["nextEvent.banner.eventLink"]);
+	let googleMapLink = $derived($translations["nextEvent.banner.googleMapLink"]);
 
 	const canGoBackwards = $derived(eventIndex - 1 >= 0);
 	const canGoForwards = $derived(eventIndex + 1 < nextShow.length);
@@ -62,7 +63,7 @@
 	}
 </script>
 
-<div class="wrapper">
+<section class="wrapper" aria-label={bannerTitle}>
 	{#if hasMultipleEvents}
 		<button class="arrow" onclick={() => changeEventIndex("backward")} disabled={!canGoBackwards}>&lt;</button>
 	{/if}
@@ -73,6 +74,7 @@
 			ontouchstart={handleTouchStart}
 			ontouchmove={handleTouchMove}
 			ontouchend={handleTouchEnd}
+			role="banner"
 		>
 			<div class="slide-container">
 				<div
@@ -80,15 +82,16 @@
 					style="transform: translateX(calc(-{eventIndex * 100}% + {dragOffset}px));
 					       transition: {isDragging ? 'none' : 'transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94)'};"
 				>
-					{#each nextShow as event, i}
+					{#each nextShow as event, i (i)}
 						{@const venue = verifyVenue(event.venue)}
-						{@const validLink = event.link.trim() !== ""}
+						{@const icsContent = createICSContent([event])}
+						{@const icsUrl = `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`}
 						<div class="slide-item" aria-hidden={i !== eventIndex}>
 							<div class="title">
-								<h1>{label}: <span>{formattedEventDate(new Date(event.date))}</span></h1>
+								<h2>{bannerTitle}: <span>{formattedEventDate(new Date(event.date))}</span></h2>
 							</div>
 							<div class="count-down">
-								<h2>{event.name}</h2>
+								<h3>{event.name}</h3>
 								{#if !isHiddenForMobile}
 									<CountDown date={new Date(event.date)} />
 								{/if}
@@ -99,23 +102,16 @@
 										href="https://www.google.com/maps/search/{event.venue}/"
 										rel="noreferrer nofollow"
 										target="map-link"
-										aria-label={`View ${googleMap} location on Google Maps`}
+										aria-label={googleMapLink}
 									>
 										{event.venue}
 									</a>
 								{:else}
 									<span>{event.venue}</span>
 								{/if}
-								{#if validLink}
-									<a
-										href={event.link}
-										rel="noreferrer nofollow"
-										target="event-link"
-										aria-label="View Facebook event"
-									>
-										{fbEvent}
-									</a>
-								{/if}
+								<a href={icsUrl} download="{event.name}.ics" aria-label={eventLink}>
+									{eventLink}
+								</a>
 							</div>
 						</div>
 					{/each}
@@ -124,7 +120,7 @@
 
 			{#if hasMultipleEvents}
 				<div class="dots" role="group" aria-label="Event navigation">
-					{#each nextShow as _, i}
+					{#each nextShow as event, i (event.date)}
 						<button
 							class="dot"
 							class:active={i === eventIndex}
@@ -141,7 +137,7 @@
 	{#if hasMultipleEvents}
 		<button class="arrow" onclick={() => changeEventIndex("forward")} disabled={!canGoForwards}>&gt;</button>
 	{/if}
-</div>
+</section>
 
 <style>
     .wrapper {
@@ -219,14 +215,19 @@
         margin: 0.25rem 0;
     }
 
+    .title span {
+        text-shadow: black 1px 1px 1px;
+    }
+
     .count-down {
         display: flex;
         align-content: space-between;
         flex: 1;
     }
 
-    .count-down h2 {
+    .count-down h3 {
         flex: 1;
+        text-shadow: black 1px 1px 1px;
     }
 
     .info {
@@ -238,11 +239,11 @@
         margin: var(--side-padding) 0 0;
     }
 
-    h1 {
+    h2 {
         display: flex;
         justify-content: space-between;
         font-family: var(--font-body), sans-serif;
-				font-size: 1.3125rem;
+        font-size: 1.3125rem;
         font-style: normal;
         font-weight: 500;
         line-height: 1;
@@ -251,13 +252,13 @@
         color: #000000;
     }
 
-    h1 span {
+    h2 span {
         flex: 1;
         color: white;
         margin-left: 0.2rem;
     }
 
-    h2 {
+    h3 {
         padding: 0;
         margin: 0;
         font-family: var(--font-body), sans-serif;
