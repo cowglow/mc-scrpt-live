@@ -7,7 +7,7 @@ export const EVENT_LOCALSTORAGE_KEY = "EVENT_LOG";
 export const EVENT_LOG_LAST_UPDATE_KEY = "EVENT_LOG_LAST_UPDATE";
 export const EVENT_CONTENT_DEFAULT_PAGE = 1;
 export const EVENT_CONTENT_MAX_PER_PAGE = 6;
-export const JSON_PATH = "/event-log";
+export const JSON_PATH = "/event-log/data";
 
 export const SOUNDCLOUD_LOCALSTORAGE_KEY = "soundcloud-consent";
 export const YOUTUBE_LOCALSTORAGE_KEY = "youtube-consent";
