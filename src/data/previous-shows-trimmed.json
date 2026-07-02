@@ -1,5 +1,11 @@
 [
   {
+    "name": "Altstadtfest Lauf w/ Frezh DJ",
+    "date": "2026-06-27T16:00:00.000Z",
+    "venue": "Kuni Island Bar (Johannisstraße, 91207 Lauf)",
+    "link": "https://www.instagram.com/frezhdj/"
+  },
+  {
     "name": "Monstahz + Friends",
     "date": "2026-06-20T20:00:00.000Z",
     "venue": "Z-Bau",
@@ -28,11 +34,5 @@
     "date": "2026-04-04T20:30:00.000Z",
     "venue": "Kofferfabrik",
     "link": "https://instagram.com/booyakadnb"
-  },
-  {
-    "name": "DubWorXx feat. Kate Logne",
-    "date": "2026-03-07T21:00:00.000Z",
-    "venue": "Roter Salon",
-    "link": "https://www.instagram.com/dubworxx.nbg/"
   }
 ]
