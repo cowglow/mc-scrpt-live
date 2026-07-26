@@ -12,12 +12,7 @@ jobs:
 
     permissions:
       contents: write
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      actions: write
 
     steps:
       - name: Checkout 🛎
@@ -38,28 +33,20 @@ jobs:
           VITE_GAS_URL: ${{ secrets.VITE_GAS_URL }}
           VITE_DEPLOYMENT_ID: ${{ secrets.VITE_DEPLOYMENT_ID }}
 
-      - name: Build with Vite
-        run: |
-          npm run build
-          npm run build-storybook
-          cp -r storybook-static build/storybook
-
       - name: Commit changes
+        id: commit
         uses: EndBug/add-and-commit@v9
         with:
           message: "Chore: Update Event Data"
           add: "src/data/*.json"
           committer_name: "GitHub Actions"
           committer_email: "actions@github.com"
+          pull: "--rebase --autostash"
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: build
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # A GITHUB_TOKEN-authored push doesn't fire other workflows' `push`
+      # triggers, so update-website.yml wouldn't otherwise deploy this change.
+      - name: Trigger deployment
+        if: steps.commit.outputs.committed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run update-website.yml --ref ${{ github.ref_name }}

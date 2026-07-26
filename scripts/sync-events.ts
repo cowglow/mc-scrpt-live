@@ -30,35 +30,35 @@ async function syncEvents() {
 		throw new Error("API Error!");
 	}
 	console.log(" == SYNC RESOURCES ===");
-	try {
-		console.log(" -- Remove old files");
-		files.map((file) => {
-			if (fs.existsSync(file)) fs.unlinkSync(file);
-		});
 
-		console.log(" -- Fetch data");
-		const data = await fetch(DEPLOY_URL, {
-			method: "GET",
-			headers: { Accept: "application/json" }
-		});
-		const shows = (await data.json()) as EventShow[];
-
-		console.log(" -- Filter shows");
-		const upcomingDates = getUpcomingDates(shows);
-		const previousDates = getPreviousDates(shows);
-		const trimmedPreviousDates = previousDates.slice(0, 6);
-
-		console.log(" -- Create new files");
-		fs.writeFileSync(UPCOMING_SHOWS_FILE_PATH, JSON.stringify(upcomingDates.reverse(), null, 2));
-		console.log(JSON.stringify(upcomingDates.map((date) => date.name).join("\n")));
-		fs.writeFileSync(PREVIOUS_SHOWS_FILE_PATH, JSON.stringify(previousDates, null, 2));
-		fs.writeFileSync(
-			PREVIOUS_SHOWS_TRIMMED_FILE_PATH,
-			JSON.stringify(trimmedPreviousDates, null, 2)
-		);
-	} catch (err) {
-		console.error(err);
+	console.log(" -- Fetch data");
+	const res = await fetch(DEPLOY_URL, {
+		method: "GET",
+		headers: { Accept: "application/json" }
+	});
+	if (!res.ok) {
+		throw new Error(`GAS request failed: ${res.status} ${res.statusText}`);
 	}
+	const shows = (await res.json()) as EventShow[];
+	if (!Array.isArray(shows)) {
+		throw new Error(`GAS response was not an array of shows: ${JSON.stringify(shows)}`);
+	}
+
+	console.log(" -- Filter shows");
+	const upcomingDates = getUpcomingDates(shows);
+	const previousDates = getPreviousDates(shows);
+	const trimmedPreviousDates = previousDates.slice(0, 6);
+
+	console.log(" -- Remove old files");
+	files.map((file) => {
+		if (fs.existsSync(file)) fs.unlinkSync(file);
+	});
+
+	console.log(" -- Create new files");
+	fs.writeFileSync(UPCOMING_SHOWS_FILE_PATH, JSON.stringify(upcomingDates.reverse(), null, 2));
+	console.log(JSON.stringify(upcomingDates.map((date) => date.name).join("\n")));
+	fs.writeFileSync(PREVIOUS_SHOWS_FILE_PATH, JSON.stringify(previousDates, null, 2));
+	fs.writeFileSync(PREVIOUS_SHOWS_TRIMMED_FILE_PATH, JSON.stringify(trimmedPreviousDates, null, 2));
 }
 
 syncEvents()
