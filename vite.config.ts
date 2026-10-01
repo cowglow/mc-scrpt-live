@@ -31,7 +31,10 @@ export default defineConfig({
 					browser: {
 						enabled: true,
 						headless: true,
-						provider: playwright({}),
+						// Run as a visitor outside Germany so stories can verify event dates use German time
+						provider: playwright({
+							contextOptions: { locale: "en-US", timezoneId: "America/New_York" }
+						}),
 						instances: [{ browser: "firefox" }]
 					},
 					setupFiles: []

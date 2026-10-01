@@ -11,7 +11,7 @@
 
 	export let date: Date = new Date(Date.now());
 	let diff = getTimeDifference(date);
-	const countdownData = {
+	$: countdownData = {
 		days: String(diff.days).padStart(2, "0"),
 		hours: `0${diff.hours}`.slice(-2),
 		minutes: `0${diff.minutes}`.slice(-2),

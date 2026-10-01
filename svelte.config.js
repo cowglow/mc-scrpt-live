@@ -27,6 +27,8 @@ const config = {
 			strict: true
 		}),
 		prerender: {
+			// /journal is intentionally not linked from the menu, so the crawler won't find it on its own
+			entries: ["*", "/journal"],
 			handleHttpError: ({ path, message }) => {
 				if (path.startsWith("/storybook")) return;
 				throw new Error(message);
