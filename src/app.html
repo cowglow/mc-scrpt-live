@@ -1,10 +1,45 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<link rel="manifest" href="%sveltekit.assets%/manifest.json" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			/* Hidden until the app swaps the pre-rendered German text for the visitor's language */
+			html[data-lang-pending] body { visibility: hidden; }
+		</style>
+		<script>
+			// Pick the language before first paint: stored choice, then browser languages, then German.
+			// Keep "language" in sync with LANGUAGE_LOCALSTORAGE_KEY in src/lib/constants.ts
+			(function () {
+				var supported = ["de", "en"];
+				var lang = null;
+				try {
+					lang = localStorage.getItem("language");
+				} catch (e) {}
+				if (supported.indexOf(lang) === -1) {
+					var preferred = navigator.languages || [navigator.language];
+					lang = "de";
+					for (var i = 0; i < preferred.length; i++) {
+						var base = String(preferred[i]).toLowerCase().split("-")[0];
+						if (supported.indexOf(base) !== -1) {
+							lang = base;
+							break;
+						}
+					}
+				}
+				var html = document.documentElement;
+				html.lang = lang;
+				if (lang !== "de") {
+					html.setAttribute("data-lang-pending", "");
+					// Failsafe: never keep the page hidden if the app doesn't start
+					setTimeout(function () {
+						html.removeAttribute("data-lang-pending");
+					}, 2000);
+				}
+			})();
+		</script>
 		<noscript>
 			<style>
 				/* Without JS the toggle button does nothing — show nav links directly */

@@ -2,8 +2,11 @@
 	import { onMount } from 'svelte';
 	import Header from "$components/Layout/Header.svelte";
 	import Footer from "$components/Layout/Footer.svelte";
+	import { applyDocumentLanguage } from "$stores/i18n-store";
 
 	onMount(() => {
+		applyDocumentLanguage();
+
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.addEventListener('message', (e) => {
 				if (e.data?.type === 'SW_UPDATED') location.reload();
