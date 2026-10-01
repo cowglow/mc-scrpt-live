@@ -7,7 +7,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<style>
 			/* Hidden until the app swaps the pre-rendered German text for the visitor's language */
-			html[data-lang-pending] body { visibility: hidden; }
+			html[data-lang-pending] body {
+				visibility: hidden;
+			}
 		</style>
 		<script>
 			// Pick the language before first paint: stored choice, then browser languages, then German.
@@ -43,7 +45,9 @@
 		<noscript>
 			<style>
 				/* Without JS the toggle button does nothing — show nav links directly */
-				.nav-toggle { display: none !important; }
+				.nav-toggle {
+					display: none !important;
+				}
 				ul#navigation-menu {
 					display: flex !important;
 					flex-direction: row !important;

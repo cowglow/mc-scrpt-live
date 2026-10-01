@@ -14,12 +14,13 @@
 	import { validUpcomingShows } from "$lib/valid-upcoming-shows";
 	import { innerWidth } from "svelte/reactivity/window";
 	import LogEntry from "$components/EventLog/LogEntry.svelte";
+	import type { EventShow } from "../../app";
 
 	$: eventLogTitle = $translations["events.header.title"];
 	$: eventLogDescription = $translations["events.header.description"];
 
-	export let upcomingShows = [];
-	export let previousShows = [];
+	export let upcomingShows: EventShow[] = [];
+	export let previousShows: EventShow[] = [];
 
 	let initialLoadPending = writable(true);
 

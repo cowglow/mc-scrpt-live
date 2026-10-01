@@ -46,17 +46,8 @@
 	});
 </script>
 
-<Story
-	name="With Upcoming Shows"
-	args={{ upcomingShows: upcoming, previousShows: previous }}
-/>
+<Story name="With Upcoming Shows" args={{ upcomingShows: upcoming, previousShows: previous }} />
 
-<Story
-	name="No Upcoming Shows"
-	args={{ upcomingShows: [], previousShows: previous }}
-/>
+<Story name="No Upcoming Shows" args={{ upcomingShows: [], previousShows: previous }} />
 
-<Story
-	name="Empty"
-	args={{ upcomingShows: [], previousShows: [] }}
-/>
+<Story name="Empty" args={{ upcomingShows: [], previousShows: [] }} />

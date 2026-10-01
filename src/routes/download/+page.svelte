@@ -33,18 +33,20 @@
 			[<a class="text-link" href={CANVA_LINK} target="_blank" rel="noreferrer nofollow">Canva</a>]
 		</li>
 		<li>
-			Hi-Res Photo <a class="text-link" href={`/downloads/${EPK}.zip`} target="_blank">Download Kit</a> [Zip]
+			Hi-Res Photo <a class="text-link" href={`/downloads/${EPK}.zip`} target="_blank"
+				>Download Kit</a
+			> [Zip]
 		</li>
 	</ul>
 	<h2>Releases</h2>
 	<ul>
 		<li>
 			Kontrolfreek by <a
-			class="text-link"
-			href="https://www.instagram.com/ill_i_saw/"
-			rel="noreferrer nofollow"
-			target="_blank">ill.i.saw</a
-		>. Available on
+				class="text-link"
+				href="https://www.instagram.com/ill_i_saw/"
+				rel="noreferrer nofollow"
+				target="_blank">ill.i.saw</a
+			>. Available on
 			<a
 				class="text-link"
 				href="https://on.soundcloud.com/g5gtswzcyiafsAmt5"
@@ -54,11 +56,11 @@
 		</li>
 		<li>
 			Can't Let Go by <a
-			class="text-link"
-			href="https://www.instagram.com/al_gee_dnb/"
-			rel="noreferrer nofollow"
-			target="_blank">Al Gee</a
-		>. Available on
+				class="text-link"
+				href="https://www.instagram.com/al_gee_dnb/"
+				rel="noreferrer nofollow"
+				target="_blank">Al Gee</a
+			>. Available on
 			<a
 				class="text-link"
 				href="https://liquidbrilliants.bandcamp.com/album/cant-let-go"
@@ -72,43 +74,45 @@
 	<ul>
 		<li>
 			2023 - Recorded by <a
-			class="text-link"
-			href="https://www.instagram.com/salveshamlic/"
-			rel="noreferrer nofollow"
-			target="_blank"
-		>Salve Shamlic</a
-		>
+				class="text-link"
+				href="https://www.instagram.com/salveshamlic/"
+				rel="noreferrer nofollow"
+				target="_blank">Salve Shamlic</a
+			>
 			<ul>
 				<li>
 					<a
 						class="text-link"
 						href={`/downloads/${DRY_MIX_2023}.zip`}
 						rel="noreferrer nofollow"
-						target="_blank">Dry Mix</a>
+						target="_blank">Dry Mix</a
+					>
 				</li>
 			</ul>
 		</li>
 		<li>
 			2022 - Recorded by <a
-			class="text-link"
-			href="https://www.instagram.com/ill_i_saw/"
-			rel="noreferrer nofollow"
-			target="_blank">ill.i.saw</a
-		>
+				class="text-link"
+				href="https://www.instagram.com/ill_i_saw/"
+				rel="noreferrer nofollow"
+				target="_blank">ill.i.saw</a
+			>
 			<ul>
 				<li>
 					<a
 						class="text-link"
 						href={`/downloads/${DRY_MIX_2022}.zip`}
 						rel="noreferrer nofollow"
-						target="_blank">Dry Mix</a>
+						target="_blank">Dry Mix</a
+					>
 				</li>
 				<li>
 					<a
 						class="text-link"
 						href={`/downloads/${WASILLI_MIX}.zip`}
 						rel="noreferrer nofollow"
-						target="_blank">Wet Mix</a>
+						target="_blank">Wet Mix</a
+					>
 				</li>
 			</ul>
 		</li>
@@ -126,8 +130,8 @@
 				class="text-link"
 				href="/downloads/Video%20Product%20Guide.pdf"
 				rel="noreferrer nofollow"
-				target="_blank"
-			>Video Product</a>
+				target="_blank">Video Product</a
+			>
 		</li>
 	</ul>
 </div>
@@ -151,86 +155,90 @@
 		<div class="consent-notice">
 			<p>This presentation is hosted on Canva and will load third-party scripts.</p>
 			<div class="consent-actions">
-				<button class="text-link" onclick={() => (presentationLoaded = true)}>Load presentation</button>
+				<button class="text-link" onclick={() => (presentationLoaded = true)}
+					>Load presentation</button
+				>
 				<span aria-hidden="true">·</span>
-				<a class="text-link" href={CANVA_LINK} target="_blank" rel="noreferrer nofollow">Open on Canva</a>
+				<a class="text-link" href={CANVA_LINK} target="_blank" rel="noreferrer nofollow"
+					>Open on Canva</a
+				>
 			</div>
 		</div>
 	{/if}
 </dialog>
 
 <style>
-    li {
-        line-height: 1.6;
-    }
+	li {
+		line-height: 1.6;
+	}
 
-    .presentation-btn {
-        cursor: pointer;
-        font-size: inherit;
-        font-family: inherit;
-    }
+	.presentation-btn {
+		cursor: pointer;
+		font-size: inherit;
+		font-family: inherit;
+	}
 
-    dialog {
-        width: min(90vw, 960px);
-        max-height: 90vh;
-        background: black;
-        color: white;
-        border: thin solid white;
-        padding: 0;
-    }
+	dialog {
+		width: min(90vw, 960px);
+		max-height: 90vh;
+		background: black;
+		color: white;
+		border: thin solid white;
+		padding: 0;
+	}
 
-    dialog::backdrop {
-        background: rgba(0, 0, 0, 0.85);
-    }
+	dialog::backdrop {
+		background: rgba(0, 0, 0, 0.85);
+	}
 
-    .dialog-header {
-        display: flex;
-        justify-content: flex-end;
-        padding: 0.5rem;
-    }
+	.dialog-header {
+		display: flex;
+		justify-content: flex-end;
+		padding: 0.5rem;
+	}
 
-    .close-btn {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        line-height: 1;
-        padding: 0.25rem 0.5rem;
-    }
+	.close-btn {
+		background: none;
+		border: none;
+		color: white;
+		font-size: 1.5rem;
+		cursor: pointer;
+		line-height: 1;
+		padding: 0.25rem 0.5rem;
+	}
 
-    .close-btn:hover {
-        color: red;
-    }
+	.close-btn:hover {
+		color: red;
+	}
 
-    .consent-notice {
-        padding: 1.5rem 2rem 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+	.consent-notice {
+		padding: 1.5rem 2rem 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
 
-    .consent-notice p {
-        margin: 0;
-    }
+	.consent-notice p {
+		margin: 0;
+	}
 
-    .consent-actions {
-        display: flex;
-        gap: 0.75rem;
-        align-items: center;
-    }
+	.consent-actions {
+		display: flex;
+		gap: 0.75rem;
+		align-items: center;
+	}
 
-    .embed-wrapper {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 16 / 9;
-    }
+	.embed-wrapper {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+	}
 
-    .embed-wrapper iframe {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
+	.embed-wrapper iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
 </style>

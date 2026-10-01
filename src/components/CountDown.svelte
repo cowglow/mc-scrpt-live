@@ -27,8 +27,11 @@
 	});
 </script>
 
-<div class="wrapper" role="timer"
-     aria-label={`${label}: ${countdownData.days}, ${countdownData.hours}, ${countdownData.minutes}`}>
+<div
+	class="wrapper"
+	role="timer"
+	aria-label={`${label}: ${countdownData.days}, ${countdownData.hours}, ${countdownData.minutes}`}
+>
 	<div class="countdown-container" aria-hidden="true">
 		{#if diff.days > 0}
 			<div class="container"><span>{countdownData.days}</span><span>{days}</span></div>
@@ -40,42 +43,42 @@
 </div>
 
 <style>
-    .wrapper {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 276px;
-    }
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		max-width: 276px;
+	}
 
-    .countdown-container {
-        display: flex;
-    }
+	.countdown-container {
+		display: flex;
+	}
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        width: 3.4rem;
-        height: 3.4rem;
-        background-color: white;
-        font-family: var(--font-body), sans-serif;
-        font-style: normal;
-        font-weight: 500;
-        color: #000000;
-    }
+	.container {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		width: 3.4rem;
+		height: 3.4rem;
+		background-color: white;
+		font-family: var(--font-body), sans-serif;
+		font-style: normal;
+		font-weight: 500;
+		color: #000000;
+	}
 
-    span:nth-child(1) {
-        font-size: 2.125rem;
-        height: 60%;
-    }
+	span:nth-child(1) {
+		font-size: 2.125rem;
+		height: 60%;
+	}
 
-    span:nth-child(2) {
-        height: 40%;
-    }
+	span:nth-child(2) {
+		height: 40%;
+	}
 
-    @media screen and (min-width: 700px) {
-        div {
-            margin: 0 auto;
-        }
-    }
+	@media screen and (min-width: 700px) {
+		div {
+			margin: 0 auto;
+		}
+	}
 </style>
