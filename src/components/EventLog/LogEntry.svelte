@@ -4,7 +4,7 @@
 	import { SHOW_TIMEZONE } from "$lib/constants";
 
 	export let name = "";
-	export let date = new Date();
+	export let date: Date | string = new Date();
 	export let venue = "";
 	export let link = "";
 

@@ -17,7 +17,8 @@ interface PageData {
 
 type EventShow = {
 	name: string;
-	date: Date;
+	// ISO string when read from the synced JSON, Date when built in code
+	date: Date | string;
 	venue: string;
 	link: string;
 };

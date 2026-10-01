@@ -1,6 +1,8 @@
 <script lang="ts">
 	import EventLogEntry from "./LogEntry.svelte";
-	export let data = [];
+	import type { EventShow } from "../../app";
+
+	export let data: EventShow[] = [];
 </script>
 
 <div class="wrapper h-feed">
