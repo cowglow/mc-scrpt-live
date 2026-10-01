@@ -10,7 +10,7 @@ I decided to spell it with no "I" because of that old saying, "There is no 'I' i
 
 I don't really make money from it, but I do spend some of my own to make it happen. And I have some patrons who have helped along the way:
 
-My friends Tanja & Tomas, the homie Felix, and of course Al Gee. Zimmy from Dachboden Sessions. And for a long time, and still to this day, the mighty mighty Alex Cio.
+My friends Tanja & Thomas, the homie Felix, and of course Al Gee. Zimmy from Dachboden Sessions. And for a long time, and still to this day, the mighty mighty Alex Cio.
 
 These people make it happen, and I'm forever grateful. I would be doing them a disservice if I didn't stick to the craftsmanship of the show.
 

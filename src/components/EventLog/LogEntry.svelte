@@ -92,7 +92,7 @@
         background-color: black;
     }
 
-    .wrapper:nth-child(odd) a {
+    .wrapper:nth-child(odd) a:not(.p-location) {
         color: black;
     }
 

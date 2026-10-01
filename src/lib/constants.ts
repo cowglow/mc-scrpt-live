@@ -15,3 +15,6 @@ export const JSON_PATH = "/event-log/data";
 export const SOUNDCLOUD_LOCALSTORAGE_KEY = "soundcloud-consent";
 export const YOUTUBE_LOCALSTORAGE_KEY = "youtube-consent";
 export const BANNER_DISMISSED_KEY = "banner-dismissed";
+
+// Also read by the inline language script in src/app.html
+export const LANGUAGE_LOCALSTORAGE_KEY = "language";
