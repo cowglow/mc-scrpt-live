@@ -1,7 +1,7 @@
 /// <reference types="@sveltejs/kit" />
 /// <reference lib="webworker" />
 
-import { build, files, version } from '$service-worker';
+import { build, files, version } from "$service-worker";
 
 declare const self: ServiceWorkerGlobalScope;
 
@@ -14,7 +14,7 @@ const ASSETS = [...build, ...files];
 // True when replacing an existing SW (i.e. this is an update, not a first install)
 let isUpdate = false;
 
-self.addEventListener('install', (event) => {
+self.addEventListener("install", (event) => {
 	isUpdate = !!self.registration.active;
 	event.waitUntil(
 		caches
@@ -24,7 +24,7 @@ self.addEventListener('install', (event) => {
 	);
 });
 
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
 	event.waitUntil(
 		caches
 			.keys()
@@ -38,14 +38,14 @@ self.addEventListener('activate', (event) => {
 				if (isUpdate) {
 					return self.clients
 						.matchAll()
-						.then((clients) => clients.forEach((c) => c.postMessage({ type: 'SW_UPDATED' })));
+						.then((clients) => clients.forEach((c) => c.postMessage({ type: "SW_UPDATED" })));
 				}
 			})
 	);
 });
 
-self.addEventListener('fetch', (event) => {
-	if (event.request.method !== 'GET') return;
+self.addEventListener("fetch", (event) => {
+	if (event.request.method !== "GET") return;
 
 	const url = new URL(event.request.url);
 	if (url.origin !== self.location.origin) return;
@@ -55,7 +55,7 @@ self.addEventListener('fetch', (event) => {
 			const cache = await caches.open(CACHE);
 
 			// Hashed filenames never change content — safe to serve from cache without a network round-trip
-			if (url.pathname.startsWith('/_app/immutable/')) {
+			if (url.pathname.startsWith("/_app/immutable/")) {
 				const cached = await cache.match(event.request);
 				if (cached) return cached;
 			}
@@ -65,8 +65,8 @@ self.addEventListener('fetch', (event) => {
 			// Navigation requests bypass the HTTP cache — GitHub Pages sets max-age=600 on HTML
 			// which would otherwise cause fetch() to return a stale cached response.
 			const fetchRequest =
-				event.request.mode === 'navigate'
-					? new Request(event.request, { cache: 'no-cache' })
+				event.request.mode === "navigate"
+					? new Request(event.request, { cache: "no-cache" })
 					: event.request;
 			try {
 				const response = await fetch(fetchRequest);
@@ -77,7 +77,7 @@ self.addEventListener('fetch', (event) => {
 			} catch {
 				const cached = await cache.match(event.request);
 				if (cached) return cached;
-				return new Response('Offline — no cached version available.', { status: 503 });
+				return new Response("Offline — no cached version available.", { status: 503 });
 			}
 		})()
 	);

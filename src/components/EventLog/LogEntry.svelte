@@ -60,8 +60,13 @@
 	</div>
 	<div class="flex-it event-link">
 		{#if link}
-			<a class="u-url icon-link show-mobile" href={link} rel="noreferrer nofollow" target="event-link"
-			   aria-label="Event details for {name}">
+			<a
+				class="u-url icon-link show-mobile"
+				href={link}
+				rel="noreferrer nofollow"
+				target="event-link"
+				aria-label="Event details for {name}"
+			>
 				<img alt="" src="/images/event-link-icon.svg" role="presentation" />
 			</a>
 			{#if verifiedVenueLink}
@@ -81,137 +86,137 @@
 </article>
 
 <style>
-    .wrapper {
-        display: flex;
-        min-height: 5em;
-        flex-grow: 1;
-    }
+	.wrapper {
+		display: flex;
+		min-height: 5em;
+		flex-grow: 1;
+	}
 
-    .wrapper:nth-child(even) {
-        color: white;
-        background-color: black;
-    }
+	.wrapper:nth-child(even) {
+		color: white;
+		background-color: black;
+	}
 
-    .wrapper:nth-child(odd) a:not(.p-location) {
-        color: black;
-    }
+	.wrapper:nth-child(odd) a:not(.p-location) {
+		color: black;
+	}
 
-    .wrapper:nth-child(odd) a:hover {
-        color: red;
-    }
+	.wrapper:nth-child(odd) a:hover {
+		color: red;
+	}
 
-    .wrapper:nth-child(odd) {
-        color: black;
-        background-color: white;
-    }
+	.wrapper:nth-child(odd) {
+		color: black;
+		background-color: white;
+	}
 
-    .flex-it {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+	.flex-it {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 
-    .event-date {
-        width: 16%;
-        max-width: 165px;
-    }
+	.event-date {
+		width: 16%;
+		max-width: 165px;
+	}
 
-    .event-date time {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+	.event-date time {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
 
-    .event-name {
-        width: 38%;
-        max-width: 400px;
-        flex-grow: 1;
-        align-items: flex-start;
-        padding: 0.5em 0;
-    }
+	.event-name {
+		width: 38%;
+		max-width: 400px;
+		flex-grow: 1;
+		align-items: flex-start;
+		padding: 0.5em 0;
+	}
 
-    .event-name .p-name {
-        font-size: 1.375rem;
-        line-height: 1.1;
-    }
+	.event-name .p-name {
+		font-size: 1.375rem;
+		line-height: 1.1;
+	}
 
-    .event-name .p-location {
-        color: red;
-    }
+	.event-name .p-location {
+		color: red;
+	}
 
-    .event-link {
-        padding: 10px;
-        align-items: center;
-        width: 15%;
-    }
+	.event-link {
+		padding: 10px;
+		align-items: center;
+		width: 15%;
+	}
 
-    .event-link img,
-    .event-time img {
-        width: 1.2rem;
-        height: 1.2rem;
-        flex-shrink: 0;
-    }
+	.event-link img,
+	.event-time img {
+		width: 1.2rem;
+		height: 1.2rem;
+		flex-shrink: 0;
+	}
 
-    .event-link-desktop {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        overflow: hidden;
-    }
+	.event-link-desktop {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		overflow: hidden;
+	}
 
-    .event-link-desktop a {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
+	.event-link-desktop a {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
 
-    .event-time {
-        padding: 15px;
-        align-items: center;
-        width: 15%;
-        flex-direction: row;
-        gap: 4px;
-    }
+	.event-time {
+		padding: 15px;
+		align-items: center;
+		width: 15%;
+		flex-direction: row;
+		gap: 4px;
+	}
 
-    .show-mobile {
-        display: flex;
-    }
+	.show-mobile {
+		display: flex;
+	}
 
-    .show-desktop {
-        display: none;
-    }
+	.show-desktop {
+		display: none;
+	}
 
-    @media screen and (min-width: 700px) {
-        .show-mobile {
-            display: none;
-        }
+	@media screen and (min-width: 700px) {
+		.show-mobile {
+			display: none;
+		}
 
-        .show-desktop {
-            display: flex;
-        }
+		.show-desktop {
+			display: flex;
+		}
 
-        .event-date {
-            width: 16%;
-        }
+		.event-date {
+			width: 16%;
+		}
 
-        .event-name {
-            width: 38%;
-        }
+		.event-name {
+			width: 38%;
+		}
 
-        .event-link {
-            width: 28%;
-            max-width: 310px;
-            align-items: flex-start;
-            line-height: unset;
-            font-size: 1.25rem;
-            overflow: hidden;
-        }
+		.event-link {
+			width: 28%;
+			max-width: 310px;
+			align-items: flex-start;
+			line-height: unset;
+			font-size: 1.25rem;
+			overflow: hidden;
+		}
 
-        .event-time {
-            width: 18%;
-            max-width: 205px;
-        }
-    }
+		.event-time {
+			width: 18%;
+			max-width: 205px;
+		}
+	}
 </style>

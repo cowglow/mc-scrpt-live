@@ -90,21 +90,15 @@
 		</button>
 	</p>
 
-	<button
-		class="text-link reset-all"
-		on:click={() => removeAllLocalStorageItems()}
-	>
+	<button class="text-link reset-all" on:click={() => removeAllLocalStorageItems()}>
 		{t["impressum.reset.all"]}
 	</button>
 
 	<h2>{t["impressum.hosting.title"]}</h2>
 	<p>
 		{t["impressum.hosting.description"]}
-		<a
-			class="text-link"
-			href="https://pages.github.com/"
-			rel="noopener noreferrer"
-			target="_blank">{t["impressum.hosting.link"]}</a
+		<a class="text-link" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank"
+			>{t["impressum.hosting.link"]}</a
 		>.
 	</p>
 	<p>

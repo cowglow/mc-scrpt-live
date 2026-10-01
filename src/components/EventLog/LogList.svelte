@@ -20,5 +20,4 @@
 		margin: 1px auto;
 		padding: 0;
 	}
-
 </style>

@@ -18,23 +18,45 @@
 		<div id="footer-details">
 			<p><a class="legal-link" href="/impressum">Impressum</a></p>
 			<p>
-				<a class="legal-link" rel="alternative" type="text/calendar" href="webcal://mc.scrpt.live/calendar.ics">
+				<a
+					class="legal-link"
+					rel="alternative"
+					type="text/calendar"
+					href="webcal://mc.scrpt.live/calendar.ics"
+				>
 					{subscribe}
 				</a>
 			</p>
 			<p>
-				<a class="legal-link" rel="alternative" type="text/calendar"
-				   href="https://calendar.google.com/calendar/r/settings/addbyurl?url=https%3A%2F%2Fmc.scrpt.live%2Fcalendar.ics"
-				   target="_blank">
+				<a
+					class="legal-link"
+					rel="alternative"
+					type="text/calendar"
+					href="https://calendar.google.com/calendar/r/settings/addbyurl?url=https%3A%2F%2Fmc.scrpt.live%2Fcalendar.ics"
+					target="_blank"
+				>
 					{subscribeGoogle}
 				</a>
 			</p>
 			<p class="language-toggle">
-				<svg class="language-icon" aria-label="Language" viewBox="0 0 24 24" fill="none"
-				     xmlns="http://www.w3.org/2000/svg">
+				<svg
+					class="language-icon"
+					aria-label="Language"
+					viewBox="0 0 24 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
 					<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" />
-					<path d="M12 2C9.5 5 8 8.5 8 12C8 15.5 9.5 19 12 22" stroke="currentColor" stroke-width="1.5" />
-					<path d="M12 2C14.5 5 16 8.5 16 12C16 15.5 14.5 19 12 22" stroke="currentColor" stroke-width="1.5" />
+					<path
+						d="M12 2C9.5 5 8 8.5 8 12C8 15.5 9.5 19 12 22"
+						stroke="currentColor"
+						stroke-width="1.5"
+					/>
+					<path
+						d="M12 2C14.5 5 16 8.5 16 12C16 15.5 14.5 19 12 22"
+						stroke="currentColor"
+						stroke-width="1.5"
+					/>
 					<path d="M2 12H22" stroke="currentColor" stroke-width="1.5" />
 					<path d="M3.5 7.5H20.5" stroke="currentColor" stroke-width="1.5" />
 					<path d="M3.5 16.5H20.5" stroke="currentColor" stroke-width="1.5" />
@@ -55,75 +77,75 @@
 </footer>
 
 <style>
-    footer {
-        width: 100%;
-        background-color: black;
-        display: flex;
-        flex-direction: column;
-        color: white;
-        padding: var(--side-padding);
-    }
+	footer {
+		width: 100%;
+		background-color: black;
+		display: flex;
+		flex-direction: column;
+		color: white;
+		padding: var(--side-padding);
+	}
 
-    footer :global(#brand) {
-        font-size: clamp(1.8rem, 5vw, 3rem);
-    }
+	footer :global(#brand) {
+		font-size: clamp(1.8rem, 5vw, 3rem);
+	}
 
-    @media screen and (min-width: 700px) {
-        footer {
-            padding: 38px;
-        }
-    }
+	@media screen and (min-width: 700px) {
+		footer {
+			padding: 38px;
+		}
+	}
 
-    #footer-description {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap-reverse;
-        justify-content: space-between;
-        width: 100%;
-        max-width: 1080px;
-        margin: 0 auto;
-    }
+	#footer-description {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap-reverse;
+		justify-content: space-between;
+		width: 100%;
+		max-width: 1080px;
+		margin: 0 auto;
+	}
 
-    #footer-details {
-        display: flex;
-        flex-direction: column;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 1.5;
-        padding-bottom: var(--bottom-padding);
+	#footer-details {
+		display: flex;
+		flex-direction: column;
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1.5;
+		padding-bottom: var(--bottom-padding);
 
-        p {
-            margin: 0
-        }
-    }
+		p {
+			margin: 0;
+		}
+	}
 
-    .legal-link {
-        text-decoration: underline;
-    }
+	.legal-link {
+		text-decoration: underline;
+	}
 
-    .legal-link:hover {
-        color: red;
-        text-decoration: none;
-    }
+	.legal-link:hover {
+		color: red;
+		text-decoration: none;
+	}
 
-    .language-toggle {
-        margin-top: 16px;
-    }
+	.language-toggle {
+		margin-top: 16px;
+	}
 
-    .language-icon {
-        width: 1em;
-        height: 1em;
-        vertical-align: middle;
-        margin-right: 4px;
-    }
+	.language-icon {
+		width: 1em;
+		height: 1em;
+		vertical-align: middle;
+		margin-right: 4px;
+	}
 
-    button {
-        background: none;
-        border: none;
-        color: inherit;
-        padding: 0;
-        font-size: inherit;
-        font-family: inherit;
-        cursor: pointer;
-    }
+	button {
+		background: none;
+		border: none;
+		color: inherit;
+		padding: 0;
+		font-size: inherit;
+		font-family: inherit;
+		cursor: pointer;
+	}
 </style>

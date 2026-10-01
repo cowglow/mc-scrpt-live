@@ -2,7 +2,7 @@
 	import LogList from "$components/EventLog/LogList.svelte";
 	import SectionLabel from "$components/Layout/SectionLabel.svelte";
 	import { getShowYear } from "$lib/show-year";
-	
+
 	let { data } = $props();
 
 	const yearRange = $derived(() => {
@@ -23,18 +23,18 @@
 </div>
 
 <style>
-    .wrapper {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 1080px;
-        padding: 1rem var(--side-padding) var(--bottom-padding);
-        margin: 0 auto;
-    }
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: 1080px;
+		padding: 1rem var(--side-padding) var(--bottom-padding);
+		margin: 0 auto;
+	}
 
-    .events {
-        background-color: black;
-        color: #ffffff;
-        padding: 0 1px;
-    }
+	.events {
+		background-color: black;
+		color: #ffffff;
+		padding: 0 1px;
+	}
 </style>
