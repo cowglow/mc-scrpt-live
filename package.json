@@ -59,7 +59,7 @@
 		"typescript-eslint": "^8.56.1",
 		"vite": "^8.1.5",
 		"vite-plugin-devtools-json": "^1.1.0",
-		"vitest": "^4.0.18"
+		"vitest": "^4.1.11"
 	},
 	"overrides": {
 		"cookie": "^0.7.0"
