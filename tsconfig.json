@@ -9,7 +9,8 @@
 		"allowJs": true,
 		"checkJs": true,
 		"isolatedModules": true,
-		"moduleDetection": "auto"
+		"moduleDetection": "auto",
+		"skipLibCheck": true
 	},
 	"include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]
 }
