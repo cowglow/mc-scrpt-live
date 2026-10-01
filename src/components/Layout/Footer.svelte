@@ -1,5 +1,5 @@
 <script lang="ts">
-	import translations, { locale } from "$stores/i18n-store";
+	import translations, { locale, setLocale } from "$stores/i18n-store";
 	import SocialMedia from "$components/SocialMedia/Menu.svelte";
 	import { footerYear } from "$lib/footer-year";
 
@@ -40,10 +40,10 @@
 					<path d="M3.5 16.5H20.5" stroke="currentColor" stroke-width="1.5" />
 				</svg>
 				{#if $locale !== "en"}
-					<button class="legal-link" on:click={() => ($locale = "en")}>{langEn}</button>
+					<button class="legal-link" on:click={() => setLocale("en")}>{langEn}</button>
 				{/if}
 				{#if $locale !== "de"}
-					<button class="legal-link" on:click={() => ($locale = "de")}>{langDe}</button>
+					<button class="legal-link" on:click={() => setLocale("de")}>{langDe}</button>
 				{/if}
 			</p>
 		</div>
