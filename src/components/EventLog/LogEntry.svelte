@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { formattedEventLinkString } from "$lib/formatted-event-link-string";
 	import { verifyVenue } from "$lib/verify-venue";
+	import { SHOW_TIMEZONE } from "$lib/constants";
 
 	export let name = "";
 	export let date = new Date();
@@ -9,23 +10,23 @@
 
 	$: eventDate = new Date(date);
 	$: eventMonthShort = eventDate.toLocaleString("de-DE", {
-		timeZone: "Europe/Berlin",
+		timeZone: SHOW_TIMEZONE,
 		month: "short"
 	});
 	$: eventMonthDay = eventDate.toLocaleString("de-DE", {
-		timeZone: "Europe/Berlin",
+		timeZone: SHOW_TIMEZONE,
 		month: "2-digit",
 		day: "2-digit"
 	});
 	$: eventYear = eventDate.toLocaleString("de-DE", {
-		timeZone: "Europe/Berlin",
+		timeZone: SHOW_TIMEZONE,
 		year: "numeric"
 	});
 
 	$: eventUrl = formattedEventLinkString(link);
 
 	$: eventStartTime = eventDate.toLocaleString("de-DE", {
-		timeZone: "Europe/Berlin",
+		timeZone: SHOW_TIMEZONE,
 		hour: "2-digit",
 		minute: "2-digit"
 	});
@@ -91,7 +92,7 @@
         background-color: black;
     }
 
-    .wrapper:nth-child(odd) a {
+    .wrapper:nth-child(odd) a:not(.p-location) {
         color: black;
     }
 

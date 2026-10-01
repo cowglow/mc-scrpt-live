@@ -38,4 +38,19 @@ describe("buildEvent", () => {
 		expect(result).not.toContain("URL:");
 		expect(result).toContain("END:VEVENT");
 	});
+
+	test("writes times in UTC regardless of visitor timezone", () => {
+		const originalTZ = process.env.TZ;
+		process.env.TZ = "America/New_York";
+		try {
+			// Guard: make sure the simulated timezone applies, so the test can't pass vacuously
+			expect(new Date("2026-10-17T22:30:00.000Z").getHours()).toBe(18);
+			// 00:30 on 18 Oct in Germany — 18:30 on 17 Oct in New York
+			const result = buildEvent({ ...show, date: new Date("2026-10-17T22:30:00.000Z") });
+			expect(result).toContain("DTSTART:20261017T223000Z");
+			expect(result).toContain("DTEND:20261018T013000Z");
+		} finally {
+			process.env.TZ = originalTZ;
+		}
+	});
 });

@@ -99,7 +99,7 @@
 							<div class="info">
 								{#if venue}
 									<a
-										href="https://www.google.com/maps/search/{event.venue}/"
+										href={venue}
 										rel="noreferrer nofollow"
 										target="map-link"
 										aria-label={googleMapLink}

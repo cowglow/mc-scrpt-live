@@ -1,11 +1,12 @@
 <script lang="ts">
 	import LogList from "$components/EventLog/LogList.svelte";
 	import SectionLabel from "$components/Layout/SectionLabel.svelte";
+	import { getShowYear } from "$lib/show-year";
 	
 	let { data } = $props();
 
 	const yearRange = $derived(() => {
-		const years = data.shows.map((s: { date: string }) => new Date(s.date).getFullYear());
+		const years = data.shows.map((s: { date: string }) => getShowYear(new Date(s.date)));
 		const min = String(Math.min(...years) % 100);
 		const max = String(Math.max(...years) % 100);
 		return `[20${min} | 20${max}]`;
