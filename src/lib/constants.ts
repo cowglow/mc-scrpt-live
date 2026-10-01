@@ -3,6 +3,9 @@ export const ANCHOR_VIDEOS = "media-player";
 export const ANCHOR_AUDIO = "soundcloud-playlist";
 export const DOWNLOAD_ROUTE = "/download";
 
+// Shows are displayed in the venue's local time, not the visitor's
+export const SHOW_TIMEZONE = "Europe/Berlin";
+
 export const EVENT_LOCALSTORAGE_KEY = "EVENT_LOG";
 export const EVENT_LOG_LAST_UPDATE_KEY = "EVENT_LOG_LAST_UPDATE";
 export const EVENT_CONTENT_DEFAULT_PAGE = 1;
