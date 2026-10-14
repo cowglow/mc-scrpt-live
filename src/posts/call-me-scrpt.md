@@ -1,7 +1,7 @@
 ---
 title: Call Me "Scrpt" and give me the M-I-C
 date: 2026-10-14
-Summary: I’m prepping for Monsters of Jungle’s 21st anniversary, sharing the coder roots of my name, and explaining why I write on the IndieWeb.
+summary: I’m prepping for Monsters of Jungle’s 21st anniversary, sharing the coder roots of my name, and explaining why I write on the IndieWeb.
 ---
 
 Here’s the corrected version. I kept your voice and made light structural changes: the journal’s purpose now comes up front, the show material sits together, and the closing paragraph is split so your writing commitment and your IndieWeb point each get their own space.
