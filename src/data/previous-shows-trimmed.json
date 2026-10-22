@@ -1,5 +1,17 @@
 [
   {
+    "name": "Monsters of Jungle",
+    "date": "2026-10-17T20:00:00.000Z",
+    "venue": "Z-Bau",
+    "link": "https://monstersofjungle.de"
+  },
+  {
+    "name": "Booyaka",
+    "date": "2026-10-16T20:00:00.000Z",
+    "venue": "Kofferfabrik",
+    "link": "https://www.instagram.com/booyakadnb/"
+  },
+  {
     "name": "Altstadtfest Lauf w/ Frezh DJ",
     "date": "2026-06-27T16:00:00.000Z",
     "venue": "Kuni Island Bar (Johannisstraße, 91207 Lauf)",
@@ -22,17 +34,5 @@
     "date": "2026-04-18T20:00:00.000Z",
     "venue": "Z-Bau",
     "link": "https://z-bau.com/programm/monsters-of-jungle-w-phibes-jungle-cakes-uk-149230"
-  },
-  {
-    "name": "Bass Culture Vol 6",
-    "date": "2026-04-11T17:00:00.000Z",
-    "venue": "JUZ Eckental",
-    "link": "https://www.instagram.com/bass_culture_crew"
-  },
-  {
-    "name": "Booyaka",
-    "date": "2026-04-04T20:30:00.000Z",
-    "venue": "Kofferfabrik",
-    "link": "https://instagram.com/booyakadnb"
   }
 ]
